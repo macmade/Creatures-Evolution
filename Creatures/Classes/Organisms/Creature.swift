@@ -33,6 +33,8 @@ public class Creature: SpriteNode, Updatable
     
     public private( set ) var genes: [ Gene ]
     
+    public private( set ) var isDead = false
+    
     public var energy = 1
     {
         didSet
@@ -230,6 +232,16 @@ public class Creature: SpriteNode, Updatable
             }
         }
         
+        if let food = node as? Food, food.isAvailable == false
+        {
+            return
+        }
+        
+        if let creature = node as? Creature, creature.isDead
+        {
+            return
+        }
+        
         self.removeAction( forKey: Creature.moveActionKey )
         self.move()
     }
@@ -271,6 +283,7 @@ public class Creature: SpriteNode, Updatable
     
     public func die( dropFood: Bool )
     {
+        self.isDead      = true
         self.physicsBody = nil
         
         self.removeAction( forKey: Creature.moveActionKey )

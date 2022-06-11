@@ -44,6 +44,11 @@ public class Carnivore: NSObject, Gene
             return
         }
         
+        if other.isDead
+        {
+            return
+        }
+        
         guard let scene = creature.scene as? Scene else
         {
             return
