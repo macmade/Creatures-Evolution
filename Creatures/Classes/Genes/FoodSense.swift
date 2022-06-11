@@ -25,5 +25,18 @@
 import Cocoa
 import SpriteKit
 
-public class FoodSense: Gene
-{}
+public class FoodSense: NSObject, Gene
+{
+    public var isActive: Bool
+    
+    public required init( active: Bool )
+    {
+        self.isActive = active
+    }
+    
+    public func onEnergyChanged( creature: Creature )
+    {}
+    
+    public func onCollision( creature: Creature, node: SKNode )
+    {}
+}

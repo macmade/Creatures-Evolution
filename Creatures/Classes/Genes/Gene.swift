@@ -23,6 +23,18 @@
  ******************************************************************************/
 
 import Cocoa
+import SpriteKit
 
-public protocol Gene
-{}
+public protocol Gene: NSObject
+{
+    var isActive: Bool
+    {
+        get
+        set
+    }
+    
+    init( active: Bool )
+    
+    func onEnergyChanged( creature: Creature )
+    func onCollision( creature: Creature, node: SKNode )
+}

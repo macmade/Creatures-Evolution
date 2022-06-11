@@ -25,5 +25,25 @@
 import Cocoa
 import SpriteKit
 
-public class Herbivore: Gene
-{}
+public class Herbivore: NSObject, Gene
+{
+    public var isActive: Bool
+    
+    public required init( active: Bool )
+    {
+        self.isActive = active
+    }
+    
+    public func onEnergyChanged( creature: Creature )
+    {}
+    
+    public func onCollision( creature: Creature, node: SKNode )
+    {
+        if let plant = node as? Plant, plant.isAvailable
+        {
+            plant.remove()
+            
+            creature.energy += plant.energy
+        }
+    }
+}

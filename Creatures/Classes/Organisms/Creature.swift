@@ -29,6 +29,19 @@ public class Creature: SKSpriteNode, Updatable
 {
     private static let moveActionKey = "Move"
     
+    public private( set ) var genes: [ Gene ] = [
+        Herbivore(      active: true ),
+        Scavenger(      active: false ),
+        Carnivore(      active: false ),
+        Cannibal(       active: false ),
+        Vampire(        active: false ),
+        Mitosis(        active: true ),
+        Sex(            active: false ),
+        VampireSense(   active: false ),
+        CarnivoreSense( active: false ),
+        FoodSense(      active: false ),
+    ]
+    
     public var energy = 1
     {
         didSet
@@ -62,6 +75,69 @@ public class Creature: SKSpriteNode, Updatable
     public required init?( coder: NSCoder )
     {
         nil
+    }
+    
+    public var isHerbivore: Bool
+    {
+        self.isGeneActive( Herbivore.self )
+    }
+    
+    public var isScavenger: Bool
+    {
+        self.isGeneActive( Scavenger.self )
+    }
+    
+    public var isCarnivore: Bool
+    {
+        self.isGeneActive( Carnivore.self )
+    }
+    
+    public var isCannibal: Bool
+    {
+        self.isGeneActive( Cannibal.self )
+    }
+    
+    public var isVampire: Bool
+    {
+        self.isGeneActive( Vampire.self )
+    }
+    
+    public var canReplicate: Bool
+    {
+        self.isGeneActive( Mitosis.self )
+    }
+    
+    public var canHaveSex: Bool
+    {
+        self.isGeneActive( Sex.self )
+    }
+    
+    public var canDetectFood: Bool
+    {
+        self.isGeneActive( FoodSense.self )
+    }
+    
+    public var canDetectCarnivore: Bool
+    {
+        self.isGeneActive( CarnivoreSense.self )
+    }
+    
+    public var canDetectVampire: Bool
+    {
+        self.isGeneActive( VampireSense.self )
+    }
+    
+    public func isGeneActive( _ kind: AnyClass ) -> Bool
+    {
+        for gene in self.genes
+        {
+            if gene.isKind( of: kind )
+            {
+                return gene.isActive
+            }
+        }
+        
+        return false
     }
     
     public func update()
@@ -105,22 +181,16 @@ public class Creature: SKSpriteNode, Updatable
     
     public func collide( with node: SKNode )
     {
-        if let food = node as? Food, food.isAvailable
+        for gene in self.genes
         {
-            self.eat( food: food )
+            if gene.isActive
+            {
+                gene.onCollision( creature: self, node: node )
+            }
         }
-        else
-        {
-            self.removeAction( forKey: Creature.moveActionKey )
-            self.move()
-        }
-    }
-    
-    private func eat( food: Food )
-    {
-        food.remove()
         
-        self.energy += food.energy
+        self.removeAction( forKey: Creature.moveActionKey )
+        self.move()
     }
     
     private func energyChanged()
