@@ -38,5 +38,12 @@ public class Scavenger: NSObject, Gene
     {}
     
     public func onCollision( creature: Creature, node: SKNode )
-    {}
+    {
+        if let meat = node as? Meat, meat.isAvailable
+        {
+            meat.remove()
+            
+            creature.energy += meat.energy
+        }
+    }
 }
