@@ -15,6 +15,22 @@
 		05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252E5B2854E0360090B385 /* AboutWindowController.swift */; };
 		05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05252E5D2854E0510090B385 /* AboutWindowController.xib */; };
 		05252EA02854E38B0090B385 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252E9F2854E38B0090B385 /* Scene.swift */; };
+		05252EA52854E9180090B385 /* Gene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EA42854E9180090B385 /* Gene.swift */; };
+		05252EA72854E9210090B385 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EA62854E9210090B385 /* Food.swift */; };
+		05252EA92854E9290090B385 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EA82854E9290090B385 /* Plant.swift */; };
+		05252EAB2854E9310090B385 /* Meat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EAA2854E9310090B385 /* Meat.swift */; };
+		05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EAC2854E94B0090B385 /* Herbivore.swift */; };
+		05252EAF2854E9540090B385 /* Scavenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EAE2854E9540090B385 /* Scavenger.swift */; };
+		05252EB12854E95D0090B385 /* Carnivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB02854E95D0090B385 /* Carnivore.swift */; };
+		05252EB32854E9640090B385 /* Cannibal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB22854E9640090B385 /* Cannibal.swift */; };
+		05252EB52854E9690090B385 /* Vampire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB42854E9690090B385 /* Vampire.swift */; };
+		05252EB72854E96F0090B385 /* Mitosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB62854E96F0090B385 /* Mitosis.swift */; };
+		05252EB92854E9740090B385 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB82854E9740090B385 /* Sex.swift */; };
+		05252EBB2854E9830090B385 /* VampireSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBA2854E9830090B385 /* VampireSense.swift */; };
+		05252EBD2854E9900090B385 /* CarnivoreSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBC2854E9900090B385 /* CarnivoreSense.swift */; };
+		05252EBF2854E9A10090B385 /* FoodSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBE2854E9A10090B385 /* FoodSense.swift */; };
+		05252EC12854EA400090B385 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC02854EA400090B385 /* Creature.swift */; };
+		05252EC32854EA590090B385 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC22854EA590090B385 /* Updatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +91,22 @@
 		05252E992854E1F20090B385 /* FUNDING.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = FUNDING.yml; sourceTree = "<group>"; };
 		05252E9A2854E1F20090B385 /* Debug - zld.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - zld.xcconfig"; sourceTree = "<group>"; };
 		05252E9F2854E38B0090B385 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		05252EA42854E9180090B385 /* Gene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gene.swift; sourceTree = "<group>"; };
+		05252EA62854E9210090B385 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		05252EA82854E9290090B385 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		05252EAA2854E9310090B385 /* Meat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meat.swift; sourceTree = "<group>"; };
+		05252EAC2854E94B0090B385 /* Herbivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Herbivore.swift; sourceTree = "<group>"; };
+		05252EAE2854E9540090B385 /* Scavenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scavenger.swift; sourceTree = "<group>"; };
+		05252EB02854E95D0090B385 /* Carnivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carnivore.swift; sourceTree = "<group>"; };
+		05252EB22854E9640090B385 /* Cannibal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cannibal.swift; sourceTree = "<group>"; };
+		05252EB42854E9690090B385 /* Vampire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vampire.swift; sourceTree = "<group>"; };
+		05252EB62854E96F0090B385 /* Mitosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mitosis.swift; sourceTree = "<group>"; };
+		05252EB82854E9740090B385 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
+		05252EBA2854E9830090B385 /* VampireSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireSense.swift; sourceTree = "<group>"; };
+		05252EBC2854E9900090B385 /* CarnivoreSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarnivoreSense.swift; sourceTree = "<group>"; };
+		05252EBE2854E9A10090B385 /* FoodSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSense.swift; sourceTree = "<group>"; };
+		05252EC02854EA400090B385 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
+		05252EC22854EA590090B385 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +162,14 @@
 		05252E522854DF410090B385 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				05252EA32854E90D0090B385 /* Organisms */,
+				05252EA22854E9090090B385 /* Food */,
+				05252EA12854E9030090B385 /* Genes */,
 				05252E5B2854E0360090B385 /* AboutWindowController.swift */,
 				05252E532854DF410090B385 /* ApplicationDelegate.swift */,
 				05252E562854DFB50090B385 /* MainWindowController.swift */,
 				05252E9F2854E38B0090B385 /* Scene.swift */,
+				05252EC22854EA590090B385 /* Updatable.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -264,6 +300,42 @@
 			path = .github;
 			sourceTree = "<group>";
 		};
+		05252EA12854E9030090B385 /* Genes */ = {
+			isa = PBXGroup;
+			children = (
+				05252EA42854E9180090B385 /* Gene.swift */,
+				05252EAC2854E94B0090B385 /* Herbivore.swift */,
+				05252EAE2854E9540090B385 /* Scavenger.swift */,
+				05252EB02854E95D0090B385 /* Carnivore.swift */,
+				05252EB22854E9640090B385 /* Cannibal.swift */,
+				05252EB42854E9690090B385 /* Vampire.swift */,
+				05252EB62854E96F0090B385 /* Mitosis.swift */,
+				05252EB82854E9740090B385 /* Sex.swift */,
+				05252EBA2854E9830090B385 /* VampireSense.swift */,
+				05252EBC2854E9900090B385 /* CarnivoreSense.swift */,
+				05252EBE2854E9A10090B385 /* FoodSense.swift */,
+			);
+			path = Genes;
+			sourceTree = "<group>";
+		};
+		05252EA22854E9090090B385 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				05252EA62854E9210090B385 /* Food.swift */,
+				05252EA82854E9290090B385 /* Plant.swift */,
+				05252EAA2854E9310090B385 /* Meat.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
+		05252EA32854E90D0090B385 /* Organisms */ = {
+			isa = PBXGroup;
+			children = (
+				05252EC02854EA400090B385 /* Creature.swift */,
+			);
+			path = Organisms;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -357,10 +429,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05252EBF2854E9A10090B385 /* FoodSense.swift in Sources */,
+				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
+				05252EC12854EA400090B385 /* Creature.swift in Sources */,
+				05252EA52854E9180090B385 /* Gene.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
+				05252EB72854E96F0090B385 /* Mitosis.swift in Sources */,
+				05252EB92854E9740090B385 /* Sex.swift in Sources */,
 				05252E572854DFB50090B385 /* MainWindowController.swift in Sources */,
+				05252EBD2854E9900090B385 /* CarnivoreSense.swift in Sources */,
+				05252EB52854E9690090B385 /* Vampire.swift in Sources */,
+				05252EAB2854E9310090B385 /* Meat.swift in Sources */,
+				05252EC32854EA590090B385 /* Updatable.swift in Sources */,
+				05252EA92854E9290090B385 /* Plant.swift in Sources */,
 				05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */,
+				05252EB12854E95D0090B385 /* Carnivore.swift in Sources */,
+				05252EB32854E9640090B385 /* Cannibal.swift in Sources */,
+				05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */,
+				05252EA72854E9210090B385 /* Food.swift in Sources */,
+				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
