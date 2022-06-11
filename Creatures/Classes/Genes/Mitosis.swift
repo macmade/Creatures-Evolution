@@ -35,7 +35,40 @@ public class Mitosis: NSObject, Gene
     }
     
     public func onEnergyChanged( creature: Creature )
-    {}
+    {
+        guard let scene = creature.scene as? Scene else
+        {
+            return
+        }
+        
+        if creature.isBaby
+        {
+            return
+        }
+        
+        if creature.energy < scene.settings.energyNeededToReproduce
+        {
+            return
+        }
+        
+        if Int.random( in: 0 ... 100 ) > scene.settings.reproductionChance
+        {
+            return
+        }
+        
+        creature.energy -= scene.settings.reproductionEnergyCost
+        
+        if creature.energy < scene.settings.energyNeededToGrow
+        {
+            creature.isBaby = true
+        }
+        
+        let copy      = Creature( energy: 1 )
+        copy.position = creature.position
+        
+        scene.addChild( copy )
+        copy.move()
+    }
     
     public func onCollision( creature: Creature, node: SKNode )
     {}

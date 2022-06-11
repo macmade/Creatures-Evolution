@@ -195,6 +195,14 @@ public class Creature: SKSpriteNode, Updatable
     
     private func energyChanged()
     {
+        for gene in self.genes
+        {
+            if gene.isActive
+            {
+                gene.onEnergyChanged( creature: self )
+            }
+        }
+        
         if self.energy == -1
         {
             self.die()
@@ -218,34 +226,6 @@ public class Creature: SKSpriteNode, Updatable
             self.isBaby  = false
             self.energy -= scene.settings.growthEnergyCost
         }
-        else if self.isBaby == false && self.energy >= scene.settings.energyNeededToReproduce
-        {
-            if Int.random( in: 0 ... 100 ) <= scene.settings.reproductionChance
-            {
-                self.replicate()
-            }
-        }
-    }
-    
-    private func replicate()
-    {
-        guard let scene = self.scene as? Scene else
-        {
-            return
-        }
-        
-        self.energy -= scene.settings.reproductionEnergyCost
-        
-        if self.energy < scene.settings.energyNeededToGrow
-        {
-            self.isBaby = true
-        }
-        
-        let creature      = Creature( energy: 1 )
-        creature.position = self.position
-        
-        scene.addChild( creature )
-        creature.move()
     }
     
     private func die()
