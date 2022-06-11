@@ -42,6 +42,11 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     public override func update( _ currentTime: TimeInterval )
     {
         super.update( currentTime )
+        
+        for child in self.children
+        {
+            ( child as? Updatable )?.update()
+        }
     }
     
     public func reset()
