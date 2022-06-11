@@ -50,5 +50,5 @@ public class Settings: NSObject
     @objc public dynamic var mutationChance              = 20
     @objc public dynamic var combatChanceIfSmaller       = 20
     @objc public dynamic var combatChanceIfSameSize      = 50
-    @objc public dynamic var combatChanceIfBigger        = 70
+    @objc public dynamic var combatChanceIfBigger        = 80
 }
