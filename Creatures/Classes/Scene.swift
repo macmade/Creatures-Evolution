@@ -29,7 +29,8 @@ public class Scene: SKScene, SKPhysicsContactDelegate
 {
     @objc public private( set ) dynamic var settings = Settings()
     
-    private var newFoodTimer: Timer?
+    private var newFoodTimer:        Timer?
+    private var energyDecreaseTimer: Timer?
     
     public override func didMove( to view: SKView )
     {
@@ -56,6 +57,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     public func reset()
     {
         self.newFoodTimer?.invalidate()
+        self.energyDecreaseTimer?.invalidate()
         self.removeAllChildren()
         
         self.generatePlants(    amount: self.settings.initialPlantCount )
@@ -64,6 +66,11 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         self.newFoodTimer = Timer.scheduledTimer( withTimeInterval: self.settings.newPlantInterval, repeats: true )
         {
             _ in self.generatePlants( amount: self.settings.newPlantAmount )
+        }
+        
+        self.energyDecreaseTimer = Timer.scheduledTimer( withTimeInterval: self.settings.energyDecreaseInterval, repeats: true )
+        {
+            _ in self.decreaseCreatureEnergy( amount: self.settings.energyDecrease )
         }
     }
     
@@ -103,6 +110,17 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             self.addChild( creature )
             creature.run( SKAction.fadeIn( withDuration: 1 ) )
             creature.move()
+        }
+    }
+    
+    public func decreaseCreatureEnergy( amount: Int )
+    {
+        for child in self.children
+        {
+            if let creature = child as? Creature
+            {
+                creature.energy -= amount
+            }
         }
     }
     

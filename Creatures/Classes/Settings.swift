@@ -42,4 +42,6 @@ public class Settings: NSObject
     @objc public dynamic var energyNeededToReproduce = 2
     @objc public dynamic var reproductionEnergyCost  = 1
     @objc public dynamic var reproductionChance      = 75
+    @objc public dynamic var energyDecrease          = 1
+    @objc public dynamic var energyDecreaseInterval  = 10.0
 }

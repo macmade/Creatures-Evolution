@@ -27,7 +27,8 @@ import SpriteKit
 
 public class Creature: SKSpriteNode, Updatable
 {
-    private static let moveActionKey = "Move"
+    private static let moveActionKey  = "Move"
+    private static let flashActionKey = "Flash"
     
     public private( set ) var genes: [ Gene ] = [
         Herbivore(      active: true ),
@@ -229,10 +230,41 @@ public class Creature: SKSpriteNode, Updatable
     }
     
     private func die()
-    {}
+    {
+        self.physicsBody = nil
+        
+        self.removeAction( forKey: Creature.moveActionKey )
+        
+        let meat      = Meat( energy: self.isBaby ? 1 : 2 )
+        meat.position = self.position
+        meat.alpha    = 0
+            
+        self.scene?.addChild( meat )
+        meat.run( SKAction.fadeIn( withDuration: 1 ) )
+        self.run( SKAction.fadeOut( withDuration: 0.5 ) )
+        {
+            self.scene?.removeChildren( in: [ self ] )
+        }
+    }
     
     private func flash( _ flash: Bool )
-    {}
+    {
+        self.alpha = 1
+        
+        if flash && self.action( forKey: Creature.flashActionKey ) == nil
+        {
+            let fadeOut = SKAction.fadeOut( withDuration: 0.5 )
+            let fadeIn  = SKAction.fadeIn(  withDuration: 0.5 )
+            let flash   = SKAction.sequence( [ fadeOut, fadeIn ] )
+            let group   = SKAction.repeatForever( flash )
+            
+            self.run( group, withKey: Creature.flashActionKey )
+        }
+        else
+        {
+            self.removeAction( forKey: Creature.flashActionKey )
+        }
+    }
     
     private func grow( _ grow: Bool )
     {
