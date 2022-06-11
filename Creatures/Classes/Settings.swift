@@ -26,16 +26,20 @@ import Cocoa
 
 public class Settings: NSObject
 {
-    @objc public dynamic var initialPlantCount     = 50
-    @objc public dynamic var newPlantInterval      = 10.0
-    @objc public dynamic var newPlantAmount        = 25
-    @objc public dynamic var plantMaxEnergy        = 5
-    @objc public dynamic var plantGrow             = true
-    @objc public dynamic var plantDecay            = true
-    @objc public dynamic var plantDecayAfter       = 10.0
-    @objc public dynamic var meatDecay             = true
-    @objc public dynamic var meatDecayAfter        = 10.0
-    @objc public dynamic var initialCreatureCount  = 50
-    @objc public dynamic var initialCreatureEnergy = 1
-    @objc public dynamic var energyToReproduce     = 2
+    @objc public dynamic var initialPlantCount       = 50
+    @objc public dynamic var newPlantInterval        = 10.0
+    @objc public dynamic var newPlantAmount          = 25
+    @objc public dynamic var plantMaxEnergy          = 5
+    @objc public dynamic var plantGrow               = true
+    @objc public dynamic var plantDecay              = true
+    @objc public dynamic var plantDecayAfter         = 10.0
+    @objc public dynamic var meatDecay               = true
+    @objc public dynamic var meatDecayAfter          = 10.0
+    @objc public dynamic var initialCreatureCount    = 50
+    @objc public dynamic var initialCreatureEnergy   = 1
+    @objc public dynamic var energyNeededToGrow      = 2
+    @objc public dynamic var growthEnergyCost        = 1
+    @objc public dynamic var energyNeededToReproduce = 2
+    @objc public dynamic var reproductionEnergyCost  = 1
+    @objc public dynamic var reproductionChance      = 75
 }

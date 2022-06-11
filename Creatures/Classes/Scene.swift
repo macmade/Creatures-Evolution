@@ -58,7 +58,8 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         self.newFoodTimer?.invalidate()
         self.removeAllChildren()
         
-        self.generatePlants( amount: self.settings.initialPlantCount )
+        self.generatePlants(    amount: self.settings.initialPlantCount )
+        self.generateCreatures( amount: self.settings.initialCreatureCount )
         
         self.newFoodTimer = Timer.scheduledTimer( withTimeInterval: self.settings.newPlantInterval, repeats: true )
         {
@@ -67,7 +68,16 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     }
     
     public func didBegin( _ contact: SKPhysicsContact )
-    {}
+    {
+        if let creature = contact.bodyA.node as? Creature, let other = contact.bodyB.node
+        {
+            creature.collide( with: other )
+        }
+        else if let creature = contact.bodyB.node as? Creature, let other = contact.bodyA.node
+        {
+            creature.collide( with: other )
+        }
+    }
     
     public func generatePlants( amount: Int )
     {
@@ -79,6 +89,20 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             
             self.addChild( plant )
             plant.run( SKAction.fadeIn( withDuration: 1 ) )
+        }
+    }
+    
+    public func generateCreatures( amount: Int )
+    {
+        for _ in 0 ..< amount
+        {
+            let creature      = Creature( energy: self.settings.initialCreatureEnergy )
+            creature.position = self.randomPoint()
+            creature.alpha    = 0
+            
+            self.addChild( creature )
+            creature.run( SKAction.fadeIn( withDuration: 1 ) )
+            creature.move()
         }
     }
     

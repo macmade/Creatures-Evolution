@@ -27,7 +27,8 @@ import SpriteKit
 
 public class Plant: SKSpriteNode, Food, Updatable
 {
-    public private( set ) var energy = 1
+    public var energy      = 1
+    public var isAvailable = true
     
     public required init( energy: Int )
     {
