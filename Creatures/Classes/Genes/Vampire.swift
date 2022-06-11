@@ -49,7 +49,7 @@ public class Vampire: NSObject, Gene
             return
         }
         
-        if other.isVampire
+        if other.isVampire && creature.isCannibal == false
         {
             return
         }

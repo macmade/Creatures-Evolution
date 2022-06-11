@@ -49,7 +49,7 @@ public class Carnivore: NSObject, Gene
             return
         }
         
-        if other.isCarnivore
+        if other.isCarnivore && creature.isCannibal == false
         {
             return
         }
