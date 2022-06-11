@@ -320,13 +320,13 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        if Int.random( in: 0 ... 100 ) <= scene.settings.mutationChance
+        self.genes.forEach
         {
-            if let gene = self.genes.randomElement()
+            if Int.random( in: 0 ... 100 ) <= scene.settings.mutationChance
             {
-                gene.isActive = gene.isActive == false
+                $0.isActive = $0.isActive == false
                 
-                print( "Mutation: \( gene.className ) = \( gene.isActive )")
+                print( "Mutation: \( $0.className ) = \( $0.isActive )")
             }
         }
         
