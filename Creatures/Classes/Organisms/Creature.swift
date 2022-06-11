@@ -322,6 +322,11 @@ public class Creature: SpriteNode, Updatable
         
         self.genes.forEach
         {
+            if $0.isKind( of: Mitosis.self )
+            {
+                return
+            }
+            
             if Int.random( in: 0 ... 100 ) <= scene.settings.mutationChance
             {
                 $0.isActive = $0.isActive == false
