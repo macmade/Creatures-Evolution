@@ -38,5 +38,40 @@ public class Vampire: NSObject, Gene
     {}
     
     public func onCollision( creature: Creature, node: SKNode )
-    {}
+    {
+        guard let other = node as? Creature else
+        {
+            return
+        }
+        
+        guard let scene = creature.scene as? Scene else
+        {
+            return
+        }
+        
+        if other.isVampire
+        {
+            return
+        }
+        
+        let chance: Int =
+        {
+            if creature.isSmallerThan( creature: other )
+            {
+                return scene.settings.combatChanceIfSmaller
+            }
+            else if creature.isBiggerThan( creature: other )
+            {
+                return scene.settings.combatChanceIfBigger
+            }
+            
+            return scene.settings.combatChanceIfSameSize
+        }()
+        
+        if Int.random( in: 0 ... 100 ) <= chance
+        {
+            creature.energy += 1
+            other.energy    -= 1
+        }
+    }
 }
