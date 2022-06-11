@@ -47,8 +47,8 @@ public class Settings: NSObject
     @objc public dynamic var energyDecrease              = 1
     @objc public dynamic var energyDecreaseInterval      = 15.0
     @objc public dynamic var energyDecreaseIntervalRange = 5.0
-    @objc public dynamic var mutationChance              = 10
-    @objc public dynamic var combatChanceIfSmaller       = 70
+    @objc public dynamic var mutationChance              = 20
+    @objc public dynamic var combatChanceIfSmaller       = 20
     @objc public dynamic var combatChanceIfSameSize      = 50
-    @objc public dynamic var combatChanceIfBigger        = 10
+    @objc public dynamic var combatChanceIfBigger        = 70
 }
