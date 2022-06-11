@@ -63,7 +63,7 @@ public class Mitosis: NSObject, Gene
             creature.isBaby = true
         }
         
-        let copy      = Creature( energy: 1 )
+        let copy      = Creature( energy: 1, genes: creature.genes )
         copy.position = creature.position
         
         scene.addChild( copy )

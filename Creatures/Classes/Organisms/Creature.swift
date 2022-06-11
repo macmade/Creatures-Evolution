@@ -32,18 +32,7 @@ public class Creature: SKSpriteNode, Updatable
     
     private var nextEnergyDecrease: Date?
     
-    public private( set ) var genes: [ Gene ] = [
-        Herbivore(      active: true ),
-        Scavenger(      active: false ),
-        Carnivore(      active: false ),
-        Cannibal(       active: false ),
-        Vampire(        active: false ),
-        Mitosis(        active: true ),
-        Sex(            active: false ),
-        VampireSense(   active: false ),
-        CarnivoreSense( active: false ),
-        FoodSense(      active: false ),
-    ]
+    public private( set ) var genes: [ Gene ]
     
     public var energy = 1
     {
@@ -61,8 +50,28 @@ public class Creature: SKSpriteNode, Updatable
         }
     }
     
-    public init( energy: Int )
+    public convenience init( energy: Int )
     {
+        let genes: [ Gene ] = [
+            Herbivore(      active: true ),
+            Scavenger(      active: false ),
+            Carnivore(      active: false ),
+            Cannibal(       active: false ),
+            Vampire(        active: false ),
+            Mitosis(        active: true ),
+            Sex(            active: false ),
+            VampireSense(   active: false ),
+            CarnivoreSense( active: false ),
+            FoodSense(      active: false ),
+        ]
+        
+        self.init( energy: energy, genes: genes )
+    }
+    
+    public init( energy: Int, genes: [ Gene ] )
+    {
+        self.genes = genes
+        
         super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 15, height: 15 ) )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
