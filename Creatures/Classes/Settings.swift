@@ -44,4 +44,5 @@ public class Settings: NSObject
     @objc public dynamic var reproductionChance      = 75
     @objc public dynamic var energyDecrease          = 1
     @objc public dynamic var energyDecreaseInterval  = 10.0
+    @objc public dynamic var mutationChance          = 50
 }

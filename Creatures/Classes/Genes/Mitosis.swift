@@ -67,6 +67,7 @@ public class Mitosis: NSObject, Gene
         copy.position = creature.position
         
         scene.addChild( copy )
+        copy.mutate()
         copy.move()
     }
     

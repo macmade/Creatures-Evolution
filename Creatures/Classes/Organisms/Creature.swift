@@ -61,7 +61,7 @@ public class Creature: SKSpriteNode, Updatable
     
     public init( energy: Int )
     {
-        super.init( texture: SKTexture( imageNamed: "Herbivore" ), color: NSColor.clear, size: NSSize( width: 15, height: 15 ) )
+        super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 15, height: 15 ) )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
@@ -71,6 +71,8 @@ public class Creature: SKSpriteNode, Updatable
         
         self.physicsBody = physicsBody
         self.energy      = energy
+        
+        self.updateTexture()
     }
     
     public required init?( coder: NSCoder )
@@ -285,6 +287,50 @@ public class Creature: SKSpriteNode, Updatable
         else
         {
             self.run( SKAction.scale( to: NSSize( width: 15, height: 15 ), duration: 0.5 ) )
+        }
+    }
+    
+    public func mutate()
+    {
+        guard let scene = self.scene as? Scene else
+        {
+            return
+        }
+        
+        if Int.random( in: 0 ... 100 ) <= scene.settings.mutationChance
+        {
+            if let gene = self.genes.randomElement()
+            {
+                gene.isActive = gene.isActive == false
+                
+                print( "Mutation: \( gene.className ) = \( gene.isActive )")
+            }
+        }
+        
+        self.updateTexture()
+    }
+    
+    private func updateTexture()
+    {
+        if self.isVampire
+        {
+            self.texture = SKTexture( imageNamed: "Vampire" )
+        }
+        else if self.isCarnivore
+        {
+            self.texture = SKTexture( imageNamed: "Carnivore" )
+        }
+        else if self.isScavenger
+        {
+            self.texture = SKTexture( imageNamed: "Scavenger" )
+        }
+        else if self.isHerbivore
+        {
+            self.texture = SKTexture( imageNamed: "Herbivore" )
+        }
+        else
+        {
+            self.texture = SKTexture( imageNamed: "Basic" )
         }
     }
 }
