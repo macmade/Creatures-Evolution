@@ -25,5 +25,5 @@
 import Cocoa
 import SpriteKit
 
-public class Carnivore: SKSpriteNode, Gene
+public class Carnivore: Gene
 {}

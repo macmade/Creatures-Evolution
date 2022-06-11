@@ -25,5 +25,5 @@
 import Cocoa
 import SpriteKit
 
-public class Sex: SKSpriteNode, Gene
+public class Sex: Gene
 {}

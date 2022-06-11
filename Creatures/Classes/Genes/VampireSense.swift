@@ -25,5 +25,5 @@
 import Cocoa
 import SpriteKit
 
-public class VampireSense: SKSpriteNode, Gene
+public class VampireSense: Gene
 {}

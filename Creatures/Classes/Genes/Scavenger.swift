@@ -25,5 +25,5 @@
 import Cocoa
 import SpriteKit
 
-public class Scavenger: SKSpriteNode, Gene
+public class Scavenger: Gene
 {}

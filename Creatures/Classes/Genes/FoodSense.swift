@@ -25,5 +25,5 @@
 import Cocoa
 import SpriteKit
 
-public class FoodSense: SKSpriteNode, Gene
+public class FoodSense: Gene
 {}

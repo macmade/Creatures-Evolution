@@ -25,5 +25,5 @@
 import Cocoa
 import SpriteKit
 
-public class Cannibal: SKSpriteNode, Gene
+public class Cannibal: Gene
 {}

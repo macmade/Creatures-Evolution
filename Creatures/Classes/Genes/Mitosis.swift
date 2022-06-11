@@ -25,5 +25,5 @@
 import Cocoa
 import SpriteKit
 
-public class Mitosis: SKSpriteNode, Gene
+public class Mitosis: Gene
 {}
