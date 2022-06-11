@@ -132,6 +132,16 @@ public class Creature: SKSpriteNode, Updatable
         self.isGeneActive( VampireSense.self )
     }
     
+    public func isSmallerThan( creature: Creature ) -> Bool
+    {
+        self.isBaby && creature.isBaby == false
+    }
+    
+    public func isBiggerThan( creature: Creature ) -> Bool
+    {
+        self.isBaby == false && creature.isBaby
+    }
+    
     public func isGeneActive( _ kind: AnyClass ) -> Bool
     {
         for gene in self.genes
@@ -228,7 +238,7 @@ public class Creature: SKSpriteNode, Updatable
         
         if self.energy == -1
         {
-            self.die()
+            self.die( dropFood: true )
         }
         else if self.energy == 0
         {
@@ -251,18 +261,22 @@ public class Creature: SKSpriteNode, Updatable
         }
     }
     
-    private func die()
+    public func die( dropFood: Bool )
     {
         self.physicsBody = nil
         
         self.removeAction( forKey: Creature.moveActionKey )
         
-        let meat      = Meat( energy: self.isBaby ? 1 : 2 )
-        meat.position = self.position
-        meat.alpha    = 0
+        if dropFood
+        {
+            let meat      = Meat( energy: self.isBaby ? 1 : 2 )
+            meat.position = self.position
+            meat.alpha    = 0
             
-        self.scene?.addChild( meat )
-        meat.run( SKAction.fadeIn( withDuration: 1 ) )
+            self.scene?.addChild( meat )
+            meat.run( SKAction.fadeIn( withDuration: 1 ) )
+        }
+        
         self.run( SKAction.fadeOut( withDuration: 0.5 ) )
         {
             self.scene?.removeChildren( in: [ self ] )
