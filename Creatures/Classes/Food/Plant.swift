@@ -25,10 +25,11 @@
 import Cocoa
 import SpriteKit
 
-public class Plant: SKSpriteNode, Food, Updatable
+public class Plant: SpriteNode, Food, Updatable
 {
-    public var energy      = 1
-    public var isAvailable = true
+    public  var energy        = 1
+    public  var isAvailable   = true
+    private var peremptionDate: Date?
     
     public required init( energy: Int )
     {
@@ -48,5 +49,24 @@ public class Plant: SKSpriteNode, Food, Updatable
     }
     
     public func update()
-    {}
+    {
+        guard let scene = self.scene as? Scene else
+        {
+            return
+        }
+        
+        if let peremptionDate = self.peremptionDate
+        {
+            if peremptionDate.timeIntervalSinceNow < 0
+            {
+                self.energy = -1
+                
+                self.flash( true )
+            }
+        }
+        else if scene.settings.plantDecay
+        {
+            self.peremptionDate = Date( timeIntervalSinceNow: scene.settings.plantDecayAfter + Double.random( in: 0 ... scene.settings.plantDecayAfterRange ) )
+        }
+    }
 }

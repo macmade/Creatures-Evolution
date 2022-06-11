@@ -25,10 +25,9 @@
 import Cocoa
 import SpriteKit
 
-public class Creature: SKSpriteNode, Updatable
+public class Creature: SpriteNode, Updatable
 {
-    private static let moveActionKey  = "Move"
-    private static let flashActionKey = "Flash"
+    private static let moveActionKey = "Move"
     
     private var nextEnergyDecrease: Date?
     
@@ -289,25 +288,6 @@ public class Creature: SKSpriteNode, Updatable
         self.run( SKAction.fadeOut( withDuration: 0.5 ) )
         {
             self.scene?.removeChildren( in: [ self ] )
-        }
-    }
-    
-    private func flash( _ flash: Bool )
-    {
-        self.alpha = 1
-        
-        if flash && self.action( forKey: Creature.flashActionKey ) == nil
-        {
-            let fadeOut = SKAction.fadeOut( withDuration: 0.5 )
-            let fadeIn  = SKAction.fadeIn(  withDuration: 0.5 )
-            let flash   = SKAction.sequence( [ fadeOut, fadeIn ] )
-            let group   = SKAction.repeatForever( flash )
-            
-            self.run( group, withKey: Creature.flashActionKey )
-        }
-        else
-        {
-            self.removeAction( forKey: Creature.flashActionKey )
         }
     }
     

@@ -32,6 +32,7 @@
 		05252EC12854EA400090B385 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC02854EA400090B385 /* Creature.swift */; };
 		05252EC32854EA590090B385 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC22854EA590090B385 /* Updatable.swift */; };
 		05252EC72854F4220090B385 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC62854F4220090B385 /* Settings.swift */; };
+		05252ECB285521B20090B385 /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECA285521B20090B385 /* SpriteNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		05252EC02854EA400090B385 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		05252EC22854EA590090B385 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		05252EC62854F4220090B385 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		05252ECA285521B20090B385 /* SpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				05252E9F2854E38B0090B385 /* Scene.swift */,
 				05252EC62854F4220090B385 /* Settings.swift */,
 				05252EC22854EA590090B385 /* Updatable.swift */,
+				05252ECA285521B20090B385 /* SpriteNode.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				05252EB12854E95D0090B385 /* Carnivore.swift in Sources */,
 				05252EB32854E9640090B385 /* Cannibal.swift in Sources */,
 				05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */,
+				05252ECB285521B20090B385 /* SpriteNode.swift in Sources */,
 				05252EA72854E9210090B385 /* Food.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,

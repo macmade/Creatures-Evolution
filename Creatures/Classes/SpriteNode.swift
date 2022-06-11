@@ -25,48 +25,26 @@
 import Cocoa
 import SpriteKit
 
-public class Meat: SpriteNode, Food, Updatable
+public class SpriteNode: SKSpriteNode
 {
-    public  var energy        = 1
-    public  var isAvailable   = true
-    private var peremptionDate: Date?
+    private static let flashActionKey = "Flash"
     
-    public required init( energy: Int )
+    public func flash( _ flash: Bool )
     {
-        super.init( texture: SKTexture( imageNamed: "Meat" ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
+        self.alpha = 1
         
-        let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
-        physicsBody.affectedByGravity  = false
-        physicsBody.isDynamic          = false
-        
-        self.physicsBody = physicsBody
-        self.energy      = energy
-    }
-    
-    public required init?( coder: NSCoder )
-    {
-        nil
-    }
-    
-    public func update()
-    {
-        guard let scene = self.scene as? Scene else
+        if flash && self.action( forKey: SpriteNode.flashActionKey ) == nil
         {
-            return
+            let fadeOut = SKAction.fadeOut( withDuration: 0.5 )
+            let fadeIn  = SKAction.fadeIn(  withDuration: 0.5 )
+            let flash   = SKAction.sequence( [ fadeOut, fadeIn ] )
+            let group   = SKAction.repeatForever( flash )
+            
+            self.run( group, withKey: SpriteNode.flashActionKey )
         }
-        
-        if let peremptionDate = self.peremptionDate
+        else
         {
-            if peremptionDate.timeIntervalSinceNow < 0
-            {
-                self.energy = -1
-                
-                self.flash( true )
-            }
-        }
-        else if scene.settings.meatDecay
-        {
-            self.peremptionDate = Date( timeIntervalSinceNow: scene.settings.meatDecayAfter + Double.random( in: 0 ... scene.settings.meatDecayAfterRange ) )
+            self.removeAction( forKey: SpriteNode.flashActionKey )
         }
     }
 }

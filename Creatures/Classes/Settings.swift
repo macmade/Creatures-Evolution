@@ -32,9 +32,11 @@ public class Settings: NSObject
     @objc public dynamic var plantMaxEnergy              = 5
     @objc public dynamic var plantGrow                   = true
     @objc public dynamic var plantDecay                  = true
-    @objc public dynamic var plantDecayAfter             = 10.0
+    @objc public dynamic var plantDecayAfter             = 20.0
+    @objc public dynamic var plantDecayAfterRange        = 10.0
     @objc public dynamic var meatDecay                   = true
     @objc public dynamic var meatDecayAfter              = 10.0
+    @objc public dynamic var meatDecayAfterRange         = 5.0
     @objc public dynamic var initialCreatureCount        = 50
     @objc public dynamic var initialCreatureEnergy       = 1
     @objc public dynamic var energyNeededToGrow          = 2
