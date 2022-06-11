@@ -32,11 +32,17 @@ public class Settings: NSObject
     @objc public dynamic var plantMaxEnergy              = 5
     @objc public dynamic var plantGrow                   = true
     @objc public dynamic var plantDecay                  = true
+    @objc public dynamic var plantRemove                 = true
     @objc public dynamic var plantDecayAfter             = 20.0
     @objc public dynamic var plantDecayAfterRange        = 10.0
+    @objc public dynamic var plantRemovedAfter           = 30.0
+    @objc public dynamic var plantRemovedAfterRange      = 10.0
     @objc public dynamic var meatDecay                   = true
+    @objc public dynamic var meatRemove                  = true
     @objc public dynamic var meatDecayAfter              = 10.0
     @objc public dynamic var meatDecayAfterRange         = 5.0
+    @objc public dynamic var meatRemovedAfter            = 20.0
+    @objc public dynamic var meatRemovedAfterRange       = 5.0
     @objc public dynamic var initialCreatureCount        = 50
     @objc public dynamic var initialCreatureEnergy       = 1
     @objc public dynamic var energyNeededToGrow          = 2
@@ -47,7 +53,7 @@ public class Settings: NSObject
     @objc public dynamic var energyDecrease              = 1
     @objc public dynamic var energyDecreaseInterval      = 15.0
     @objc public dynamic var energyDecreaseIntervalRange = 5.0
-    @objc public dynamic var mutationChance              = 20
+    @objc public dynamic var mutationChance              = 30
     @objc public dynamic var combatChanceIfSmaller       = 20
     @objc public dynamic var combatChanceIfSameSize      = 50
     @objc public dynamic var combatChanceIfBigger        = 80

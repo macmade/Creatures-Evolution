@@ -30,6 +30,7 @@ public class Plant: SpriteNode, Food, Updatable
     public  var energy        = 1
     public  var isAvailable   = true
     private var peremptionDate: Date?
+    private var removalDate:    Date?
     
     public required init( energy: Int )
     {
@@ -59,14 +60,28 @@ public class Plant: SpriteNode, Food, Updatable
         {
             if peremptionDate.timeIntervalSinceNow < 0
             {
-                self.energy = -1
+                self.energy           = -1
+                self.colorBlendFactor = 0
+                self.color            = NSColor.red
                 
-                self.flash( true )
+                self.run( SKAction.colorize( withColorBlendFactor: 0.75, duration: 1 ) )
             }
         }
         else if scene.settings.plantDecay
         {
             self.peremptionDate = Date( timeIntervalSinceNow: scene.settings.plantDecayAfter + Double.random( in: 0 ... scene.settings.plantDecayAfterRange ) )
+        }
+        
+        if let removaleDate = self.removalDate
+        {
+            if removaleDate.timeIntervalSinceNow < 0
+            {
+                self.remove()
+            }
+        }
+        else if scene.settings.plantRemove
+        {
+            self.removalDate = Date( timeIntervalSinceNow: scene.settings.plantRemovedAfter + Double.random( in: 0 ... scene.settings.plantRemovedAfterRange ) )
         }
     }
 }

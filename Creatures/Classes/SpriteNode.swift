@@ -42,7 +42,7 @@ public class SpriteNode: SKSpriteNode
             
             self.run( group, withKey: SpriteNode.flashActionKey )
         }
-        else
+        else if flash == false
         {
             self.removeAction( forKey: SpriteNode.flashActionKey )
         }
