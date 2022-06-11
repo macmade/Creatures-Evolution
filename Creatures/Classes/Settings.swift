@@ -28,7 +28,7 @@ public class Settings: NSObject
 {
     @objc public dynamic var initialPlantCount           = 50
     @objc public dynamic var newPlantInterval            = 10.0
-    @objc public dynamic var newPlantAmount              = 25
+    @objc public dynamic var newPlantAmount              = 50
     @objc public dynamic var plantMaxEnergy              = 5
     @objc public dynamic var plantGrow                   = true
     @objc public dynamic var plantDecay                  = true
@@ -43,7 +43,7 @@ public class Settings: NSObject
     @objc public dynamic var reproductionEnergyCost      = 1
     @objc public dynamic var reproductionChance          = 75
     @objc public dynamic var energyDecrease              = 1
-    @objc public dynamic var energyDecreaseInterval      = 10.0
+    @objc public dynamic var energyDecreaseInterval      = 15.0
     @objc public dynamic var energyDecreaseIntervalRange = 5.0
     @objc public dynamic var mutationChance              = 10
     @objc public dynamic var combatChanceIfSmaller       = 70
