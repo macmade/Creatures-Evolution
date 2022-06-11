@@ -30,6 +30,8 @@ public class Creature: SKSpriteNode, Updatable
     private static let moveActionKey  = "Move"
     private static let flashActionKey = "Flash"
     
+    private var nextEnergyDecrease: Date?
+    
     public private( set ) var genes: [ Gene ] = [
         Herbivore(      active: true ),
         Scavenger(      active: false ),
@@ -144,7 +146,25 @@ public class Creature: SKSpriteNode, Updatable
     }
     
     public func update()
-    {}
+    {
+        guard let scene = self.scene as? Scene else
+        {
+            return
+        }
+        
+        if let nextEnergyDecrease = self.nextEnergyDecrease
+        {
+            if nextEnergyDecrease.timeIntervalSinceNow < 0
+            {
+                self.nextEnergyDecrease = nil
+                self.energy            -= 1
+            }
+        }
+        else
+        {
+            self.nextEnergyDecrease = Date( timeIntervalSinceNow: scene.settings.energyDecreaseInterval + Double.random( in: 0 ... scene.settings.energyDecreaseIntervalRange ) )
+        }
+    }
     
     public func move()
     {
