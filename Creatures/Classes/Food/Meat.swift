@@ -27,6 +27,25 @@ import SpriteKit
 
 public class Meat: SKSpriteNode, Food, Updatable
 {
+    public private( set ) var energy = 1
+    
+    public required init( energy: Int )
+    {
+        super.init( texture: SKTexture( imageNamed: "Meat" ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
+        
+        let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
+        physicsBody.affectedByGravity  = false
+        physicsBody.isDynamic          = false
+        
+        self.physicsBody = physicsBody
+        self.energy      = energy
+    }
+    
+    public required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
     public func update()
     {}
 }

@@ -27,7 +27,7 @@ import SpriteKit
 
 public class MainWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var scene = Scene()
+    @objc public private( set ) dynamic var scene: Scene?
     
     @IBOutlet private var view: SKView?
     
@@ -40,18 +40,33 @@ public class MainWindowController: NSWindowController
     {
         super.windowDidLoad()
         
-        self.view?.presentScene( scene )
+        guard let view = self.view else
+        {
+            return
+        }
         
-        self.view?.showsFPS       = true
-        self.view?.showsFields    = true
-        self.view?.showsPhysics   = false
-        self.view?.showsDrawCount = true
-        self.view?.showsNodeCount = true
-        self.view?.showsQuadCount = true
+        let scene  = Scene( size: view.bounds.size )
+        self.scene = scene
+        
+        view.presentScene( scene )
+        
+        view.showsFPS       = true
+        view.showsFields    = true
+        view.showsPhysics   = false
+        view.showsDrawCount = true
+        view.showsNodeCount = true
+        view.showsQuadCount = true
     }
     
     @IBAction public func reset( _ sender: Any? )
     {
-        self.scene.reset()
+        guard let scene = self.scene else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        scene.reset()
     }
 }

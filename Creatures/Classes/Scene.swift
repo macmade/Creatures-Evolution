@@ -27,6 +27,10 @@ import SpriteKit
 
 public class Scene: SKScene, SKPhysicsContactDelegate
 {
+    @objc public private( set ) dynamic var settings = Settings()
+    
+    private var newFoodTimer: Timer?
+    
     public override func didMove( to view: SKView )
     {
         super.didMove( to: view )
@@ -51,9 +55,35 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     
     public func reset()
     {
+        self.newFoodTimer?.invalidate()
         self.removeAllChildren()
+        
+        self.generatePlants( amount: self.settings.initialPlantCount )
+        
+        self.newFoodTimer = Timer.scheduledTimer( withTimeInterval: self.settings.newPlantInterval, repeats: true )
+        {
+            _ in self.generatePlants( amount: self.settings.newPlantAmount )
+        }
     }
     
     public func didBegin( _ contact: SKPhysicsContact )
     {}
+    
+    public func generatePlants( amount: Int )
+    {
+        for _ in 0 ..< amount
+        {
+            let plant      = Plant( energy: 1 )
+            plant.position = self.randomPoint()
+            plant.alpha    = 0
+            
+            self.addChild( plant )
+            plant.run( SKAction.fadeIn( withDuration: 1 ) )
+        }
+    }
+    
+    public func randomPoint() -> NSPoint
+    {
+        NSPoint( x: Double.random( in: 0 ..< self.frame.size.width ), y: Double.random( in: 0 ..< self.frame.size.height ) )
+    }
 }

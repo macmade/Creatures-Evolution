@@ -24,12 +24,18 @@
 
 import Cocoa
 
-public protocol Food
+public class Settings: NSObject
 {
-    var energy: Int
-    {
-        get
-    }
-    
-    init( energy: Int )
+    @objc public dynamic var initialPlantCount     = 50
+    @objc public dynamic var newPlantInterval      = 10.0
+    @objc public dynamic var newPlantAmount        = 25
+    @objc public dynamic var plantMaxEnergy        = 5
+    @objc public dynamic var plantGrow             = true
+    @objc public dynamic var plantDecay            = true
+    @objc public dynamic var plantDecayAfter       = 10.0
+    @objc public dynamic var meatDecay             = true
+    @objc public dynamic var meatDecayAfter        = 10.0
+    @objc public dynamic var initialCreatureCount  = 50
+    @objc public dynamic var initialCreatureEnergy = 1
+    @objc public dynamic var energyToReproduce     = 2
 }
