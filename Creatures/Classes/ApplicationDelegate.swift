@@ -52,4 +52,9 @@ import Cocoa
         
         self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
     }
+    
+    @IBAction public func reset( _ sender: Any? )
+    {
+        self.mainWindowController.reset( sender )
+    }
 }

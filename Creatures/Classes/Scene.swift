@@ -25,33 +25,30 @@
 import Cocoa
 import SpriteKit
 
-public class MainWindowController: NSWindowController
+public class Scene: SKScene, SKPhysicsContactDelegate
 {
-    @objc public private( set ) dynamic var scene = Scene()
-    
-    @IBOutlet private var view: SKView?
-    
-    public override var windowNibName: NSNib.Name?
+    public override func didMove( to view: SKView )
     {
-        "MainWindowController"
-    }
-    
-    public override func windowDidLoad()
-    {
-        super.windowDidLoad()
+        super.didMove( to: view )
         
-        self.view?.presentScene( scene )
+        self.backgroundColor              = NSColor.lightGray
+        self.physicsBody                  = SKPhysicsBody( edgeLoopFrom: self.frame )
+        self.isUserInteractionEnabled     = true
+        self.physicsWorld.contactDelegate = self
         
-        self.view?.showsFPS       = true
-        self.view?.showsFields    = true
-        self.view?.showsPhysics   = false
-        self.view?.showsDrawCount = true
-        self.view?.showsNodeCount = true
-        self.view?.showsQuadCount = true
+        self.reset()
     }
     
-    @IBAction public func reset( _ sender: Any? )
+    public override func update( _ currentTime: TimeInterval )
     {
-        self.scene.reset()
+        super.update( currentTime )
     }
+    
+    public func reset()
+    {
+        self.removeAllChildren()
+    }
+    
+    public func didBegin( _ contact: SKPhysicsContact )
+    {}
 }

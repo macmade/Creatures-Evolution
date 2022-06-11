@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Creatures" customModuleProvider="target">
             <connections>
+                <outlet property="view" destination="8Vj-rJ-k6w" id="hq6-EW-KPl"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Vd5-fy-HOD"/>
             </connections>
         </customObject>
@@ -22,6 +23,17 @@
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1200" height="800"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="8Vj-rJ-k6w" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="800"/>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="8Vj-rJ-k6w" secondAttribute="trailing" id="5bs-cu-pTe"/>
+                    <constraint firstAttribute="bottom" secondItem="8Vj-rJ-k6w" secondAttribute="bottom" id="UQP-Hw-OcT"/>
+                    <constraint firstItem="8Vj-rJ-k6w" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="fCA-C4-qgu"/>
+                    <constraint firstItem="8Vj-rJ-k6w" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="fha-Dq-xIX"/>
+                </constraints>
             </view>
             <point key="canvasLocation" x="139" y="144"/>
         </window>

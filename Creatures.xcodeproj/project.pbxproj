@@ -14,6 +14,7 @@
 		05252E5A2854DFE80090B385 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05252E582854DFE80090B385 /* MainWindowController.xib */; };
 		05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252E5B2854E0360090B385 /* AboutWindowController.swift */; };
 		05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05252E5D2854E0510090B385 /* AboutWindowController.xib */; };
+		05252EA02854E38B0090B385 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252E9F2854E38B0090B385 /* Scene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		05252E972854E1F20090B385 /* ccache.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ccache.sh; sourceTree = "<group>"; };
 		05252E992854E1F20090B385 /* FUNDING.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = FUNDING.yml; sourceTree = "<group>"; };
 		05252E9A2854E1F20090B385 /* Debug - zld.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - zld.xcconfig"; sourceTree = "<group>"; };
+		05252E9F2854E38B0090B385 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				05252E5B2854E0360090B385 /* AboutWindowController.swift */,
 				05252E532854DF410090B385 /* ApplicationDelegate.swift */,
 				05252E562854DFB50090B385 /* MainWindowController.swift */,
+				05252E9F2854E38B0090B385 /* Scene.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
 				05252E572854DFB50090B385 /* MainWindowController.swift in Sources */,
 				05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */,
