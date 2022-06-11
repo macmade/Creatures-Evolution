@@ -5,10 +5,11 @@
 <style type="text/css">
 	.st0{fill:none;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
 	.st1{fill:url(#SVGID_1_);stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
-	.st2{fill:url(#SVGID_00000064348547626020867920000014787614531312850359_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
-	.st3{fill:url(#SVGID_00000067954468209516605120000007540499287776353681_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
-	.st4{stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
-	.st5{fill:#FFFFFF;stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
+	.st2{fill:url(#SVGID_00000148646903685928505020000008521503389501220541_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
+	.st3{fill:url(#SVGID_00000148639508905092156930000016053638132568464316_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
+	.st4{fill:url(#SVGID_00000018210535747148789990000003556012183890878380_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
+	.st5{fill:url(#SVGID_00000026873019454436988350000001769995205743274666_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
+	.st6{fill:#FFFFFF;stroke:#231F20;stroke-width:5;stroke-miterlimit:10;}
 </style>
 <g>
 	<path class="st0" d="M74.66,10.12c4.64,6.15,10.33,15.74,12.24,28.35c0.39,2.6,0.59,5.08,0.64,7.41"/>
@@ -19,22 +20,34 @@
 	</radialGradient>
 	<circle class="st1" cx="85.26" cy="107.49" r="64"/>
 	
-		<radialGradient id="SVGID_00000087408547144072742820000018157026929340102313_" cx="123.3019" cy="67.5971" r="35.4362" gradientUnits="userSpaceOnUse">
+		<radialGradient id="SVGID_00000037692438626691003370000015864363701457241791_" cx="123.3019" cy="76.4546" r="35.4362" gradientUnits="userSpaceOnUse">
+		<stop  offset="0.4374" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</radialGradient>
+	
+		<circle style="fill:url(#SVGID_00000037692438626691003370000015864363701457241791_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;" cx="123.3" cy="76.45" r="35.44"/>
+	
+		<radialGradient id="SVGID_00000066476337017077758300000005821335043606410939_" cx="57.5839" cy="72.4546" r="35.4362" gradientUnits="userSpaceOnUse">
+		<stop  offset="0.4374" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</radialGradient>
+	
+		<circle style="fill:url(#SVGID_00000066476337017077758300000005821335043606410939_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;" cx="57.58" cy="72.45" r="35.44"/>
+	
+		<radialGradient id="SVGID_00000161594664853801925930000013611953406086099602_" cx="123.3019" cy="67.5971" r="35.4362" gradientUnits="userSpaceOnUse">
 		<stop  offset="0.4374" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#BFBFBF"/>
 	</radialGradient>
 	
-		<circle style="fill:url(#SVGID_00000087408547144072742820000018157026929340102313_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;" cx="123.3" cy="67.6" r="35.44"/>
+		<circle style="fill:url(#SVGID_00000161594664853801925930000013611953406086099602_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;" cx="123.3" cy="67.6" r="35.44"/>
 	
-		<radialGradient id="SVGID_00000070809829535587366100000004954544399147028645_" cx="57.5839" cy="63.5971" r="35.4362" gradientUnits="userSpaceOnUse">
+		<radialGradient id="SVGID_00000172412989241798853710000002390205037022222783_" cx="57.5839" cy="63.5971" r="35.4362" gradientUnits="userSpaceOnUse">
 		<stop  offset="0.4374" style="stop-color:#FFFFFF"/>
 		<stop  offset="1" style="stop-color:#BFBFBF"/>
 	</radialGradient>
 	
-		<circle style="fill:url(#SVGID_00000070809829535587366100000004954544399147028645_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;" cx="57.58" cy="63.6" r="35.44"/>
-	<circle class="st4" cx="70.67" cy="65.28" r="4.83"/>
-	<circle class="st4" cx="112.03" cy="69.85" r="4.83"/>
-	<polygon class="st5" points="79.48,109.54 96.4,109.54 87.94,127.21 79.48,144.87 71.02,127.21 62.56,109.54 	"/>
-	<polygon class="st5" points="100.52,109.54 117.44,109.54 108.98,127.21 100.52,144.87 92.06,127.21 83.6,109.54 	"/>
+		<circle style="fill:url(#SVGID_00000172412989241798853710000002390205037022222783_);stroke:#231F20;stroke-width:5;stroke-miterlimit:10;" cx="57.58" cy="63.6" r="35.44"/>
+	<polygon class="st6" points="74.18,120.73 91.1,120.73 82.64,146.11 74.18,171.49 65.72,146.11 57.26,120.73 	"/>
+	<polygon class="st6" points="95.21,120.73 112.13,120.73 103.67,146.11 95.21,171.49 86.76,146.11 78.3,120.73 	"/>
 </g>
 </svg>
