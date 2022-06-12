@@ -29,6 +29,19 @@ public class Cannibal: NSObject, Gene
 {
     public var isActive: Bool
     
+    public var canRegress: Bool
+    {
+        true
+    }
+    
+    public var deactivates: [ AnyClass ]
+    {
+        get
+        {
+            []
+        }
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active

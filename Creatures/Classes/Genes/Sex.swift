@@ -29,6 +29,19 @@ public class Sex: NSObject, Gene
 {
     public var isActive: Bool
     
+    public var canRegress: Bool
+    {
+        false
+    }
+    
+    public var deactivates: [ AnyClass ]
+    {
+        get
+        {
+            [ Mitosis.self ]
+        }
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active

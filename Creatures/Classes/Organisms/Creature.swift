@@ -102,6 +102,11 @@ public class Creature: SpriteNode, Updatable
         self.isGeneActive( Scavenger.self )
     }
     
+    public var isOmnivore: Bool
+    {
+        self.isGeneActive( Omnivore.self )
+    }
+    
     public var isCarnivore: Bool
     {
         self.isGeneActive( Carnivore.self )
@@ -335,16 +340,32 @@ public class Creature: SpriteNode, Updatable
         
         self.genes.forEach
         {
-            if $0.isKind( of: Mitosis.self )
+            gene in
+            
+            if gene.canRegress == false && gene.isActive
             {
                 return
             }
             
-            if Int.random( in: 0 ... 100 ) <= scene.settings.mutationChance
+            if Int.random( in: 0 ... 100 ) > scene.settings.mutationChance
             {
-                $0.isActive = $0.isActive == false
-                
-                print( "Mutation: \( $0.className ) = \( $0.isActive )")
+                return
+            }
+            
+            gene.isActive = gene.isActive == false
+            
+            if gene.isActive
+            {
+                gene.deactivates.forEach
+                {
+                    cls in self.genes.forEach
+                    {
+                        if $0.isKind( of: cls )
+                        {
+                            $0.isActive = false
+                        }
+                    }
+                }
             }
         }
         
@@ -360,6 +381,10 @@ public class Creature: SpriteNode, Updatable
         else if self.isCarnivore
         {
             self.texture = SKTexture( imageNamed: "Carnivore" )
+        }
+        else if self.isOmnivore
+        {
+            self.texture = SKTexture( imageNamed: "Herbivore" )
         }
         else if self.isScavenger
         {

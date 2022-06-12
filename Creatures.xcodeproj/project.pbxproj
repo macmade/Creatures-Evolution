@@ -33,6 +33,7 @@
 		05252EC32854EA590090B385 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC22854EA590090B385 /* Updatable.swift */; };
 		05252EC72854F4220090B385 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC62854F4220090B385 /* Settings.swift */; };
 		05252ECB285521B20090B385 /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECA285521B20090B385 /* SpriteNode.swift */; };
+		05252ECD28554EC70090B385 /* Omnivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECC28554EC70090B385 /* Omnivore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		05252EC22854EA590090B385 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		05252EC62854F4220090B385 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		05252ECA285521B20090B385 /* SpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteNode.swift; sourceTree = "<group>"; };
+		05252ECC28554EC70090B385 /* Omnivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Omnivore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,17 +311,18 @@
 		05252EA12854E9030090B385 /* Genes */ = {
 			isa = PBXGroup;
 			children = (
-				05252EA42854E9180090B385 /* Gene.swift */,
-				05252EAC2854E94B0090B385 /* Herbivore.swift */,
-				05252EAE2854E9540090B385 /* Scavenger.swift */,
-				05252EB02854E95D0090B385 /* Carnivore.swift */,
 				05252EB22854E9640090B385 /* Cannibal.swift */,
-				05252EB42854E9690090B385 /* Vampire.swift */,
-				05252EB62854E96F0090B385 /* Mitosis.swift */,
-				05252EB82854E9740090B385 /* Sex.swift */,
-				05252EBA2854E9830090B385 /* VampireSense.swift */,
+				05252EB02854E95D0090B385 /* Carnivore.swift */,
 				05252EBC2854E9900090B385 /* CarnivoreSense.swift */,
 				05252EBE2854E9A10090B385 /* FoodSense.swift */,
+				05252EA42854E9180090B385 /* Gene.swift */,
+				05252EAC2854E94B0090B385 /* Herbivore.swift */,
+				05252EB62854E96F0090B385 /* Mitosis.swift */,
+				05252ECC28554EC70090B385 /* Omnivore.swift */,
+				05252EAE2854E9540090B385 /* Scavenger.swift */,
+				05252EB82854E9740090B385 /* Sex.swift */,
+				05252EB42854E9690090B385 /* Vampire.swift */,
+				05252EBA2854E9830090B385 /* VampireSense.swift */,
 			);
 			path = Genes;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				05252EBF2854E9A10090B385 /* FoodSense.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
 				05252EC12854EA400090B385 /* Creature.swift in Sources */,
+				05252ECD28554EC70090B385 /* Omnivore.swift in Sources */,
 				05252EA52854E9180090B385 /* Gene.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,

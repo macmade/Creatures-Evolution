@@ -29,6 +29,19 @@ public class Carnivore: NSObject, Gene
 {
     public var isActive: Bool
     
+    public var canRegress: Bool
+    {
+        true
+    }
+    
+    public var deactivates: [ AnyClass ]
+    {
+        get
+        {
+            [ Herbivore.self, Scavenger.self, Omnivore.self, Vampire.self ]
+        }
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active

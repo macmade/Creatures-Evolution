@@ -33,6 +33,16 @@ public protocol Gene: NSObject
         set
     }
     
+    var canRegress: Bool
+    {
+        get
+    }
+    
+    var deactivates: [ AnyClass ]
+    {
+        get
+    }
+    
     init( active: Bool )
     
     func onEnergyChanged( creature: Creature )

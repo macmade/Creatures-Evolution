@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class Vampire: NSObject, Gene
+public class Omnivore: NSObject, Gene
 {
     public var isActive: Bool
     
@@ -38,7 +38,7 @@ public class Vampire: NSObject, Gene
     {
         get
         {
-            [ Herbivore.self, Scavenger.self, Omnivore.self, Carnivore.self ]
+            [ Herbivore.self, Scavenger.self, Carnivore.self, Vampire.self ]
         }
     }
     
@@ -52,6 +52,13 @@ public class Vampire: NSObject, Gene
     
     public func onCollision( creature: Creature, node: SKNode )
     {
+        if let food = node as? Food, food.isAvailable
+        {
+            food.remove()
+            
+            creature.energy += food.energy
+        }
+        
         guard let other = node as? Creature else
         {
             return
@@ -67,7 +74,7 @@ public class Vampire: NSObject, Gene
             return
         }
         
-        if other.isVampire && creature.isCannibal == false
+        if other.isOmnivore && creature.isCannibal == false
         {
             return
         }
@@ -88,8 +95,9 @@ public class Vampire: NSObject, Gene
         
         if Int.random( in: 0 ... 100 ) <= chance
         {
-            creature.energy += 1
-            other.energy    -= 1
+            creature.energy += other.energy
+            
+            other.die( dropFood: false )
         }
     }
 }

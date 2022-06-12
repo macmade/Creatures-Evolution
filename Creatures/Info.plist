@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>28</string>
 	<key>LSApplicationCategoryType</key>
-	<string>$(INFOPLIST_KEY_LSApplicationCategoryType)</string>
+	<string>public.app-category.educational-games</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSHumanReadableCopyright</key>
