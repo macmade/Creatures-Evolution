@@ -38,6 +38,7 @@
 		05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EEB28558A0B0090B385 /* NSPoint.swift */; };
 		05252F01285591E90090B385 /* MeatSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F00285591E90090B385 /* MeatSense.swift */; };
 		05252F03285592B90090B385 /* CreatureSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F02285592B90090B385 /* CreatureSense.swift */; };
+		05252F05285599DD0090B385 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F04285599DD0090B385 /* Weak.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,7 @@
 		05252EEB28558A0B0090B385 /* NSPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPoint.swift; sourceTree = "<group>"; };
 		05252F00285591E90090B385 /* MeatSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeatSense.swift; sourceTree = "<group>"; };
 		05252F02285592B90090B385 /* CreatureSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSense.swift; sourceTree = "<group>"; };
+		05252F04285599DD0090B385 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				05252ECA285521B20090B385 /* SpriteNode.swift */,
 				05252ED0285580190090B385 /* EvolutionHelper.swift */,
 				05252EEB28558A0B0090B385 /* NSPoint.swift */,
+				05252F04285599DD0090B385 /* Weak.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				05252EB92854E9740090B385 /* Sex.swift in Sources */,
 				05252E572854DFB50090B385 /* MainWindowController.swift in Sources */,
 				05252EBD2854E9900090B385 /* CarnivoreSense.swift in Sources */,
+				05252F05285599DD0090B385 /* Weak.swift in Sources */,
 				05252EB52854E9690090B385 /* Vampire.swift in Sources */,
 				05252EAB2854E9310090B385 /* Meat.swift in Sources */,
 				05252EC32854EA590090B385 /* Updatable.swift in Sources */,

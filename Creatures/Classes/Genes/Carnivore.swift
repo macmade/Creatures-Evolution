@@ -72,6 +72,11 @@ public class Carnivore: NSObject, Gene
             return
         }
         
+        if creature.isRelated( to: other ) && creature.isCannibal == false
+        {
+            return
+        }
+        
         if creature.fight( other: other )
         {
             creature.energy += other.energy

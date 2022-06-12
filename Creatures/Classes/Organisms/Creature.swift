@@ -49,6 +49,8 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
+    private var parents: [ Weak< Creature > ]?
+    
     public convenience init( energy: Int )
     {
         let genes: [ Gene ] = [
@@ -70,9 +72,15 @@ public class Creature: SpriteNode, Updatable
         self.init( energy: energy, genes: genes )
     }
     
-    public init( energy: Int, genes: [ Gene ] )
+    public convenience init( energy: Int, genes: [ Gene ] )
     {
-        self.genes = genes
+        self.init( energy: energy, genes: genes, parents: nil )
+    }
+    
+    public init( energy: Int, genes: [ Gene ], parents: [ Creature ]? )
+    {
+        self.genes   = genes
+        self.parents = parents?.map{ Weak( value: $0 ) }
         
         super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
         
@@ -161,6 +169,29 @@ public class Creature: SpriteNode, Updatable
     public func isBiggerThan( creature: Creature ) -> Bool
     {
         self.isBaby == false && creature.isBaby
+    }
+    
+    public func isChild( of creature: Creature ) -> Bool
+    {
+        for parent in self.parents ?? []
+        {
+            if parent.value == creature
+            {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    public func isParentOf( of creature: Creature ) -> Bool
+    {
+        return creature.isChild( of: self )
+    }
+    
+    public func isRelated( to creature: Creature ) -> Bool
+    {
+        return self.isChild( of: creature ) || self.isParentOf( of: creature )
     }
     
     public func isGeneActive( _ kind: AnyClass ) -> Bool

@@ -82,7 +82,7 @@ public class Mitosis: NSObject, Gene
         }
         
         let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: scene.settings )
-        let copy      = Creature( energy: 1, genes: genes )
+        let copy      = Creature( energy: 1, genes: genes, parents: [ creature ] )
         copy.position = creature.position
         
         scene.addChild( copy )
