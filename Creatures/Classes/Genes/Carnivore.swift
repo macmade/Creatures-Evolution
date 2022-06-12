@@ -79,4 +79,9 @@ public class Carnivore: NSObject, Gene
             other.die( dropFood: false )
         }
     }
+    
+    public func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
+    {
+        nil
+    }
 }

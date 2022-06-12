@@ -57,4 +57,9 @@ public class CarnivoreSense: NSObject, Gene
     
     public func onCollision( creature: Creature, node: SKNode )
     {}
+    
+    public func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
+    {
+        nil
+    }
 }

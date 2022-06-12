@@ -64,4 +64,9 @@ public class Scavenger: NSObject, Gene
             creature.energy += meat.energy
         }
     }
+    
+    public func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
+    {
+        nil
+    }
 }

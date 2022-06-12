@@ -35,6 +35,7 @@
 		05252ECB285521B20090B385 /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECA285521B20090B385 /* SpriteNode.swift */; };
 		05252ECD28554EC70090B385 /* Omnivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECC28554EC70090B385 /* Omnivore.swift */; };
 		05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ED0285580190090B385 /* EvolutionHelper.swift */; };
+		05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EEB28558A0B0090B385 /* NSPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		05252ECA285521B20090B385 /* SpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteNode.swift; sourceTree = "<group>"; };
 		05252ECC28554EC70090B385 /* Omnivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Omnivore.swift; sourceTree = "<group>"; };
 		05252ED0285580190090B385 /* EvolutionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionHelper.swift; sourceTree = "<group>"; };
+		05252EEB28558A0B0090B385 /* NSPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				05252EC22854EA590090B385 /* Updatable.swift */,
 				05252ECA285521B20090B385 /* SpriteNode.swift */,
 				05252ED0285580190090B385 /* EvolutionHelper.swift */,
+				05252EEB28558A0B0090B385 /* NSPoint.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */,
 				05252ECB285521B20090B385 /* SpriteNode.swift in Sources */,
 				05252EA72854E9210090B385 /* Food.swift in Sources */,
+				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
 			);

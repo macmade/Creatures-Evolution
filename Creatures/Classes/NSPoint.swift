@@ -22,65 +22,16 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Cocoa
-import SpriteKit
+import Foundation
 
-public class Vampire: NSObject, Gene
+extension NSPoint
 {
-    public var isActive: Bool
-    
-    public var canRegress: Bool
+    public func isClose( to other: NSPoint, maxDistance: Double ) -> Bool
     {
-        true
-    }
-    
-    public var deactivates: [ AnyClass ]
-    {
-        get
-        {
-            [ Herbivore.self, Scavenger.self, Omnivore.self, Carnivore.self ]
-        }
-    }
-    
-    public required init( active: Bool )
-    {
-        self.isActive = active
-    }
-    
-    public func copy( with zone: NSZone? = nil ) -> Any
-    {
-        Vampire( active: self.isActive )
-    }
-    
-    public func onEnergyChanged( creature: Creature )
-    {}
-    
-    public func onCollision( creature: Creature, node: SKNode )
-    {
-        guard let other = node as? Creature else
-        {
-            return
-        }
+        let x = self.x - other.x
+        let y = self.y - other.y
+        let d = x * x + y * y
         
-        if other.isBeingRemoved
-        {
-            return
-        }
-        
-        if other.isVampire && creature.isCannibal == false
-        {
-            return
-        }
-        
-        if creature.fight( other: other )
-        {
-            creature.energy += 1
-            other.energy    -= 1
-        }
-    }
-    
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
-    {
-        nil
+        return abs( d ) <= maxDistance * maxDistance
     }
 }

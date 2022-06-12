@@ -64,4 +64,9 @@ public class Herbivore: NSObject, Gene
             creature.energy += plant.energy
         }
     }
+    
+    public func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
+    {
+        nil
+    }
 }
