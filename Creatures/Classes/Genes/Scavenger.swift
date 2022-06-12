@@ -61,7 +61,7 @@ public class Scavenger: NSObject, Gene
         {
             meat.remove()
             
-            creature.energy += meat.energy
+            creature.energy += meat.energy <= 0 ? 1 : meat.energy
         }
     }
     
