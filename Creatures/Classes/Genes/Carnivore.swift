@@ -76,7 +76,7 @@ public class Carnivore: NSObject, Gene
         {
             creature.energy += other.energy
             
-            other.die( dropFood: false )
+            other.die( dropFood: true )
         }
     }
     
