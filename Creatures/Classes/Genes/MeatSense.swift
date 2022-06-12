@@ -60,7 +60,7 @@ public class MeatSense: NSObject, Gene
     
     public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
     {
-        if creature.isScavenger == false || creature.isOmnivore == false
+        if creature.isScavenger == false && creature.isOmnivore == false
         {
             return nil
         }
