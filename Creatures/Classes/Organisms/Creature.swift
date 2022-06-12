@@ -189,9 +189,25 @@ public class Creature: SpriteNode, Updatable
         return creature.isChild( of: self )
     }
     
+    public func isSibling( of creature: Creature ) -> Bool
+    {
+        for parent1 in self.parents ?? []
+        {
+            for parent2 in creature.parents ?? []
+            {
+                if parent1.value == parent2.value
+                {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
+    
     public func isRelated( to creature: Creature ) -> Bool
     {
-        return self.isChild( of: creature ) || self.isParentOf( of: creature )
+        return self.isChild( of: creature ) || self.isParentOf( of: creature ) || self.isSibling( of: creature )
     }
     
     public func isGeneActive( _ kind: AnyClass ) -> Bool
