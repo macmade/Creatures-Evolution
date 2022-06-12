@@ -54,6 +54,7 @@ public class Creature: SpriteNode, Updatable
         let genes: [ Gene ] = [
             Herbivore(      active: true ),
             Scavenger(      active: false ),
+            Omnivore(       active: false ),
             Carnivore(      active: false ),
             Cannibal(       active: false ),
             Vampire(        active: false ),
@@ -323,47 +324,6 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
-    public func mutate()
-    {
-        guard let scene = self.scene as? Scene else
-        {
-            return
-        }
-        
-        self.genes.forEach
-        {
-            gene in
-            
-            if gene.canRegress == false && gene.isActive
-            {
-                return
-            }
-            
-            if Int.random( in: 0 ... 100 ) > scene.settings.mutationChance
-            {
-                return
-            }
-            
-            gene.isActive = gene.isActive == false
-            
-            if gene.isActive
-            {
-                gene.deactivates.forEach
-                {
-                    cls in self.genes.forEach
-                    {
-                        if $0.isKind( of: cls )
-                        {
-                            $0.isActive = false
-                        }
-                    }
-                }
-            }
-        }
-        
-        self.updateTexture()
-    }
-    
     private func updateTexture()
     {
         if self.isVampire
@@ -376,7 +336,7 @@ public class Creature: SpriteNode, Updatable
         }
         else if self.isOmnivore
         {
-            self.texture = SKTexture( imageNamed: "Herbivore" )
+            self.texture = SKTexture( imageNamed: "Omnivore" )
         }
         else if self.isScavenger
         {

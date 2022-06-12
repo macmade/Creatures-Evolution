@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public protocol Gene: NSObject
+public protocol Gene: NSObject, NSCopying
 {
     var isActive: Bool
     {

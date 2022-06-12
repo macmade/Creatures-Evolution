@@ -47,6 +47,11 @@ public class Herbivore: NSObject, Gene
         self.isActive = active
     }
     
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        Herbivore( active: self.isActive )
+    }
+    
     public func onEnergyChanged( creature: Creature )
     {}
     

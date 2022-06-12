@@ -34,6 +34,7 @@
 		05252EC72854F4220090B385 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC62854F4220090B385 /* Settings.swift */; };
 		05252ECB285521B20090B385 /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECA285521B20090B385 /* SpriteNode.swift */; };
 		05252ECD28554EC70090B385 /* Omnivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECC28554EC70090B385 /* Omnivore.swift */; };
+		05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ED0285580190090B385 /* EvolutionHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		05252EC62854F4220090B385 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		05252ECA285521B20090B385 /* SpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteNode.swift; sourceTree = "<group>"; };
 		05252ECC28554EC70090B385 /* Omnivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Omnivore.swift; sourceTree = "<group>"; };
+		05252ED0285580190090B385 /* EvolutionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				05252EC62854F4220090B385 /* Settings.swift */,
 				05252EC22854EA590090B385 /* Updatable.swift */,
 				05252ECA285521B20090B385 /* SpriteNode.swift */,
+				05252ED0285580190090B385 /* EvolutionHelper.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				05252EC12854EA400090B385 /* Creature.swift in Sources */,
 				05252ECD28554EC70090B385 /* Omnivore.swift in Sources */,
 				05252EA52854E9180090B385 /* Gene.swift in Sources */,
+				05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
 				05252EB72854E96F0090B385 /* Mitosis.swift in Sources */,

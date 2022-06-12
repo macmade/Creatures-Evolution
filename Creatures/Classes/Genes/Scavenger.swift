@@ -47,6 +47,11 @@ public class Scavenger: NSObject, Gene
         self.isActive = active
     }
     
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        Scavenger( active: self.isActive )
+    }
+    
     public func onEnergyChanged( creature: Creature )
     {}
     

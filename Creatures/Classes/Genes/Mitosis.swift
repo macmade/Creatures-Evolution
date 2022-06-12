@@ -47,6 +47,11 @@ public class Mitosis: NSObject, Gene
         self.isActive = active
     }
     
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        Mitosis( active: self.isActive )
+    }
+    
     public func onEnergyChanged( creature: Creature )
     {
         guard let scene = creature.scene as? Scene else
@@ -76,11 +81,11 @@ public class Mitosis: NSObject, Gene
             creature.isBaby = true
         }
         
-        let copy      = Creature( energy: 1, genes: creature.genes )
+        let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: scene.settings )
+        let copy      = Creature( energy: 1, genes: genes )
         copy.position = creature.position
         
         scene.addChild( copy )
-        copy.mutate()
         copy.move()
     }
     

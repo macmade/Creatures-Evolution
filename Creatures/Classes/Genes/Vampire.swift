@@ -47,6 +47,11 @@ public class Vampire: NSObject, Gene
         self.isActive = active
     }
     
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        Vampire( active: self.isActive )
+    }
+    
     public func onEnergyChanged( creature: Creature )
     {}
     

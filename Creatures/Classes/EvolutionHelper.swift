@@ -25,77 +25,50 @@
 import Cocoa
 import SpriteKit
 
-public class Carnivore: NSObject, Gene
+public class EvolutionHelper
 {
-    public var isActive: Bool
-    
-    public var canRegress: Bool
-    {
-        true
-    }
-    
-    public var deactivates: [ AnyClass ]
-    {
-        get
-        {
-            [ Herbivore.self, Scavenger.self, Omnivore.self, Vampire.self ]
-        }
-    }
-    
-    public required init( active: Bool )
-    {
-        self.isActive = active
-    }
-    
-    public func copy( with zone: NSZone? = nil ) -> Any
-    {
-        Carnivore( active: self.isActive )
-    }
-    
-    public func onEnergyChanged( creature: Creature )
+    private init()
     {}
     
-    public func onCollision( creature: Creature, node: SKNode )
+    public static func mutate( genes: [ Gene ], settings: Settings ) -> [ Gene ]
     {
-        guard let other = node as? Creature else
-        {
-            return
-        }
+        let copy = genes.compactMap { $0.copy() as? Gene }
         
-        if other.isBeingRemoved
+        copy.forEach
         {
-            return
-        }
-        
-        guard let scene = creature.scene as? Scene else
-        {
-            return
-        }
-        
-        if other.isCarnivore && creature.isCannibal == false
-        {
-            return
-        }
-        
-        let chance: Int =
-        {
-            if creature.isSmallerThan( creature: other )
+            gene in
+            
+            if gene.canRegress == false && gene.isActive
             {
-                return scene.settings.combatChanceIfSmaller
-            }
-            else if creature.isBiggerThan( creature: other )
-            {
-                return scene.settings.combatChanceIfBigger
+                return
             }
             
-            return scene.settings.combatChanceIfSameSize
-        }()
-        
-        if Int.random( in: 0 ... 100 ) <= chance
-        {
-            creature.energy += other.energy
+            if Int.random( in: 0 ... 100 ) > settings.mutationChance
+            {
+                return
+            }
             
-            other.die( dropFood: false )
+            gene.isActive = gene.isActive == false
+            
+            print( "Mutation: \( gene.className ) = \( gene.isActive )" )
+            
+            if gene.isActive
+            {
+                gene.deactivates.forEach
+                {
+                    cls in copy.forEach
+                    {
+                        if $0.isKind( of: cls )
+                        {
+                            $0.isActive = false
+                            
+                            print( "Deactivating: \( $0.className )" )
+                        }
+                    }
+                }
+            }
         }
+        
+        return copy
     }
 }

@@ -47,6 +47,11 @@ public class FoodSense: NSObject, Gene
         self.isActive = active
     }
     
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        FoodSense( active: self.isActive )
+    }
+    
     public func onEnergyChanged( creature: Creature )
     {}
     
