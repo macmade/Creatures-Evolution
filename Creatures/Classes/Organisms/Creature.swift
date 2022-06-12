@@ -302,6 +302,30 @@ public class Creature: SpriteNode, Updatable
         self.remove()
     }
     
+    public func fight( other: Creature ) -> Bool
+    {
+        guard let scene = self.scene as? Scene else
+        {
+            return false
+        }
+        
+        let chance: Int =
+        {
+            if self.isSmallerThan( creature: other )
+            {
+                return scene.settings.combatChanceIfSmaller
+            }
+            else if self.isBiggerThan( creature: other )
+            {
+                return scene.settings.combatChanceIfBigger
+            }
+            
+            return scene.settings.combatChanceIfSameSize
+        }()
+        
+        return Int.random( in: 0 ... 100 ) <= chance
+    }
+    
     private func grow( _ grow: Bool )
     {
         if grow && self.isBaby == false

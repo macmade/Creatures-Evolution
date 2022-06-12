@@ -74,31 +74,12 @@ public class Omnivore: NSObject, Gene
             return
         }
         
-        guard let scene = creature.scene as? Scene else
-        {
-            return
-        }
-        
         if other.isOmnivore && creature.isCannibal == false
         {
             return
         }
         
-        let chance: Int =
-        {
-            if creature.isSmallerThan( creature: other )
-            {
-                return scene.settings.combatChanceIfSmaller
-            }
-            else if creature.isBiggerThan( creature: other )
-            {
-                return scene.settings.combatChanceIfBigger
-            }
-            
-            return scene.settings.combatChanceIfSameSize
-        }()
-        
-        if Int.random( in: 0 ... 100 ) <= chance
+        if creature.fight( other: other )
         {
             creature.energy += other.energy
             
