@@ -74,7 +74,7 @@ public class Creature: SpriteNode, Updatable
     {
         self.genes = genes
         
-        super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 15, height: 15 ) )
+        super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
@@ -401,11 +401,11 @@ public class Creature: SpriteNode, Updatable
         
         if grow
         {
-            self.run( SKAction.scale( to: NSSize( width: 30, height: 30 ), duration: 1 ) )
+            self.run( SKAction.scale( to: NSSize( width: 40, height: 40 ), duration: 1 ) )
         }
         else
         {
-            self.run( SKAction.scale( to: NSSize( width: 15, height: 15 ), duration: 0.5 ) )
+            self.run( SKAction.scale( to: NSSize( width: 20, height: 20 ), duration: 0.5 ) )
         }
     }
     
