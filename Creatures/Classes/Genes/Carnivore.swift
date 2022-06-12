@@ -80,7 +80,7 @@ public class Carnivore: NSObject, Gene
         }
     }
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
     {
         nil
     }

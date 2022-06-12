@@ -34,4 +34,13 @@ extension NSPoint
         
         return abs( d ) <= maxDistance * maxDistance
     }
+    
+    public func distance( with other: NSPoint ) -> Double
+    {
+        let x = self.x - other.x
+        let y = self.y - other.y
+        let d = x * x + y * y
+        
+        return sqrt( abs( d ) )
+    }
 }

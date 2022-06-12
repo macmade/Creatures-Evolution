@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class FoodSense: NSObject, Gene
+public class CreatureSense: NSObject, Gene
 {
     public var isActive: Bool
     
@@ -49,7 +49,7 @@ public class FoodSense: NSObject, Gene
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        FoodSense( active: self.isActive )
+        CreatureSense( active: self.isActive )
     }
     
     public func onEnergyChanged( creature: Creature )
@@ -58,7 +58,7 @@ public class FoodSense: NSObject, Gene
     public func onCollision( creature: Creature, node: SKNode )
     {}
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
     {
         nil
     }

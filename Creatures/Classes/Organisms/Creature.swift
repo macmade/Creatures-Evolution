@@ -62,7 +62,9 @@ public class Creature: SpriteNode, Updatable
             Sex(            active: false ),
             VampireSense(   active: false ),
             CarnivoreSense( active: false ),
-            FoodSense(      active: false ),
+            PlantSense(     active: false ),
+            MeatSense(      active: false ),
+            CreatureSense(  active: false ),
         ]
         
         self.init( energy: energy, genes: genes )
@@ -131,9 +133,14 @@ public class Creature: SpriteNode, Updatable
         self.isGeneActive( Sex.self )
     }
     
-    public var canDetectFood: Bool
+    public var canDetectPlant: Bool
     {
-        self.isGeneActive( FoodSense.self )
+        self.isGeneActive( PlantSense.self )
+    }
+    
+    public var canDetectMeat: Bool
+    {
+        self.isGeneActive( MeatSense.self )
     }
     
     public var canDetectCarnivore: Bool
@@ -202,11 +209,40 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        var destination = self.chooseDestination()
+        var geneDestination: ( destination: NSPoint, priority: DestinationPriority )?
         
-        while scene.frame.contains( destination.point ) == false
+        self.genes.forEach
+        {
+            guard $0.isActive else
+            {
+                return
+            }
+            
+            guard let d = $0.chooseDestination( creature: self ) else
+            {
+                return
+            }
+            
+            if geneDestination == nil || d.priority == DestinationPriority.high
+            {
+                geneDestination = d
+            }
+        }
+        
+        var destination: ( point: NSPoint, distance: Double )!
+        
+        if let d = geneDestination
+        {
+            destination = ( point: d.destination, distance: d.destination.distance( with: self.position ) )
+        }
+        else
         {
             destination = self.chooseDestination()
+            
+            while scene.frame.contains( destination.point ) == false
+            {
+                destination = self.chooseDestination()
+            }
         }
         
         let moveX      = SKAction.moveTo( x: destination.point.x, duration: 0.025 * Double( destination.distance ) )
@@ -220,7 +256,7 @@ public class Creature: SpriteNode, Updatable
         self.run( SKAction.sequence( [ move, completion ] ), withKey: Creature.moveActionKey )
     }
     
-    public func chooseDestination() -> ( point: NSPoint, distance: Int )
+    public func chooseDestination() -> ( point: NSPoint, distance: Double )
     {
         let distance  = Int.random( in: 10 ... 100 )
         let distanceX = distance - Int.random( in: 0 ... distance )
@@ -228,7 +264,7 @@ public class Creature: SpriteNode, Updatable
         let positionX = self.position.x + Double( Bool.random() ? distanceX : -distanceX )
         let positionY = self.position.y + Double( Bool.random() ? distanceY : -distanceY )
         
-        return ( point: NSPoint( x: positionX, y: positionY ), distance: distance )
+        return ( point: NSPoint( x: positionX, y: positionY ), distance: Double( distance ) )
     }
     
     public func collide( with node: SKNode )

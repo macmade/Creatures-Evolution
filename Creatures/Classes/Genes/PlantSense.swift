@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class Vampire: NSObject, Gene
+public class PlantSense: NSObject, Gene
 {
     public var isActive: Bool
     
@@ -38,7 +38,7 @@ public class Vampire: NSObject, Gene
     {
         get
         {
-            [ Herbivore.self, Scavenger.self, Omnivore.self, Carnivore.self ]
+            []
         }
     }
     
@@ -49,38 +49,40 @@ public class Vampire: NSObject, Gene
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        Vampire( active: self.isActive )
+        PlantSense( active: self.isActive )
     }
     
     public func onEnergyChanged( creature: Creature )
     {}
     
     public func onCollision( creature: Creature, node: SKNode )
-    {
-        guard let other = node as? Creature else
-        {
-            return
-        }
-        
-        if other.isBeingRemoved
-        {
-            return
-        }
-        
-        if other.isVampire && creature.isCannibal == false
-        {
-            return
-        }
-        
-        if creature.fight( other: other )
-        {
-            creature.energy += 1
-            other.energy    -= 1
-        }
-    }
+    {}
     
     public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
     {
-        nil
+        if creature.isHerbivore == false || creature.isOmnivore == false
+        {
+            return nil
+        }
+        
+        guard let scene = creature.scene as? Scene else
+        {
+            return nil
+        }
+        
+        for child in scene.children
+        {
+            guard let plant = child as? Food else
+            {
+                continue
+            }
+            
+            if creature.position.isClose( to: plant.position, maxDistance: 100 )
+            {
+                return ( destination: plant.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
+            }
+        }
+        
+        return nil
     }
 }

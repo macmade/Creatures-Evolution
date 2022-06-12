@@ -54,5 +54,5 @@ public protocol Gene: NSObject, NSCopying
     
     func onEnergyChanged( creature: Creature )
     func onCollision( creature: Creature, node: SKNode )
-    func chooseDestination( creature: Creature ) -> ( destination: NSPopover, priority: DestinationPriority )?
+    func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
 }

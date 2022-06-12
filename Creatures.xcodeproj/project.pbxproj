@@ -28,7 +28,7 @@
 		05252EB92854E9740090B385 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB82854E9740090B385 /* Sex.swift */; };
 		05252EBB2854E9830090B385 /* VampireSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBA2854E9830090B385 /* VampireSense.swift */; };
 		05252EBD2854E9900090B385 /* CarnivoreSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBC2854E9900090B385 /* CarnivoreSense.swift */; };
-		05252EBF2854E9A10090B385 /* FoodSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBE2854E9A10090B385 /* FoodSense.swift */; };
+		05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBE2854E9A10090B385 /* PlantSense.swift */; };
 		05252EC12854EA400090B385 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC02854EA400090B385 /* Creature.swift */; };
 		05252EC32854EA590090B385 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC22854EA590090B385 /* Updatable.swift */; };
 		05252EC72854F4220090B385 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC62854F4220090B385 /* Settings.swift */; };
@@ -36,6 +36,8 @@
 		05252ECD28554EC70090B385 /* Omnivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECC28554EC70090B385 /* Omnivore.swift */; };
 		05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ED0285580190090B385 /* EvolutionHelper.swift */; };
 		05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EEB28558A0B0090B385 /* NSPoint.swift */; };
+		05252F01285591E90090B385 /* MeatSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F00285591E90090B385 /* MeatSense.swift */; };
+		05252F03285592B90090B385 /* CreatureSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F02285592B90090B385 /* CreatureSense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,7 +111,7 @@
 		05252EB82854E9740090B385 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		05252EBA2854E9830090B385 /* VampireSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireSense.swift; sourceTree = "<group>"; };
 		05252EBC2854E9900090B385 /* CarnivoreSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarnivoreSense.swift; sourceTree = "<group>"; };
-		05252EBE2854E9A10090B385 /* FoodSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSense.swift; sourceTree = "<group>"; };
+		05252EBE2854E9A10090B385 /* PlantSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSense.swift; sourceTree = "<group>"; };
 		05252EC02854EA400090B385 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		05252EC22854EA590090B385 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		05252EC62854F4220090B385 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -117,6 +119,8 @@
 		05252ECC28554EC70090B385 /* Omnivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Omnivore.swift; sourceTree = "<group>"; };
 		05252ED0285580190090B385 /* EvolutionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionHelper.swift; sourceTree = "<group>"; };
 		05252EEB28558A0B0090B385 /* NSPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPoint.swift; sourceTree = "<group>"; };
+		05252F00285591E90090B385 /* MeatSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeatSense.swift; sourceTree = "<group>"; };
+		05252F02285592B90090B385 /* CreatureSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureSense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,7 +324,8 @@
 				05252EB22854E9640090B385 /* Cannibal.swift */,
 				05252EB02854E95D0090B385 /* Carnivore.swift */,
 				05252EBC2854E9900090B385 /* CarnivoreSense.swift */,
-				05252EBE2854E9A10090B385 /* FoodSense.swift */,
+				05252EBE2854E9A10090B385 /* PlantSense.swift */,
+				05252F00285591E90090B385 /* MeatSense.swift */,
 				05252EA42854E9180090B385 /* Gene.swift */,
 				05252EAC2854E94B0090B385 /* Herbivore.swift */,
 				05252EB62854E96F0090B385 /* Mitosis.swift */,
@@ -329,6 +334,7 @@
 				05252EB82854E9740090B385 /* Sex.swift */,
 				05252EB42854E9690090B385 /* Vampire.swift */,
 				05252EBA2854E9830090B385 /* VampireSense.swift */,
+				05252F02285592B90090B385 /* CreatureSense.swift */,
 			);
 			path = Genes;
 			sourceTree = "<group>";
@@ -444,7 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05252EBF2854E9A10090B385 /* FoodSense.swift in Sources */,
+				05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
 				05252EC12854EA400090B385 /* Creature.swift in Sources */,
 				05252ECD28554EC70090B385 /* Omnivore.swift in Sources */,
@@ -453,6 +459,7 @@
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
 				05252EB72854E96F0090B385 /* Mitosis.swift in Sources */,
+				05252F03285592B90090B385 /* CreatureSense.swift in Sources */,
 				05252EB92854E9740090B385 /* Sex.swift in Sources */,
 				05252E572854DFB50090B385 /* MainWindowController.swift in Sources */,
 				05252EBD2854E9900090B385 /* CarnivoreSense.swift in Sources */,
@@ -469,6 +476,7 @@
 				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
+				05252F01285591E90090B385 /* MeatSense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
