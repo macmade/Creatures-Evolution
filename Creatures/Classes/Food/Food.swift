@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public protocol Food: SKSpriteNode
+public protocol Food: SpriteNode
 {
     var energy: Int
     {
@@ -33,27 +33,5 @@ public protocol Food: SKSpriteNode
         set
     }
     
-    var isAvailable: Bool
-    {
-        get
-        set
-    }
-    
     init( energy: Int )
-    
-    func remove()
-}
-
-extension Food
-{
-    public func remove()
-    {
-        self.isAvailable = false
-        self.physicsBody = nil
-        
-        self.run( SKAction.fadeOut( withDuration: 0.5 ) )
-        {
-            self.removeFromParent()
-        }
-    }
 }

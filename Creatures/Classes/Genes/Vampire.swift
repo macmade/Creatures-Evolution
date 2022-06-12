@@ -57,7 +57,7 @@ public class Vampire: NSObject, Gene
             return
         }
         
-        if other.isDead
+        if other.isBeingRemoved
         {
             return
         }

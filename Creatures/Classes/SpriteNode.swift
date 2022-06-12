@@ -29,6 +29,8 @@ public class SpriteNode: SKSpriteNode
 {
     private static let flashActionKey = "Flash"
     
+    public private( set ) var isBeingRemoved = false
+    
     public func flash( _ flash: Bool )
     {
         self.alpha = 1
@@ -45,6 +47,17 @@ public class SpriteNode: SKSpriteNode
         else if flash == false
         {
             self.removeAction( forKey: SpriteNode.flashActionKey )
+        }
+    }
+    
+    public func remove()
+    {
+        self.isBeingRemoved = true
+        self.physicsBody    = nil
+        
+        self.run( SKAction.fadeOut( withDuration: 0.5 ) )
+        {
+            self.removeFromParent()
         }
     }
 }

@@ -57,7 +57,7 @@ public class Carnivore: NSObject, Gene
             return
         }
         
-        if other.isDead
+        if other.isBeingRemoved
         {
             return
         }

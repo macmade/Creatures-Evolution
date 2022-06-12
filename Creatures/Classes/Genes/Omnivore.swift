@@ -52,7 +52,7 @@ public class Omnivore: NSObject, Gene
     
     public func onCollision( creature: Creature, node: SKNode )
     {
-        if let food = node as? Food, food.isAvailable
+        if let food = node as? Food, food.isBeingRemoved == false
         {
             food.remove()
             
@@ -64,7 +64,7 @@ public class Omnivore: NSObject, Gene
             return
         }
         
-        if other.isDead
+        if other.isBeingRemoved
         {
             return
         }

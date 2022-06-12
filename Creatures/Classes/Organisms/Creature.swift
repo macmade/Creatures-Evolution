@@ -33,8 +33,6 @@ public class Creature: SpriteNode, Updatable
     
     public private( set ) var genes: [ Gene ]
     
-    public private( set ) var isDead = false
-    
     public var energy = 1
     {
         didSet
@@ -237,12 +235,12 @@ public class Creature: SpriteNode, Updatable
             }
         }
         
-        if let food = node as? Food, food.isAvailable == false
+        if let food = node as? Food, food.isBeingRemoved
         {
             return
         }
         
-        if let creature = node as? Creature, creature.isDead
+        if let creature = node as? Creature, creature.isBeingRemoved
         {
             return
         }
@@ -288,9 +286,6 @@ public class Creature: SpriteNode, Updatable
     
     public func die( dropFood: Bool )
     {
-        self.isDead      = true
-        self.physicsBody = nil
-        
         self.removeAction( forKey: Creature.moveActionKey )
         
         if dropFood
@@ -303,10 +298,7 @@ public class Creature: SpriteNode, Updatable
             meat.run( SKAction.fadeIn( withDuration: 1 ) )
         }
         
-        self.run( SKAction.fadeOut( withDuration: 0.5 ) )
-        {
-            self.scene?.removeChildren( in: [ self ] )
-        }
+        self.remove()
     }
     
     private func grow( _ grow: Bool )
