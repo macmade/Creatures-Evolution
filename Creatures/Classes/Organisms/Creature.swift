@@ -171,6 +171,11 @@ public class Creature: SpriteNode, Updatable
     
     public func update()
     {
+        if self.isBeingRemoved
+        {
+            return
+        }
+        
         guard let scene = self.scene as? Scene else
         {
             return
@@ -228,6 +233,11 @@ public class Creature: SpriteNode, Updatable
     
     public func collide( with node: SKNode )
     {
+        if self.isBeingRemoved
+        {
+            return
+        }
+        
         for gene in self.genes
         {
             if gene.isActive
@@ -252,6 +262,11 @@ public class Creature: SpriteNode, Updatable
     
     private func energyChanged()
     {
+        if self.isBeingRemoved
+        {
+            return
+        }
+        
         for gene in self.genes
         {
             if gene.isActive
@@ -304,6 +319,11 @@ public class Creature: SpriteNode, Updatable
     
     public func fight( other: Creature ) -> Bool
     {
+        if self.isBeingRemoved
+        {
+            return false
+        }
+        
         guard let scene = self.scene as? Scene else
         {
             return false
@@ -328,6 +348,11 @@ public class Creature: SpriteNode, Updatable
     
     private func grow( _ grow: Bool )
     {
+        if self.isBeingRemoved
+        {
+            return
+        }
+        
         if grow && self.isBaby == false
         {
             return

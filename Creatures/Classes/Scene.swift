@@ -69,13 +69,30 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     
     public func didBegin( _ contact: SKPhysicsContact )
     {
-        if let creature = contact.bodyA.node as? Creature, let other = contact.bodyB.node
+        if let creature1 = contact.bodyA.node as? Creature, let creature2 = contact.bodyB.node as? Creature
         {
-            creature.collide( with: other )
+            if Bool.random()
+            {
+                creature1.collide( with: creature2 )
+                creature2.collide( with: creature1 )
+            }
+            else
+            {
+                creature2.collide( with: creature1 )
+                creature1.collide( with: creature2 )
+            }
         }
-        else if let creature = contact.bodyB.node as? Creature, let other = contact.bodyA.node
+        else
         {
-            creature.collide( with: other )
+            if let creature = contact.bodyA.node as? Creature, let other = contact.bodyB.node
+            {
+                creature.collide( with: other )
+            }
+            
+            if let creature = contact.bodyB.node as? Creature, let other = contact.bodyA.node
+            {
+                creature.collide( with: other )
+            }
         }
     }
     
