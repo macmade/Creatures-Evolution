@@ -87,8 +87,7 @@ public class Creature: SpriteNode, Updatable
         physicsBody.affectedByGravity  = false
         physicsBody.isDynamic          = true
         physicsBody.categoryBitMask    = Constants.organismPhysicsCategory
-        physicsBody.contactTestBitMask = Constants.organismPhysicsCategory | Constants.foodPhysicsCategory
-        physicsBody.collisionBitMask   = Constants.organismPhysicsCategory
+        physicsBody.contactTestBitMask = physicsBody.collisionBitMask
         physicsBody.restitution        = 0.5
         
         self.physicsBody = physicsBody
