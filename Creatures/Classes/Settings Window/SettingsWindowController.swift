@@ -27,7 +27,8 @@ import SpriteKit
 
 public class SettingsWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var settings = Settings()
+    @objc public dynamic var showCancelButton = true
+    @objc public dynamic var settings         = Settings()
     
     @objc private dynamic var items: [ SettingsItem ]
     

@@ -42,7 +42,8 @@ public class MainWindowController: NSWindowController
     
     @IBAction func show( _ sender: Any? )
     {
-        let settings = SettingsWindowController()
+        let settings              = SettingsWindowController()
+        settings.showCancelButton = self.scene != nil
         
         guard let window = self.window, let contentView = window.contentView, let settingsWindow = settings.window else
         {
