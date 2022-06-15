@@ -42,6 +42,8 @@ public class Mitosis: NSObject, Gene
         }
     }
     
+    private var lastUsed: Date?
+    
     public required init( active: Bool )
     {
         self.isActive = active
@@ -74,10 +76,17 @@ public class Mitosis: NSObject, Gene
             return
         }
         
+        if let lastUsed = self.lastUsed, lastUsed.timeIntervalSinceNow < scene.settings.mitosis.recoveryTime
+        {
+            return
+        }
+        
         if Double.random( in: 0 ... 100 ) > scene.settings.mitosis.chance
         {
             return
         }
+        
+        self.lastUsed = Date()
         
         creature.energy -= scene.settings.mitosis.energyCost
         

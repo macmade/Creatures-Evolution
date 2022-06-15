@@ -44,6 +44,8 @@ public class Sex: NSObject, Gene
         }
     }
     
+    private var lastUsed: Date?
+    
     public required init( active: Bool )
     {
         self.isActive = active
@@ -99,10 +101,17 @@ public class Sex: NSObject, Gene
             return
         }
         
+        if let lastUsed = self.lastUsed, lastUsed.timeIntervalSinceNow < scene.settings.mitosis.recoveryTime
+        {
+            return
+        }
+        
         if Double.random( in: 0 ... 100 ) > scene.settings.sex.chance
         {
             return
         }
+        
+        self.lastUsed = Date()
         
         if sex1.isMale && sex2.isFemale || sex1.isFemale && sex2.isMale
         {
