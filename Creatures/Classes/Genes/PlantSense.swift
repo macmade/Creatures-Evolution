@@ -70,7 +70,7 @@ public class PlantSense: NSObject, Gene
             return nil
         }
         
-        for child in scene.children
+        for child in scene.children.shuffled()
         {
             guard let plant = child as? Food else
             {

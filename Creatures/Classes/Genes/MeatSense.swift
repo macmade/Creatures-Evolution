@@ -70,7 +70,7 @@ public class MeatSense: NSObject, Gene
             return nil
         }
         
-        for child in scene.children
+        for child in scene.children.shuffled()
         {
             guard let meat = child as? Meat else
             {
