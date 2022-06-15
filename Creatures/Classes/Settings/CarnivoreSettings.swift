@@ -29,5 +29,5 @@ public class CarnivoreSettings: NSObject, Codable
     @objc public dynamic var isEnabled   = true
     @objc public dynamic var isActive    = false
     @objc public dynamic var canRegress  = false
-    @objc public dynamic var deactivates = [ "Herbivore", "Scavenger", "Omnivore", "Vampire" ]
+    @objc public dynamic var deactivates = [ "Herbivore", "Scavenger", "Vampire" ]
 }

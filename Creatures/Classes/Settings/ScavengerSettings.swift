@@ -29,5 +29,5 @@ public class ScavengerSettings: NSObject, Codable
     @objc public dynamic var isEnabled    = true
     @objc public dynamic var isActive     = false
     @objc public dynamic var canRegress   = false
-    @objc public dynamic var deactivates  = [ "Herbivore", "Omnivore", "Carnivore", "Vampire" ]
+    @objc public dynamic var deactivates  = [ "Herbivore", "Carnivore", "Vampire" ]
 }

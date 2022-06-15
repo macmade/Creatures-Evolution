@@ -38,7 +38,7 @@ public class Vampire: NSObject, Gene
     {
         get
         {
-            [ Herbivore.self, Scavenger.self, Omnivore.self, Carnivore.self ]
+            [ Herbivore.self, Scavenger.self, Carnivore.self ]
         }
     }
     

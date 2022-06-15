@@ -38,7 +38,7 @@ public class Scavenger: NSObject, Gene
     {
         get
         {
-            [ Herbivore.self, Omnivore.self, Carnivore.self, Vampire.self ]
+            [ Herbivore.self, Carnivore.self, Vampire.self ]
         }
     }
     

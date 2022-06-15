@@ -60,7 +60,7 @@ public class PlantSense: NSObject, Gene
     
     public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
     {
-        if creature.hasActiveGene( Herbivore.self ) == false && creature.hasActiveGene( Omnivore.self ) == false
+        if creature.hasActiveGene( Herbivore.self ) == false
         {
             return nil
         }

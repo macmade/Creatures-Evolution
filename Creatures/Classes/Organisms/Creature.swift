@@ -58,7 +58,6 @@ public class Creature: SpriteNode, Updatable
             Sex(            active: false ),
             Herbivore(      active: true ),
             Scavenger(      active: false ),
-            Omnivore(       active: false ),
             Carnivore(      active: false ),
             Vampire(        active: false ),
             Cannibal(       active: false ),
@@ -411,10 +410,6 @@ public class Creature: SpriteNode, Updatable
         else if self.hasActiveGene( Carnivore.self )
         {
             self.texture = SKTexture( imageNamed: "Carnivore" )
-        }
-        else if self.hasActiveGene( Omnivore.self )
-        {
-            self.texture = SKTexture( imageNamed: "Omnivore" )
         }
         else if self.hasActiveGene( Scavenger.self )
         {
