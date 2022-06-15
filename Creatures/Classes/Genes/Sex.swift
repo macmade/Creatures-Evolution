@@ -101,7 +101,7 @@ public class Sex: NSObject, Gene
             return
         }
         
-        if let lastUsed = self.lastUsed, lastUsed.timeIntervalSinceNow < scene.settings.mitosis.recoveryTime
+        if let lastUsed = self.lastUsed, Date().timeIntervalSince( lastUsed ) < scene.settings.sex.recoveryTime
         {
             return
         }

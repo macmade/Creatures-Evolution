@@ -55,7 +55,7 @@ public class Creature: SpriteNode, Updatable
     {
         let genes: [ Gene ] = [
             Mitosis(        active: true ),
-            Sex(            active: false ),
+           // Sex(            active: false ),
             Herbivore(      active: true ),
             Scavenger(      active: false ),
             Carnivore(      active: false ),
