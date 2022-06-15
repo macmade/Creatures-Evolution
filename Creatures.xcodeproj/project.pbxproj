@@ -240,6 +240,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05102084285A8C9600F11184 /* Settings Window */ = {
+			isa = PBXGroup;
+			children = (
+				05102079285A85F500F11184 /* CannibalSettingsViewController.swift */,
+				05102059285A192800F11184 /* CarnivoreSenseSettingsViewController.swift */,
+				05102062285A192800F11184 /* CarnivoreSettingsViewController.swift */,
+				0510207E285A88F800F11184 /* CreatureSenseSettingsViewController.swift */,
+				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
+				05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */,
+				0510205E285A192800F11184 /* MeatSenseSettingsViewController.swift */,
+				05252F6F285819A60090B385 /* MeatSettingsViewController.swift */,
+				05252F512857FBEC0090B385 /* MitosisSettingsViewController.swift */,
+				0510205F285A192800F11184 /* PlantSenseSettingsViewController.swift */,
+				05252F6D285819A60090B385 /* PlantsSettingsViewController.swift */,
+				0510205D285A192800F11184 /* ScavengerSettingsViewController.swift */,
+				05252F0D2855EAE80090B385 /* SettingsItem.swift */,
+				05252F5C2857FF3C0090B385 /* SettingsViewController.swift */,
+				05252F0B2855E2100090B385 /* SettingsWindowController.swift */,
+				05102065285A192800F11184 /* SexSenseSettingsViewController.swift */,
+				05252F63285815D40090B385 /* SexSettingsViewController.swift */,
+				05102068285A192800F11184 /* VampireSenseSettingsViewController.swift */,
+				05102038285A165900F11184 /* VampireSettingsViewController.swift */,
+			);
+			path = "Settings Window";
+			sourceTree = "<group>";
+		};
 		05252E362854DEF70090B385 = {
 			isa = PBXGroup;
 			children = (
@@ -283,18 +309,19 @@
 		05252E522854DF410090B385 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				05252F7528582D030090B385 /* Extensions */,
-				05252F0A2855E1FC0090B385 /* Settings */,
-				05252EA32854E90D0090B385 /* Organisms */,
-				05252EA22854E9090090B385 /* Food */,
-				05252EA12854E9030090B385 /* Genes */,
 				05252E5B2854E0360090B385 /* AboutWindowController.swift */,
 				05252E532854DF410090B385 /* ApplicationDelegate.swift */,
-				05252E562854DFB50090B385 /* MainWindowController.swift */,
-				05252E9F2854E38B0090B385 /* Scene.swift */,
-				05252EC22854EA590090B385 /* Updatable.swift */,
-				05252ECA285521B20090B385 /* SpriteNode.swift */,
 				05252ED0285580190090B385 /* EvolutionHelper.swift */,
+				05252F7528582D030090B385 /* Extensions */,
+				05252EA22854E9090090B385 /* Food */,
+				05252EA12854E9030090B385 /* Genes */,
+				05252E562854DFB50090B385 /* MainWindowController.swift */,
+				05252EA32854E90D0090B385 /* Organisms */,
+				05252E9F2854E38B0090B385 /* Scene.swift */,
+				05252F0A2855E1FC0090B385 /* Settings */,
+				05102084285A8C9600F11184 /* Settings Window */,
+				05252ECA285521B20090B385 /* SpriteNode.swift */,
+				05252EC22854EA590090B385 /* Updatable.swift */,
 				05252F04285599DD0090B385 /* Weak.swift */,
 			);
 			path = Classes;
@@ -492,41 +519,22 @@
 			isa = PBXGroup;
 			children = (
 				0510207A285A85F500F11184 /* CannibalSettings.swift */,
-				05102079285A85F500F11184 /* CannibalSettingsViewController.swift */,
 				05102060285A192800F11184 /* CarnivoreSenseSettings.swift */,
-				05102059285A192800F11184 /* CarnivoreSenseSettingsViewController.swift */,
 				0510205B285A192800F11184 /* CarnivoreSettings.swift */,
-				05102062285A192800F11184 /* CarnivoreSettingsViewController.swift */,
 				0510207D285A88F800F11184 /* CreatureSenseSettings.swift */,
-				0510207E285A88F800F11184 /* CreatureSenseSettingsViewController.swift */,
 				05252F7A285837AD0090B385 /* CreaturesSettings.swift */,
-				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
 				05102061285A192800F11184 /* HerbivoreSettings.swift */,
-				05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */,
 				0510205A285A192800F11184 /* MeatSenseSettings.swift */,
-				0510205E285A192800F11184 /* MeatSenseSettingsViewController.swift */,
 				05252F70285819A60090B385 /* MeatSettings.swift */,
-				05252F6F285819A60090B385 /* MeatSettingsViewController.swift */,
 				05252F5E2858011B0090B385 /* MitosisSettings.swift */,
-				05252F512857FBEC0090B385 /* MitosisSettingsViewController.swift */,
 				0510205C285A192800F11184 /* PlantSenseSettings.swift */,
-				0510205F285A192800F11184 /* PlantSenseSettingsViewController.swift */,
 				05252F6E285819A60090B385 /* PlantsSettings.swift */,
-				05252F6D285819A60090B385 /* PlantsSettingsViewController.swift */,
 				05102064285A192800F11184 /* ScavengerSettings.swift */,
-				0510205D285A192800F11184 /* ScavengerSettingsViewController.swift */,
 				05252EC62854F4220090B385 /* Settings.swift */,
-				05252F0D2855EAE80090B385 /* SettingsItem.swift */,
-				05252F5C2857FF3C0090B385 /* SettingsViewController.swift */,
-				05252F0B2855E2100090B385 /* SettingsWindowController.swift */,
 				05102066285A192800F11184 /* SexSenseSettings.swift */,
-				05102065285A192800F11184 /* SexSenseSettingsViewController.swift */,
 				05252F65285815E30090B385 /* SexSettings.swift */,
-				05252F63285815D40090B385 /* SexSettingsViewController.swift */,
 				05102067285A192800F11184 /* VampireSenseSettings.swift */,
-				05102068285A192800F11184 /* VampireSenseSettingsViewController.swift */,
 				05102037285A165900F11184 /* VampireSettings.swift */,
-				05102038285A165900F11184 /* VampireSettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
