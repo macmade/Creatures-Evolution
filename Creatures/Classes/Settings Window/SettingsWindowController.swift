@@ -79,6 +79,8 @@ public class SettingsWindowController: NSWindowController
         {
             [ weak self ] _, _ in self?.selectionChanged()
         }
+        
+        self.selectionChanged()
     }
     
     private func selectionChanged()
