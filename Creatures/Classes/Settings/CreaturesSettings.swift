@@ -24,32 +24,12 @@
 
 import Cocoa
 
-public class Settings: NSObject
+public class CreaturesSettings: NSObject, Codable
 {
-    @objc public dynamic var initialPlantCount           = 75
-    @objc public dynamic var newPlantInterval            = 10.0
-    @objc public dynamic var newPlantAmount              = 75
-    @objc public dynamic var plantMaxEnergy              = 5
-    @objc public dynamic var plantGrow                   = true
-    @objc public dynamic var plantDecay                  = true
-    @objc public dynamic var plantRemove                 = true
-    @objc public dynamic var plantDecayAfter             = 20.0
-    @objc public dynamic var plantDecayAfterRange        = 10.0
-    @objc public dynamic var plantRemovedAfter           = 30.0
-    @objc public dynamic var plantRemovedAfterRange      = 10.0
-    @objc public dynamic var meatDecay                   = true
-    @objc public dynamic var meatRemove                  = true
-    @objc public dynamic var meatDecayAfter              = 10.0
-    @objc public dynamic var meatDecayAfterRange         = 5.0
-    @objc public dynamic var meatRemovedAfter            = 20.0
-    @objc public dynamic var meatRemovedAfterRange       = 5.0
-    @objc public dynamic var initialCreatureCount        = 75
-    @objc public dynamic var initialCreatureEnergy       = 1
+    @objc public dynamic var initialAmount               = 75
+    @objc public dynamic var initialEnergy               = 1
     @objc public dynamic var energyNeededToGrow          = 2
     @objc public dynamic var growthEnergyCost            = 1
-    @objc public dynamic var energyNeededToReproduce     = 2
-    @objc public dynamic var reproductionEnergyCost      = 1
-    @objc public dynamic var reproductionChance          = 75
     @objc public dynamic var energyDecrease              = 1
     @objc public dynamic var energyDecreaseInterval      = 15.0
     @objc public dynamic var energyDecreaseIntervalRange = 5.0

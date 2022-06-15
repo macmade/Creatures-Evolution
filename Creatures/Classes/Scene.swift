@@ -27,9 +27,21 @@ import SpriteKit
 
 public class Scene: SKScene, SKPhysicsContactDelegate
 {
-    @objc public private( set ) dynamic var settings = Settings()
+    @objc public private( set ) dynamic var settings: Settings
     
     private var newFoodTimer: Timer?
+    
+    public init( size: CGSize, settings: Settings )
+    {
+        self.settings = settings
+        
+        super.init( size: size )
+    }
+    
+    public required init?( coder: NSCoder )
+    {
+        nil
+    }
     
     public override func didMove( to view: SKView )
     {
@@ -58,12 +70,12 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         self.newFoodTimer?.invalidate()
         self.removeAllChildren()
         
-        self.generatePlants(    amount: self.settings.initialPlantCount )
-        self.generateCreatures( amount: self.settings.initialCreatureCount )
+        self.generatePlants(    amount: self.settings.plants.initialAmount )
+        self.generateCreatures( amount: self.settings.creatures.initialAmount )
         
-        self.newFoodTimer = Timer.scheduledTimer( withTimeInterval: self.settings.newPlantInterval, repeats: true )
+        self.newFoodTimer = Timer.scheduledTimer( withTimeInterval: self.settings.plants.renewInterval, repeats: true )
         {
-            _ in self.generatePlants( amount: self.settings.newPlantAmount )
+            _ in self.generatePlants( amount: self.settings.plants.renewAmount )
         }
     }
     
@@ -113,7 +125,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         for _ in 0 ..< amount
         {
-            let creature      = Creature( energy: self.settings.initialCreatureEnergy )
+            let creature      = Creature( energy: self.settings.creatures.initialEnergy )
             creature.position = self.randomPoint()
             creature.alpha    = 0
             

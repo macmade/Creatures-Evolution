@@ -60,16 +60,16 @@ public class Plant: SpriteNode, Food, Updatable
         {
             if peremptionDate.timeIntervalSinceNow < 0
             {
-                self.energy           = -1
+                self.energy           = scene.settings.plants.decayEnergy
                 self.colorBlendFactor = 0
                 self.color            = NSColor.red
                 
                 self.run( SKAction.colorize( withColorBlendFactor: 0.75, duration: 1 ) )
             }
         }
-        else if scene.settings.plantDecay
+        else if scene.settings.plants.canDecay
         {
-            self.peremptionDate = Date( timeIntervalSinceNow: scene.settings.plantDecayAfter + Double.random( in: 0 ... scene.settings.plantDecayAfterRange ) )
+            self.peremptionDate = Date( timeIntervalSinceNow: scene.settings.plants.decayAfter + Double.random( in: 0 ... scene.settings.plants.decayAfterRange ) )
         }
         
         if let removaleDate = self.removalDate
@@ -79,9 +79,9 @@ public class Plant: SpriteNode, Food, Updatable
                 self.remove()
             }
         }
-        else if scene.settings.plantRemove
+        else if scene.settings.plants.canDisappear
         {
-            self.removalDate = Date( timeIntervalSinceNow: scene.settings.plantRemovedAfter + Double.random( in: 0 ... scene.settings.plantRemovedAfterRange ) )
+            self.removalDate = Date( timeIntervalSinceNow: scene.settings.plants.disappearAfter + Double.random( in: 0 ... scene.settings.plants.disappearAfterRange ) )
         }
     }
 }

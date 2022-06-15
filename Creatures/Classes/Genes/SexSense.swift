@@ -23,37 +23,43 @@
  ******************************************************************************/
 
 import Cocoa
+import SpriteKit
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+public class SexSense: NSObject, Gene
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
+    public var isActive: Bool
     
-    public func applicationDidFinishLaunching( _ notification: Notification )
+    public var canRegress: Bool
     {
-        self.mainWindowController.show( nil )
+        true
     }
     
-    public func applicationWillTerminate( _ notification: Notification )
+    public var deactivates: [ AnyClass ]
+    {
+        get
+        {
+            []
+        }
+    }
+    
+    public required init( active: Bool )
+    {
+        self.isActive = active
+    }
+    
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        SexSense( active: self.isActive )
+    }
+    
+    public func onEnergyChanged( creature: Creature )
     {}
     
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
-    {
-        return false
-    }
+    public func onCollision( creature: Creature, node: SKNode )
+    {}
     
-    @IBAction public func showAboutWindow( _ sender: Any? )
+    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
     {
-        if self.aboutWindowController.window?.isVisible == false
-        {
-            self.aboutWindowController.window?.center()
-        }
-        
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
-    }
-    
-    @IBAction public func reset( _ sender: Any? )
-    {
-        self.mainWindowController.reset( sender )
+        nil
     }
 }

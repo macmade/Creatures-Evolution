@@ -24,36 +24,15 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+public class MeatSettings: NSObject, Codable
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
-    
-    public func applicationDidFinishLaunching( _ notification: Notification )
-    {
-        self.mainWindowController.show( nil )
-    }
-    
-    public func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
-    {
-        return false
-    }
-    
-    @IBAction public func showAboutWindow( _ sender: Any? )
-    {
-        if self.aboutWindowController.window?.isVisible == false
-        {
-            self.aboutWindowController.window?.center()
-        }
-        
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
-    }
-    
-    @IBAction public func reset( _ sender: Any? )
-    {
-        self.mainWindowController.reset( sender )
-    }
+    @objc public dynamic var canDecay              = true
+    @objc public dynamic var decayAfter            = 10.0
+    @objc public dynamic var decayAfterRange       = 5.0
+    @objc public dynamic var decayEnergy           = -1
+    @objc public dynamic var canDisappear          = true
+    @objc public dynamic var disappearAfter        = 20.0
+    @objc public dynamic var disappearAfterRange   = 5.0
+    @objc public dynamic var amountDroppedByBabies = 1
+    @objc public dynamic var amountDroppedByAdults = 2
 }

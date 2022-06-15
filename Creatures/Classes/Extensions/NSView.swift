@@ -24,36 +24,30 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+extension NSView
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
-    
-    public func applicationDidFinishLaunching( _ notification: Notification )
+    func addFillingSubview( _ subview: NSView, removeAllExisting: Bool )
     {
-        self.mainWindowController.show( nil )
+        self.addFillingSubview( subview, insets: NSEdgeInsets( top: 0, left: 0, bottom: 0, right: 0 ), removeAllExisting: removeAllExisting )
     }
     
-    public func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
+    func addFillingSubview( _ subview: NSView, insets: NSEdgeInsets, removeAllExisting: Bool )
     {
-        return false
-    }
-    
-    @IBAction public func showAboutWindow( _ sender: Any? )
-    {
-        if self.aboutWindowController.window?.isVisible == false
+        subview.removeFromSuperview()
+        
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        subview.frame                                     = self.bounds
+        
+        if removeAllExisting
         {
-            self.aboutWindowController.window?.center()
+            self.subviews.forEach { $0.removeFromSuperview() }
         }
         
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
-    }
-    
-    @IBAction public func reset( _ sender: Any? )
-    {
-        self.mainWindowController.reset( sender )
+        self.addSubview( subview )
+        
+        self.addConstraint( NSLayoutConstraint( item: subview, attribute: .top,    relatedBy: .equal, toItem: self, attribute: .top,    multiplier: 1, constant: 0 + insets.top ) )
+        self.addConstraint( NSLayoutConstraint( item: subview, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0 - insets.bottom ) )
+        self.addConstraint( NSLayoutConstraint( item: subview, attribute: .left,   relatedBy: .equal, toItem: self, attribute: .left,   multiplier: 1, constant: 0 + insets.left ) )
+        self.addConstraint( NSLayoutConstraint( item: subview, attribute: .right,  relatedBy: .equal, toItem: self, attribute: .right,  multiplier: 1, constant: 0 - insets.right ) )
     }
 }

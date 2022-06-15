@@ -24,36 +24,10 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+public class PlantSenseSettingsViewController: SettingsViewController
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
-    
-    public func applicationDidFinishLaunching( _ notification: Notification )
+    public override var nibName: NSNib.Name?
     {
-        self.mainWindowController.show( nil )
-    }
-    
-    public func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
-    {
-        return false
-    }
-    
-    @IBAction public func showAboutWindow( _ sender: Any? )
-    {
-        if self.aboutWindowController.window?.isVisible == false
-        {
-            self.aboutWindowController.window?.center()
-        }
-        
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
-    }
-    
-    @IBAction public func reset( _ sender: Any? )
-    {
-        self.mainWindowController.reset( sender )
+        "PlantSenseSettingsViewController"
     }
 }

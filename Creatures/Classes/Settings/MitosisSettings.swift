@@ -24,36 +24,14 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+public class MitosisSettings: NSObject, Codable
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
-    
-    public func applicationDidFinishLaunching( _ notification: Notification )
-    {
-        self.mainWindowController.show( nil )
-    }
-    
-    public func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
-    {
-        return false
-    }
-    
-    @IBAction public func showAboutWindow( _ sender: Any? )
-    {
-        if self.aboutWindowController.window?.isVisible == false
-        {
-            self.aboutWindowController.window?.center()
-        }
-        
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
-    }
-    
-    @IBAction public func reset( _ sender: Any? )
-    {
-        self.mainWindowController.reset( sender )
-    }
+    @objc public dynamic var isEnabled     = true
+    @objc public dynamic var isActive      = true
+    @objc public dynamic var canRegress   = false
+    @objc public dynamic var deactivates  = [ "Sex" ]
+    @objc public dynamic var energyNeeded = 2
+    @objc public dynamic var energyCost   = 1
+    @objc public dynamic var chance       = 75.0
+    @objc public dynamic var recoveryTime = 5
 }

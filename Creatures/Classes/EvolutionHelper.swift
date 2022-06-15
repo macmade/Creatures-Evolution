@@ -43,14 +43,12 @@ public class EvolutionHelper
                 return
             }
             
-            if Int.random( in: 0 ... 100 ) > settings.mutationChance
+            if Int.random( in: 0 ... 100 ) > settings.creatures.mutationChance
             {
                 return
             }
             
             gene.isActive = gene.isActive == false
-            
-            print( "Mutation: \( gene.className ) = \( gene.isActive )" )
             
             if gene.isActive
             {
@@ -61,8 +59,6 @@ public class EvolutionHelper
                         if $0.isKind( of: cls )
                         {
                             $0.isActive = false
-                            
-                            print( "Deactivating: \( $0.className )" )
                         }
                     }
                 }

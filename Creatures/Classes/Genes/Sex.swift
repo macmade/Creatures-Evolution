@@ -28,6 +28,8 @@ import SpriteKit
 public class Sex: NSObject, Gene
 {
     public var isActive: Bool
+    public var isMale:   Bool
+    public var isFemale: Bool
     
     public var canRegress: Bool
     {
@@ -45,6 +47,11 @@ public class Sex: NSObject, Gene
     public required init( active: Bool )
     {
         self.isActive = active
+        
+        let sex = Int.random( in: 0 ... 2 )
+        
+        self.isMale   = sex == 0 || sex == 2
+        self.isFemale = sex == 1 || sex == 2
     }
     
     public func copy( with zone: NSZone? = nil ) -> Any
@@ -56,7 +63,73 @@ public class Sex: NSObject, Gene
     {}
     
     public func onCollision( creature: Creature, node: SKNode )
-    {}
+    {
+        guard let other = node as? Creature else
+        {
+            return
+        }
+        
+        guard let scene = creature.scene as? Scene else
+        {
+            return
+        }
+        
+        guard let sex1 = creature.getGene( Sex.self ) as? Sex, let sex2 = other.getGene( Sex.self ) as? Sex else
+        {
+            return
+        }
+        
+        guard sex1.isActive, sex2.isActive else
+        {
+            return
+        }
+        
+        if creature.isBaby || other.isBaby
+        {
+            return
+        }
+        
+        if creature.energy < scene.settings.sex.energyNeeded || other.energy < scene.settings.sex.energyNeeded
+        {
+            return
+        }
+        
+        if creature.energy < scene.settings.sex.energyCost || other.energy < scene.settings.sex.energyCost
+        {
+            return
+        }
+        
+        if Double.random( in: 0 ... 100 ) > scene.settings.sex.chance
+        {
+            return
+        }
+        
+        if sex1.isMale && sex2.isFemale || sex1.isFemale && sex2.isMale
+        {
+            creature.energy -= scene.settings.sex.energyCost
+            other.energy    -= scene.settings.sex.energyCost
+            
+            if creature.energy < scene.settings.creatures.energyNeededToGrow
+            {
+                creature.isBaby = true
+            }
+            
+            if other.energy < scene.settings.creatures.energyNeededToGrow
+            {
+                other.isBaby = true
+            }
+            
+            for _ in 0 ..< scene.settings.sex.possibleNumberOfChildren
+            {
+                let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: scene.settings )
+                let copy      = Creature( energy: 1, genes: genes, parents: [ creature ] )
+                copy.position = creature.position
+                
+                scene.addChild( copy )
+                copy.move()
+            }
+        }
+    }
     
     public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
     {

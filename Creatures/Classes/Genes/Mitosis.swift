@@ -64,19 +64,24 @@ public class Mitosis: NSObject, Gene
             return
         }
         
-        if creature.energy < scene.settings.energyNeededToReproduce
+        if creature.energy < scene.settings.mitosis.energyNeeded
         {
             return
         }
         
-        if Int.random( in: 0 ... 100 ) > scene.settings.reproductionChance
+        if creature.energy < scene.settings.mitosis.energyCost
         {
             return
         }
         
-        creature.energy -= scene.settings.reproductionEnergyCost
+        if Double.random( in: 0 ... 100 ) > scene.settings.mitosis.chance
+        {
+            return
+        }
         
-        if creature.energy < scene.settings.energyNeededToGrow
+        creature.energy -= scene.settings.mitosis.energyCost
+        
+        if creature.energy < scene.settings.creatures.energyNeededToGrow
         {
             creature.isBaby = true
         }

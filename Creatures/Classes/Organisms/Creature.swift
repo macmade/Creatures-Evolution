@@ -54,19 +54,19 @@ public class Creature: SpriteNode, Updatable
     public convenience init( energy: Int )
     {
         let genes: [ Gene ] = [
+            Mitosis(        active: true ),
+            Sex(            active: false ),
             Herbivore(      active: true ),
             Scavenger(      active: false ),
             Omnivore(       active: false ),
             Carnivore(      active: false ),
-            Cannibal(       active: false ),
             Vampire(        active: false ),
-            Mitosis(        active: true ),
-            Sex(            active: false ),
-            VampireSense(   active: false ),
-            CarnivoreSense( active: false ),
+            Cannibal(       active: false ),
             PlantSense(     active: false ),
             MeatSense(      active: false ),
-            CreatureSense(  active: false ),
+            SexSense(       active: false ),
+            CarnivoreSense( active: false ),
+            VampireSense(   active: false ),
         ]
         
         self.init( energy: energy, genes: genes )
@@ -92,6 +92,7 @@ public class Creature: SpriteNode, Updatable
         
         self.physicsBody = physicsBody
         self.energy      = energy
+        self.name        = UUID().uuidString
         
         self.updateTexture()
     }
@@ -99,66 +100,6 @@ public class Creature: SpriteNode, Updatable
     public required init?( coder: NSCoder )
     {
         nil
-    }
-    
-    public var isHerbivore: Bool
-    {
-        self.isGeneActive( Herbivore.self )
-    }
-    
-    public var isScavenger: Bool
-    {
-        self.isGeneActive( Scavenger.self )
-    }
-    
-    public var isOmnivore: Bool
-    {
-        self.isGeneActive( Omnivore.self )
-    }
-    
-    public var isCarnivore: Bool
-    {
-        self.isGeneActive( Carnivore.self )
-    }
-    
-    public var isCannibal: Bool
-    {
-        self.isGeneActive( Cannibal.self )
-    }
-    
-    public var isVampire: Bool
-    {
-        self.isGeneActive( Vampire.self )
-    }
-    
-    public var canReplicate: Bool
-    {
-        self.isGeneActive( Mitosis.self )
-    }
-    
-    public var canHaveSex: Bool
-    {
-        self.isGeneActive( Sex.self )
-    }
-    
-    public var canDetectPlant: Bool
-    {
-        self.isGeneActive( PlantSense.self )
-    }
-    
-    public var canDetectMeat: Bool
-    {
-        self.isGeneActive( MeatSense.self )
-    }
-    
-    public var canDetectCarnivore: Bool
-    {
-        self.isGeneActive( CarnivoreSense.self )
-    }
-    
-    public var canDetectVampire: Bool
-    {
-        self.isGeneActive( VampireSense.self )
     }
     
     public func isSmallerThan( creature: Creature ) -> Bool
@@ -210,17 +151,22 @@ public class Creature: SpriteNode, Updatable
         return self.isChild( of: creature ) || self.isParentOf( of: creature ) || self.isSibling( of: creature )
     }
     
-    public func isGeneActive( _ kind: AnyClass ) -> Bool
+    public func hasActiveGene( _ kind: AnyClass ) -> Bool
+    {
+        self.getGene( kind )?.isActive ?? false
+    }
+    
+    public func getGene( _ kind: AnyClass ) -> Gene?
     {
         for gene in self.genes
         {
             if gene.isKind( of: kind )
             {
-                return gene.isActive
+                return gene
             }
         }
         
-        return false
+        return nil
     }
     
     public func update()
@@ -245,7 +191,7 @@ public class Creature: SpriteNode, Updatable
         }
         else
         {
-            self.nextEnergyDecrease = Date( timeIntervalSinceNow: scene.settings.energyDecreaseInterval + Double.random( in: 0 ... scene.settings.energyDecreaseIntervalRange ) )
+            self.nextEnergyDecrease = Date( timeIntervalSinceNow: scene.settings.creatures.energyDecreaseInterval + Double.random( in: 0 ... scene.settings.creatures.energyDecreaseIntervalRange ) )
         }
     }
     
@@ -376,10 +322,10 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        if self.isBaby && self.energy >= scene.settings.energyNeededToGrow
+        if self.isBaby && self.energy >= scene.settings.creatures.energyNeededToGrow
         {
             self.isBaby  = false
-            self.energy -= scene.settings.growthEnergyCost
+            self.energy -= scene.settings.creatures.growthEnergyCost
         }
     }
     
@@ -387,9 +333,9 @@ public class Creature: SpriteNode, Updatable
     {
         self.removeAction( forKey: Creature.moveActionKey )
         
-        if dropFood
+        if dropFood, let scene = self.scene as? Scene
         {
-            let meat      = Meat( energy: self.isBaby ? 1 : 2 )
+            let meat      = Meat( energy: self.isBaby ? scene.settings.meat.amountDroppedByBabies : scene.settings.meat.amountDroppedByAdults )
             meat.position = self.position
             meat.alpha    = 0
             
@@ -416,14 +362,14 @@ public class Creature: SpriteNode, Updatable
         {
             if self.isSmallerThan( creature: other )
             {
-                return scene.settings.combatChanceIfSmaller
+                return scene.settings.creatures.combatChanceIfSmaller
             }
             else if self.isBiggerThan( creature: other )
             {
-                return scene.settings.combatChanceIfBigger
+                return scene.settings.creatures.combatChanceIfBigger
             }
             
-            return scene.settings.combatChanceIfSameSize
+            return scene.settings.creatures.combatChanceIfSameSize
         }()
         
         return Int.random( in: 0 ... 100 ) <= chance
@@ -458,23 +404,23 @@ public class Creature: SpriteNode, Updatable
     
     private func updateTexture()
     {
-        if self.isVampire
+        if self.hasActiveGene( Vampire.self )
         {
             self.texture = SKTexture( imageNamed: "Vampire" )
         }
-        else if self.isCarnivore
+        else if self.hasActiveGene( Carnivore.self )
         {
             self.texture = SKTexture( imageNamed: "Carnivore" )
         }
-        else if self.isOmnivore
+        else if self.hasActiveGene( Omnivore.self )
         {
             self.texture = SKTexture( imageNamed: "Omnivore" )
         }
-        else if self.isScavenger
+        else if self.hasActiveGene( Scavenger.self )
         {
             self.texture = SKTexture( imageNamed: "Scavenger" )
         }
-        else if self.isHerbivore
+        else if self.hasActiveGene( Herbivore.self )
         {
             self.texture = SKTexture( imageNamed: "Herbivore" )
         }

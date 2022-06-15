@@ -24,36 +24,19 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+@objc public class SettingsViewController: NSViewController
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
+    @objc public dynamic var settings: Settings
     
-    public func applicationDidFinishLaunching( _ notification: Notification )
+    public init( settings: Settings )
     {
-        self.mainWindowController.show( nil )
-    }
-    
-    public func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
-    {
-        return false
-    }
-    
-    @IBAction public func showAboutWindow( _ sender: Any? )
-    {
-        if self.aboutWindowController.window?.isVisible == false
-        {
-            self.aboutWindowController.window?.center()
-        }
+        self.settings = settings
         
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
+        super.init( nibName: nil, bundle: nil )
     }
     
-    @IBAction public func reset( _ sender: Any? )
+    required init?( coder: NSCoder )
     {
-        self.mainWindowController.reset( sender )
+        nil
     }
 }

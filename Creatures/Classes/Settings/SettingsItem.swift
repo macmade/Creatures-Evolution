@@ -24,36 +24,23 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+public class SettingsItem: NSObject
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
+    @objc public dynamic var title:      String
+    @objc public dynamic var icon:       NSImage?
+    @objc public dynamic var controller: SettingsViewController
     
-    public func applicationDidFinishLaunching( _ notification: Notification )
+    public convenience init( title: String, symbol: String, controller: SettingsViewController )
     {
-        self.mainWindowController.show( nil )
-    }
-    
-    public func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
-    {
-        return false
-    }
-    
-    @IBAction public func showAboutWindow( _ sender: Any? )
-    {
-        if self.aboutWindowController.window?.isVisible == false
-        {
-            self.aboutWindowController.window?.center()
-        }
+        let icon = NSImage( systemSymbolName: symbol, accessibilityDescription: nil ) ?? NSImage( named: symbol )
         
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
+        self.init( title: title, icon: icon, controller: controller )
     }
     
-    @IBAction public func reset( _ sender: Any? )
+    public init( title: String, icon: NSImage?, controller: SettingsViewController )
     {
-        self.mainWindowController.reset( sender )
+        self.title      = title
+        self.icon       = icon
+        self.controller = controller
     }
 }

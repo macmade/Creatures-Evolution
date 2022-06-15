@@ -27,7 +27,8 @@ import SpriteKit
 
 public class MainWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var scene: Scene?
+    @objc public private( set ) dynamic var scene:                    Scene?
+    @objc public private( set ) dynamic var settingsWindowController: SettingsWindowController?
     
     @IBOutlet private var view: SKView?
     
@@ -39,26 +40,58 @@ public class MainWindowController: NSWindowController
     public override func windowDidLoad()
     {
         super.windowDidLoad()
+    }
+    
+    @IBAction func show( _ sender: Any? )
+    {
+        let settings = SettingsWindowController()
         
-        guard let view = self.view else
+        guard let window = self.window, let settingsWindow = settings.window else
         {
+            NSSound.beep()
+            
             return
         }
         
-        let scene  = Scene( size: view.bounds.size )
-        self.scene = scene
-        
-        view.presentScene( scene )
-        
-        view.showsFPS       = true
-        view.showsFields    = true
-        view.showsPhysics   = false
-        view.showsDrawCount = true
-        view.showsNodeCount = true
-        view.showsQuadCount = true
+        window.center()
+        window.makeKeyAndOrderFront( nil )
+        window.beginSheet( settingsWindow )
+        {
+            response in guard let view = self.view else
+            {
+                return
+            }
+            
+            if response != .OK && self.scene != nil
+            {
+                self.pause( false )
+                
+                return
+            }
+            
+            self.settingsWindowController = settings
+            
+            let scene  = Scene( size: view.bounds.size, settings: settings.settings )
+            self.scene = scene
+            
+            view.presentScene( scene )
+            
+            view.showsFPS       = true
+            view.showsFields    = true
+            view.showsPhysics   = false
+            view.showsDrawCount = true
+            view.showsNodeCount = true
+            view.showsQuadCount = true
+        }
     }
     
     @IBAction public func reset( _ sender: Any? )
+    {
+        self.pause( true )
+        self.show( sender )
+    }
+    
+    @IBAction public func togglePause( _ sender: Any? )
     {
         guard let scene = self.scene else
         {
@@ -67,6 +100,18 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        scene.reset()
+        self.pause( scene.isPaused == false )
+    }
+    
+    private func pause( _ paused: Bool )
+    {
+        guard let scene = self.scene else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        scene.isPaused = paused
     }
 }

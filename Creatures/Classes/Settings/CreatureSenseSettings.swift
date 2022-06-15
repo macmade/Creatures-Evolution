@@ -23,43 +23,11 @@
  ******************************************************************************/
 
 import Cocoa
-import SpriteKit
 
-public class CreatureSense: NSObject, Gene
+public class CreatureSenseSettings: NSObject, Codable
 {
-    public var isActive: Bool
-    
-    public var canRegress: Bool
-    {
-        true
-    }
-    
-    public var deactivates: [ AnyClass ]
-    {
-        get
-        {
-            []
-        }
-    }
-    
-    public required init( active: Bool )
-    {
-        self.isActive = active
-    }
-    
-    public func copy( with zone: NSZone? = nil ) -> Any
-    {
-        CreatureSense( active: self.isActive )
-    }
-    
-    public func onEnergyChanged( creature: Creature )
-    {}
-    
-    public func onCollision( creature: Creature, node: SKNode )
-    {}
-    
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
-    {
-        nil
-    }
+    @objc public dynamic var isEnabled   = true
+    @objc public dynamic var isActive    = false
+    @objc public dynamic var canRegress  = true
+    @objc public dynamic var deactivates = [ String ]()
 }

@@ -67,12 +67,12 @@ public class Vampire: NSObject, Gene
             return
         }
         
-        if other.isVampire && creature.isCannibal == false
+        if other.hasActiveGene( Vampire.self ) && creature.hasActiveGene( Cannibal.self ) == false
         {
             return
         }
         
-        if creature.isRelated( to: other ) && creature.isCannibal == false
+        if creature.isRelated( to: other ) && creature.hasActiveGene( Cannibal.self ) == false
         {
             return
         }

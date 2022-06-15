@@ -67,12 +67,12 @@ public class Carnivore: NSObject, Gene
             return
         }
         
-        if other.isCarnivore && creature.isCannibal == false
+        if other.hasActiveGene( Carnivore.self ) && creature.hasActiveGene( Cannibal.self ) == false
         {
             return
         }
         
-        if creature.isRelated( to: other ) && creature.isCannibal == false
+        if creature.isRelated( to: other ) && creature.hasActiveGene( Cannibal.self ) == false
         {
             return
         }

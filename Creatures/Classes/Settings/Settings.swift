@@ -24,36 +24,22 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+public class Settings: NSObject, Codable
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
-    
-    public func applicationDidFinishLaunching( _ notification: Notification )
-    {
-        self.mainWindowController.show( nil )
-    }
-    
-    public func applicationWillTerminate( _ notification: Notification )
-    {}
-    
-    public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
-    {
-        return false
-    }
-    
-    @IBAction public func showAboutWindow( _ sender: Any? )
-    {
-        if self.aboutWindowController.window?.isVisible == false
-        {
-            self.aboutWindowController.window?.center()
-        }
-        
-        self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
-    }
-    
-    @IBAction public func reset( _ sender: Any? )
-    {
-        self.mainWindowController.reset( sender )
-    }
+    @objc public dynamic var creatures      = CreaturesSettings()
+    @objc public dynamic var plants         = PlantsSettings()
+    @objc public dynamic var meat           = MeatSettings()
+    @objc public dynamic var mitosis        = MitosisSettings()
+    @objc public dynamic var sex            = SexSettings()
+    @objc public dynamic var herbivore      = HerbivoreSettings()
+    @objc public dynamic var scavenger      = ScavengerSettings()
+    @objc public dynamic var carnivore      = CarnivoreSettings()
+    @objc public dynamic var vampire        = VampireSettings()
+    @objc public dynamic var cannibal       = CannibalSettings()
+    @objc public dynamic var plantSense     = PlantSenseSettings()
+    @objc public dynamic var meatSense      = MeatSenseSettings()
+    @objc public dynamic var creatureSense  = CreatureSenseSettings()
+    @objc public dynamic var sexSense       = SexSenseSettings()
+    @objc public dynamic var carnivoreSense = CarnivoreSenseSettings()
+    @objc public dynamic var vampireSense   = VampireSenseSettings()
 }
