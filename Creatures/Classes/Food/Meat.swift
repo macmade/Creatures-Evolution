@@ -38,7 +38,8 @@ public class Meat: SpriteNode, Food, Updatable
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
-        physicsBody.isDynamic          = false
+        physicsBody.isDynamic          = true
+        physicsBody.categoryBitMask    = Constants.organismPhysicsCategory
         
         self.physicsBody = physicsBody
         self.energy      = energy

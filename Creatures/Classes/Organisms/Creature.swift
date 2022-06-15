@@ -86,7 +86,9 @@ public class Creature: SpriteNode, Updatable
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
         physicsBody.isDynamic          = true
-        physicsBody.contactTestBitMask = physicsBody.collisionBitMask
+        physicsBody.categoryBitMask    = Constants.organismPhysicsCategory
+        physicsBody.contactTestBitMask = Constants.organismPhysicsCategory | Constants.foodPhysicsCategory
+        physicsBody.collisionBitMask   = Constants.organismPhysicsCategory
         physicsBody.restitution        = 0.5
         
         self.physicsBody = physicsBody
@@ -280,6 +282,13 @@ public class Creature: SpriteNode, Updatable
         }
         
         if let creature = node as? Creature, creature.isBeingRemoved
+        {
+            return
+        }
+        
+        if let category  = node.physicsBody?.categoryBitMask,
+           let collision = self.physicsBody?.collisionBitMask,
+           collision & category != 0
         {
             return
         }

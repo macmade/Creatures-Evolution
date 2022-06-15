@@ -38,7 +38,8 @@ public class Plant: SpriteNode, Food, Updatable
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
-        physicsBody.isDynamic          = false
+        physicsBody.isDynamic          = true
+        physicsBody.categoryBitMask    = Constants.foodPhysicsCategory
         
         self.physicsBody = physicsBody
         self.energy      = energy
