@@ -30,8 +30,6 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var scene:                    Scene?
     @objc public private( set ) dynamic var settingsWindowController: SettingsWindowController?
     
-    @IBOutlet private var view: SKView?
-    
     public override var windowNibName: NSNib.Name?
     {
         "MainWindowController"
@@ -46,21 +44,22 @@ public class MainWindowController: NSWindowController
     {
         let settings = SettingsWindowController()
         
-        guard let window = self.window, let settingsWindow = settings.window else
+        guard let window = self.window, let contentView = window.contentView, let settingsWindow = settings.window else
         {
             NSSound.beep()
             
             return
         }
         
+        self.settingsWindowController = settings
+        
         window.center()
         window.makeKeyAndOrderFront( nil )
         window.beginSheet( settingsWindow )
         {
-            response in guard let view = self.view else
-            {
-                return
-            }
+            response in
+            
+            self.settingsWindowController = nil
             
             if response != .OK && self.scene != nil
             {
@@ -69,11 +68,11 @@ public class MainWindowController: NSWindowController
                 return
             }
             
-            self.settingsWindowController = settings
-            
+            let view   = SKView( frame: contentView.bounds )
             let scene  = Scene( size: view.bounds.size, settings: settings.settings )
             self.scene = scene
             
+            contentView.addFillingSubview( view, removeAllExisting: true )
             view.presentScene( scene )
             
             view.showsFPS       = true

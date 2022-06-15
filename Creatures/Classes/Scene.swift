@@ -47,7 +47,6 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         super.didMove( to: view )
         
-        self.backgroundColor              = NSColor.lightGray
         self.physicsBody                  = SKPhysicsBody( edgeLoopFrom: self.frame )
         self.isUserInteractionEnabled     = true
         self.physicsWorld.contactDelegate = self
@@ -69,6 +68,13 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         self.newFoodTimer?.invalidate()
         self.removeAllChildren()
+        
+        let background         = SKSpriteNode( imageNamed: "Background" )
+        background.position    = NSPoint( x: 0, y: 0 )
+        background.anchorPoint = NSPoint( x: 0, y: 0 )
+        background.size        = self.size
+        
+        self.addChild( background )
         
         self.generatePlants(    amount: self.settings.plants.initialAmount )
         self.generateCreatures( amount: self.settings.creatures.initialAmount )
