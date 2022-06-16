@@ -28,12 +28,14 @@ import SpriteKit
 public class Creature: SpriteNode, Updatable
 {
     private static let moveActionKey = "Move"
+    private static var index         = UInt64( 0 )
+    
+          public private( set ) dynamic var genes: [ Gene ]
+    @objc public private( set ) dynamic var born = Date()
     
     private var nextEnergyDecrease: Date?
     
-    public private( set ) var genes: [ Gene ]
-    
-    public var energy = 1
+    @objc public dynamic var energy = 1
     {
         didSet
         {
@@ -49,13 +51,14 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
-    private var parents: [ Weak< Creature > ]?
+    private var parents:  [ Weak< Creature > ]?
+    private var highlight: SKShapeNode?
     
     public convenience init( energy: Int )
     {
         let genes: [ Gene ] = [
             Mitosis(        active: true ),
-           // Sex(            active: false ),
+            Sex(            active: false ),
             Herbivore(      active: true ),
             Scavenger(      active: false ),
             Carnivore(      active: false ),
@@ -90,9 +93,10 @@ public class Creature: SpriteNode, Updatable
         physicsBody.contactTestBitMask = physicsBody.collisionBitMask
         physicsBody.restitution        = 0.5
         
-        self.physicsBody = physicsBody
-        self.energy      = energy
-        self.name        = UUID().uuidString
+        self.physicsBody  = physicsBody
+        self.energy       = energy
+        self.name         = String( format: "%010X", Creature.index )
+        Creature.index   += 1
         
         self.updateTexture()
     }
@@ -202,7 +206,7 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        var geneDestination: ( destination: NSPoint, priority: DestinationPriority )?
+        var geneDestination: Destination?
         
         self.genes.forEach
         {
@@ -226,7 +230,7 @@ public class Creature: SpriteNode, Updatable
         
         if let d = geneDestination
         {
-            destination = ( point: d.destination, distance: d.destination.distance( with: self.position ) )
+            destination = ( point: d.point, distance: d.point.distance( with: self.position ) )
         }
         else
         {
@@ -430,6 +434,35 @@ public class Creature: SpriteNode, Updatable
         else
         {
             self.texture = SKTexture( imageNamed: "Basic" )
+        }
+    }
+    
+    public func toggleHighlight()
+    {
+        self.highlight( self.highlight == nil )
+    }
+    
+    public func highlight( _ flag: Bool )
+    {
+        if flag && self.highlight != nil
+        {
+            return
+        }
+        
+        if flag
+        {
+            let highlight         = SKShapeNode( circleOfRadius: 15 )
+            highlight.fillColor   = NSColor.black.withAlphaComponent( 0.25 )
+            highlight.strokeColor = NSColor.white
+            self.highlight        = highlight
+            
+            self.addChild( highlight )
+        }
+        else
+        {
+            self.highlight?.removeFromParent()
+            
+            self.highlight = nil
         }
     }
 }

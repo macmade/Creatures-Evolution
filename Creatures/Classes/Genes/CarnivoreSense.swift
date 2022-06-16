@@ -42,6 +42,16 @@ public class CarnivoreSense: NSObject, Gene
         }
     }
     
+    public var name: String
+    {
+        "Carnivore Sense"
+    }
+    
+    public var detail: String?
+    {
+        nil
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active
@@ -58,7 +68,7 @@ public class CarnivoreSense: NSObject, Gene
     public func onCollision( creature: Creature, node: SKNode )
     {}
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> Destination?
     {
         nil
     }

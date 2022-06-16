@@ -23,39 +23,38 @@
  ******************************************************************************/
 
 import Cocoa
-import SpriteKit
 
-@objc public protocol Gene: NSObjectProtocol, NSCopying
+public class BackgroundView: NSView
 {
-    var isActive: Bool
+    @objc @IBInspectable public dynamic var cornerRadius:    Int = 0
+    @objc @IBInspectable public dynamic var backgroundColor: NSColor?
     {
-        get
-        set
+        didSet
+        {
+            self.needsDisplay = true
+        }
     }
     
-    var canRegress: Bool
+    public override func draw( _ rect: NSRect )
     {
-        get
+        super.draw( rect )
+        
+        guard let color = self.backgroundColor else
+        {
+            return
+        }
+        
+        color.setFill()
+        
+        if self.cornerRadius == 0
+        {
+            rect.fill()
+        }
+        else
+        {
+            let path = NSBezierPath( roundedRect: self.bounds, xRadius: CGFloat( self.cornerRadius ), yRadius: CGFloat( self.cornerRadius ) )
+            
+            path.fill()
+        }
     }
-    
-    var deactivates: [ AnyClass ]
-    {
-        get
-    }
-    
-    var name: String
-    {
-        get
-    }
-    
-    var detail: String?
-    {
-        get
-    }
-    
-    init( active: Bool )
-    
-    func onEnergyChanged( creature: Creature )
-    func onCollision( creature: Creature, node: SKNode )
-    func chooseDestination( creature: Creature ) -> Destination?
 }

@@ -42,6 +42,16 @@ public class Vampire: NSObject, Gene
         }
     }
     
+    public var name: String
+    {
+        "Vampire"
+    }
+    
+    public var detail: String?
+    {
+        nil
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active
@@ -84,7 +94,7 @@ public class Vampire: NSObject, Gene
         }
     }
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> Destination?
     {
         nil
     }

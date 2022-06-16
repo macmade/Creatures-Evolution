@@ -42,6 +42,16 @@ public class PlantSense: NSObject, Gene
         }
     }
     
+    public var name: String
+    {
+        "Plant Sense"
+    }
+    
+    public var detail: String?
+    {
+        nil
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active
@@ -58,7 +68,7 @@ public class PlantSense: NSObject, Gene
     public func onCollision( creature: Creature, node: SKNode )
     {}
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> Destination?
     {
         if creature.hasActiveGene( Herbivore.self ) == false
         {
@@ -79,7 +89,7 @@ public class PlantSense: NSObject, Gene
             
             if creature.position.isClose( to: plant.position, maxDistance: 100 )
             {
-                return ( destination: plant.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
+                return Destination( point: plant.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
             }
         }
         

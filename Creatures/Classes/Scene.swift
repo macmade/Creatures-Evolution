@@ -54,6 +54,29 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         self.reset()
     }
     
+    public override func mouseDown( with event: NSEvent )
+    {
+        guard let windowController = self.view?.window?.windowController as? MainWindowController else
+        {
+            return
+        }
+        
+        let location = event.location( in: self )
+        let node     = self.atPoint( location )
+        
+        if let creature = node as? Creature ?? node.parent as? Creature
+        {
+            if event.modifierFlags.contains( .command )
+            {
+                creature.toggleHighlight()
+            }
+            else
+            {
+                windowController.showDetails( creature: creature )
+            }
+        }
+    }
+    
     public override func update( _ currentTime: TimeInterval )
     {
         super.update( currentTime )

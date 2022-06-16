@@ -29,6 +29,10 @@ public class MainWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var scene:                    Scene?
     @objc public private( set ) dynamic var settingsWindowController: SettingsWindowController?
+    @objc public private( set ) dynamic var detailViewController:     NSViewController?
+    
+    @IBOutlet private var contentView: NSView!
+    @IBOutlet private var detailView:  NSView!
     
     public override var windowNibName: NSNib.Name?
     {
@@ -45,7 +49,7 @@ public class MainWindowController: NSWindowController
         let settings              = SettingsWindowController()
         settings.showCancelButton = self.scene != nil
         
-        guard let window = self.window, let contentView = window.contentView, let settingsWindow = settings.window else
+        guard let window = self.window, let settingsWindow = settings.window else
         {
             NSSound.beep()
             
@@ -69,11 +73,11 @@ public class MainWindowController: NSWindowController
                 return
             }
             
-            let view   = SKView( frame: contentView.bounds )
+            let view   = SKView( frame: self.contentView.bounds )
             let scene  = Scene( size: view.bounds.size, settings: settings.settings )
             self.scene = scene
             
-            contentView.addFillingSubview( view, removeAllExisting: true )
+            self.contentView.addFillingSubview( view, removeAllExisting: true )
             view.presentScene( scene )
             
             view.showsFPS       = true
@@ -113,5 +117,31 @@ public class MainWindowController: NSWindowController
         }
         
         scene.isPaused = paused
+    }
+    
+    public func showDetails( creature: Creature )
+    {
+        if let detail = self.detailViewController as? CreatureDetailViewController
+        {
+            detail.creature.highlight( false )
+        }
+        
+        let controller            = CreatureDetailViewController( creature: creature )
+        self.detailViewController = controller
+        
+        creature.highlight( true )
+        self.detailView.addFillingSubview( controller.view, removeAllExisting: true )
+    }
+    
+    public func hideDetails( _ sender: Any? )
+    {
+        if let detail = self.detailViewController as? CreatureDetailViewController
+        {
+            detail.creature.highlight( false )
+        }
+        
+        self.detailViewController = nil
+        
+        self.detailView.subviews.forEach { $0.removeFromSuperview() }
     }
 }

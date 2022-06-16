@@ -25,37 +25,20 @@
 import Cocoa
 import SpriteKit
 
-@objc public protocol Gene: NSObjectProtocol, NSCopying
+@objc public enum DestinationPriority: Int
 {
-    var isActive: Bool
+    case normal
+    case high
+}
+
+@objc public class Destination: NSObject
+{
+    @objc public dynamic var point:    NSPoint
+    @objc public dynamic var priority: DestinationPriority
+    
+    @objc public init( point: NSPoint, priority: DestinationPriority )
     {
-        get
-        set
+        self.point    = point
+        self.priority = priority
     }
-    
-    var canRegress: Bool
-    {
-        get
-    }
-    
-    var deactivates: [ AnyClass ]
-    {
-        get
-    }
-    
-    var name: String
-    {
-        get
-    }
-    
-    var detail: String?
-    {
-        get
-    }
-    
-    init( active: Bool )
-    
-    func onEnergyChanged( creature: Creature )
-    func onCollision( creature: Creature, node: SKNode )
-    func chooseDestination( creature: Creature ) -> Destination?
 }

@@ -42,6 +42,16 @@ public class Carnivore: NSObject, Gene
         }
     }
     
+    public var name: String
+    {
+        "Carnivore"
+    }
+    
+    public var detail: String?
+    {
+        nil
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active
@@ -85,7 +95,7 @@ public class Carnivore: NSObject, Gene
         }
     }
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> Destination?
     {
         nil
     }

@@ -44,6 +44,26 @@ public class Sex: NSObject, Gene
         }
     }
     
+    public var name: String
+    {
+        "Sex"
+    }
+    
+    public var detail: String?
+    {
+        if self.isMale && self.isFemale
+        {
+            return "Hermaphrodite"
+        }
+        
+        if self.isMale
+        {
+            return "Male"
+        }
+        
+        return "Female"
+    }
+    
     private var lastUsed: Date?
     
     public required init( active: Bool )
@@ -140,7 +160,7 @@ public class Sex: NSObject, Gene
         }
     }
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> Destination?
     {
         nil
     }

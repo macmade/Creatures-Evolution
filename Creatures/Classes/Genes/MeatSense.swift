@@ -42,6 +42,16 @@ public class MeatSense: NSObject, Gene
         }
     }
     
+    public var name: String
+    {
+        "Meat Sense"
+    }
+    
+    public var detail: String?
+    {
+        nil
+    }
+    
     public required init( active: Bool )
     {
         self.isActive = active
@@ -58,7 +68,7 @@ public class MeatSense: NSObject, Gene
     public func onCollision( creature: Creature, node: SKNode )
     {}
     
-    public func chooseDestination( creature: Creature ) -> ( destination: NSPoint, priority: DestinationPriority )?
+    public func chooseDestination( creature: Creature ) -> Destination?
     {
         if creature.hasActiveGene( Scavenger.self ) == false
         {
@@ -79,7 +89,7 @@ public class MeatSense: NSObject, Gene
             
             if creature.position.isClose( to: meat.position, maxDistance: 100 )
             {
-                return ( destination: meat.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
+                return Destination( point: meat.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
             }
         }
         

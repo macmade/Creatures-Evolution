@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Creatures" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="C90-z2-haI" id="Fmt-41-FAg"/>
+                <outlet property="detailView" destination="6sY-wX-3oi" id="JT3-8z-rpX"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Vd5-fy-HOD"/>
             </connections>
         </customObject>
@@ -22,6 +24,26 @@
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="1200" height="800"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="C90-z2-haI">
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="800"/>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="6sY-wX-3oi">
+                        <rect key="frame" x="20" y="20" width="350" height="760"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="350" id="qed-VJ-Ow8"/>
+                        </constraints>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="C90-z2-haI" secondAttribute="trailing" id="Ajt-0Z-wWx"/>
+                    <constraint firstAttribute="bottom" secondItem="6sY-wX-3oi" secondAttribute="bottom" constant="20" id="M6d-5n-EGp"/>
+                    <constraint firstItem="6sY-wX-3oi" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="TQy-6I-fkj"/>
+                    <constraint firstItem="6sY-wX-3oi" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="ftt-ge-nqx"/>
+                    <constraint firstAttribute="bottom" secondItem="C90-z2-haI" secondAttribute="bottom" id="fxG-FU-zYN"/>
+                    <constraint firstItem="C90-z2-haI" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="gYC-Vk-b8i"/>
+                    <constraint firstItem="C90-z2-haI" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="py3-1d-D1W"/>
+                </constraints>
             </view>
             <point key="canvasLocation" x="139" y="144"/>
         </window>

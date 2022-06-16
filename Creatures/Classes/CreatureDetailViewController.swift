@@ -25,37 +25,59 @@
 import Cocoa
 import SpriteKit
 
-@objc public protocol Gene: NSObjectProtocol, NSCopying
+public class CreatureDetailViewController: NSViewController
 {
-    var isActive: Bool
+    @objc public private( set ) dynamic var creature: Creature
+    @objc        private        dynamic var image:    NSImage?
+    @objc        private        dynamic var genes:    [ Gene ]
+    
+    @IBOutlet private var genesController: NSArrayController!
+    
+    public init( creature: Creature )
     {
-        get
-        set
+        self.creature = creature
+        self.genes    = creature.genes.filter { $0.isActive }
+        
+        super.init( nibName: nil, bundle: nil )
     }
     
-    var canRegress: Bool
+    public required init?( coder: NSCoder )
     {
-        get
+        nil
     }
     
-    var deactivates: [ AnyClass ]
+    public override var nibName: NSNib.Name?
     {
-        get
+        "CreatureDetailViewController"
     }
     
-    var name: String
+    public override func viewDidLoad()
     {
-        get
+        super.viewDidLoad()
+        self.update()
     }
     
-    var detail: String?
+    private func update()
     {
-        get
+        if let img = self.creature.texture?.cgImage()
+        {
+            self.image = NSImage( cgImage: img, size: NSMakeSize( 1024, 1024 ) )
+        }
+        else
+        {
+            self.image = nil
+        }
     }
     
-    init( active: Bool )
-    
-    func onEnergyChanged( creature: Creature )
-    func onCollision( creature: Creature, node: SKNode )
-    func chooseDestination( creature: Creature ) -> Destination?
+    @IBAction public func close( _ sender: Any? )
+    {
+        guard let windowController = self.view.window?.windowController as? MainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        windowController.hideDetails( sender )
+    }
 }
