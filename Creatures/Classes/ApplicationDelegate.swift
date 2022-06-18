@@ -56,4 +56,19 @@ import Cocoa
     {
         self.mainWindowController.reset( sender )
     }
+    
+    @IBAction public func togglePause( _ sender: Any? )
+    {
+        self.mainWindowController.togglePause( sender )
+    }
+    
+    @IBAction public func pause( _ sender: Any? )
+    {
+        self.mainWindowController.pause( sender )
+    }
+    
+    @IBAction public func resume( _ sender: Any? )
+    {
+        self.mainWindowController.resume( sender )
+    }
 }

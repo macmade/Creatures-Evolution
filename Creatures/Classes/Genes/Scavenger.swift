@@ -31,14 +31,14 @@ public class Scavenger: NSObject, Gene
     
     public var canRegress: Bool
     {
-        true
+        self.settings.scavenger.canRegress
     }
     
-    public var deactivates: [ AnyClass ]
+    public var deactivates: [ String ]
     {
         get
         {
-            [ Herbivore.self, Carnivore.self, Vampire.self ]
+            self.settings.scavenger.deactivates
         }
     }
     
@@ -47,19 +47,32 @@ public class Scavenger: NSObject, Gene
         "Scavenger"
     }
     
-    public var detail: String?
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
     {
         nil
     }
     
-    public required init( active: Bool )
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
+    }
+    
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
     {
         self.isActive = active
+        self.settings = settings
     }
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        Scavenger( active: self.isActive )
+        Scavenger( active: self.isActive, settings: self.settings )
     }
     
     public func onEnergyChanged( creature: Creature )
@@ -71,7 +84,7 @@ public class Scavenger: NSObject, Gene
         {
             meat.remove()
             
-            creature.energy += meat.energy <= 0 ? 1 : meat.energy
+            creature.energy += meat.energy
         }
     }
     

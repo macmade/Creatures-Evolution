@@ -11,24 +11,24 @@
 		0510203A285A165900F11184 /* VampireSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102038285A165900F11184 /* VampireSettingsViewController.swift */; };
 		0510203D285A16B000F11184 /* VampireSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510203B285A16B000F11184 /* VampireSettingsViewController.xib */; };
 		05102044285A176F00F11184 /* ScavengerSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510203E285A176F00F11184 /* ScavengerSettingsViewController.xib */; };
-		05102045285A176F00F11184 /* CarnivoreSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102040285A176F00F11184 /* CarnivoreSettingsViewController.xib */; };
+		05102045285A176F00F11184 /* PredatorSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102040285A176F00F11184 /* PredatorSettingsViewController.xib */; };
 		05102046285A176F00F11184 /* CannibalSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102042285A176F00F11184 /* CannibalSettingsViewController.xib */; };
-		05102049285A17D800F11184 /* CarnivoreSenseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102047285A17D800F11184 /* CarnivoreSenseSettingsViewController.xib */; };
+		05102049285A17D800F11184 /* PredatorSenseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102047285A17D800F11184 /* PredatorSenseSettingsViewController.xib */; };
 		05102052285A17DE00F11184 /* SexSenseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510204A285A17DE00F11184 /* SexSenseSettingsViewController.xib */; };
 		05102053285A17DE00F11184 /* PlantSenseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510204C285A17DE00F11184 /* PlantSenseSettingsViewController.xib */; };
 		05102054285A17DE00F11184 /* VampireSenseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0510204E285A17DE00F11184 /* VampireSenseSettingsViewController.xib */; };
 		05102055285A17DE00F11184 /* MeatSenseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102050285A17DE00F11184 /* MeatSenseSettingsViewController.xib */; };
 		05102058285A191B00F11184 /* HerbivoreSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102056285A191B00F11184 /* HerbivoreSettingsViewController.xib */; };
-		05102069285A192800F11184 /* CarnivoreSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102059285A192800F11184 /* CarnivoreSenseSettingsViewController.swift */; };
+		05102069285A192800F11184 /* PredatorSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102059285A192800F11184 /* PredatorSenseSettingsViewController.swift */; };
 		0510206A285A192800F11184 /* MeatSenseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510205A285A192800F11184 /* MeatSenseSettings.swift */; };
-		0510206B285A192800F11184 /* CarnivoreSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510205B285A192800F11184 /* CarnivoreSettings.swift */; };
+		0510206B285A192800F11184 /* PredatorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510205B285A192800F11184 /* PredatorSettings.swift */; };
 		0510206C285A192800F11184 /* PlantSenseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510205C285A192800F11184 /* PlantSenseSettings.swift */; };
 		0510206D285A192800F11184 /* ScavengerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510205D285A192800F11184 /* ScavengerSettingsViewController.swift */; };
 		0510206E285A192800F11184 /* MeatSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510205E285A192800F11184 /* MeatSenseSettingsViewController.swift */; };
 		0510206F285A192800F11184 /* PlantSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510205F285A192800F11184 /* PlantSenseSettingsViewController.swift */; };
-		05102070285A192800F11184 /* CarnivoreSenseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102060285A192800F11184 /* CarnivoreSenseSettings.swift */; };
+		05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102060285A192800F11184 /* PredatorSenseSettings.swift */; };
 		05102071285A192800F11184 /* HerbivoreSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102061285A192800F11184 /* HerbivoreSettings.swift */; };
-		05102072285A192800F11184 /* CarnivoreSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102062285A192800F11184 /* CarnivoreSettingsViewController.swift */; };
+		05102072285A192800F11184 /* PredatorSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102062285A192800F11184 /* PredatorSettingsViewController.swift */; };
 		05102073285A192800F11184 /* HerbivoreSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */; };
 		05102074285A192800F11184 /* ScavengerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102064285A192800F11184 /* ScavengerSettings.swift */; };
 		05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102065285A192800F11184 /* SexSenseSettingsViewController.swift */; };
@@ -40,12 +40,30 @@
 		0510207F285A88F800F11184 /* CreatureSenseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510207D285A88F800F11184 /* CreatureSenseSettings.swift */; };
 		05102080285A88F800F11184 /* CreatureSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510207E285A88F800F11184 /* CreatureSenseSettingsViewController.swift */; };
 		05102083285A897200F11184 /* CreatureSenseSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102081285A897200F11184 /* CreatureSenseSettingsViewController.xib */; };
-		05102088285A8D3800F11184 /* Background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05102087285A8D3800F11184 /* Background.jpg */; };
+		05102088285A8D3800F11184 /* desert.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05102087285A8D3800F11184 /* desert.jpg */; };
 		0510208C285AA13A00F11184 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510208B285AA13A00F11184 /* Constants.swift */; };
 		0510208E285AAE2300F11184 /* CreatureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510208D285AAE2300F11184 /* CreatureDetailViewController.swift */; };
 		05102090285AAF0100F11184 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510208F285AAF0100F11184 /* BackgroundView.swift */; };
 		05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102091285AAF6700F11184 /* CreatureDetailViewController.xib */; };
 		05102095285ABD1000F11184 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102094285ABD1000F11184 /* Destination.swift */; };
+		051020B3285B54D800F11184 /* BooleanTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B2285B54D800F11184 /* BooleanTransformer.swift */; };
+		051020B5285B558F00F11184 /* NegateBooleanTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */; };
+		051020B9285B57CB00F11184 /* AgeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B8285B57CB00F11184 /* AgeTransformer.swift */; };
+		051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */; };
+		051020BD285B6BF100F11184 /* StatusTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020BC285B6BF100F11184 /* StatusTransformer.swift */; };
+		051020C4285B6D0800F11184 /* sand.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 051020BE285B6D0800F11184 /* sand.jpg */; };
+		051020C7285B6D0800F11184 /* beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 051020C1285B6D0800F11184 /* beach.jpg */; };
+		051020C8285B6D0800F11184 /* stones.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 051020C2285B6D0800F11184 /* stones.jpg */; };
+		051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020CA285B6DDB00F11184 /* WorldSettings.swift */; };
+		051020CE285B6E4C00F11184 /* WorldSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051020CC285B6E4C00F11184 /* WorldSettingsViewController.xib */; };
+		051020D0285B6E6600F11184 /* WorldSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020CF285B6E6500F11184 /* WorldSettingsViewController.swift */; };
+		051020DC285B737500F11184 /* moss.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 051020D9285B737500F11184 /* moss.jpg */; };
+		051020DD285B737500F11184 /* wood.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 051020DA285B737500F11184 /* wood.jpeg */; };
+		051020DE285B737500F11184 /* forrest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 051020DB285B737500F11184 /* forrest.jpg */; };
+		051020E0285B79AF00F11184 /* ClassTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020DF285B79AF00F11184 /* ClassTransformer.swift */; };
+		05102102285B8EF400F11184 /* NameTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102101285B8EF400F11184 /* NameTransformer.swift */; };
+		05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102103285B8FF200F11184 /* EditNameWindowController.swift */; };
+		05102107285B902600F11184 /* EditNameWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102105285B902600F11184 /* EditNameWindowController.xib */; };
 		05252E452854DEF80090B385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05252E442854DEF80090B385 /* Assets.xcassets */; };
 		05252E542854DF410090B385 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05252E502854DF410090B385 /* MainMenu.xib */; };
 		05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252E532854DF410090B385 /* ApplicationDelegate.swift */; };
@@ -60,13 +78,13 @@
 		05252EAB2854E9310090B385 /* Meat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EAA2854E9310090B385 /* Meat.swift */; };
 		05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EAC2854E94B0090B385 /* Herbivore.swift */; };
 		05252EAF2854E9540090B385 /* Scavenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EAE2854E9540090B385 /* Scavenger.swift */; };
-		05252EB12854E95D0090B385 /* Carnivore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB02854E95D0090B385 /* Carnivore.swift */; };
+		05252EB12854E95D0090B385 /* Predator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB02854E95D0090B385 /* Predator.swift */; };
 		05252EB32854E9640090B385 /* Cannibal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB22854E9640090B385 /* Cannibal.swift */; };
 		05252EB52854E9690090B385 /* Vampire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB42854E9690090B385 /* Vampire.swift */; };
 		05252EB72854E96F0090B385 /* Mitosis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB62854E96F0090B385 /* Mitosis.swift */; };
 		05252EB92854E9740090B385 /* Sex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EB82854E9740090B385 /* Sex.swift */; };
 		05252EBB2854E9830090B385 /* VampireSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBA2854E9830090B385 /* VampireSense.swift */; };
-		05252EBD2854E9900090B385 /* CarnivoreSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBC2854E9900090B385 /* CarnivoreSense.swift */; };
+		05252EBD2854E9900090B385 /* PredatorSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBC2854E9900090B385 /* PredatorSense.swift */; };
 		05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBE2854E9A10090B385 /* PlantSense.swift */; };
 		05252EC12854EA400090B385 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC02854EA400090B385 /* Creature.swift */; };
 		05252EC32854EA590090B385 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC22854EA590090B385 /* Updatable.swift */; };
@@ -97,6 +115,13 @@
 		05252F78285837920090B385 /* CreaturesSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05252F76285837920090B385 /* CreaturesSettingsViewController.xib */; };
 		05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */; };
 		05252F7C285837AD0090B385 /* CreaturesSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F7A285837AD0090B385 /* CreaturesSettings.swift */; };
+		053949E3285B97280077D90C /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949E2285B97280077D90C /* LabelNode.swift */; };
+		053949E5285BA7DC0077D90C /* AddGeneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949E4285BA7DC0077D90C /* AddGeneWindowController.swift */; };
+		053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053949E6285BA8110077D90C /* AddGeneWindowController.xib */; };
+		053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */; };
+		053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053949ED285CD0420077D90C /* FoodDetailViewController.xib */; };
+		053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F0285CD22B0077D90C /* DetailViewController.swift */; };
+		053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,24 +129,24 @@
 		05102038285A165900F11184 /* VampireSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VampireSettingsViewController.swift; sourceTree = "<group>"; };
 		0510203C285A16B000F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VampireSettingsViewController.xib; sourceTree = "<group>"; };
 		0510203F285A176F00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ScavengerSettingsViewController.xib; sourceTree = "<group>"; };
-		05102041285A176F00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CarnivoreSettingsViewController.xib; sourceTree = "<group>"; };
+		05102041285A176F00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PredatorSettingsViewController.xib; sourceTree = "<group>"; };
 		05102043285A176F00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CannibalSettingsViewController.xib; sourceTree = "<group>"; };
-		05102048285A17D800F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CarnivoreSenseSettingsViewController.xib; sourceTree = "<group>"; };
+		05102048285A17D800F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PredatorSenseSettingsViewController.xib; sourceTree = "<group>"; };
 		0510204B285A17DE00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SexSenseSettingsViewController.xib; sourceTree = "<group>"; };
 		0510204D285A17DE00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PlantSenseSettingsViewController.xib; sourceTree = "<group>"; };
 		0510204F285A17DE00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/VampireSenseSettingsViewController.xib; sourceTree = "<group>"; };
 		05102051285A17DE00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MeatSenseSettingsViewController.xib; sourceTree = "<group>"; };
 		05102057285A191B00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HerbivoreSettingsViewController.xib; sourceTree = "<group>"; };
-		05102059285A192800F11184 /* CarnivoreSenseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarnivoreSenseSettingsViewController.swift; sourceTree = "<group>"; };
+		05102059285A192800F11184 /* PredatorSenseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredatorSenseSettingsViewController.swift; sourceTree = "<group>"; };
 		0510205A285A192800F11184 /* MeatSenseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeatSenseSettings.swift; sourceTree = "<group>"; };
-		0510205B285A192800F11184 /* CarnivoreSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarnivoreSettings.swift; sourceTree = "<group>"; };
+		0510205B285A192800F11184 /* PredatorSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredatorSettings.swift; sourceTree = "<group>"; };
 		0510205C285A192800F11184 /* PlantSenseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSenseSettings.swift; sourceTree = "<group>"; };
 		0510205D285A192800F11184 /* ScavengerSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengerSettingsViewController.swift; sourceTree = "<group>"; };
 		0510205E285A192800F11184 /* MeatSenseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeatSenseSettingsViewController.swift; sourceTree = "<group>"; };
 		0510205F285A192800F11184 /* PlantSenseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSenseSettingsViewController.swift; sourceTree = "<group>"; };
-		05102060285A192800F11184 /* CarnivoreSenseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarnivoreSenseSettings.swift; sourceTree = "<group>"; };
+		05102060285A192800F11184 /* PredatorSenseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredatorSenseSettings.swift; sourceTree = "<group>"; };
 		05102061285A192800F11184 /* HerbivoreSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbivoreSettings.swift; sourceTree = "<group>"; };
-		05102062285A192800F11184 /* CarnivoreSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarnivoreSettingsViewController.swift; sourceTree = "<group>"; };
+		05102062285A192800F11184 /* PredatorSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredatorSettingsViewController.swift; sourceTree = "<group>"; };
 		05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HerbivoreSettingsViewController.swift; sourceTree = "<group>"; };
 		05102064285A192800F11184 /* ScavengerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScavengerSettings.swift; sourceTree = "<group>"; };
 		05102065285A192800F11184 /* SexSenseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SexSenseSettingsViewController.swift; sourceTree = "<group>"; };
@@ -133,12 +158,30 @@
 		0510207D285A88F800F11184 /* CreatureSenseSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatureSenseSettings.swift; sourceTree = "<group>"; };
 		0510207E285A88F800F11184 /* CreatureSenseSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatureSenseSettingsViewController.swift; sourceTree = "<group>"; };
 		05102082285A897200F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreatureSenseSettingsViewController.xib; sourceTree = "<group>"; };
-		05102087285A8D3800F11184 /* Background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Background.jpg; sourceTree = "<group>"; };
+		05102087285A8D3800F11184 /* desert.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = desert.jpg; sourceTree = "<group>"; };
 		0510208B285AA13A00F11184 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0510208D285AAE2300F11184 /* CreatureDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureDetailViewController.swift; sourceTree = "<group>"; };
 		0510208F285AAF0100F11184 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		05102092285AAF6700F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreatureDetailViewController.xib; sourceTree = "<group>"; };
 		05102094285ABD1000F11184 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		051020B2285B54D800F11184 /* BooleanTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanTransformer.swift; sourceTree = "<group>"; };
+		051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegateBooleanTransformer.swift; sourceTree = "<group>"; };
+		051020B8285B57CB00F11184 /* AgeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeTransformer.swift; sourceTree = "<group>"; };
+		051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureEnergyTransformer.swift; sourceTree = "<group>"; };
+		051020BC285B6BF100F11184 /* StatusTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTransformer.swift; sourceTree = "<group>"; };
+		051020BE285B6D0800F11184 /* sand.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sand.jpg; sourceTree = "<group>"; };
+		051020C1285B6D0800F11184 /* beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = beach.jpg; sourceTree = "<group>"; };
+		051020C2285B6D0800F11184 /* stones.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stones.jpg; sourceTree = "<group>"; };
+		051020CA285B6DDB00F11184 /* WorldSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldSettings.swift; sourceTree = "<group>"; };
+		051020CD285B6E4C00F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/WorldSettingsViewController.xib; sourceTree = "<group>"; };
+		051020CF285B6E6500F11184 /* WorldSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldSettingsViewController.swift; sourceTree = "<group>"; };
+		051020D9285B737500F11184 /* moss.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moss.jpg; sourceTree = "<group>"; };
+		051020DA285B737500F11184 /* wood.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.jpeg; sourceTree = "<group>"; };
+		051020DB285B737500F11184 /* forrest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = forrest.jpg; sourceTree = "<group>"; };
+		051020DF285B79AF00F11184 /* ClassTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTransformer.swift; sourceTree = "<group>"; };
+		05102101285B8EF400F11184 /* NameTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTransformer.swift; sourceTree = "<group>"; };
+		05102103285B8FF200F11184 /* EditNameWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameWindowController.swift; sourceTree = "<group>"; };
+		05102106285B902600F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EditNameWindowController.xib; sourceTree = "<group>"; };
 		05252E3F2854DEF70090B385 /* Creatures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Creatures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05252E442854DEF80090B385 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05252E492854DEF80090B385 /* Creatures.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Creatures.entitlements; sourceTree = "<group>"; };
@@ -202,13 +245,13 @@
 		05252EAA2854E9310090B385 /* Meat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meat.swift; sourceTree = "<group>"; };
 		05252EAC2854E94B0090B385 /* Herbivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Herbivore.swift; sourceTree = "<group>"; };
 		05252EAE2854E9540090B385 /* Scavenger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scavenger.swift; sourceTree = "<group>"; };
-		05252EB02854E95D0090B385 /* Carnivore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carnivore.swift; sourceTree = "<group>"; };
+		05252EB02854E95D0090B385 /* Predator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predator.swift; sourceTree = "<group>"; };
 		05252EB22854E9640090B385 /* Cannibal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cannibal.swift; sourceTree = "<group>"; };
 		05252EB42854E9690090B385 /* Vampire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vampire.swift; sourceTree = "<group>"; };
 		05252EB62854E96F0090B385 /* Mitosis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mitosis.swift; sourceTree = "<group>"; };
 		05252EB82854E9740090B385 /* Sex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sex.swift; sourceTree = "<group>"; };
 		05252EBA2854E9830090B385 /* VampireSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VampireSense.swift; sourceTree = "<group>"; };
-		05252EBC2854E9900090B385 /* CarnivoreSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarnivoreSense.swift; sourceTree = "<group>"; };
+		05252EBC2854E9900090B385 /* PredatorSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredatorSense.swift; sourceTree = "<group>"; };
 		05252EBE2854E9A10090B385 /* PlantSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSense.swift; sourceTree = "<group>"; };
 		05252EC02854EA400090B385 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
 		05252EC22854EA590090B385 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
@@ -239,6 +282,13 @@
 		05252F77285837920090B385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreaturesSettingsViewController.xib; sourceTree = "<group>"; };
 		05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaturesSettingsViewController.swift; sourceTree = "<group>"; };
 		05252F7A285837AD0090B385 /* CreaturesSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaturesSettings.swift; sourceTree = "<group>"; };
+		053949E2285B97280077D90C /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
+		053949E4285BA7DC0077D90C /* AddGeneWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGeneWindowController.swift; sourceTree = "<group>"; };
+		053949E7285BA8110077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddGeneWindowController.xib; sourceTree = "<group>"; };
+		053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		053949EE285CD0420077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FoodDetailViewController.xib; sourceTree = "<group>"; };
+		053949F0285CD22B0077D90C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEnergyTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,8 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				05102079285A85F500F11184 /* CannibalSettingsViewController.swift */,
-				05102059285A192800F11184 /* CarnivoreSenseSettingsViewController.swift */,
-				05102062285A192800F11184 /* CarnivoreSettingsViewController.swift */,
+				05102059285A192800F11184 /* PredatorSenseSettingsViewController.swift */,
+				05102062285A192800F11184 /* PredatorSettingsViewController.swift */,
 				0510207E285A88F800F11184 /* CreatureSenseSettingsViewController.swift */,
 				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
 				05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */,
@@ -274,6 +324,7 @@
 				05252F63285815D40090B385 /* SexSettingsViewController.swift */,
 				05102068285A192800F11184 /* VampireSenseSettingsViewController.swift */,
 				05102038285A165900F11184 /* VampireSettingsViewController.swift */,
+				051020CF285B6E6500F11184 /* WorldSettingsViewController.swift */,
 			);
 			path = "Settings Window";
 			sourceTree = "<group>";
@@ -281,9 +332,30 @@
 		05102086285A8D3800F11184 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				05102087285A8D3800F11184 /* Background.jpg */,
+				051020C1285B6D0800F11184 /* beach.jpg */,
+				05102087285A8D3800F11184 /* desert.jpg */,
+				051020DB285B737500F11184 /* forrest.jpg */,
+				051020D9285B737500F11184 /* moss.jpg */,
+				051020BE285B6D0800F11184 /* sand.jpg */,
+				051020C2285B6D0800F11184 /* stones.jpg */,
+				051020DA285B737500F11184 /* wood.jpeg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		051020B1285B548500F11184 /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				051020B2285B54D800F11184 /* BooleanTransformer.swift */,
+				051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */,
+				051020B8285B57CB00F11184 /* AgeTransformer.swift */,
+				051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */,
+				053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */,
+				051020BC285B6BF100F11184 /* StatusTransformer.swift */,
+				051020DF285B79AF00F11184 /* ClassTransformer.swift */,
+				05102101285B8EF400F11184 /* NameTransformer.swift */,
+			);
+			path = Transformers;
 			sourceTree = "<group>";
 		};
 		05252E362854DEF70090B385 = {
@@ -322,8 +394,11 @@
 				05252E5D2854E0510090B385 /* AboutWindowController.xib */,
 				05252E442854DEF80090B385 /* Assets.xcassets */,
 				05102091285AAF6700F11184 /* CreatureDetailViewController.xib */,
+				053949ED285CD0420077D90C /* FoodDetailViewController.xib */,
 				05252E502854DF410090B385 /* MainMenu.xib */,
 				05252E582854DFE80090B385 /* MainWindowController.xib */,
+				053949E6285BA8110077D90C /* AddGeneWindowController.xib */,
+				05102105285B902600F11184 /* EditNameWindowController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -331,13 +406,17 @@
 		05252E522854DF410090B385 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				051020B1285B548500F11184 /* Transformers */,
 				05252E5B2854E0360090B385 /* AboutWindowController.swift */,
 				05252E532854DF410090B385 /* ApplicationDelegate.swift */,
 				0510208F285AAF0100F11184 /* BackgroundView.swift */,
 				0510208B285AA13A00F11184 /* Constants.swift */,
 				0510208D285AAE2300F11184 /* CreatureDetailViewController.swift */,
+				053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */,
+				053949F0285CD22B0077D90C /* DetailViewController.swift */,
 				05102094285ABD1000F11184 /* Destination.swift */,
 				05252ED0285580190090B385 /* EvolutionHelper.swift */,
+				053949E2285B97280077D90C /* LabelNode.swift */,
 				05252F7528582D030090B385 /* Extensions */,
 				05252EA22854E9090090B385 /* Food */,
 				05252EA12854E9030090B385 /* Genes */,
@@ -349,6 +428,8 @@
 				05252ECA285521B20090B385 /* SpriteNode.swift */,
 				05252EC22854EA590090B385 /* Updatable.swift */,
 				05252F04285599DD0090B385 /* Weak.swift */,
+				05102103285B8FF200F11184 /* EditNameWindowController.swift */,
+				053949E4285BA7DC0077D90C /* AddGeneWindowController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -483,8 +564,8 @@
 			isa = PBXGroup;
 			children = (
 				05252EB22854E9640090B385 /* Cannibal.swift */,
-				05252EB02854E95D0090B385 /* Carnivore.swift */,
-				05252EBC2854E9900090B385 /* CarnivoreSense.swift */,
+				05252EB02854E95D0090B385 /* Predator.swift */,
+				05252EBC2854E9900090B385 /* PredatorSense.swift */,
 				05252EA42854E9180090B385 /* Gene.swift */,
 				05252EAC2854E94B0090B385 /* Herbivore.swift */,
 				05252F00285591E90090B385 /* MeatSense.swift */,
@@ -521,8 +602,8 @@
 			isa = PBXGroup;
 			children = (
 				05102042285A176F00F11184 /* CannibalSettingsViewController.xib */,
-				05102047285A17D800F11184 /* CarnivoreSenseSettingsViewController.xib */,
-				05102040285A176F00F11184 /* CarnivoreSettingsViewController.xib */,
+				05102047285A17D800F11184 /* PredatorSenseSettingsViewController.xib */,
+				05102040285A176F00F11184 /* PredatorSettingsViewController.xib */,
 				05102081285A897200F11184 /* CreatureSenseSettingsViewController.xib */,
 				05252F76285837920090B385 /* CreaturesSettingsViewController.xib */,
 				05102056285A191B00F11184 /* HerbivoreSettingsViewController.xib */,
@@ -537,6 +618,7 @@
 				05252F60285815BC0090B385 /* SexSettingsViewController.xib */,
 				0510204E285A17DE00F11184 /* VampireSenseSettingsViewController.xib */,
 				0510203B285A16B000F11184 /* VampireSettingsViewController.xib */,
+				051020CC285B6E4C00F11184 /* WorldSettingsViewController.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -545,8 +627,8 @@
 			isa = PBXGroup;
 			children = (
 				0510207A285A85F500F11184 /* CannibalSettings.swift */,
-				05102060285A192800F11184 /* CarnivoreSenseSettings.swift */,
-				0510205B285A192800F11184 /* CarnivoreSettings.swift */,
+				05102060285A192800F11184 /* PredatorSenseSettings.swift */,
+				0510205B285A192800F11184 /* PredatorSettings.swift */,
 				0510207D285A88F800F11184 /* CreatureSenseSettings.swift */,
 				05252F7A285837AD0090B385 /* CreaturesSettings.swift */,
 				05102061285A192800F11184 /* HerbivoreSettings.swift */,
@@ -561,6 +643,7 @@
 				05252F65285815E30090B385 /* SexSettings.swift */,
 				05102067285A192800F11184 /* VampireSenseSettings.swift */,
 				05102037285A165900F11184 /* VampireSettings.swift */,
+				051020CA285B6DDB00F11184 /* WorldSettings.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -634,12 +717,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				05102053285A17DE00F11184 /* PlantSenseSettingsViewController.xib in Resources */,
-				05102088285A8D3800F11184 /* Background.jpg in Resources */,
+				05102088285A8D3800F11184 /* desert.jpg in Resources */,
 				05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */,
+				053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */,
 				05252F78285837920090B385 /* CreaturesSettingsViewController.xib in Resources */,
 				05252E452854DEF80090B385 /* Assets.xcassets in Resources */,
-				05102049285A17D800F11184 /* CarnivoreSenseSettingsViewController.xib in Resources */,
-				05102045285A176F00F11184 /* CarnivoreSettingsViewController.xib in Resources */,
+				05102049285A17D800F11184 /* PredatorSenseSettingsViewController.xib in Resources */,
+				05102045285A176F00F11184 /* PredatorSettingsViewController.xib in Resources */,
 				05102046285A176F00F11184 /* CannibalSettingsViewController.xib in Resources */,
 				05102058285A191B00F11184 /* HerbivoreSettingsViewController.xib in Resources */,
 				05102052285A17DE00F11184 /* SexSenseSettingsViewController.xib in Resources */,
@@ -647,15 +731,24 @@
 				0510203D285A16B000F11184 /* VampireSettingsViewController.xib in Resources */,
 				05102055285A17DE00F11184 /* MeatSenseSettingsViewController.xib in Resources */,
 				05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */,
+				051020C4285B6D0800F11184 /* sand.jpg in Resources */,
+				051020CE285B6E4C00F11184 /* WorldSettingsViewController.xib in Resources */,
+				053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */,
 				05252E5A2854DFE80090B385 /* MainWindowController.xib in Resources */,
+				051020C8285B6D0800F11184 /* stones.jpg in Resources */,
 				05102083285A897200F11184 /* CreatureSenseSettingsViewController.xib in Resources */,
 				05252E542854DF410090B385 /* MainMenu.xib in Resources */,
+				051020DD285B737500F11184 /* wood.jpeg in Resources */,
 				05252F62285815BC0090B385 /* SexSettingsViewController.xib in Resources */,
 				05102054285A17DE00F11184 /* VampireSenseSettingsViewController.xib in Resources */,
 				05252F6B285819710090B385 /* PlantsSettingsViewController.xib in Resources */,
 				05252F502857F55C0090B385 /* MitosisSettingsViewController.xib in Resources */,
+				051020DE285B737500F11184 /* forrest.jpg in Resources */,
 				05102044285A176F00F11184 /* ScavengerSettingsViewController.xib in Resources */,
+				051020C7285B6D0800F11184 /* beach.jpg in Resources */,
 				05252F6C285819710090B385 /* MeatSettingsViewController.xib in Resources */,
+				05102107285B902600F11184 /* EditNameWindowController.xib in Resources */,
+				051020DC285B737500F11184 /* moss.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +781,8 @@
 			files = (
 				05252F0C2855E2100090B385 /* SettingsWindowController.swift in Sources */,
 				05102074285A192800F11184 /* ScavengerSettings.swift in Sources */,
+				051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */,
+				053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */,
 				05252F5F2858011B0090B385 /* MitosisSettings.swift in Sources */,
 				0510207B285A85F500F11184 /* CannibalSettingsViewController.swift in Sources */,
 				05252F72285819A60090B385 /* PlantsSettings.swift in Sources */,
@@ -701,50 +796,63 @@
 				05102071285A192800F11184 /* HerbivoreSettings.swift in Sources */,
 				05102080285A88F800F11184 /* CreatureSenseSettingsViewController.swift in Sources */,
 				05252EC12854EA400090B385 /* Creature.swift in Sources */,
-				05102069285A192800F11184 /* CarnivoreSenseSettingsViewController.swift in Sources */,
+				05102069285A192800F11184 /* PredatorSenseSettingsViewController.swift in Sources */,
 				0510206F285A192800F11184 /* PlantSenseSettingsViewController.swift in Sources */,
 				0510203A285A165900F11184 /* VampireSettingsViewController.swift in Sources */,
 				05252EA52854E9180090B385 /* Gene.swift in Sources */,
 				0510207F285A88F800F11184 /* CreatureSenseSettings.swift in Sources */,
 				05252F64285815D40090B385 /* SexSettingsViewController.swift in Sources */,
+				051020B3285B54D800F11184 /* BooleanTransformer.swift in Sources */,
 				05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */,
+				053949E3285B97280077D90C /* LabelNode.swift in Sources */,
 				05102073285A192800F11184 /* HerbivoreSettingsViewController.swift in Sources */,
 				05252F73285819A60090B385 /* MeatSettingsViewController.swift in Sources */,
 				05102090285AAF0100F11184 /* BackgroundView.swift in Sources */,
 				05252F74285819A60090B385 /* MeatSettings.swift in Sources */,
 				0510206C285A192800F11184 /* PlantSenseSettings.swift in Sources */,
-				0510206B285A192800F11184 /* CarnivoreSettings.swift in Sources */,
+				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
+				0510206B285A192800F11184 /* PredatorSettings.swift in Sources */,
+				051020E0285B79AF00F11184 /* ClassTransformer.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
-				05102070285A192800F11184 /* CarnivoreSenseSettings.swift in Sources */,
-				05102072285A192800F11184 /* CarnivoreSettingsViewController.swift in Sources */,
+				053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */,
+				05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */,
+				053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */,
+				05102072285A192800F11184 /* PredatorSettingsViewController.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
+				051020B5285B558F00F11184 /* NegateBooleanTransformer.swift in Sources */,
 				05252EB72854E96F0090B385 /* Mitosis.swift in Sources */,
 				05252F03285592B90090B385 /* SexSense.swift in Sources */,
 				0510207C285A85F500F11184 /* CannibalSettings.swift in Sources */,
 				05252EB92854E9740090B385 /* Sex.swift in Sources */,
+				05102102285B8EF400F11184 /* NameTransformer.swift in Sources */,
 				05252E572854DFB50090B385 /* MainWindowController.swift in Sources */,
-				05252EBD2854E9900090B385 /* CarnivoreSense.swift in Sources */,
+				05252EBD2854E9900090B385 /* PredatorSense.swift in Sources */,
 				05252F05285599DD0090B385 /* Weak.swift in Sources */,
 				05252EB52854E9690090B385 /* Vampire.swift in Sources */,
 				0510208C285AA13A00F11184 /* Constants.swift in Sources */,
 				05252EAB2854E9310090B385 /* Meat.swift in Sources */,
 				05252EC32854EA590090B385 /* Updatable.swift in Sources */,
+				051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */,
 				05252EA92854E9290090B385 /* Plant.swift in Sources */,
 				05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */,
 				0510208E285AAE2300F11184 /* CreatureDetailViewController.swift in Sources */,
 				05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */,
 				05102078285A192800F11184 /* VampireSenseSettingsViewController.swift in Sources */,
-				05252EB12854E95D0090B385 /* Carnivore.swift in Sources */,
+				05252EB12854E95D0090B385 /* Predator.swift in Sources */,
 				05252EB32854E9640090B385 /* Cannibal.swift in Sources */,
 				05102039285A165900F11184 /* VampireSettings.swift in Sources */,
 				05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */,
 				05252ECB285521B20090B385 /* SpriteNode.swift in Sources */,
 				05102095285ABD1000F11184 /* Destination.swift in Sources */,
+				051020BD285B6BF100F11184 /* StatusTransformer.swift in Sources */,
 				05102077285A192800F11184 /* VampireSenseSettings.swift in Sources */,
 				05252EA72854E9210090B385 /* Food.swift in Sources */,
 				05252F66285815E30090B385 /* SexSettings.swift in Sources */,
+				051020D0285B6E6600F11184 /* WorldSettingsViewController.swift in Sources */,
 				05102076285A192800F11184 /* SexSenseSettings.swift in Sources */,
 				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
+				051020B9285B57CB00F11184 /* AgeTransformer.swift in Sources */,
+				053949E5285BA7DC0077D90C /* AddGeneWindowController.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
 				05252F7C285837AD0090B385 /* CreaturesSettings.swift in Sources */,
@@ -775,12 +883,12 @@
 			name = ScavengerSettingsViewController.xib;
 			sourceTree = "<group>";
 		};
-		05102040285A176F00F11184 /* CarnivoreSettingsViewController.xib */ = {
+		05102040285A176F00F11184 /* PredatorSettingsViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				05102041285A176F00F11184 /* Base */,
 			);
-			name = CarnivoreSettingsViewController.xib;
+			name = PredatorSettingsViewController.xib;
 			sourceTree = "<group>";
 		};
 		05102042285A176F00F11184 /* CannibalSettingsViewController.xib */ = {
@@ -791,12 +899,12 @@
 			name = CannibalSettingsViewController.xib;
 			sourceTree = "<group>";
 		};
-		05102047285A17D800F11184 /* CarnivoreSenseSettingsViewController.xib */ = {
+		05102047285A17D800F11184 /* PredatorSenseSettingsViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				05102048285A17D800F11184 /* Base */,
 			);
-			name = CarnivoreSenseSettingsViewController.xib;
+			name = PredatorSenseSettingsViewController.xib;
 			sourceTree = "<group>";
 		};
 		0510204A285A17DE00F11184 /* SexSenseSettingsViewController.xib */ = {
@@ -853,6 +961,22 @@
 				05102092285AAF6700F11184 /* Base */,
 			);
 			name = CreatureDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		051020CC285B6E4C00F11184 /* WorldSettingsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				051020CD285B6E4C00F11184 /* Base */,
+			);
+			name = WorldSettingsViewController.xib;
+			sourceTree = "<group>";
+		};
+		05102105285B902600F11184 /* EditNameWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05102106285B902600F11184 /* Base */,
+			);
+			name = EditNameWindowController.xib;
 			sourceTree = "<group>";
 		};
 		05252E502854DF410090B385 /* MainMenu.xib */ = {
@@ -925,6 +1049,22 @@
 				05252F77285837920090B385 /* Base */,
 			);
 			name = CreaturesSettingsViewController.xib;
+			sourceTree = "<group>";
+		};
+		053949E6285BA8110077D90C /* AddGeneWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				053949E7285BA8110077D90C /* Base */,
+			);
+			name = AddGeneWindowController.xib;
+			sourceTree = "<group>";
+		};
+		053949ED285CD0420077D90C /* FoodDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				053949EE285CD0420077D90C /* Base */,
+			);
+			name = FoodDetailViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

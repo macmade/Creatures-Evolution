@@ -29,10 +29,25 @@ public class MainWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var scene:                    Scene?
     @objc public private( set ) dynamic var settingsWindowController: SettingsWindowController?
-    @objc public private( set ) dynamic var detailViewController:     NSViewController?
+    @objc public private( set ) dynamic var detailViewController:     DetailViewController?
     
     @IBOutlet private var contentView: NSView!
     @IBOutlet private var detailView:  NSView!
+    
+    @objc private dynamic var isPaused: Bool = false
+    {
+        didSet
+        {
+            guard let scene = self.scene else
+            {
+                NSSound.beep()
+                
+                return
+            }
+            
+            scene.isPaused = self.isPaused
+        }
+    }
     
     public override var windowNibName: NSNib.Name?
     {
@@ -56,8 +71,6 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        self.settingsWindowController = settings
-        
         window.center()
         window.makeKeyAndOrderFront( nil )
         window.beginSheet( settingsWindow )
@@ -68,10 +81,15 @@ public class MainWindowController: NSWindowController
             
             if response != .OK && self.scene != nil
             {
-                self.pause( false )
+                self.isPaused = false
                 
                 return
             }
+            
+            self.detailViewController?.view.removeFromSuperview()
+            
+            self.detailViewController     = nil
+            self.settingsWindowController = settings
             
             let view   = SKView( frame: self.contentView.bounds )
             let scene  = Scene( size: view.bounds.size, settings: settings.settings )
@@ -91,53 +109,62 @@ public class MainWindowController: NSWindowController
     
     @IBAction public func reset( _ sender: Any? )
     {
-        self.pause( true )
+        self.isPaused = true
+        
         self.show( sender )
     }
     
     @IBAction public func togglePause( _ sender: Any? )
     {
-        guard let scene = self.scene else
+        self.isPaused = self.isPaused == false
+    }
+    
+    @IBAction public func pause( _ sender: Any? )
+    {
+        self.isPaused = true
+    }
+    
+    @IBAction public func resume( _ sender: Any? )
+    {
+        self.isPaused = false
+    }
+    
+    public func showDetails( node: SpriteNode )
+    {
+        if let detail = self.detailViewController
+        {
+            detail.node.highlight( false )
+        }
+        
+        var controller: DetailViewController?
+        
+        if let creature = node as? Creature
+        {
+            controller = CreatureDetailViewController( creature: creature )
+        }
+        else if let food = node as? Food
+        {
+            controller = FoodDetailViewController( food: food )
+        }
+        
+        guard let controller = controller else
         {
             NSSound.beep()
             
             return
         }
         
-        self.pause( scene.isPaused == false )
-    }
-    
-    private func pause( _ paused: Bool )
-    {
-        guard let scene = self.scene else
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        scene.isPaused = paused
-    }
-    
-    public func showDetails( creature: Creature )
-    {
-        if let detail = self.detailViewController as? CreatureDetailViewController
-        {
-            detail.creature.highlight( false )
-        }
-        
-        let controller            = CreatureDetailViewController( creature: creature )
         self.detailViewController = controller
         
-        creature.highlight( true )
+        node.highlight( true )
         self.detailView.addFillingSubview( controller.view, removeAllExisting: true )
     }
     
     public func hideDetails( _ sender: Any? )
     {
-        if let detail = self.detailViewController as? CreatureDetailViewController
+        if let detail = self.detailViewController
         {
-            detail.creature.highlight( false )
+            detail.node.highlight( false )
         }
         
         self.detailViewController = nil

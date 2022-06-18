@@ -25,16 +25,15 @@
 import Cocoa
 import SpriteKit
 
-public class Plant: SpriteNode, Food, Updatable
+public class Plant: Food, Updatable
 {
-    public  var energy        = 1
     public  var isAvailable   = true
     private var peremptionDate: Date?
     private var removalDate:    Date?
     
-    public required init( energy: Int )
+    public required init( energy: Int, settings: Settings )
     {
-        super.init( texture: SKTexture( imageNamed: "Plant" ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
+        super.init( energy: energy, settings: settings, texture: SKTexture( imageNamed: "Plant" ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
@@ -52,25 +51,20 @@ public class Plant: SpriteNode, Food, Updatable
     
     public func update()
     {
-        guard let scene = self.scene as? Scene else
-        {
-            return
-        }
-        
         if let peremptionDate = self.peremptionDate
         {
             if peremptionDate.timeIntervalSinceNow < 0
             {
-                self.energy           = scene.settings.plants.decayEnergy
+                self.energy           = self.settings.plants.decayEnergy
                 self.colorBlendFactor = 0
                 self.color            = NSColor.red
                 
                 self.run( SKAction.colorize( withColorBlendFactor: 0.75, duration: 1 ) )
             }
         }
-        else if scene.settings.plants.canDecay
+        else if self.settings.plants.canDecay
         {
-            self.peremptionDate = Date( timeIntervalSinceNow: scene.settings.plants.decayAfter + Double.random( in: 0 ... scene.settings.plants.decayAfterRange ) )
+            self.peremptionDate = Date( timeIntervalSinceNow: self.settings.plants.decayAfter + Double.random( in: 0 ... self.settings.plants.decayAfterRange ) )
         }
         
         if let removaleDate = self.removalDate
@@ -80,9 +74,9 @@ public class Plant: SpriteNode, Food, Updatable
                 self.remove()
             }
         }
-        else if scene.settings.plants.canDisappear
+        else if self.settings.plants.canDisappear
         {
-            self.removalDate = Date( timeIntervalSinceNow: scene.settings.plants.disappearAfter + Double.random( in: 0 ... scene.settings.plants.disappearAfterRange ) )
+            self.removalDate = Date( timeIntervalSinceNow: self.settings.plants.disappearAfter + Double.random( in: 0 ... self.settings.plants.disappearAfterRange ) )
         }
     }
 }

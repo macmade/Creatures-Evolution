@@ -31,6 +31,8 @@ public class SpriteNode: SKSpriteNode
     
     public private( set ) var isBeingRemoved = false
     
+    private var highlight: SKShapeNode?
+    
     public func flash( _ flash: Bool )
     {
         self.alpha = 1
@@ -58,6 +60,36 @@ public class SpriteNode: SKSpriteNode
         self.run( SKAction.fadeOut( withDuration: 0.5 ) )
         {
             self.removeFromParent()
+        }
+    }
+    
+    public func toggleHighlight()
+    {
+        self.highlight( self.highlight == nil )
+    }
+    
+    public func highlight( _ flag: Bool )
+    {
+        if flag && self.highlight != nil
+        {
+            return
+        }
+        
+        if flag
+        {
+            let highlight         = SKShapeNode( circleOfRadius: 15 )
+            highlight.fillColor   = NSColor.black.withAlphaComponent( 0.25 )
+            highlight.strokeColor = NSColor.white
+            highlight.zPosition   = 0
+            self.highlight        = highlight
+            
+            self.addChild( highlight )
+        }
+        else
+        {
+            self.highlight?.removeFromParent()
+            
+            self.highlight = nil
         }
     }
 }

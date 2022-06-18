@@ -120,6 +120,12 @@
                                     <action selector="reset:" target="-1" id="hwj-MU-fvJ"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Toggle Pause" keyEquivalent=" " id="oGK-Np-YgI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="togglePause:" target="-1" id="Piw-vN-SSg"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

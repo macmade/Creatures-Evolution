@@ -33,6 +33,4 @@ public class MeatSettings: NSObject, Codable
     @objc public dynamic var canDisappear          = true
     @objc public dynamic var disappearAfter        = 20.0
     @objc public dynamic var disappearAfterRange   = 5.0
-    @objc public dynamic var amountDroppedByBabies = 1
-    @objc public dynamic var amountDroppedByAdults = 2
 }

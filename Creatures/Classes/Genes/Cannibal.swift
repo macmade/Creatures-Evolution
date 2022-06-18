@@ -31,14 +31,14 @@ public class Cannibal: NSObject, Gene
     
     public var canRegress: Bool
     {
-        true
+        self.settings.cannibal.canRegress
     }
     
-    public var deactivates: [ AnyClass ]
+    public var deactivates: [ String ]
     {
         get
         {
-            []
+            self.settings.cannibal.deactivates
         }
     }
     
@@ -47,19 +47,32 @@ public class Cannibal: NSObject, Gene
         "Cannibal"
     }
     
-    public var detail: String?
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
     {
         nil
     }
     
-    public required init( active: Bool )
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
+    }
+    
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
     {
         self.isActive = active
+        self.settings = settings
     }
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        Cannibal( active: self.isActive )
+        Cannibal( active: self.isActive, settings: self.settings )
     }
     
     public func onEnergyChanged( creature: Creature )

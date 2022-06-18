@@ -31,14 +31,14 @@ public class PlantSense: NSObject, Gene
     
     public var canRegress: Bool
     {
-        true
+        self.settings.plantSense.canRegress
     }
     
-    public var deactivates: [ AnyClass ]
+    public var deactivates: [ String ]
     {
         get
         {
-            []
+            self.settings.plantSense.deactivates
         }
     }
     
@@ -47,19 +47,32 @@ public class PlantSense: NSObject, Gene
         "Plant Sense"
     }
     
-    public var detail: String?
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
     {
         nil
     }
     
-    public required init( active: Bool )
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "eye", accessibilityDescription: nil )
+    }
+    
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
     {
         self.isActive = active
+        self.settings = settings
     }
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        PlantSense( active: self.isActive )
+        PlantSense( active: self.isActive, settings: self.settings )
     }
     
     public func onEnergyChanged( creature: Creature )
@@ -82,7 +95,7 @@ public class PlantSense: NSObject, Gene
         
         for child in scene.children.shuffled()
         {
-            guard let plant = child as? Food else
+            guard let plant = child as? Plant else
             {
                 continue
             }

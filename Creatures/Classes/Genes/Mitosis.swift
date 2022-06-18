@@ -31,14 +31,14 @@ public class Mitosis: NSObject, Gene
     
     public var canRegress: Bool
     {
-        false
+        self.settings.mitosis.canRegress
     }
     
-    public var deactivates: [ AnyClass ]
+    public var deactivates: [ String ]
     {
         get
         {
-            [ Sex.self ]
+            self.settings.mitosis.deactivates
         }
     }
     
@@ -47,69 +47,77 @@ public class Mitosis: NSObject, Gene
         "Mitosis"
     }
     
-    public var detail: String?
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
     {
         nil
     }
     
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "heart.fill", accessibilityDescription: nil )
+    }
+    
     private var lastUsed: Date?
     
-    public required init( active: Bool )
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
     {
         self.isActive = active
+        self.settings = settings
     }
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        Mitosis( active: self.isActive )
+        Mitosis( active: self.isActive, settings: self.settings )
     }
     
     public func onEnergyChanged( creature: Creature )
     {
-        guard let scene = creature.scene as? Scene else
-        {
-            return
-        }
-        
         if creature.isBaby
         {
             return
         }
         
-        if creature.energy < scene.settings.mitosis.energyNeeded
+        if creature.energy < self.settings.mitosis.energyNeeded
         {
             return
         }
         
-        if creature.energy < scene.settings.mitosis.energyCost
+        if creature.energy < self.settings.mitosis.energyCost
         {
             return
         }
         
-        if let lastUsed = self.lastUsed, Date().timeIntervalSince( lastUsed ) < scene.settings.mitosis.recoveryTime
+        if let lastUsed = self.lastUsed, Date().timeIntervalSince( lastUsed ) < self.settings.mitosis.recoveryTime
         {
             return
         }
         
-        if Double.random( in: 0 ... 100 ) > scene.settings.mitosis.chance
+        if Double.random( in: 0 ... 100 ) > self.settings.mitosis.chance
         {
             return
         }
         
         self.lastUsed = Date()
         
-        creature.energy -= scene.settings.mitosis.energyCost
+        creature.energy -= self.settings.mitosis.energyCost
         
-        if creature.energy < scene.settings.creatures.energyNeededToGrow
+        if creature.energy < self.settings.creatures.energyNeededToGrow
         {
             creature.isBaby = true
         }
         
-        let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: scene.settings )
-        let copy      = Creature( energy: 1, genes: genes, parents: [ creature ] )
+        let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: self.settings )
+        let copy      = Creature( energy: 1, genes: genes, parents: [ creature ], settings: self.settings )
         copy.position = creature.position
         
-        scene.addChild( copy )
+        creature.scene?.addChild( copy )
         copy.move()
     }
     

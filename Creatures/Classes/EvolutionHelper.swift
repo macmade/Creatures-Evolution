@@ -30,39 +30,124 @@ public class EvolutionHelper
     private init()
     {}
     
+    public static func defaultGenes( settings: Settings ) -> [ Gene ]
+    {
+        var genes: [ Gene ] = []
+        
+        if settings.mitosis.isEnabled
+        {
+            genes.append( Mitosis( active: settings.mitosis.isActive, settings: settings ) )
+        }
+        
+        if settings.sex.isEnabled
+        {
+            genes.append( Sex( active: settings.sex.isActive, settings: settings ) )
+        }
+        
+        if settings.herbivore.isEnabled
+        {
+            genes.append( Herbivore( active: settings.herbivore.isActive, settings: settings ) )
+        }
+        
+        if settings.scavenger.isEnabled
+        {
+            genes.append( Scavenger( active: settings.scavenger.isActive, settings: settings ) )
+        }
+        
+        if settings.predator.isEnabled
+        {
+            genes.append( Predator( active: settings.predator.isActive, settings: settings ) )
+        }
+        
+        if settings.vampire.isEnabled
+        {
+            genes.append( Vampire( active: settings.vampire.isActive, settings: settings ) )
+        }
+        
+        if settings.cannibal.isEnabled
+        {
+            genes.append( Cannibal( active: settings.cannibal.isActive, settings: settings ) )
+        }
+        
+        if settings.plantSense.isEnabled
+        {
+            genes.append( PlantSense( active: settings.plantSense.isActive, settings: settings ) )
+        }
+        
+        if settings.meatSense.isEnabled
+        {
+            genes.append( MeatSense( active: settings.meatSense.isActive, settings: settings ) )
+        }
+        
+        if settings.sexSense.isEnabled
+        {
+            genes.append( SexSense( active: settings.sexSense.isActive, settings: settings ) )
+        }
+        
+        if settings.predatorSense.isEnabled
+        {
+            genes.append( PredatorSense( active: settings.predatorSense.isActive, settings: settings ) )
+        }
+        
+        if settings.vampireSense.isEnabled
+        {
+            genes.append( VampireSense( active: settings.vampireSense.isActive, settings: settings ) )
+        }
+        
+        genes.shuffled().forEach
+        {
+            if $0.isActive
+            {
+                self.deactivateConflictingGenes( gene: $0, in: genes )
+            }
+        }
+        
+        return genes
+    }
+    
+    public static func deactivateConflictingGenes( gene: Gene, in genes: [ Gene ] )
+    {
+        gene.deactivates.forEach
+        {
+            name in genes.forEach
+            {
+                guard let cls = NSStringFromClass( type( of: $0 ) ).components( separatedBy: "." ).last else
+                {
+                    return
+                }
+                
+                if cls == name
+                {
+                    $0.isActive = false
+                }
+            }
+        }
+    }
+    
     public static func mutate( genes: [ Gene ], settings: Settings ) -> [ Gene ]
     {
         let copy = genes.compactMap { $0.copy() as? Gene }
-        
-        copy.forEach
+            
+        if Int.random( in: 0 ... 100 ) > settings.creatures.mutationChance
         {
-            gene in
-            
-            if gene.canRegress == false && gene.isActive
-            {
-                return
-            }
-            
-            if Int.random( in: 0 ... 100 ) > settings.creatures.mutationChance
-            {
-                return
-            }
-            
-            gene.isActive = gene.isActive == false
-            
-            if gene.isActive
-            {
-                gene.deactivates.forEach
-                {
-                    cls in copy.forEach
-                    {
-                        if $0.isKind( of: cls )
-                        {
-                            $0.isActive = false
-                        }
-                    }
-                }
-            }
+            return copy
+        }
+        
+        guard let gene = copy.randomElement() else
+        {
+            return copy
+        }
+        
+        if gene.canRegress == false && gene.isActive
+        {
+            return copy
+        }
+        
+        gene.isActive = gene.isActive == false
+        
+        if gene.isActive
+        {
+            self.deactivateConflictingGenes( gene: gene, in: copy )
         }
         
         return copy

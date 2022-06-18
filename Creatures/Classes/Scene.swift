@@ -72,8 +72,34 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             }
             else
             {
-                windowController.showDetails( creature: creature )
+                windowController.showDetails( node: creature )
             }
+        }
+        else if let food = node as? Food ?? node.parent as? Food
+        {
+            if event.modifierFlags.contains( .command )
+            {
+                //food.toggleHighlight()
+            }
+            else
+            {
+                windowController.showDetails( node: food )
+            }
+        }
+    }
+    
+    public override func keyDown( with event: NSEvent )
+    {
+        if event.keyCode == 49 /* Space */
+        {
+            if let controller = self.view?.window?.windowController as? MainWindowController
+            {
+                controller.togglePause( nil )
+            }
+        }
+        else
+        {
+            super.keyDown( with: event )
         }
     }
     
@@ -92,12 +118,28 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         self.newFoodTimer?.invalidate()
         self.removeAllChildren()
         
-        let background         = SKSpriteNode( imageNamed: "Background" )
-        background.position    = NSPoint( x: 0, y: 0 )
-        background.anchorPoint = NSPoint( x: 0, y: 0 )
-        background.size        = self.size
+        let backgroundImage: String? =
+        {
+            let backgroundImages = [ "beach", "desert", "forrest", "moss", "sand", "stones", "wood" ]
+            let index            = self.settings.world.environment
+            
+            if index < 0 || index >= backgroundImages.count
+            {
+                return backgroundImages.randomElement()
+            }
+            
+            return backgroundImages[ index ]
+        }()
         
-        self.addChild( background )
+        if let backgroundImage = backgroundImage
+        {
+            let background         = SKSpriteNode( imageNamed: backgroundImage )
+            background.position    = NSPoint( x: 0, y: 0 )
+            background.anchorPoint = NSPoint( x: 0, y: 0 )
+            background.size        = self.size
+            
+            self.addChild( background )
+        }
         
         self.generatePlants(    amount: self.settings.plants.initialAmount )
         self.generateCreatures( amount: self.settings.creatures.initialAmount )
@@ -141,7 +183,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         for _ in 0 ..< amount
         {
-            let plant      = Plant( energy: 1 )
+            let plant      = Plant( energy: 1, settings: self.settings )
             plant.position = self.randomPoint()
             plant.alpha    = 0
             
@@ -154,7 +196,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         for _ in 0 ..< amount
         {
-            let creature      = Creature( energy: self.settings.creatures.initialEnergy )
+            let creature      = Creature( energy: self.settings.creatures.initialEnergy, settings: self.settings )
             creature.position = self.randomPoint()
             creature.alpha    = 0
             

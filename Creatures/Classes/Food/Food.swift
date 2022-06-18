@@ -25,13 +25,36 @@
 import Cocoa
 import SpriteKit
 
-public protocol Food: SpriteNode
+@objc public class Food: SpriteNode
 {
-    var energy: Int
+    @objc public                dynamic var energy:   Int
+    @objc public private( set ) dynamic var settings: Settings
+    
+    @objc public dynamic var isAlive: Bool
     {
         get
-        set
+        {
+            self.isBeingRemoved == false && self.scene != nil
+        }
     }
     
-    init( energy: Int )
+    init( energy: Int, settings: Settings, texture: SKTexture?, color: NSColor, size: CGSize )
+    {
+        self.energy   = energy
+        self.settings = settings
+        
+        super.init( texture: texture, color: color, size: size )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func remove()
+    {
+        self.willChangeValue( for: \.isAlive )
+        super.remove()
+        self.didChangeValue( for: \.isAlive )
+    }
 }

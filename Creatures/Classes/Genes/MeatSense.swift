@@ -31,14 +31,14 @@ public class MeatSense: NSObject, Gene
     
     public var canRegress: Bool
     {
-        true
+        self.settings.meatSense.canRegress
     }
     
-    public var deactivates: [ AnyClass ]
+    public var deactivates: [ String ]
     {
         get
         {
-            []
+            self.settings.meatSense.deactivates
         }
     }
     
@@ -47,19 +47,32 @@ public class MeatSense: NSObject, Gene
         "Meat Sense"
     }
     
-    public var detail: String?
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
     {
         nil
     }
     
-    public required init( active: Bool )
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "eye", accessibilityDescription: nil )
+    }
+    
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
     {
         self.isActive = active
+        self.settings = settings
     }
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        MeatSense( active: self.isActive )
+        MeatSense( active: self.isActive, settings: self.settings )
     }
     
     public func onEnergyChanged( creature: Creature )

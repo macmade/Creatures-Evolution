@@ -25,20 +25,24 @@
 import Cocoa
 import SpriteKit
 
-public class CreatureDetailViewController: NSViewController
+public class CreatureDetailViewController: DetailViewController
 {
-    @objc public private( set ) dynamic var creature: Creature
-    @objc        private        dynamic var image:    NSImage?
-    @objc        private        dynamic var genes:    [ Gene ]
+    @objc private dynamic var genes: [ Gene ]
     
     @IBOutlet private var genesController: NSArrayController!
     
+    private var nameObserver: NSKeyValueObservation?
+    
     public init( creature: Creature )
     {
-        self.creature = creature
-        self.genes    = creature.genes.filter { $0.isActive }
+        self.genes = []
         
-        super.init( nibName: nil, bundle: nil )
+        super.init( node: creature )
+        
+        self.nameObserver = creature.observe( \.customName )
+        {
+            [ weak self ] _, _ in self?.update()
+        }
     }
     
     public required init?( coder: NSCoder )
@@ -57,27 +61,127 @@ public class CreatureDetailViewController: NSViewController
         self.update()
     }
     
-    private func update()
+    public override func update()
     {
-        if let img = self.creature.texture?.cgImage()
+        super.update()
+        
+        if let creature = self.node as? Creature
         {
-            self.image = NSImage( cgImage: img, size: NSMakeSize( 1024, 1024 ) )
-        }
-        else
-        {
-            self.image = nil
+            self.genes = creature.genes.filter { $0.isActive }
+            self.title = creature.customName ?? "Creature"
         }
     }
     
-    @IBAction public func close( _ sender: Any? )
+    @IBAction public func increaseEnergy( _ sender: Any? )
     {
-        guard let windowController = self.view.window?.windowController as? MainWindowController else
+        ( self.node as? Creature )?.energy += 1
+    }
+    
+    @IBAction public func decreaseEnergy( _ sender: Any? )
+    {
+        ( self.node as? Creature )?.energy -= 1
+    }
+    
+    @IBAction public func kill( _ sender: Any? )
+    {
+        ( self.node as? Creature )?.die( dropFood: true )
+    }
+    
+    @IBAction public func editName( _ sender: Any? )
+    {
+        guard let creature = self.node as? Creature else
         {
             NSSound.beep()
             
             return
         }
         
-        windowController.hideDetails( sender )
+        let controller = EditNameWindowController( creature: creature )
+        
+        guard let window = self.view.window, let sheet = controller.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        window.beginSheet( sheet )
+        {
+            response in
+            
+            if response != .OK
+            {
+                return
+            }
+            
+            creature.customName = controller.name.isEmpty ? nil : controller.name
+        }
+    }
+    
+    @IBAction public func removeGene( _ sender: Any? )
+    {
+        guard let creature = self.node as? Creature else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        guard let gene = self.genesController.selectedObjects.first as? Gene else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        gene.isActive = false
+        
+        self.willChangeValue( for: \.node )
+        self.didChangeValue(  for: \.node )
+        creature.updateTexture()
+        self.update()
+    }
+    
+    @IBAction public func addGene( _ sender: Any? )
+    {
+        guard let creature = self.node as? Creature else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let controller = AddGeneWindowController( creature: creature )
+        
+        guard let window = self.view.window, let sheet = controller.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        window.beginSheet( sheet )
+        {
+            response in
+            
+            if response != .OK
+            {
+                return
+            }
+            
+            guard let gene = controller.selectedGene else
+            {
+                return
+            }
+            
+            gene.isActive = true
+            
+            EvolutionHelper.deactivateConflictingGenes( gene: gene, in: creature.genes )
+            
+            self.willChangeValue( for: \.node )
+            self.didChangeValue(  for: \.node )
+            creature.updateTexture()
+            self.update()
+        }
     }
 }

@@ -30,10 +30,19 @@ public class Creature: SpriteNode, Updatable
     private static let moveActionKey = "Move"
     private static var index         = UInt64( 0 )
     
-          public private( set ) dynamic var genes: [ Gene ]
-    @objc public private( set ) dynamic var born = Date()
+          public private( set ) dynamic var genes:    [ Gene ]
+    @objc public private( set ) dynamic var settings: Settings
+    @objc public private( set ) dynamic var born    = Date()
     
     private var nextEnergyDecrease: Date?
+    
+    @objc public dynamic var customName: String?
+    {
+        didSet
+        {
+            self.updateCustomName()
+        }
+    }
     
     @objc public dynamic var energy = 1
     {
@@ -43,7 +52,7 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
-    public var isBaby = true
+    @objc public dynamic var isBaby = true
     {
         willSet( value )
         {
@@ -51,38 +60,32 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
-    private var parents:  [ Weak< Creature > ]?
-    private var highlight: SKShapeNode?
-    
-    public convenience init( energy: Int )
+    @objc public dynamic var isAlive: Bool
     {
-        let genes: [ Gene ] = [
-            Mitosis(        active: true ),
-            Sex(            active: false ),
-            Herbivore(      active: true ),
-            Scavenger(      active: false ),
-            Carnivore(      active: false ),
-            Vampire(        active: false ),
-            Cannibal(       active: false ),
-            PlantSense(     active: false ),
-            MeatSense(      active: false ),
-            SexSense(       active: false ),
-            CarnivoreSense( active: false ),
-            VampireSense(   active: false ),
-        ]
-        
-        self.init( energy: energy, genes: genes )
+        get
+        {
+            self.isBeingRemoved == false && self.scene != nil
+        }
     }
     
-    public convenience init( energy: Int, genes: [ Gene ] )
+    private var parents:         [ Weak< Creature > ]?
+    private var customNameLabel: LabelNode?
+    
+    public convenience init( energy: Int, settings: Settings )
     {
-        self.init( energy: energy, genes: genes, parents: nil )
+        self.init( energy: energy, genes: EvolutionHelper.defaultGenes( settings: settings ), settings: settings )
     }
     
-    public init( energy: Int, genes: [ Gene ], parents: [ Creature ]? )
+    public convenience init( energy: Int, genes: [ Gene ], settings: Settings )
     {
-        self.genes   = genes
-        self.parents = parents?.map{ Weak( value: $0 ) }
+        self.init( energy: energy, genes: genes, parents: nil, settings: settings )
+    }
+    
+    public init( energy: Int, genes: [ Gene ], parents: [ Creature ]?, settings: Settings )
+    {
+        self.genes    = genes
+        self.settings = settings
+        self.parents  = parents?.map{ Weak( value: $0 ) }
         
         super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
         
@@ -175,12 +178,10 @@ public class Creature: SpriteNode, Updatable
     
     public func update()
     {
-        if self.isBeingRemoved
-        {
-            return
-        }
+        self.willChangeValue( for: \.born )
+        self.didChangeValue(  for: \.born )
         
-        guard let scene = self.scene as? Scene else
+        if self.isBeingRemoved
         {
             return
         }
@@ -195,7 +196,7 @@ public class Creature: SpriteNode, Updatable
         }
         else
         {
-            self.nextEnergyDecrease = Date( timeIntervalSinceNow: scene.settings.creatures.energyDecreaseInterval + Double.random( in: 0 ... scene.settings.creatures.energyDecreaseIntervalRange ) )
+            self.nextEnergyDecrease = Date( timeIntervalSinceNow: self.settings.creatures.energyDecreaseInterval + Double.random( in: 0 ... self.settings.creatures.energyDecreaseIntervalRange ) )
         }
     }
     
@@ -289,15 +290,13 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        if let category  = node.physicsBody?.categoryBitMask,
-           let collision = self.physicsBody?.collisionBitMask,
-           collision & category != 0
+        if let cat1 = self.physicsBody?.categoryBitMask,
+           let cat2 = node.physicsBody?.categoryBitMask,
+           cat1 == cat2
         {
-            return
+            self.removeAction( forKey: Creature.moveActionKey )
+            self.move()
         }
-        
-        self.removeAction( forKey: Creature.moveActionKey )
-        self.move()
     }
     
     private func energyChanged()
@@ -328,15 +327,10 @@ public class Creature: SpriteNode, Updatable
             self.flash( false )
         }
         
-        guard let scene = self.scene as? Scene else
-        {
-            return
-        }
-        
-        if self.isBaby && self.energy >= scene.settings.creatures.energyNeededToGrow
+        if self.isBaby && self.energy >= self.settings.creatures.energyNeededToGrow
         {
             self.isBaby  = false
-            self.energy -= scene.settings.creatures.growthEnergyCost
+            self.energy -= self.settings.creatures.growthEnergyCost
         }
     }
     
@@ -344,9 +338,10 @@ public class Creature: SpriteNode, Updatable
     {
         self.removeAction( forKey: Creature.moveActionKey )
         
-        if dropFood, let scene = self.scene as? Scene
+        if dropFood
         {
-            let meat      = Meat( energy: self.isBaby ? scene.settings.meat.amountDroppedByBabies : scene.settings.meat.amountDroppedByAdults )
+            let energy    = self.energy > 0 ? self.energy : 1
+            let meat      = Meat( energy: energy, settings: self.settings )
             meat.position = self.position
             meat.alpha    = 0
             
@@ -354,7 +349,9 @@ public class Creature: SpriteNode, Updatable
             meat.run( SKAction.fadeIn( withDuration: 1 ) )
         }
         
+        self.willChangeValue( for: \.isAlive )
         self.remove()
+        self.didChangeValue( for: \.isAlive )
     }
     
     public func fight( other: Creature ) -> Bool
@@ -364,23 +361,18 @@ public class Creature: SpriteNode, Updatable
             return false
         }
         
-        guard let scene = self.scene as? Scene else
-        {
-            return false
-        }
-        
         let chance: Int =
         {
             if self.isSmallerThan( creature: other )
             {
-                return scene.settings.creatures.combatChanceIfSmaller
+                return self.settings.creatures.combatChanceIfSmaller
             }
             else if self.isBiggerThan( creature: other )
             {
-                return scene.settings.creatures.combatChanceIfBigger
+                return self.settings.creatures.combatChanceIfBigger
             }
             
-            return scene.settings.creatures.combatChanceIfSameSize
+            return self.settings.creatures.combatChanceIfSameSize
         }()
         
         return Int.random( in: 0 ... 100 ) <= chance
@@ -413,15 +405,15 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
-    private func updateTexture()
+    public func updateTexture()
     {
         if self.hasActiveGene( Vampire.self )
         {
             self.texture = SKTexture( imageNamed: "Vampire" )
         }
-        else if self.hasActiveGene( Carnivore.self )
+        else if self.hasActiveGene( Predator.self )
         {
-            self.texture = SKTexture( imageNamed: "Carnivore" )
+            self.texture = SKTexture( imageNamed: "Predator" )
         }
         else if self.hasActiveGene( Scavenger.self )
         {
@@ -437,32 +429,22 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
-    public func toggleHighlight()
+    private func updateCustomName()
     {
-        self.highlight( self.highlight == nil )
-    }
-    
-    public func highlight( _ flag: Bool )
-    {
-        if flag && self.highlight != nil
+        self.customNameLabel?.removeFromParent()
+        
+        self.customNameLabel = nil
+        
+        guard let name = self.customName else
         {
             return
         }
         
-        if flag
-        {
-            let highlight         = SKShapeNode( circleOfRadius: 15 )
-            highlight.fillColor   = NSColor.black.withAlphaComponent( 0.25 )
-            highlight.strokeColor = NSColor.white
-            self.highlight        = highlight
-            
-            self.addChild( highlight )
-        }
-        else
-        {
-            self.highlight?.removeFromParent()
-            
-            self.highlight = nil
-        }
+        let label            = LabelNode( text: name, fontName: nil, fontSize: 8, textColor: NSColor.white, shadowColor: NSColor.black )
+        label.position       = NSPoint( x: 0, y: 12 )
+        label.zPosition      = 1
+        self.customNameLabel = label
+        
+        self.addChild( label )
     }
 }

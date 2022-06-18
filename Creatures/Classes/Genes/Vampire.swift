@@ -31,14 +31,14 @@ public class Vampire: NSObject, Gene
     
     public var canRegress: Bool
     {
-        true
+        self.settings.vampire.canRegress
     }
     
-    public var deactivates: [ AnyClass ]
+    public var deactivates: [ String ]
     {
         get
         {
-            [ Herbivore.self, Scavenger.self, Carnivore.self ]
+            self.settings.vampire.deactivates
         }
     }
     
@@ -47,19 +47,32 @@ public class Vampire: NSObject, Gene
         "Vampire"
     }
     
-    public var detail: String?
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
     {
         nil
     }
     
-    public required init( active: Bool )
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
+    }
+    
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
     {
         self.isActive = active
+        self.settings = settings
     }
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        Vampire( active: self.isActive )
+        Vampire( active: self.isActive, settings: self.settings )
     }
     
     public func onEnergyChanged( creature: Creature )
@@ -89,8 +102,17 @@ public class Vampire: NSObject, Gene
         
         if creature.fight( other: other )
         {
-            creature.energy += 1
-            other.energy    -= 1
+            if other.energy > 0
+            {
+                let energy = Int.random( in: 0 ..< other.energy )
+                
+                creature.energy += energy
+                other.energy    -= energy
+            }
+            else
+            {
+                other.die( dropFood: true )
+            }
         }
     }
     

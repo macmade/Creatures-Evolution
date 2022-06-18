@@ -26,6 +26,7 @@ import Cocoa
 
 public class Settings: NSObject, Codable
 {
+    @objc public dynamic var world          = WorldSettings()
     @objc public dynamic var creatures      = CreaturesSettings()
     @objc public dynamic var plants         = PlantsSettings()
     @objc public dynamic var meat           = MeatSettings()
@@ -33,13 +34,13 @@ public class Settings: NSObject, Codable
     @objc public dynamic var sex            = SexSettings()
     @objc public dynamic var herbivore      = HerbivoreSettings()
     @objc public dynamic var scavenger      = ScavengerSettings()
-    @objc public dynamic var carnivore      = CarnivoreSettings()
+    @objc public dynamic var predator       = PredatorSettings()
     @objc public dynamic var vampire        = VampireSettings()
     @objc public dynamic var cannibal       = CannibalSettings()
     @objc public dynamic var plantSense     = PlantSenseSettings()
     @objc public dynamic var meatSense      = MeatSenseSettings()
     @objc public dynamic var creatureSense  = CreatureSenseSettings()
     @objc public dynamic var sexSense       = SexSenseSettings()
-    @objc public dynamic var carnivoreSense = CarnivoreSenseSettings()
+    @objc public dynamic var predatorSense  = PredatorSenseSettings()
     @objc public dynamic var vampireSense   = VampireSenseSettings()
 }

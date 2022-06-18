@@ -38,7 +38,7 @@ import SpriteKit
         get
     }
     
-    var deactivates: [ AnyClass ]
+    var deactivates: [ String ]
     {
         get
     }
@@ -48,12 +48,17 @@ import SpriteKit
         get
     }
     
-    var detail: String?
+    var details: String?
     {
         get
     }
     
-    init( active: Bool )
+    var icon: NSImage?
+    {
+        get
+    }
+    
+    init( active: Bool, settings: Settings )
     
     func onEnergyChanged( creature: Creature )
     func onCollision( creature: Creature, node: SKNode )

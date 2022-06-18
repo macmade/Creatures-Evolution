@@ -33,14 +33,14 @@ public class Sex: NSObject, Gene
     
     public var canRegress: Bool
     {
-        false
+        self.settings.sex.canRegress
     }
     
-    public var deactivates: [ AnyClass ]
+    public var deactivates: [ String ]
     {
         get
         {
-            [ Mitosis.self ]
+            self.settings.sex.deactivates
         }
     }
     
@@ -49,7 +49,12 @@ public class Sex: NSObject, Gene
         "Sex"
     }
     
-    public var detail: String?
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
     {
         if self.isMale && self.isFemale
         {
@@ -64,11 +69,19 @@ public class Sex: NSObject, Gene
         return "Female"
     }
     
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "heart.fill", accessibilityDescription: nil )
+    }
+    
     private var lastUsed: Date?
     
-    public required init( active: Bool )
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
     {
         self.isActive = active
+        self.settings = settings
         
         let sex = Int.random( in: 0 ... 2 )
         
@@ -78,7 +91,7 @@ public class Sex: NSObject, Gene
     
     public func copy( with zone: NSZone? = nil ) -> Any
     {
-        Sex( active: self.isActive )
+        Sex( active: self.isActive, settings: self.settings )
     }
     
     public func onEnergyChanged( creature: Creature )
@@ -87,11 +100,6 @@ public class Sex: NSObject, Gene
     public func onCollision( creature: Creature, node: SKNode )
     {
         guard let other = node as? Creature else
-        {
-            return
-        }
-        
-        guard let scene = creature.scene as? Scene else
         {
             return
         }
@@ -111,22 +119,22 @@ public class Sex: NSObject, Gene
             return
         }
         
-        if creature.energy < scene.settings.sex.energyNeeded || other.energy < scene.settings.sex.energyNeeded
+        if creature.energy < self.settings.sex.energyNeeded || other.energy < self.settings.sex.energyNeeded
         {
             return
         }
         
-        if creature.energy < scene.settings.sex.energyCost || other.energy < scene.settings.sex.energyCost
+        if creature.energy < self.settings.sex.energyCost || other.energy < self.settings.sex.energyCost
         {
             return
         }
         
-        if let lastUsed = self.lastUsed, Date().timeIntervalSince( lastUsed ) < scene.settings.sex.recoveryTime
+        if let lastUsed = self.lastUsed, Date().timeIntervalSince( lastUsed ) < self.settings.sex.recoveryTime
         {
             return
         }
         
-        if Double.random( in: 0 ... 100 ) > scene.settings.sex.chance
+        if Double.random( in: 0 ... 100 ) > self.settings.sex.chance
         {
             return
         }
@@ -135,26 +143,26 @@ public class Sex: NSObject, Gene
         
         if sex1.isMale && sex2.isFemale || sex1.isFemale && sex2.isMale
         {
-            creature.energy -= scene.settings.sex.energyCost
-            other.energy    -= scene.settings.sex.energyCost
+            creature.energy -= self.settings.sex.energyCost
+            other.energy    -= self.settings.sex.energyCost
             
-            if creature.energy < scene.settings.creatures.energyNeededToGrow
+            if creature.energy < self.settings.creatures.energyNeededToGrow
             {
                 creature.isBaby = true
             }
             
-            if other.energy < scene.settings.creatures.energyNeededToGrow
+            if other.energy < self.settings.creatures.energyNeededToGrow
             {
                 other.isBaby = true
             }
             
-            for _ in 0 ..< scene.settings.sex.possibleNumberOfChildren
+            for _ in 0 ..< self.settings.sex.possibleNumberOfChildren
             {
-                let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: scene.settings )
-                let copy      = Creature( energy: 1, genes: genes, parents: [ creature ] )
+                let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: self.settings )
+                let copy      = Creature( energy: 1, genes: genes, parents: [ creature ], settings: self.settings )
                 copy.position = creature.position
                 
-                scene.addChild( copy )
+                creature.scene?.addChild( copy )
                 copy.move()
             }
         }
