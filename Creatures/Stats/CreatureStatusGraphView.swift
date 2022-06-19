@@ -32,6 +32,7 @@ public class CreatureStatusGraphView: NSView
     {
         self.data.append( data )
         
+        self.data         = Array( self.data.suffix( 2000 ) )
         self.needsDisplay = true
     }
     
@@ -54,5 +55,56 @@ public class CreatureStatusGraphView: NSView
         {
             return
         }
+        
+        let herbivores = self.data.map { $0.herbivores }
+        let scavengers = self.data.map { $0.herbivores + $0.scavengers }
+        let predators  = self.data.map { $0.herbivores + $0.scavengers + $0.predators }
+        let vampires   = self.data.map { $0.herbivores + $0.scavengers + $0.predators + $0.vampires }
+        
+        self.draw( points: vampires,   color: NSColor.systemPurple, in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
+        self.draw( points: predators,  color: NSColor.systemOrange, in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
+        self.draw( points: scavengers, color: NSColor.systemGray,   in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
+        self.draw( points: herbivores, color: NSColor.systemGreen,  in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
+    }
+    
+    private func draw( points: [ Int ], color: NSColor, in rect: NSRect )
+    {
+        if points.count == 0
+        {
+            return
+        }
+        
+        let origin = rect.origin
+        let deltaX = rect.size.width / Double( self.data.count - 1 )
+        let max    = self.data.reduce( 0 )
+        {
+            $0 > $1.total ? $0 : $1.total
+        }
+        
+        let path       = NSBezierPath()
+        path.lineWidth = 1
+        var i          = 0
+        
+        points.forEach
+        {
+            let y = ( Double( $0 ) / Double( max ) ) * rect.size.height
+            
+            if i == 0
+            {
+                path.move( to: NSPoint( x: origin.x, y: origin.y + y ) )
+            }
+            else
+            {
+                path.line( to: NSPoint( x: origin.x + Double( i ) * deltaX, y: origin.y + y ) )
+            }
+            
+            i += 1
+        }
+        
+        path.line( to: NSPoint( x: origin.x + Double( i - 1 ) * deltaX, y: origin.y ) )
+        path.line( to: NSPoint( x: origin.x, y: origin.y ) )
+        path.close()
+        color.setFill()
+        path.fill()
     }
 }
