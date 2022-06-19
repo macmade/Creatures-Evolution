@@ -26,6 +26,8 @@ import Cocoa
 
 public class Settings: NSObject, Codable
 {
+    private static let defaultsKey = "settings"
+    
     @objc public dynamic var world          = WorldSettings()
     @objc public dynamic var creatures      = CreaturesSettings()
     @objc public dynamic var plants         = PlantsSettings()
@@ -43,4 +45,29 @@ public class Settings: NSObject, Codable
     @objc public dynamic var sexSense       = SexSenseSettings()
     @objc public dynamic var predatorSense  = PredatorSenseSettings()
     @objc public dynamic var vampireSense   = VampireSenseSettings()
+    
+    public static func restore() -> Settings
+    {
+        guard let data = UserDefaults.standard.object( forKey: Settings.defaultsKey ) as? Data else
+        {
+            return Settings()
+        }
+        
+        do
+        {
+            return try PropertyListDecoder().decode( Settings.self, from: data )
+        }
+        catch
+        {
+            return Settings()
+        }
+    }
+    
+    public func save() throws
+    {
+        let data = try PropertyListEncoder().encode( self )
+        
+        UserDefaults.standard.set( data, forKey: Settings.defaultsKey )
+        UserDefaults.standard.synchronize()
+    }
 }

@@ -63,10 +63,10 @@ public class MainWindowController: NSWindowController
     
     @IBAction func show( _ sender: Any? )
     {
-        let settings              = SettingsWindowController()
-        settings.showCancelButton = self.scene != nil
+        let settingsController              = SettingsWindowController()
+        settingsController.showCancelButton = self.scene != nil
         
-        guard let window = self.window, let settingsWindow = settings.window else
+        guard let window = self.window, let settingsWindow = settingsController.window else
         {
             NSSound.beep()
             
@@ -88,13 +88,14 @@ public class MainWindowController: NSWindowController
                 return
             }
             
+            try? settingsController.settings.save()
+            
             self.detailViewController?.view.removeFromSuperview()
             
-            self.detailViewController     = nil
-            self.settingsWindowController = settings
+            self.detailViewController = nil
             
             let view   = SKView( frame: self.contentView.bounds )
-            let scene  = Scene( size: view.bounds.size, settings: settings.settings )
+            let scene  = Scene( size: view.bounds.size, settings: settingsController.settings )
             self.scene = scene
             
             let stats                = StatsViewController()
@@ -105,12 +106,14 @@ public class MainWindowController: NSWindowController
             self.contentView.addFillingSubview( view, removeAllExisting: true )
             view.presentScene( scene )
             
+            #if DEBUG
             view.showsFPS       = true
             view.showsFields    = true
             view.showsPhysics   = false
             view.showsDrawCount = true
             view.showsNodeCount = true
             view.showsQuadCount = true
+            #endif
         }
     }
     
