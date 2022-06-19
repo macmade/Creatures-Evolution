@@ -32,7 +32,6 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var detailViewController:     DetailViewController?
     
     @IBOutlet private var contentView: NSView!
-    @IBOutlet private var detailView:  NSView!
     
     @objc private dynamic var isPaused: Bool = false
     {
@@ -134,6 +133,7 @@ public class MainWindowController: NSWindowController
         if let detail = self.detailViewController
         {
             detail.node.highlight( false )
+            detail.view.removeFromSuperview()
         }
         
         var controller: DetailViewController?
@@ -154,10 +154,24 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        self.detailViewController = controller
+        var frame = controller.view.frame
+        
+        if let detail = self.detailViewController
+        {
+            frame.origin = detail.view.frame.origin
+        }
+        else
+        {
+            frame.origin.x = 20
+            frame.origin.y = 20
+        }
+        
+        controller.view.frame = frame
         
         node.highlight( true )
-        self.detailView.addFillingSubview( controller.view, removeAllExisting: true )
+        self.contentView.addSubview( controller.view )
+        
+        self.detailViewController = controller
     }
     
     public func hideDetails( _ sender: Any? )
@@ -165,10 +179,7 @@ public class MainWindowController: NSWindowController
         if let detail = self.detailViewController
         {
             detail.node.highlight( false )
+            detail.view.removeFromSuperview()
         }
-        
-        self.detailViewController = nil
-        
-        self.detailView.subviews.forEach { $0.removeFromSuperview() }
     }
 }

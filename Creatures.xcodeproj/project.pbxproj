@@ -122,6 +122,8 @@
 		053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053949ED285CD0420077D90C /* FoodDetailViewController.xib */; };
 		053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F0285CD22B0077D90C /* DetailViewController.swift */; };
 		053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */; };
+		053949F8285EB8830077D90C /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F7285EB8830077D90C /* DraggableView.swift */; };
+		053949FA285EBA9B0077D90C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F9285EBA9B0077D90C /* FlippedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,6 +291,8 @@
 		053949EE285CD0420077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FoodDetailViewController.xib; sourceTree = "<group>"; };
 		053949F0285CD22B0077D90C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEnergyTransformer.swift; sourceTree = "<group>"; };
+		053949F7285EB8830077D90C /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		053949F9285EBA9B0077D90C /* FlippedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -410,6 +414,7 @@
 				05252E5B2854E0360090B385 /* AboutWindowController.swift */,
 				05252E532854DF410090B385 /* ApplicationDelegate.swift */,
 				0510208F285AAF0100F11184 /* BackgroundView.swift */,
+				053949F7285EB8830077D90C /* DraggableView.swift */,
 				0510208B285AA13A00F11184 /* Constants.swift */,
 				0510208D285AAE2300F11184 /* CreatureDetailViewController.swift */,
 				053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */,
@@ -417,6 +422,7 @@
 				05102094285ABD1000F11184 /* Destination.swift */,
 				05252ED0285580190090B385 /* EvolutionHelper.swift */,
 				053949E2285B97280077D90C /* LabelNode.swift */,
+				053949F9285EBA9B0077D90C /* FlippedView.swift */,
 				05252F7528582D030090B385 /* Extensions */,
 				05252EA22854E9090090B385 /* Food */,
 				05252EA12854E9030090B385 /* Genes */,
@@ -790,6 +796,7 @@
 				0510206D285A192800F11184 /* ScavengerSettingsViewController.swift in Sources */,
 				05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */,
 				05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */,
+				053949F8285EB8830077D90C /* DraggableView.swift in Sources */,
 				05252F5D2857FF3C0090B385 /* SettingsViewController.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
 				05252F542857FCF70090B385 /* NSView.swift in Sources */,
@@ -817,6 +824,7 @@
 				053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */,
 				05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */,
 				053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */,
+				053949FA285EBA9B0077D90C /* FlippedView.swift in Sources */,
 				05102072285A192800F11184 /* PredatorSettingsViewController.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
 				051020B5285B558F00F11184 /* NegateBooleanTransformer.swift in Sources */,
