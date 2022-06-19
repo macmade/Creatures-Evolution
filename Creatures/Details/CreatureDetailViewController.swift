@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class CreatureDetailViewController: DetailViewController
+public class CreatureDetailViewController: DetailViewController, NSTableViewDelegate, NSTableViewDataSource
 {
     @objc private dynamic var genes: [ Gene ]
     
@@ -59,6 +59,11 @@ public class CreatureDetailViewController: DetailViewController
     {
         super.viewDidLoad()
         self.update()
+    }
+    
+    public func tableView( _ tableView: NSTableView, rowViewForRow row: Int ) -> NSTableRowView?
+    {
+        TableRowView( frame: NSZeroRect )
     }
     
     public override func update()

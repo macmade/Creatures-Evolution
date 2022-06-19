@@ -42,6 +42,11 @@ import Cocoa
         return false
     }
     
+    public func applicationShouldTerminateAfterLastWindowClosed( _ sender: NSApplication ) -> Bool
+    {
+        true
+    }
+    
     @IBAction public func showAboutWindow( _ sender: Any? )
     {
         if self.aboutWindowController.window?.isVisible == false
