@@ -26,26 +26,12 @@ import Cocoa
 
 public class CreatureStatusChartViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource
 {
-    @objc private dynamic var total:            Int
-    @objc private dynamic var items:            [ CreatureStatusItem ]
-    @objc private dynamic var highlightedItem:  CreatureStatusItem?
+    @objc private dynamic var data:             CreatureStatusItem?
+    @objc private dynamic var highlightedItem:  CreatureStatusChartViewItem?
     @objc private dynamic var highlightedColor: NSColor?
     
     @IBOutlet private var arrayController: NSArrayController?
     @IBOutlet private var dataView:        CreatureStatusChartView?
-    
-    public init( items: [ CreatureStatusItem ], total: Int = 0 )
-    {
-        self.items = items
-        self.total = total
-        
-        super.init( nibName: nil, bundle: nil )
-    }
-    
-    public required init?( coder: NSCoder )
-    {
-        return nil
-    }
     
     public override var nibName: NSNib.Name?
     {
@@ -55,15 +41,19 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
     public override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.dataView?.setData( total: self.total, items: self.items )
     }
     
-    public func setData( total: Int, items: [ CreatureStatusItem ] )
+    public func setData( _ data: CreatureStatusItem )
     {
-        self.total = total
-        self.items = items
+        self.data = data
+        let items = [
+            CreatureStatusChartViewItem( title: "Herbivores", count: data.herbivores, color: NSColor.systemGreen ),
+            CreatureStatusChartViewItem( title: "Scavengers", count: data.scavengers, color: NSColor.systemGray ),
+            CreatureStatusChartViewItem( title: "Predators",  count: data.predators,  color: NSColor.systemOrange ),
+            CreatureStatusChartViewItem( title: "Vampires",   count: data.vampires,   color: NSColor.systemPurple ),
+        ]
         
-        self.dataView?.setData( total: self.total, items: self.items )
+        self.dataView?.setData( total: data.total, items: items )
     }
     
     public func tableView( _ tableView: NSTableView, shouldSelectRow row: Int ) -> Bool
@@ -76,7 +66,7 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
         let view  = tableView.makeView( withIdentifier: tableColumn?.identifier ?? NSUserInterfaceItemIdentifier( "" ), owner: self )
         let badge = view?.findSubview( type: BadgeView.self, recursively: true ) as? BadgeView
         
-        if let items = self.arrayController?.arrangedObjects as? [ CreatureStatusItem ], row < items.count
+        if let items = self.arrayController?.arrangedObjects as? [ CreatureStatusChartViewItem ], row < items.count
         {
             badge?.color = items[ row ].color
         }
@@ -94,7 +84,7 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
             
             self.dataView?.highlightItem( at: row )
             
-            if let items = self.arrayController?.arrangedObjects as? [ CreatureStatusItem ], row < items.count
+            if let items = self.arrayController?.arrangedObjects as? [ CreatureStatusChartViewItem ], row < items.count
             {
                 self.highlightedItem  = items[ row ]
                 self.highlightedColor = items[ row ].color

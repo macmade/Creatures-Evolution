@@ -24,15 +24,16 @@
 
 import Cocoa
 
-@objc public class CreatureStatusItem: NSObject
+public class CreatureStatusChartViewItem: NSObject
 {
-    @objc public dynamic var herbivores = 0
-    @objc public dynamic var scavengers = 0
-    @objc public dynamic var predators  = 0
-    @objc public dynamic var vampires   = 0
+    @objc public dynamic var title: String?
+    @objc public dynamic var count: Int
+    @objc public dynamic var color: NSColor
     
-    @objc public var total: Int
+    @objc public init( title: String?, count: Int, color: NSColor )
     {
-        self.herbivores + self.scavengers + self.predators + self.vampires
+        self.title = title
+        self.count = count
+        self.color = color
     }
 }

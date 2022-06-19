@@ -49,7 +49,7 @@
                                 <string key="NSValueTransformerName">NSIsNotNil</string>
                             </dictionary>
                         </binding>
-                        <binding destination="-2" name="value" keyPath="self.total" id="EaL-lk-coI"/>
+                        <binding destination="-2" name="value" keyPath="self.data.total" id="XF5-HG-fO5"/>
                     </connections>
                 </textField>
                 <scrollView autoresizesSubviews="NO" borderType="none" autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfs-3F-PCa">
@@ -163,7 +163,7 @@
         </customView>
         <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="OVg-6J-SOj">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="self.items" id="yAt-Ze-T4T"/>
+                <binding destination="-2" name="contentArray" keyPath="self.dataView.items" id="2yR-gC-LoL"/>
             </connections>
         </arrayController>
     </objects>

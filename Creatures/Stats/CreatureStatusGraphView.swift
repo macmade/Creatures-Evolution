@@ -26,11 +26,11 @@ import Cocoa
 
 public class CreatureStatusGraphView: NSView
 {
-    private var items: [ [ CreatureStatusItem ] ] = []
+    private var data: [ CreatureStatusItem ] = []
     
-    public func addData( items: [ CreatureStatusItem ] )
+    public func addData( _ data: CreatureStatusItem )
     {
-        self.items.append( items )
+        self.data.append( data )
         
         self.needsDisplay = true
     }
@@ -50,7 +50,7 @@ public class CreatureStatusGraphView: NSView
         border.fill()
         border.stroke()
         
-        if self.items.count < 2
+        if self.data.count < 2
         {
             return
         }

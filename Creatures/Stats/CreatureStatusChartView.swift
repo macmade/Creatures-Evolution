@@ -26,11 +26,12 @@ import Cocoa
 
 public class CreatureStatusChartView: NSView
 {
+    @objc private dynamic var items: [ CreatureStatusChartViewItem ]?
+    
     private var total:     Int?
-    private var items:     [ CreatureStatusItem ]?
     private var highlight: Int?
     
-    public func setData( total: Int, items: [ CreatureStatusItem ] )
+    public func setData( total: Int, items: [ CreatureStatusChartViewItem ] )
     {
         self.total    = total
         self.items    = items
@@ -38,7 +39,7 @@ public class CreatureStatusChartView: NSView
         
         if remaining > 0
         {
-            self.items?.insert( CreatureStatusItem( title: nil, count: remaining, color: NSColor.white ), at: 0 )
+            self.items?.insert( CreatureStatusChartViewItem( title: nil, count: remaining, color: NSColor.white ), at: 0 )
         }
         
         self.needsDisplay = true

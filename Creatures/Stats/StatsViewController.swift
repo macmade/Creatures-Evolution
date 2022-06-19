@@ -34,7 +34,7 @@ public class StatsViewController: NSViewController
     private var creatureBornObserver:  Any?
     private var timer:                 Timer?
     private var start:                 Date?
-    private var statusViewController = CreatureStatusChartViewController( items: [], total: 0 )
+    private var statusViewController = CreatureStatusChartViewController()
     
     @IBOutlet private var creatureStatusView: NSView?
     @IBOutlet private var creatureGraphView:  CreatureStatusGraphView?
@@ -126,20 +126,14 @@ public class StatsViewController: NSViewController
                 chart.addFillingSubview( self.statusViewController.view, removeAllExisting: true )
             }
             
-            let herbivores = creatures.compactMap { $0.hasActiveGene( Herbivore.self ) ? $0 : nil }
-            let scavengers = creatures.compactMap { $0.hasActiveGene( Scavenger.self ) ? $0 : nil }
-            let predators  = creatures.compactMap { $0.hasActiveGene( Predator.self  ) ? $0 : nil }
-            let vampires   = creatures.compactMap { $0.hasActiveGene( Vampire.self   ) ? $0 : nil }
+            let data        = CreatureStatusItem()
+            data.herbivores = creatures.compactMap { $0.hasActiveGene( Herbivore.self ) ? $0 : nil }.count
+            data.scavengers = creatures.compactMap { $0.hasActiveGene( Scavenger.self ) ? $0 : nil }.count
+            data.predators  = creatures.compactMap { $0.hasActiveGene( Predator.self  ) ? $0 : nil }.count
+            data.vampires   = creatures.compactMap { $0.hasActiveGene( Vampire.self   ) ? $0 : nil }.count
             
-            let data = [
-                CreatureStatusItem( title: "Herbivores", count: herbivores.count, color: NSColor.systemGreen ),
-                CreatureStatusItem( title: "Scavengers", count: scavengers.count, color: NSColor.systemGray ),
-                CreatureStatusItem( title: "Predators",  count: predators.count,  color: NSColor.systemOrange ),
-                CreatureStatusItem( title: "Vampires",   count: vampires.count,   color: NSColor.systemPurple ),
-            ]
-            
-            self.statusViewController.setData( total: creatures.count, items: data )
-            graph.addData( items: data )
+            self.statusViewController.setData( data )
+            graph.addData( data )
         }
     }
 }
