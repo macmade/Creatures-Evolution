@@ -123,7 +123,7 @@
 		05394A19285F7C3A0077D90C /* CreatureStatusChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A17285F7C3A0077D90C /* CreatureStatusChartViewController.swift */; };
 		05394A1A285F7C3A0077D90C /* CreatureStatusChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A18285F7C3A0077D90C /* CreatureStatusChartViewController.xib */; };
 		05394A1C285F7CFF0077D90C /* CreatureStatusChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1B285F7CFF0077D90C /* CreatureStatusChartView.swift */; };
-		05394A1E285F7D100077D90C /* CreatureStatusChartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1D285F7D100077D90C /* CreatureStatusChartItem.swift */; };
+		05394A1E285F7D100077D90C /* CreatureStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1D285F7D100077D90C /* CreatureStatusItem.swift */; };
 		05394A20285F81370077D90C /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1F285F81370077D90C /* BadgeView.swift */; };
 		05394A30285F83470077D90C /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A2F285F83470077D90C /* TableRowView.swift */; };
 /* End PBXBuildFile section */
@@ -294,7 +294,7 @@
 		05394A17285F7C3A0077D90C /* CreatureStatusChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatureStatusChartViewController.swift; sourceTree = "<group>"; };
 		05394A18285F7C3A0077D90C /* CreatureStatusChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatureStatusChartViewController.xib; sourceTree = "<group>"; };
 		05394A1B285F7CFF0077D90C /* CreatureStatusChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusChartView.swift; sourceTree = "<group>"; };
-		05394A1D285F7D100077D90C /* CreatureStatusChartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusChartItem.swift; sourceTree = "<group>"; };
+		05394A1D285F7D100077D90C /* CreatureStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusItem.swift; sourceTree = "<group>"; };
 		05394A1F285F81370077D90C /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		05394A2F285F83470077D90C /* TableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -699,7 +699,7 @@
 		05394A04285F6DC60077D90C /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				05394A1D285F7D100077D90C /* CreatureStatusChartItem.swift */,
+				05394A1D285F7D100077D90C /* CreatureStatusItem.swift */,
 				05394A1B285F7CFF0077D90C /* CreatureStatusChartView.swift */,
 				05394A17285F7C3A0077D90C /* CreatureStatusChartViewController.swift */,
 				05394A18285F7C3A0077D90C /* CreatureStatusChartViewController.xib */,
@@ -831,7 +831,7 @@
 				051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */,
 				053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */,
 				05252F5F2858011B0090B385 /* MitosisSettings.swift in Sources */,
-				05394A1E285F7D100077D90C /* CreatureStatusChartItem.swift in Sources */,
+				05394A1E285F7D100077D90C /* CreatureStatusItem.swift in Sources */,
 				05394A20285F81370077D90C /* BadgeView.swift in Sources */,
 				0510207B285A85F500F11184 /* CannibalSettingsViewController.swift in Sources */,
 				05252F72285819A60090B385 /* PlantsSettings.swift in Sources */,
