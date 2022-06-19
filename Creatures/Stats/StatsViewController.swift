@@ -30,10 +30,13 @@ public class StatsViewController: NSViewController
     @objc public dynamic var alive = 0
     @objc public dynamic var dead  = 0
     
-    var creatureDieObserver:  Any?
-    var creatureBornObserver: Any?
-    var timer:                Timer?
-    var start:                Date?
+    private var creatureDieObserver:   Any?
+    private var creatureBornObserver:  Any?
+    private var timer:                 Timer?
+    private var start:                 Date?
+    private var statusViewController = CreatureStatusChartViewController( items: [], total: 0 )
+    
+    @IBOutlet private var creatureStatusView: NSView?
     
     @objc public dynamic var isPaused: Bool = false
     {
@@ -95,6 +98,7 @@ public class StatsViewController: NSViewController
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.update()
     }
     
     public func update()
@@ -104,13 +108,36 @@ public class StatsViewController: NSViewController
             return
         }
         
-        self.alive = scene.children.compactMap { $0 as? Creature }.count
+        let creatures = scene.children.compactMap { $0 as? Creature }
+        self.alive    = creatures.count
         
         if let date = self.start
         {
             let now    = Date()
             self.time += Int( now.timeIntervalSince( date ) * 1000.0 )
             self.start = now
+        }
+        
+        if let creatureStatusView = self.creatureStatusView
+        {
+            if creatureStatusView.subviews.count == 0
+            {
+                creatureStatusView.addFillingSubview( self.statusViewController.view, removeAllExisting: true )
+            }
+            
+            let herbivores = creatures.compactMap { $0.hasActiveGene( Herbivore.self ) ? $0 : nil }
+            let scavengers = creatures.compactMap { $0.hasActiveGene( Scavenger.self ) ? $0 : nil }
+            let predators  = creatures.compactMap { $0.hasActiveGene( Predator.self  ) ? $0 : nil }
+            let vampires   = creatures.compactMap { $0.hasActiveGene( Vampire.self   ) ? $0 : nil }
+            
+            let data = [
+                CreatureStatusItem( title: "Herbivores", count: herbivores.count, color: NSColor.systemGreen ),
+                CreatureStatusItem( title: "Scavengers", count: scavengers.count, color: NSColor.systemGray ),
+                CreatureStatusItem( title: "Predators",  count: predators.count,  color: NSColor.systemOrange ),
+                CreatureStatusItem( title: "Vampires",   count: vampires.count,   color: NSColor.systemPurple ),
+            ]
+            
+            self.statusViewController.setData( total: creatures.count, items: data )
         }
     }
 }

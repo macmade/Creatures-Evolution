@@ -24,33 +24,16 @@
 
 import Cocoa
 
-public class AboutWindowController: NSWindowController
+public class CreatureStatusItem: NSObject
 {
-    @objc private dynamic var name:      String?
-    @objc private dynamic var version:   String?
-    @objc private dynamic var copyright: String?
+    @objc public dynamic var title: String?
+    @objc public dynamic var count: Int
+    @objc public dynamic var color: NSColor
     
-    public override var windowNibName: NSNib.Name?
+    @objc public init( title: String?, count: Int, color: NSColor )
     {
-        return "AboutWindowController"
-    }
-    
-    public override func windowDidLoad()
-    {
-        super.windowDidLoad()
-        
-        let version = Bundle.main.object( forInfoDictionaryKey: "CFBundleShortVersionString" ) as? String ?? "0.0.0"
-        
-        if let build = Bundle.main.object( forInfoDictionaryKey: "CFBundleVersion" ) as? String
-        {
-            self.version = "\(version) (\(build))"
-        }
-        else
-        {
-            self.version = version
-        }
-        
-        self.name      = Bundle.main.object( forInfoDictionaryKey: "CFBundleName"             ) as? String
-        self.copyright = Bundle.main.object( forInfoDictionaryKey: "NSHumanReadableCopyright" ) as? String
+        self.title = title
+        self.count = count
+        self.color = color
     }
 }

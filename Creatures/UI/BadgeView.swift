@@ -24,33 +24,41 @@
 
 import Cocoa
 
-public class AboutWindowController: NSWindowController
+public class BadgeView: NSView
 {
-    @objc private dynamic var name:      String?
-    @objc private dynamic var version:   String?
-    @objc private dynamic var copyright: String?
-    
-    public override var windowNibName: NSNib.Name?
+    @objc public dynamic var color: NSColor?
     {
-        return "AboutWindowController"
+        didSet
+        {
+            self.setNeedsDisplay( self.bounds )
+        }
     }
     
-    public override func windowDidLoad()
+    required public init?( coder: NSCoder )
     {
-        super.windowDidLoad()
+        self.color = coder.decodeObject( forKey: "BadgeView.color" ) as? NSColor
         
-        let version = Bundle.main.object( forInfoDictionaryKey: "CFBundleShortVersionString" ) as? String ?? "0.0.0"
+        super.init( coder: coder )
+    }
+    
+    public override func encode( with coder: NSCoder )
+    {
+        super.encode( with: coder )
+        coder.encode( self.color, forKey: "BadgeView.color" )
+    }
+    
+    public override func draw( _ rect: NSRect )
+    {
+        super.draw( rect )
         
-        if let build = Bundle.main.object( forInfoDictionaryKey: "CFBundleVersion" ) as? String
+        guard let color = self.color else
         {
-            self.version = "\(version) (\(build))"
-        }
-        else
-        {
-            self.version = version
+            return
         }
         
-        self.name      = Bundle.main.object( forInfoDictionaryKey: "CFBundleName"             ) as? String
-        self.copyright = Bundle.main.object( forInfoDictionaryKey: "NSHumanReadableCopyright" ) as? String
+        let path = NSBezierPath( ovalIn: self.bounds )
+        
+        color.setFill()
+        path.fill()
     }
 }

@@ -50,4 +50,22 @@ extension NSView
         self.addConstraint( NSLayoutConstraint( item: subview, attribute: .left,   relatedBy: .equal, toItem: self, attribute: .left,   multiplier: 1, constant: 0 + insets.left ) )
         self.addConstraint( NSLayoutConstraint( item: subview, attribute: .right,  relatedBy: .equal, toItem: self, attribute: .right,  multiplier: 1, constant: 0 - insets.right ) )
     }
+    
+    func findSubview( type: AnyClass, recursively: Bool ) -> NSView?
+    {
+        for v in self.subviews
+        {
+            if v.isKind( of: type )
+            {
+                return v
+            }
+            
+            if recursively, let v = v.findSubview( type: type, recursively: recursively )
+            {
+                return v
+            }
+        }
+        
+        return nil
+    }
 }
