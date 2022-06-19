@@ -30,6 +30,7 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var scene:                    Scene?
     @objc public private( set ) dynamic var settingsWindowController: SettingsWindowController?
     @objc public private( set ) dynamic var detailViewController:     DetailViewController?
+    @objc public private( set ) dynamic var statsViewController:      StatsViewController?
     
     @IBOutlet private var contentView: NSView!
     @IBOutlet private var statsView:   NSView!
@@ -45,7 +46,8 @@ public class MainWindowController: NSWindowController
                 return
             }
             
-            scene.isPaused = self.isPaused
+            scene.isPaused                     = self.isPaused
+            self.statsViewController?.isPaused = self.isPaused
         }
     }
     
@@ -95,6 +97,11 @@ public class MainWindowController: NSWindowController
             let scene  = Scene( size: view.bounds.size, settings: settings.settings )
             self.scene = scene
             
+            let stats                = StatsViewController()
+            stats.scene              = scene
+            self.statsViewController = stats
+            
+            self.statsView.addFillingSubview( stats.view, removeAllExisting: true )
             self.contentView.addFillingSubview( view, removeAllExisting: true )
             view.presentScene( scene )
             

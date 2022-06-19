@@ -24,14 +24,30 @@
 
 import Foundation
 
-public class Constants
+@objc( TimeTransformer ) public class TimeTransformer: ValueTransformer
 {
-    public static let foodPhysicsCategory:     UInt32 = 1 << 0
-    public static let organismPhysicsCategory: UInt32 = 1 << 1
+    public override class func transformedValueClass() -> AnyClass
+    {
+        NSString.self
+    }
     
-    public static let creatureDieNotification  = Notification.Name( "Creature.Die" )
-    public static let creatureBornNotification = Notification.Name( "Creature.Born" )
+    public override class func allowsReverseTransformation() -> Bool
+    {
+        false
+    }
     
-    private init()
-    {}
+    public override func transformedValue( _ value: Any? ) -> Any?
+    {
+        guard let msecs = value as? Int else
+        {
+            return "--"
+        }
+        
+        let time    = msecs / 1000
+        let seconds = time % 60
+        let minutes = ( time % ( 60 * 60 ) ) / 60
+        let hours   = time / 60 / 60
+        
+        return String( format: "%02i:%02i:%02i", hours, minutes, seconds )
+    }
 }

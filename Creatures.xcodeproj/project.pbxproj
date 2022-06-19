@@ -117,6 +117,9 @@
 		053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */; };
 		053949F8285EB8830077D90C /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F7285EB8830077D90C /* DraggableView.swift */; };
 		053949FA285EBA9B0077D90C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F9285EBA9B0077D90C /* FlippedView.swift */; };
+		05394A07285F6DDC0077D90C /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A06285F6DDC0077D90C /* StatsViewController.swift */; };
+		05394A09285F6E460077D90C /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A08285F6E460077D90C /* StatsViewController.xib */; };
+		05394A0B285F761E0077D90C /* TimeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A0A285F761E0077D90C /* TimeTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -279,6 +282,9 @@
 		053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEnergyTransformer.swift; sourceTree = "<group>"; };
 		053949F7285EB8830077D90C /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		053949F9285EBA9B0077D90C /* FlippedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
+		05394A06285F6DDC0077D90C /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		05394A08285F6E460077D90C /* StatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsViewController.xib; sourceTree = "<group>"; };
+		05394A0A285F761E0077D90C /* TimeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +321,7 @@
 				05102101285B8EF400F11184 /* NameTransformer.swift */,
 				051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */,
 				051020BC285B6BF100F11184 /* StatusTransformer.swift */,
+				05394A0A285F761E0077D90C /* TimeTransformer.swift */,
 			);
 			path = Transformers;
 			sourceTree = "<group>";
@@ -352,6 +359,7 @@
 				05252F0A2855E1FC0090B385 /* Settings */,
 				05102084285A8C9600F11184 /* Settings Window */,
 				05394A01285F6C420077D90C /* SpriteKit */,
+				05394A04285F6DC60077D90C /* Stats */,
 				051020B1285B548500F11184 /* Transformers */,
 				053949FD285F6B750077D90C /* UI */,
 			);
@@ -674,6 +682,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		05394A04285F6DC60077D90C /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				05394A06285F6DDC0077D90C /* StatsViewController.swift */,
+				05394A08285F6E460077D90C /* StatsViewController.xib */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -740,6 +757,7 @@
 				05252E452854DEF80090B385 /* Assets.xcassets in Resources */,
 				05102049285A17D800F11184 /* PredatorSenseSettingsViewController.xib in Resources */,
 				05102045285A176F00F11184 /* PredatorSettingsViewController.xib in Resources */,
+				05394A09285F6E460077D90C /* StatsViewController.xib in Resources */,
 				05102046285A176F00F11184 /* CannibalSettingsViewController.xib in Resources */,
 				05102058285A191B00F11184 /* HerbivoreSettingsViewController.xib in Resources */,
 				05102052285A17DE00F11184 /* SexSenseSettingsViewController.xib in Resources */,
@@ -817,6 +835,7 @@
 				05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */,
 				053949E3285B97280077D90C /* LabelNode.swift in Sources */,
 				05102073285A192800F11184 /* HerbivoreSettingsViewController.swift in Sources */,
+				05394A07285F6DDC0077D90C /* StatsViewController.swift in Sources */,
 				05252F73285819A60090B385 /* MeatSettingsViewController.swift in Sources */,
 				05102090285AAF0100F11184 /* BackgroundView.swift in Sources */,
 				05252F74285819A60090B385 /* MeatSettings.swift in Sources */,
@@ -824,6 +843,7 @@
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
 				0510206B285A192800F11184 /* PredatorSettings.swift in Sources */,
 				051020E0285B79AF00F11184 /* ClassTransformer.swift in Sources */,
+				05394A0B285F761E0077D90C /* TimeTransformer.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */,
 				05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */,

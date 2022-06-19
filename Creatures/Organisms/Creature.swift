@@ -352,6 +352,8 @@ public class Creature: SpriteNode, Updatable
         self.willChangeValue( for: \.isAlive )
         self.remove()
         self.didChangeValue( for: \.isAlive )
+        
+        NotificationCenter.default.post( name: Constants.creatureDieNotification, object: self )
     }
     
     public func fight( other: Creature ) -> Bool

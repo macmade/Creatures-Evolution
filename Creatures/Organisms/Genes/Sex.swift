@@ -164,6 +164,7 @@ public class Sex: NSObject, Gene
                 
                 creature.scene?.addChild( copy )
                 copy.move()
+                NotificationCenter.default.post( name: Constants.creatureBornNotification, object: copy )
             }
         }
     }
