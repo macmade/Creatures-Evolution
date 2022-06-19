@@ -48,7 +48,7 @@ public class CreatureStatusGraphView: NSView
     
     public override func draw( _ rect: NSRect )
     {
-        let border       = NSBezierPath( roundedRect: rect.insetBy( dx: 1, dy: 1 ), xRadius: 10, yRadius: 10 )
+        let border       = NSBezierPath( roundedRect: rect.insetBy( dx: 1, dy: 1 ), xRadius: 5, yRadius: 5 )
         border.lineWidth = 1
         
         NSColor.white.withAlphaComponent( 0.05 ).setFill()
@@ -66,10 +66,10 @@ public class CreatureStatusGraphView: NSView
         let predators  = self.data.map { $0.herbivores + $0.scavengers + $0.predators }
         let vampires   = self.data.map { $0.herbivores + $0.scavengers + $0.predators + $0.vampires }
         
-        self.draw( points: vampires,   color: NSColor.systemPurple, in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
-        self.draw( points: predators,  color: NSColor.systemOrange, in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
-        self.draw( points: scavengers, color: NSColor.systemGray,   in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
-        self.draw( points: herbivores, color: NSColor.systemGreen,  in: rect.insetBy( dx: 7.5, dy: 7.5 ) )
+        self.draw( points: vampires,   color: NSColor.systemPurple, in: rect.insetBy( dx: 4, dy: 4 ) )
+        self.draw( points: predators,  color: NSColor.systemOrange, in: rect.insetBy( dx: 4, dy: 4 ) )
+        self.draw( points: scavengers, color: NSColor.systemGray,   in: rect.insetBy( dx: 4, dy: 4 ) )
+        self.draw( points: herbivores, color: NSColor.systemGreen,  in: rect.insetBy( dx: 4, dy: 4 ) )
     }
     
     private func draw( points: [ Int ], color: NSColor, in rect: NSRect )
