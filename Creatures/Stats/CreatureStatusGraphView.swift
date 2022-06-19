@@ -32,7 +32,7 @@ public class CreatureStatusGraphView: NSView
     {
         self.data.append( data )
         
-        self.data         = Array( self.data.suffix( 2000 ) )
+        self.data         = Array( self.data.suffix( 3600 ) )
         self.needsDisplay = true
     }
     
