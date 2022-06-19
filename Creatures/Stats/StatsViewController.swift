@@ -37,6 +37,7 @@ public class StatsViewController: NSViewController
     private var statusViewController = CreatureStatusChartViewController( items: [], total: 0 )
     
     @IBOutlet private var creatureStatusView: NSView?
+    @IBOutlet private var creatureGraphView:  CreatureStatusGraphView?
     
     @objc public dynamic var isPaused: Bool = false
     {
@@ -118,11 +119,11 @@ public class StatsViewController: NSViewController
             self.start = now
         }
         
-        if let creatureStatusView = self.creatureStatusView
+        if let chart = self.creatureStatusView, let graph = self.creatureGraphView
         {
-            if creatureStatusView.subviews.count == 0
+            if chart.subviews.count == 0
             {
-                creatureStatusView.addFillingSubview( self.statusViewController.view, removeAllExisting: true )
+                chart.addFillingSubview( self.statusViewController.view, removeAllExisting: true )
             }
             
             let herbivores = creatures.compactMap { $0.hasActiveGene( Herbivore.self ) ? $0 : nil }
@@ -138,6 +139,7 @@ public class StatsViewController: NSViewController
             ]
             
             self.statusViewController.setData( total: creatures.count, items: data )
+            graph.addData( items: data )
         }
     }
 }

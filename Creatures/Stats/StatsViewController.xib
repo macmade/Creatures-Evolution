@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="StatsViewController" customModule="Creatures" customModuleProvider="target">
             <connections>
+                <outlet property="creatureGraphView" destination="0fc-iT-6nB" id="YXS-fT-uPX"/>
                 <outlet property="creatureStatusView" destination="XKq-1d-vdd" id="Y0U-Qi-b3Z"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Cpc-av-8zT"/>
             </connections>
@@ -189,6 +190,9 @@
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="0fc-iT-6nB" customClass="CreatureStatusGraphView" customModule="Creatures" customModuleProvider="target">
+                    <rect key="frame" x="190" y="15" width="720" height="74"/>
+                </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="XKq-1d-vdd">
                     <rect key="frame" x="930" y="15" width="250" height="74"/>
                     <constraints>
@@ -199,11 +203,14 @@
             <constraints>
                 <constraint firstItem="XKq-1d-vdd" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="15" id="6JI-UQ-fOG"/>
                 <constraint firstItem="fOU-D6-m9v" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="FdS-Mx-quU"/>
-                <constraint firstItem="XKq-1d-vdd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fOU-D6-m9v" secondAttribute="trailing" constant="8" symbolic="YES" id="Is4-r4-55M"/>
+                <constraint firstItem="0fc-iT-6nB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="15" id="KY3-PX-pFM"/>
+                <constraint firstItem="XKq-1d-vdd" firstAttribute="leading" secondItem="0fc-iT-6nB" secondAttribute="trailing" constant="20" id="L1L-wB-sp3"/>
                 <constraint firstAttribute="trailing" secondItem="XKq-1d-vdd" secondAttribute="trailing" constant="20" symbolic="YES" id="P78-5F-59f"/>
+                <constraint firstItem="0fc-iT-6nB" firstAttribute="leading" secondItem="fOU-D6-m9v" secondAttribute="trailing" constant="20" id="W9b-S8-lwT"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fOU-D6-m9v" secondAttribute="bottom" constant="20" symbolic="YES" id="fuD-I3-boF"/>
                 <constraint firstAttribute="bottom" secondItem="XKq-1d-vdd" secondAttribute="bottom" constant="15" id="sNQ-U0-Mv0"/>
                 <constraint firstItem="fOU-D6-m9v" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="tK8-lT-pQ0"/>
+                <constraint firstAttribute="bottom" secondItem="0fc-iT-6nB" secondAttribute="bottom" constant="15" id="u2I-Gw-0OR"/>
             </constraints>
             <point key="canvasLocation" x="139" y="135"/>
         </customView>

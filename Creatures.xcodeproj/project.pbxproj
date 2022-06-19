@@ -126,6 +126,7 @@
 		05394A1E285F7D100077D90C /* CreatureStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1D285F7D100077D90C /* CreatureStatusItem.swift */; };
 		05394A20285F81370077D90C /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1F285F81370077D90C /* BadgeView.swift */; };
 		05394A30285F83470077D90C /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A2F285F83470077D90C /* TableRowView.swift */; };
+		05394A32285FA5E00077D90C /* CreatureStatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A31285FA5E00077D90C /* CreatureStatusGraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -297,6 +298,7 @@
 		05394A1D285F7D100077D90C /* CreatureStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusItem.swift; sourceTree = "<group>"; };
 		05394A1F285F81370077D90C /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		05394A2F285F83470077D90C /* TableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
+		05394A31285FA5E00077D90C /* CreatureStatusGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusGraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -699,10 +701,11 @@
 		05394A04285F6DC60077D90C /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				05394A1D285F7D100077D90C /* CreatureStatusItem.swift */,
 				05394A1B285F7CFF0077D90C /* CreatureStatusChartView.swift */,
 				05394A17285F7C3A0077D90C /* CreatureStatusChartViewController.swift */,
 				05394A18285F7C3A0077D90C /* CreatureStatusChartViewController.xib */,
+				05394A31285FA5E00077D90C /* CreatureStatusGraphView.swift */,
+				05394A1D285F7D100077D90C /* CreatureStatusItem.swift */,
 				05394A06285F6DDC0077D90C /* StatsViewController.swift */,
 				05394A08285F6E460077D90C /* StatsViewController.xib */,
 			);
@@ -846,6 +849,7 @@
 				05102071285A192800F11184 /* HerbivoreSettings.swift in Sources */,
 				05102080285A88F800F11184 /* CreatureSenseSettingsViewController.swift in Sources */,
 				05252EC12854EA400090B385 /* Creature.swift in Sources */,
+				05394A32285FA5E00077D90C /* CreatureStatusGraphView.swift in Sources */,
 				05102069285A192800F11184 /* PredatorSenseSettingsViewController.swift in Sources */,
 				0510206F285A192800F11184 /* PlantSenseSettingsViewController.swift in Sources */,
 				0510203A285A165900F11184 /* VampireSettingsViewController.swift in Sources */,
