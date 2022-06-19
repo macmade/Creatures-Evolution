@@ -30,6 +30,11 @@ public class CreatureStatusGraphView: NSView
     
     public func addData( _ data: CreatureStatusItem )
     {
+        if self.data.count == 0 && data.total == 0
+        {
+            return
+        }
+        
         self.data.append( data )
         
         self.data         = Array( self.data.suffix( 3600 ) )
