@@ -55,7 +55,7 @@
                                                     <menu key="menu" id="bhZ-dY-mpe">
                                                         <items>
                                                             <menuItem title="Random" state="on" tag="-1" id="dwj-Jq-6Ex"/>
-                                                            <menuItem isSeparatorItem="YES" id="EVM-XJ-hkj"/>
+                                                            <menuItem isSeparatorItem="YES" tag="-2" id="EVM-XJ-hkj"/>
                                                             <menuItem title="Beach" id="mcu-3q-MTL"/>
                                                             <menuItem title="Desert" tag="1" id="SXN-OB-H8b"/>
                                                             <menuItem title="Forrest" tag="2" id="Brw-Zb-hvt"/>
