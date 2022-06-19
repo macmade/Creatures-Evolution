@@ -32,6 +32,7 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var detailViewController:     DetailViewController?
     
     @IBOutlet private var contentView: NSView!
+    @IBOutlet private var statsView:   NSView!
     
     @objc private dynamic var isPaused: Bool = false
     {

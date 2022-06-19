@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="UI4-ED-jS1" id="Mm8-YN-MJn"/>
+                <outlet property="statsView" destination="Boo-FY-2AE" id="PTt-f8-Y6V"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="Vd5-fy-HOD"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Creatures" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" titlebarAppearsTransparent="YES" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="1200" height="900"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
+            <value key="minSize" type="size" width="1200" height="900"/>
+            <value key="maxSize" type="size" width="1200" height="900"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="1200" height="900"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="UI4-ED-jS1" customClass="FlippedView" customModule="Creatures" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="100" width="1200" height="800"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="800" id="xzA-6Z-LSg"/>
+                        </constraints>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Boo-FY-2AE">
+                        <rect key="frame" x="0.0" y="0.0" width="1200" height="100"/>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UI4-ED-jS1" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="0zq-6c-cmR"/>
+                    <constraint firstItem="Boo-FY-2AE" firstAttribute="top" secondItem="UI4-ED-jS1" secondAttribute="bottom" id="AqM-vP-oR4"/>
+                    <constraint firstItem="Boo-FY-2AE" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="Bem-XH-pv1"/>
+                    <constraint firstAttribute="trailing" secondItem="UI4-ED-jS1" secondAttribute="trailing" id="M06-gK-XZM"/>
+                    <constraint firstAttribute="trailing" secondItem="Boo-FY-2AE" secondAttribute="trailing" id="eGD-eP-8lf"/>
+                    <constraint firstItem="UI4-ED-jS1" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="mw0-bY-BIM"/>
+                    <constraint firstAttribute="bottom" secondItem="Boo-FY-2AE" secondAttribute="bottom" id="nZ7-U8-OdK"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="139" y="144"/>
+        </window>
+    </objects>
+</document>
