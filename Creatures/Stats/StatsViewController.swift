@@ -88,13 +88,13 @@ public class StatsViewController: NSViewController
             return
         }
         
+        let creatures = scene.children.compactMap { $0 as? Creature }.filter { $0.isAlive }
+        self.alive    = creatures.count
+        
         if mainWindowController.isPaused
         {
             return
         }
-        
-        let creatures = scene.children.compactMap { $0 as? Creature }
-        self.alive    = creatures.count
         
         if let chart = self.creatureStatusView, let graph = self.creatureGraphView
         {
