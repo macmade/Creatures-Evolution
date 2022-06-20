@@ -35,6 +35,8 @@ public class MainWindowController: NSWindowController
     @IBOutlet private var contentView: NSView!
     @IBOutlet private var statsView:   NSView!
     
+    private var gameOverObserver: NSKeyValueObservation?
+    
     @objc public dynamic var isPaused: Bool = false
     {
         didSet
@@ -46,8 +48,7 @@ public class MainWindowController: NSWindowController
                 return
             }
             
-            scene.isPaused                     = self.isPaused
-            self.statsViewController?.isPaused = self.isPaused
+            scene.isPaused = self.isPaused
         }
     }
     
@@ -83,7 +84,7 @@ public class MainWindowController: NSWindowController
             
             if response != .OK, let scene = self.scene
             {
-                self.isPaused = scene.gameOver ? true : false
+                self.isPaused = scene.isGameOver ? true : false
                 
                 return
             }
@@ -94,9 +95,17 @@ public class MainWindowController: NSWindowController
             
             self.detailViewController = nil
             
-            let view   = SKView( frame: self.contentView.bounds )
-            let scene  = Scene( size: view.bounds.size, settings: settingsController.settings )
-            self.scene = scene
+            let view              = SKView( frame: self.contentView.bounds )
+            let scene             = Scene( size: view.bounds.size, settings: settingsController.settings )
+            self.scene            = scene
+            self.gameOverObserver = scene.observe( \.isGameOver )
+            {
+                [ weak self ] _, _ in guard let self = self else { return }
+                
+                self.isPaused = true
+                
+                self.hideDetails( nil )
+            }
             
             let stats                = StatsViewController()
             stats.scene              = scene
@@ -128,7 +137,7 @@ public class MainWindowController: NSWindowController
     
     @IBAction public func togglePause( _ sender: Any? )
     {
-        if self.scene?.gameOver ?? false
+        if self.scene?.isGameOver ?? false
         {
             NSSound.beep()
             
@@ -150,7 +159,7 @@ public class MainWindowController: NSWindowController
     
     public func showDetails( node: SpriteNode )
     {
-        if self.scene?.gameOver ?? false
+        if self.scene?.isGameOver ?? false
         {
             return
         }

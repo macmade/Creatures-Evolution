@@ -38,11 +38,12 @@ import Foundation
     
     public override func transformedValue( _ value: Any? ) -> Any?
     {
-        guard let msecs = value as? Int else
+        guard let interval = value as? TimeInterval else
         {
             return "--"
         }
         
+        let msecs   = Int( interval * 1000 )
         let time    = msecs / 1000
         let seconds = time % 60
         let minutes = ( time % ( 60 * 60 ) ) / 60

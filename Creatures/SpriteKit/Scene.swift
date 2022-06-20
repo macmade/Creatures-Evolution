@@ -27,20 +27,18 @@ import SpriteKit
 
 public class Scene: SKScene, SKPhysicsContactDelegate
 {
-    @objc public private( set ) dynamic var settings: Settings
+    @objc public private( set ) dynamic var settings:     Settings
+    @objc public private( set ) dynamic var isGameOver  = false
+    @objc public private( set ) dynamic var elapsedTime = TimeInterval( 0 )
     
-    private var newFoodTimer: Timer?
+    private var lastUpdateTime: TimeInterval?
+    private var newFoodTimer:   Timer?
     
-    @objc public private( set ) dynamic var gameOver: Bool = false
+    public override var isPaused: Bool
     {
         didSet
         {
-            if let controller = self.view?.window?.windowController as? MainWindowController
-            {
-                controller.isPaused = true
-                
-                controller.hideDetails( nil )
-            }
+            self.lastUpdateTime = nil
         }
     }
     
@@ -113,6 +111,13 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         super.update( currentTime )
         
+        if let lastUpdateTime = self.lastUpdateTime
+        {
+            self.elapsedTime += currentTime - lastUpdateTime
+        }
+        
+        self.lastUpdateTime = currentTime
+        
         for child in self.children
         {
             ( child as? Updatable )?.update()
@@ -122,7 +127,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         
         if creatures.count == 0
         {
-            self.gameOver = true
+            self.isGameOver = true
         }
     }
     

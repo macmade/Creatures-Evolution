@@ -48,7 +48,7 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="-2" name="value" keyPath="self.time" id="ysY-zF-V1t">
+                                        <binding destination="-2" name="value" keyPath="self.scene.elapsedTime" id="ESU-7j-yFQ">
                                             <dictionary key="options">
                                                 <string key="NSValueTransformerName">TimeTransformer</string>
                                             </dictionary>

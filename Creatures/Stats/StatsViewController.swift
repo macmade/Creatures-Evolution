@@ -26,40 +26,19 @@ import Cocoa
 
 public class StatsViewController: NSViewController
 {
-    @objc public dynamic var time  = 0
     @objc public dynamic var alive = 0
     @objc public dynamic var dead  = 0
     
     private var creatureDieObserver:   Any?
     private var creatureBornObserver:  Any?
     private var timer:                 Timer?
-    private var start:                 Date?
     private var statusViewController = CreatureStatusChartViewController()
     
     @IBOutlet private var creatureStatusView: NSView?
     @IBOutlet private var creatureGraphView:  CreatureStatusGraphView?
     
-    @objc public dynamic var isPaused: Bool = false
-    {
-        didSet
-        {
-            self.update()
-            
-            if self.isPaused
-            {
-                self.start = nil
-            }
-            else
-            {
-                self.start = Date()
-            }
-        }
-    }
-    
     public override init( nibName: NSNib.Name?, bundle: Bundle? )
     {
-        self.start = Date()
-        
         super.init( nibName: nibName, bundle: bundle )
         
         self.creatureBornObserver = NotificationCenter.default.addObserver( forName: Constants.creatureBornNotification, object: nil, queue: nil )
@@ -116,13 +95,6 @@ public class StatsViewController: NSViewController
         
         let creatures = scene.children.compactMap { $0 as? Creature }
         self.alive    = creatures.count
-        
-        if let date = self.start
-        {
-            let now    = Date()
-            self.time += Int( now.timeIntervalSince( date ) * 1000.0 )
-            self.start = now
-        }
         
         if let chart = self.creatureStatusView, let graph = self.creatureGraphView
         {

@@ -89,7 +89,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <binding destination="-2" name="hidden" keyPath="self.scene.gameOver" id="pXQ-yv-IzQ">
+                            <binding destination="-2" name="hidden" keyPath="self.scene.isGameOver" id="SKV-qr-OPi">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSNegateBoolean</string>
                                 </dictionary>
