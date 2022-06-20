@@ -23,11 +23,66 @@
  ******************************************************************************/
 
 import Cocoa
+import SpriteKit
 
-public class CreatureSenseSettings: NSObject, Codable
+public class PreySense: NSObject, Gene
 {
-    @objc public dynamic var isEnabled   = true
-    @objc public dynamic var isActive    = false
-    @objc public dynamic var canRegress  = true
-    @objc public dynamic var deactivates = [ String ]()
+    public var isActive: Bool
+    
+    public var canRegress: Bool
+    {
+        self.settings.preySense.canRegress
+    }
+    
+    public var deactivates: [ String ]
+    {
+        get
+        {
+            self.settings.preySense.deactivates
+        }
+    }
+    
+    public var name: String
+    {
+        "Creature Sense"
+    }
+    
+    public override var description: String
+    {
+        self.name
+    }
+    
+    public var details: String?
+    {
+        nil
+    }
+    
+    public var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "eye", accessibilityDescription: nil )
+    }
+    
+    @objc public private( set ) dynamic var settings: Settings
+    
+    public required init( active: Bool, settings: Settings )
+    {
+        self.isActive = active
+        self.settings = settings
+    }
+    
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        PreySense( active: self.isActive, settings: self.settings )
+    }
+    
+    public func onEnergyChanged( creature: Creature )
+    {}
+    
+    public func onCollision( creature: Creature, node: SKNode )
+    {}
+    
+    public func chooseDestination( creature: Creature ) -> Destination?
+    {
+        nil
+    }
 }

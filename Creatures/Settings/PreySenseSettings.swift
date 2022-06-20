@@ -24,10 +24,10 @@
 
 import Cocoa
 
-public class CreatureSenseSettingsViewController: SettingsViewController
+public class PreySenseSettings: NSObject, Codable
 {
-    public override var nibName: NSNib.Name?
-    {
-        "CreatureSenseSettingsViewController"
-    }
+    @objc public dynamic var isEnabled   = true
+    @objc public dynamic var isActive    = false
+    @objc public dynamic var canRegress  = true
+    @objc public dynamic var deactivates = [ String ]()
 }

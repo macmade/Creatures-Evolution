@@ -53,7 +53,7 @@ public class SettingsWindowController: NSWindowController
             SettingsItem( title: "Cannibal",       symbol: "fork.knife",                        controller: CannibalSettingsViewController(      settings: self.settings ) ),
             SettingsItem( title: "Plant Sense",    symbol: "eye",                               controller: PlantSenseSettingsViewController(    settings: self.settings ) ),
             SettingsItem( title: "Meat Sense",     symbol: "eye",                               controller: MeatSenseSettingsViewController(     settings: self.settings ) ),
-            SettingsItem( title: "Creature Sense", symbol: "eye",                               controller: CreatureSenseSettingsViewController( settings: self.settings ) ),
+            SettingsItem( title: "Prey Sense",     symbol: "eye",                               controller: PreySenseSettingsViewController(     settings: self.settings ) ),
             SettingsItem( title: "Sex Sense",      symbol: "eye",                               controller: SexSenseSettingsViewController(      settings: self.settings ) ),
             SettingsItem( title: "Predator Sense", symbol: "eye",                               controller: PredatorSenseSettingsViewController( settings: self.settings ) ),
             SettingsItem( title: "Vampire Sense",  symbol: "eye",                               controller: VampireSenseSettingsViewController(  settings: self.settings ) ),

@@ -26,5 +26,5 @@ import Cocoa
 
 public class WorldSettings: NSObject, Codable
 {
-    @objc public dynamic var environment = -1
+    @objc public dynamic var environment = 0
 }

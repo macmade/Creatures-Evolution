@@ -16,25 +16,45 @@
         <window title="Add Gene" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="500" height="270"/>
+            <rect key="contentRect" x="196" y="240" width="500" height="211"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="500" height="191"/>
+                <rect key="frame" x="0.0" y="0.0" width="500" height="211"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DaI-TG-dVY">
-                        <rect key="frame" x="20" y="69" width="100" height="100"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="RbF-FP-bw1" customClass="BackgroundView" customModule="Creatures" customModuleProvider="target">
+                        <rect key="frame" x="20" y="81" width="110" height="110"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MkZ-Ee-InU">
+                                <rect key="frame" x="5" y="5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="VkZ-nh-7sd"/>
+                                    <constraint firstAttribute="height" constant="100" id="tOV-sw-1o9"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="yRN-ku-YHs">
+                                    <connections>
+                                        <binding destination="-2" name="value" keyPath="self.image" id="66c-xh-JWi"/>
+                                    </connections>
+                                </imageCell>
+                            </imageView>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="PWc-KS-af8"/>
-                            <constraint firstAttribute="height" constant="100" id="QNN-jf-Len"/>
+                            <constraint firstItem="MkZ-Ee-InU" firstAttribute="leading" secondItem="RbF-FP-bw1" secondAttribute="leading" constant="5" id="Iyw-iS-8Gg"/>
+                            <constraint firstItem="MkZ-Ee-InU" firstAttribute="top" secondItem="RbF-FP-bw1" secondAttribute="top" constant="5" id="SKg-1G-a4b"/>
+                            <constraint firstAttribute="trailing" secondItem="MkZ-Ee-InU" secondAttribute="trailing" constant="5" id="VMm-ep-W03"/>
+                            <constraint firstAttribute="bottom" secondItem="MkZ-Ee-InU" secondAttribute="bottom" constant="5" id="mug-Pw-FcX"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="Ouv-nk-L1Y"/>
-                        <connections>
-                            <binding destination="-2" name="value" keyPath="self.image" id="PnU-HN-9I6"/>
-                        </connections>
-                    </imageView>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZEN-cH-FrE">
-                        <rect key="frame" x="128" y="95" width="352" height="49"/>
+                        <rect key="frame" x="150" y="112" width="330" height="49"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zzK-Qs-2xe">
                                 <rect key="frame" x="-2" y="28" width="84" height="21"/>
@@ -45,7 +65,7 @@
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="30Z-eI-HlB">
-                                <rect key="frame" x="-3" y="-4" width="78" height="25"/>
+                                <rect key="frame" x="-3" y="-4" width="337" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="0gf-h5-c4O" id="GFT-PW-QCR">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -68,7 +88,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zzK-Qs-2xe" secondAttribute="trailing" id="GUM-qA-gZQ"/>
                             <constraint firstItem="zzK-Qs-2xe" firstAttribute="top" secondItem="ZEN-cH-FrE" secondAttribute="top" id="IJ8-Wl-cwa"/>
                             <constraint firstItem="30Z-eI-HlB" firstAttribute="top" secondItem="zzK-Qs-2xe" secondAttribute="bottom" constant="8" symbolic="YES" id="OF4-yE-78X"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="30Z-eI-HlB" secondAttribute="trailing" id="bz3-qe-LmI"/>
+                            <constraint firstAttribute="trailing" secondItem="30Z-eI-HlB" secondAttribute="trailing" id="bz3-qe-LmI"/>
                             <constraint firstItem="zzK-Qs-2xe" firstAttribute="leading" secondItem="ZEN-cH-FrE" secondAttribute="leading" id="lSc-bk-zcJ"/>
                             <constraint firstAttribute="bottom" secondItem="30Z-eI-HlB" secondAttribute="bottom" id="szY-51-e9S"/>
                         </constraints>
@@ -105,22 +125,22 @@ DQ
                 </subviews>
                 <constraints>
                     <constraint firstItem="Hbb-R3-1pe" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" symbolic="YES" id="0jU-Lv-Agw"/>
+                    <constraint firstItem="RbF-FP-bw1" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="148-pN-g2I"/>
                     <constraint firstAttribute="trailing" secondItem="ZEN-cH-FrE" secondAttribute="trailing" constant="20" symbolic="YES" id="5Y5-Rh-d1T"/>
+                    <constraint firstItem="Hbb-R3-1pe" firstAttribute="top" secondItem="RbF-FP-bw1" secondAttribute="bottom" constant="20" id="7qB-O2-ivr"/>
                     <constraint firstAttribute="bottom" secondItem="6vE-GZ-KZW" secondAttribute="bottom" constant="20" symbolic="YES" id="FFh-LE-adX"/>
-                    <constraint firstItem="Hbb-R3-1pe" firstAttribute="top" secondItem="DaI-TG-dVY" secondAttribute="bottom" constant="8" symbolic="YES" id="NnT-pT-eJ8"/>
+                    <constraint firstItem="ZEN-cH-FrE" firstAttribute="leading" secondItem="RbF-FP-bw1" secondAttribute="trailing" constant="20" id="Q13-d6-J8L"/>
                     <constraint firstItem="6vE-GZ-KZW" firstAttribute="leading" secondItem="ZtE-bb-mmi" secondAttribute="trailing" constant="12" symbolic="YES" id="Vrk-1y-ifR"/>
+                    <constraint firstItem="RbF-FP-bw1" firstAttribute="centerY" secondItem="ZEN-cH-FrE" secondAttribute="centerY" id="Yje-9H-UEn"/>
                     <constraint firstItem="ZtE-bb-mmi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="ZLU-qD-esM"/>
                     <constraint firstAttribute="trailing" secondItem="Hbb-R3-1pe" secondAttribute="trailing" constant="12" symbolic="YES" id="agN-df-sc3"/>
                     <constraint firstItem="6vE-GZ-KZW" firstAttribute="top" secondItem="Hbb-R3-1pe" secondAttribute="bottom" constant="20" symbolic="YES" id="bMC-H9-vXg"/>
                     <constraint firstAttribute="bottom" secondItem="ZtE-bb-mmi" secondAttribute="bottom" constant="20" symbolic="YES" id="bpE-7w-uEd"/>
-                    <constraint firstItem="ZEN-cH-FrE" firstAttribute="leading" secondItem="DaI-TG-dVY" secondAttribute="trailing" constant="8" symbolic="YES" id="g24-Wt-hHg"/>
-                    <constraint firstItem="ZEN-cH-FrE" firstAttribute="centerY" secondItem="DaI-TG-dVY" secondAttribute="centerY" id="gky-UG-CJi"/>
+                    <constraint firstItem="RbF-FP-bw1" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="gEU-OV-bQQ"/>
                     <constraint firstAttribute="trailing" secondItem="6vE-GZ-KZW" secondAttribute="trailing" constant="20" symbolic="YES" id="pNL-Hf-sOF"/>
-                    <constraint firstItem="DaI-TG-dVY" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="rEI-j0-OLe"/>
-                    <constraint firstItem="DaI-TG-dVY" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="22" id="zDc-Yo-rzH"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="139" y="124.5"/>
+            <point key="canvasLocation" x="81.5" y="90"/>
         </window>
         <arrayController id="Kda-Ug-8KX"/>
     </objects>

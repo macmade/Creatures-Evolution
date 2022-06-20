@@ -79,6 +79,11 @@ public class EvolutionHelper
             genes.append( MeatSense( active: settings.meatSense.isActive, settings: settings ) )
         }
         
+        if settings.preySense.isEnabled
+        {
+            genes.append( PreySense( active: settings.preySense.isActive, settings: settings ) )
+        }
+        
         if settings.sexSense.isEnabled
         {
             genes.append( SexSense( active: settings.sexSense.isActive, settings: settings ) )

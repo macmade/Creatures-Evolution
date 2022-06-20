@@ -24,39 +24,10 @@
 
 import Cocoa
 
-public class WorldSettingsViewController: SettingsViewController
+public class PreySenseSettingsViewController: SettingsViewController
 {
-    @objc private dynamic var preview: NSImage?
-    
-    private var environmentObserver: NSKeyValueObservation?
-    
     public override var nibName: NSNib.Name?
     {
-        "WorldSettingsViewController"
-    }
-    
-    public override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        self.updatePreview()
-        
-        self.environmentObserver = self.observe( \.settings.world.environment )
-        {
-            [ weak self ] _, _ in self?.updatePreview()
-        }
-    }
-    
-    private func updatePreview()
-    {
-        let index = self.settings.world.environment
-        
-        if index < 0 || index >= Constants.backgroundImages.count
-        {
-            self.preview = nil
-        }
-        else
-        {
-            self.preview = NSImage( named: Constants.backgroundImages[ index ] )
-        }
+        "PreySenseSettingsViewController"
     }
 }

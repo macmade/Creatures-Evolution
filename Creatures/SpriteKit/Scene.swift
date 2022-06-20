@@ -64,15 +64,14 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         
         let backgroundImage: String? =
         {
-            let backgroundImages = [ "beach", "desert", "forrest", "moss", "sand", "stones", "wood" ]
-            let index            = self.settings.world.environment
+            let index = self.settings.world.environment
             
-            if index < 0 || index >= backgroundImages.count
+            if index < 0 || index >= Constants.backgroundImages.count
             {
-                return backgroundImages.randomElement()
+                return Constants.backgroundImages.randomElement()
             }
             
-            return backgroundImages[ index ]
+            return Constants.backgroundImages[ index ]
         }()
         
         if let backgroundImage = backgroundImage
