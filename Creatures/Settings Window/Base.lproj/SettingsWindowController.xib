@@ -17,22 +17,20 @@
         <window title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="800" height="600"/>
+            <rect key="contentRect" x="196" y="240" width="800" height="720"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
-            <value key="minSize" type="size" width="800" height="600"/>
-            <value key="maxSize" type="size" width="800" height="600"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                <rect key="frame" x="0.0" y="0.0" width="800" height="720"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autoresizesSubviews="NO" borderType="line" autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaH-BV-aZz">
-                        <rect key="frame" x="20" y="81" width="200" height="499"/>
+                        <rect key="frame" x="20" y="81" width="200" height="619"/>
                         <clipView key="contentView" autoresizesSubviews="NO" id="HJm-AI-GZs">
-                            <rect key="frame" x="1" y="1" width="198" height="497"/>
+                            <rect key="frame" x="1" y="1" width="198" height="617"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="32" rowSizeStyle="automatic" viewBased="YES" id="7K5-N6-yOA">
-                                    <rect key="frame" x="0.0" y="0.0" width="198" height="497"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="198" height="617"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="10" height="10"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -113,7 +111,7 @@
                         </scroller>
                     </scrollView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="EJY-de-uVA">
-                        <rect key="frame" x="240" y="81" width="540" height="499"/>
+                        <rect key="frame" x="240" y="81" width="540" height="619"/>
                     </customView>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Bry-i7-Ah1">
                         <rect key="frame" x="12" y="58" width="776" height="5"/>

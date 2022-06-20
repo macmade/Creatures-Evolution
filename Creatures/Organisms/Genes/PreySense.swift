@@ -59,7 +59,7 @@ public class PreySense: NSObject, Gene
     
     public var icon: NSImage?
     {
-        NSImage( systemSymbolName: "eye", accessibilityDescription: nil )
+        NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
     }
     
     @objc public private( set ) dynamic var settings: Settings
@@ -73,6 +73,18 @@ public class PreySense: NSObject, Gene
     public func copy( with zone: NSZone? = nil ) -> Any
     {
         PreySense( active: self.isActive, settings: self.settings )
+    }
+    
+    public func mutate() -> Bool
+    {
+        if self.canRegress == false && self.isActive
+        {
+            return false
+        }
+        
+        self.isActive = self.isActive == false
+        
+        return true
     }
     
     public func onEnergyChanged( creature: Creature )

@@ -77,6 +77,18 @@ public class Mitosis: NSObject, Gene
         Mitosis( active: self.isActive, settings: self.settings )
     }
     
+    public func mutate() -> Bool
+    {
+        if self.canRegress == false && self.isActive
+        {
+            return false
+        }
+        
+        self.isActive = self.isActive == false
+        
+        return true
+    }
+    
     public func onEnergyChanged( creature: Creature )
     {
         if creature.isBaby
@@ -113,7 +125,7 @@ public class Mitosis: NSObject, Gene
             creature.isBaby = true
         }
         
-        let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: self.settings )
+        let genes     = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.mitosis.mutationChance )
         let copy      = Creature( energy: 1, genes: genes, parents: [ creature ], settings: self.settings )
         copy.position = creature.position
         

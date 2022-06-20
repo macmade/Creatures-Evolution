@@ -94,6 +94,18 @@ public class Sex: NSObject, Gene
         Sex( active: self.isActive, settings: self.settings )
     }
     
+    public func mutate() -> Bool
+    {
+        if self.canRegress == false && self.isActive
+        {
+            return false
+        }
+        
+        self.isActive = self.isActive == false
+        
+        return true
+    }
+    
     public func onEnergyChanged( creature: Creature )
     {}
     
@@ -158,7 +170,7 @@ public class Sex: NSObject, Gene
             
             for _ in 0 ..< self.settings.sex.possibleNumberOfChildren
             {
-                let genes     = EvolutionHelper.mutate( genes: creature.genes, settings: self.settings )
+                let genes     = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.sex.mutationChance )
                 let copy      = Creature( energy: 1, genes: genes, parents: [ creature ], settings: self.settings )
                 copy.position = creature.position
                 

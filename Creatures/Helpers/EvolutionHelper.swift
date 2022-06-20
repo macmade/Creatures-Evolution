@@ -129,30 +129,28 @@ public class EvolutionHelper
         }
     }
     
-    public static func mutate( genes: [ Gene ], settings: Settings ) -> [ Gene ]
+    public static func mutate( genes: [ Gene ], mutationChance: Int ) -> [ Gene ]
     {
         let copy = genes.compactMap { $0.copy() as? Gene }
             
-        if Int.random( in: 0 ... 100 ) > settings.creatures.mutationChance
+        if Int.random( in: 0 ... 100 ) > mutationChance
         {
             return copy
         }
         
-        guard let gene = copy.randomElement() else
+        for gene in copy.shuffled()
         {
-            return copy
-        }
-        
-        if gene.canRegress == false && gene.isActive
-        {
-            return copy
-        }
-        
-        gene.isActive = gene.isActive == false
-        
-        if gene.isActive
-        {
-            self.deactivateConflictingGenes( gene: gene, in: copy )
+            if gene.mutate() == false
+            {
+                continue
+            }
+            
+            if gene.isActive
+            {
+                self.deactivateConflictingGenes( gene: gene, in: copy )
+            }
+            
+            break
         }
         
         return copy

@@ -26,12 +26,13 @@ import Cocoa
 
 public class MitosisSettings: NSObject, Codable
 {
-    @objc public dynamic var isEnabled    = true
-    @objc public dynamic var isActive     = true
-    @objc public dynamic var canRegress   = false
-    @objc public dynamic var deactivates  = [ "Sex" ]
-    @objc public dynamic var energyNeeded = 2
-    @objc public dynamic var energyCost   = 1
-    @objc public dynamic var chance       = 75.0
-    @objc public dynamic var recoveryTime = 5.0
+    @objc public dynamic var isEnabled      = true
+    @objc public dynamic var isActive       = true
+    @objc public dynamic var canRegress     = false
+    @objc public dynamic var deactivates    = [ "Sex" ]
+    @objc public dynamic var energyNeeded   = 2
+    @objc public dynamic var energyCost     = 1
+    @objc public dynamic var chance         = 75.0
+    @objc public dynamic var recoveryTime   = 5.0
+    @objc public dynamic var mutationChance = 20
 }

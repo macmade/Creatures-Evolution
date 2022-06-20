@@ -60,6 +60,7 @@ import SpriteKit
     
     init( active: Bool, settings: Settings )
     
+    func mutate() -> Bool
     func onEnergyChanged( creature: Creature )
     func onCollision( creature: Creature, node: SKNode )
     func chooseDestination( creature: Creature ) -> Destination?

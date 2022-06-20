@@ -35,4 +35,5 @@ public class SexSettings: NSObject, Codable
     @objc public dynamic var chance                   = 75.0
     @objc public dynamic var recoveryTime             = 5.0
     @objc public dynamic var possibleNumberOfChildren = 3
+    @objc public dynamic var mutationChance           = 20
 }

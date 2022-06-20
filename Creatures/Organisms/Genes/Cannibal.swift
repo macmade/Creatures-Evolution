@@ -59,7 +59,7 @@ public class Cannibal: NSObject, Gene
     
     public var icon: NSImage?
     {
-        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
+        NSImage( systemSymbolName: "fork.knife.circle.fill", accessibilityDescription: nil )
     }
     
     @objc public private( set ) dynamic var settings: Settings
@@ -73,6 +73,18 @@ public class Cannibal: NSObject, Gene
     public func copy( with zone: NSZone? = nil ) -> Any
     {
         Cannibal( active: self.isActive, settings: self.settings )
+    }
+    
+    public func mutate() -> Bool
+    {
+        if self.canRegress == false && self.isActive
+        {
+            return false
+        }
+        
+        self.isActive = self.isActive == false
+        
+        return true
     }
     
     public func onEnergyChanged( creature: Creature )
