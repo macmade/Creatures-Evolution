@@ -33,14 +33,14 @@ public class SpriteNode: SKSpriteNode
     
     private var highlight: SKShapeNode?
     
-    public func flash( _ flash: Bool )
+    public func flash( _ flash: Bool, alpha: Double = 0.25, duration: Double = 0.5 )
     {
         self.alpha = 1
         
         if flash && self.action( forKey: SpriteNode.flashActionKey ) == nil
         {
-            let fadeOut = SKAction.fadeOut( withDuration: 0.5 )
-            let fadeIn  = SKAction.fadeIn(  withDuration: 0.5 )
+            let fadeOut = SKAction.fadeAlpha( to: alpha, duration: duration )
+            let fadeIn  = SKAction.fadeAlpha( to: 1,     duration: duration )
             let flash   = SKAction.sequence( [ fadeOut, fadeIn ] )
             let group   = SKAction.repeatForever( flash )
             
