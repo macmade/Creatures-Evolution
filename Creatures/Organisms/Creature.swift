@@ -32,7 +32,8 @@ public class Creature: SpriteNode, Updatable
     
           public private( set ) dynamic var genes:    [ Gene ]
     @objc public private( set ) dynamic var settings: Settings
-    @objc public private( set ) dynamic var born    = Date()
+    @objc public private( set ) dynamic var born:     TimeInterval = -1
+    @objc public private( set ) dynamic var age:      TimeInterval = -1
     
     private var nextEnergyDecrease: TimeInterval?
     
@@ -178,8 +179,15 @@ public class Creature: SpriteNode, Updatable
     
     public func update( elapsedTime: TimeInterval )
     {
-        self.willChangeValue( for: \.born )
-        self.didChangeValue(  for: \.born )
+        if self.born < 0
+        {
+            self.born = elapsedTime
+            self.age  = 0
+        }
+        else
+        {
+            self.age = elapsedTime - born
+        }
         
         if self.isBeingRemoved
         {

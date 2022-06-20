@@ -254,9 +254,9 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="-2" name="value" keyPath="self.node.born" id="yLc-dh-kaB">
+                                        <binding destination="-2" name="value" keyPath="self.node.age" id="mnb-Ks-rC9">
                                             <dictionary key="options">
-                                                <string key="NSValueTransformerName">AgeTransformer</string>
+                                                <string key="NSValueTransformerName">TimeTransformer</string>
                                             </dictionary>
                                         </binding>
                                     </connections>

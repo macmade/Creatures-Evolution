@@ -31,6 +31,9 @@ public class Plant: Food, Updatable
     private var peremptionTime: TimeInterval?
     private var removalTime:    TimeInterval?
     
+    @objc public private( set ) dynamic var born: TimeInterval = -1
+    @objc public private( set ) dynamic var age:  TimeInterval = -1
+    
     public required init( energy: Int, settings: Settings )
     {
         super.init( energy: energy, settings: settings, texture: SKTexture( imageNamed: "Plant" ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
@@ -51,6 +54,16 @@ public class Plant: Food, Updatable
     
     public func update( elapsedTime: TimeInterval )
     {
+        if self.born < 0
+        {
+            self.born = elapsedTime
+            self.age  = 0
+        }
+        else
+        {
+            self.age = elapsedTime - born
+        }
+        
         if let peremptionTime = self.peremptionTime
         {
             if peremptionTime <= elapsedTime

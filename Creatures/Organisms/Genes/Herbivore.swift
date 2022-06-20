@@ -59,7 +59,7 @@ public class Herbivore: NSObject, Gene
     
     public var icon: NSImage?
     {
-        NSImage( systemSymbolName: "fork.knife.circle.fill", accessibilityDescription: nil )
+        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
     }
     
     @objc public private( set ) dynamic var settings: Settings

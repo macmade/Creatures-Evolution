@@ -48,8 +48,50 @@
                     </constraints>
                 </box>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KB9-dd-be2">
-                    <rect key="frame" x="20" y="129" width="195" height="16"/>
+                    <rect key="frame" x="20" y="105" width="195" height="40"/>
                     <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Le-sq-4I5">
+                            <rect key="frame" x="0.0" y="24" width="195" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f8j-Ky-kEj">
+                                    <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Age:" id="QQk-yZ-DLH">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="CJp-co-2XE">
+                                    <rect key="frame" x="157" y="0.0" width="40" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="c8S-XM-Fyb">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="-2" name="value" keyPath="self.node.age" id="QxE-7V-KW6">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">TimeTransformer</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="f8j-Ky-kEj" firstAttribute="top" secondItem="5Le-sq-4I5" secondAttribute="top" id="4SM-2M-sk2"/>
+                                <constraint firstAttribute="bottom" secondItem="f8j-Ky-kEj" secondAttribute="bottom" id="6zu-w3-Q2c"/>
+                                <constraint firstItem="CJp-co-2XE" firstAttribute="centerY" secondItem="5Le-sq-4I5" secondAttribute="centerY" id="MfT-mH-ODb"/>
+                                <constraint firstItem="f8j-Ky-kEj" firstAttribute="centerY" secondItem="5Le-sq-4I5" secondAttribute="centerY" id="m7E-OX-fJM"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f14-Sl-55O">
                             <rect key="frame" x="0.0" y="0.0" width="195" height="16"/>
                             <subviews>
@@ -135,8 +177,10 @@
                     </constraints>
                     <visibilityPriorities>
                         <integer value="1000"/>
+                        <integer value="1000"/>
                     </visibilityPriorities>
                     <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>

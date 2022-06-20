@@ -62,7 +62,7 @@ public class Mitosis: NSObject, Gene
         NSImage( systemSymbolName: "heart.fill", accessibilityDescription: nil )
     }
     
-    private var lastUsed: Date?
+    private var lastUsed: TimeInterval?
     
     @objc public private( set ) dynamic var settings: Settings
     
@@ -91,6 +91,11 @@ public class Mitosis: NSObject, Gene
     
     public func onEnergyChanged( creature: Creature )
     {
+        guard let scene = creature.scene as? Scene else
+        {
+            return
+        }
+        
         if creature.isBaby
         {
             return
@@ -106,7 +111,7 @@ public class Mitosis: NSObject, Gene
             return
         }
         
-        if let lastUsed = self.lastUsed, Date().timeIntervalSince( lastUsed ) < self.settings.mitosis.recoveryTime
+        if let lastUsed = self.lastUsed, lastUsed + self.settings.mitosis.recoveryTime > scene.elapsedTime 
         {
             return
         }
@@ -116,8 +121,7 @@ public class Mitosis: NSObject, Gene
             return
         }
         
-        self.lastUsed = Date()
-        
+        self.lastUsed    = scene.elapsedTime
         creature.energy -= self.settings.mitosis.energyCost
         
         if creature.energy < self.settings.creatures.energyNeededToGrow

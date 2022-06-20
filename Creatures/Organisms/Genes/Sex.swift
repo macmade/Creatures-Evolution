@@ -74,7 +74,7 @@ public class Sex: NSObject, Gene
         NSImage( systemSymbolName: "heart.fill", accessibilityDescription: nil )
     }
     
-    private var lastUsed: Date?
+    private var lastUsed: TimeInterval?
     
     @objc public private( set ) dynamic var settings: Settings
     
@@ -111,6 +111,11 @@ public class Sex: NSObject, Gene
     
     public func onCollision( creature: Creature, node: SKNode )
     {
+        guard let scene = creature.scene as? Scene else
+        {
+            return
+        }
+        
         guard let other = node as? Creature else
         {
             return
@@ -141,7 +146,7 @@ public class Sex: NSObject, Gene
             return
         }
         
-        if let lastUsed = self.lastUsed, Date().timeIntervalSince( lastUsed ) < self.settings.sex.recoveryTime
+        if let lastUsed = self.lastUsed, lastUsed + self.settings.mitosis.recoveryTime > scene.elapsedTime
         {
             return
         }
@@ -151,7 +156,7 @@ public class Sex: NSObject, Gene
             return
         }
         
-        self.lastUsed = Date()
+        self.lastUsed = scene.elapsedTime
         
         if sex1.isMale && sex2.isFemale || sex1.isFemale && sex2.isMale
         {

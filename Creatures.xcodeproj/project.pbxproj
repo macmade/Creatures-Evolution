@@ -47,7 +47,6 @@
 		05102095285ABD1000F11184 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102094285ABD1000F11184 /* Destination.swift */; };
 		051020B3285B54D800F11184 /* BooleanTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B2285B54D800F11184 /* BooleanTransformer.swift */; };
 		051020B5285B558F00F11184 /* NegateBooleanTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */; };
-		051020B9285B57CB00F11184 /* AgeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B8285B57CB00F11184 /* AgeTransformer.swift */; };
 		051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */; };
 		051020BD285B6BF100F11184 /* StatusTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020BC285B6BF100F11184 /* StatusTransformer.swift */; };
 		051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020CA285B6DDB00F11184 /* WorldSettings.swift */; };
@@ -172,7 +171,6 @@
 		05102094285ABD1000F11184 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		051020B2285B54D800F11184 /* BooleanTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanTransformer.swift; sourceTree = "<group>"; };
 		051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegateBooleanTransformer.swift; sourceTree = "<group>"; };
-		051020B8285B57CB00F11184 /* AgeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeTransformer.swift; sourceTree = "<group>"; };
 		051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureEnergyTransformer.swift; sourceTree = "<group>"; };
 		051020BC285B6BF100F11184 /* StatusTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTransformer.swift; sourceTree = "<group>"; };
 		051020CA285B6DDB00F11184 /* WorldSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldSettings.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 		051020B1285B548500F11184 /* Transformers */ = {
 			isa = PBXGroup;
 			children = (
-				051020B8285B57CB00F11184 /* AgeTransformer.swift */,
 				051020B2285B54D800F11184 /* BooleanTransformer.swift */,
 				051020DF285B79AF00F11184 /* ClassTransformer.swift */,
 				051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */,
@@ -917,7 +914,6 @@
 				051020D0285B6E6600F11184 /* WorldSettingsViewController.swift in Sources */,
 				05102076285A192800F11184 /* SexSenseSettings.swift in Sources */,
 				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
-				051020B9285B57CB00F11184 /* AgeTransformer.swift in Sources */,
 				053949E5285BA7DC0077D90C /* AddGeneWindowController.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
