@@ -175,13 +175,18 @@ public class Sex: NSObject, Gene
             
             for _ in 0 ..< self.settings.sex.possibleNumberOfChildren
             {
-                let genes     = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.sex.mutationChance )
-                let copy      = Creature( energy: 1, genes: genes, parents: [ creature ], settings: self.settings )
+                let mutation = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.sex.mutationChance )
+                let copy      = Creature( energy: 1, genes: mutation.genes, parents: [ creature ], settings: self.settings )
                 copy.position = creature.position
                 
                 creature.scene?.addChild( copy )
                 copy.move()
                 NotificationCenter.default.post( name: Constants.creatureBornNotification, object: copy )
+                
+                if let event = mutation.event
+                {
+                    EventLog.shared.add( event: Event( message: event, time: scene.elapsedTime, node: copy ) )
+                }
             }
         }
     }

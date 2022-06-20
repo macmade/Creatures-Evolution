@@ -134,30 +134,59 @@ public class EvolutionHelper
         }
     }
     
-    public static func mutate( genes: [ Gene ], mutationChance: Int ) -> [ Gene ]
+    public static func mutate( genes: [ Gene ], mutationChance: Int ) -> ( genes: [ Gene ], event: String? )
     {
         let copy = genes.compactMap { $0.copy() as? Gene }
             
         if Int.random( in: 0 ... 100 ) > mutationChance
         {
-            return copy
+            return ( genes: copy, event: nil )
         }
+        
+        var event: String?
         
         for gene in copy.shuffled()
         {
+            let wasActive       = gene.isActive
+            let previousDetails = gene.details
+            
             if gene.mutate() == false
             {
                 continue
             }
             
-            if gene.isActive
+            let isActive = gene.isActive
+            let details  = gene.details
+            
+            if isActive
             {
                 self.deactivateConflictingGenes( gene: gene, in: copy )
+            }
+            
+            if wasActive == false && isActive
+            {
+                event = "Gene was evolved: \( gene.name )"
+            }
+            else if wasActive && isActive == false
+            {
+                event = "Gene was regressed: \( gene.name )"
+            }
+            else if let previousDetails = previousDetails, let details = details, previousDetails != details
+            {
+                event = "Gene was mutated: \( gene.name ) (\( previousDetails ) -> \( details ))"
+            }
+            else if let details = details
+            {
+                event = "Gene was mutated: \( gene.name ) (\( details ))"
+            }
+            else
+            {
+                event = "Gene was mutated: \( gene.name )"
             }
             
             break
         }
         
-        return copy
+        return ( genes: copy, event: event )
     }
 }

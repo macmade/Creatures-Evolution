@@ -133,6 +133,10 @@
 		05394A51286086B90077D90C /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A50286086B90077D90C /* Preferences.swift */; };
 		05394A5428608C1F0077D90C /* SpeedSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A5228608C1F0077D90C /* SpeedSettingsViewController.xib */; };
 		05394A5628608C240077D90C /* SpeedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A5528608C240077D90C /* SpeedSettingsViewController.swift */; };
+		05394A5928608D950077D90C /* EventLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A5828608D950077D90C /* EventLog.swift */; };
+		05394A5B28608DC30077D90C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A5A28608DC30077D90C /* Event.swift */; };
+		05394A5D286093DE0077D90C /* EventLogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A5C286093DE0077D90C /* EventLogWindowController.swift */; };
+		05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A5E2860945F0077D90C /* EventLogWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -311,6 +315,10 @@
 		05394A50286086B90077D90C /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		05394A5328608C1F0077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SpeedSettingsViewController.xib; sourceTree = "<group>"; };
 		05394A5528608C240077D90C /* SpeedSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedSettingsViewController.swift; sourceTree = "<group>"; };
+		05394A5828608D950077D90C /* EventLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLog.swift; sourceTree = "<group>"; };
+		05394A5A28608DC30077D90C /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		05394A5C286093DE0077D90C /* EventLogWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogWindowController.swift; sourceTree = "<group>"; };
+		05394A5E2860945F0077D90C /* EventLogWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventLogWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +379,7 @@
 		05252E412854DEF70090B385 /* Creatures */ = {
 			isa = PBXGroup;
 			children = (
+				05394A5728608D7E0077D90C /* Event Log */,
 				053949FB285F6B3C0077D90C /* About Window */,
 				053949FF285F6B990077D90C /* Application */,
 				05252E442854DEF80090B385 /* Assets.xcassets */,
@@ -730,6 +739,17 @@
 			path = Stats;
 			sourceTree = "<group>";
 		};
+		05394A5728608D7E0077D90C /* Event Log */ = {
+			isa = PBXGroup;
+			children = (
+				05394A5A28608DC30077D90C /* Event.swift */,
+				05394A5828608D950077D90C /* EventLog.swift */,
+				05394A5C286093DE0077D90C /* EventLogWindowController.swift */,
+				05394A5E2860945F0077D90C /* EventLogWindowController.xib */,
+			);
+			path = "Event Log";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -798,6 +818,7 @@
 				05102049285A17D800F11184 /* PredatorSenseSettingsViewController.xib in Resources */,
 				05102045285A176F00F11184 /* PredatorSettingsViewController.xib in Resources */,
 				05394A09285F6E460077D90C /* StatsViewController.xib in Resources */,
+				05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */,
 				05102046285A176F00F11184 /* CannibalSettingsViewController.xib in Resources */,
 				05102058285A191B00F11184 /* HerbivoreSettingsViewController.xib in Resources */,
 				05102052285A17DE00F11184 /* SexSenseSettingsViewController.xib in Resources */,
@@ -849,6 +870,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05252F0C2855E2100090B385 /* SettingsWindowController.swift in Sources */,
+				05394A5B28608DC30077D90C /* Event.swift in Sources */,
 				05102074285A192800F11184 /* ScavengerSettings.swift in Sources */,
 				051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */,
 				053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */,
@@ -864,6 +886,7 @@
 				053949F8285EB8830077D90C /* DraggableView.swift in Sources */,
 				05252F5D2857FF3C0090B385 /* SettingsViewController.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
+				05394A5D286093DE0077D90C /* EventLogWindowController.swift in Sources */,
 				05252F542857FCF70090B385 /* NSView.swift in Sources */,
 				05102071285A192800F11184 /* HerbivoreSettings.swift in Sources */,
 				05102080285A88F800F11184 /* PreySenseSettingsViewController.swift in Sources */,
@@ -935,6 +958,7 @@
 				05394A3A28607C1B0077D90C /* Speed.swift in Sources */,
 				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
 				053949E5285BA7DC0077D90C /* AddGeneWindowController.swift in Sources */,
+				05394A5928608D950077D90C /* EventLog.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
 				05252F7C285837AD0090B385 /* CreaturesSettings.swift in Sources */,

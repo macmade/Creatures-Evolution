@@ -35,8 +35,9 @@ public class MainWindowController: NSWindowController
     @IBOutlet private var contentView: NSView!
     @IBOutlet private var statsView:   NSView!
     
-    private var view:             SKView?
-    private var gameOverObserver: NSKeyValueObservation?
+    private var view:                     SKView?
+    private var gameOverObserver:         NSKeyValueObservation?
+    private var eventLogWindowController: EventLogWindowController?
     
     @objc public dynamic var isPaused: Bool = false
     {
@@ -268,5 +269,14 @@ public class MainWindowController: NSWindowController
     }
     
     @IBAction public func viewEventLog( _ sender: Any? )
-    {}
+    {
+        if self.eventLogWindowController == nil
+        {
+            self.eventLogWindowController = EventLogWindowController()
+            
+            self.eventLogWindowController?.window?.center()
+        }
+        
+        self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )
+    }
 }

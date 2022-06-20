@@ -129,13 +129,18 @@ public class Mitosis: NSObject, Gene
             creature.isBaby = true
         }
         
-        let genes     = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.mitosis.mutationChance )
-        let copy      = Creature( energy: 1, genes: genes, parents: [ creature ], settings: self.settings )
+        let mutation  = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.mitosis.mutationChance )
+        let copy      = Creature( energy: 1, genes: mutation.genes, parents: [ creature ], settings: self.settings )
         copy.position = creature.position
         
         creature.scene?.addChild( copy )
         copy.move()
         NotificationCenter.default.post( name: Constants.creatureBornNotification, object: copy )
+        
+        if let event = mutation.event
+        {
+            EventLog.shared.add( event: Event( message: event, time: scene.elapsedTime, node: copy ) )
+        }
     }
     
     public func onCollision( creature: Creature, node: SKNode )
