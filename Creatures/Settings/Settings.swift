@@ -26,8 +26,6 @@ import Cocoa
 
 public class Settings: NSObject, Codable
 {
-    private static let defaultsKey = "settings"
-    
     @objc public dynamic var world          = WorldSettings()
     @objc public dynamic var creatures      = CreaturesSettings()
     @objc public dynamic var plants         = PlantsSettings()
@@ -49,7 +47,7 @@ public class Settings: NSObject, Codable
     
     public static func restore() -> Settings
     {
-        guard let data = UserDefaults.standard.object( forKey: Settings.defaultsKey ) as? Data else
+        guard let data = Preferences.shared.settings else
         {
             return Settings()
         }
@@ -66,9 +64,6 @@ public class Settings: NSObject, Codable
     
     public func save() throws
     {
-        let data = try PropertyListEncoder().encode( self )
-        
-        UserDefaults.standard.set( data, forKey: Settings.defaultsKey )
-        UserDefaults.standard.synchronize()
+        Preferences.shared.settings = try PropertyListEncoder().encode( self )
     }
 }

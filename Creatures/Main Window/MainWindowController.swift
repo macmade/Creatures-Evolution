@@ -118,6 +118,11 @@ public class MainWindowController: NSWindowController
             view.presentScene( scene )
             
             self.isPaused = false
+            
+            view.showsFPS       = Preferences.shared.showsFPS
+            view.showsDrawCount = Preferences.shared.showsDrawCount
+            view.showsNodeCount = Preferences.shared.showsNodeCount
+            view.showsQuadCount = Preferences.shared.showsQuadCount
         }
     }
     
@@ -219,7 +224,8 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        view.showsFPS = view.showsFPS == false
+        view.showsFPS               = view.showsFPS == false
+        Preferences.shared.showsFPS = view.showsFPS
     }
     
     @IBAction public func toggleDrawCount( _ sender: Any? )
@@ -231,7 +237,8 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        view.showsDrawCount = view.showsDrawCount == false
+        view.showsDrawCount               = view.showsDrawCount == false
+        Preferences.shared.showsDrawCount = view.showsDrawCount
     }
     
     @IBAction public func toggleNodeCount( _ sender: Any? )
@@ -243,7 +250,8 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        view.showsNodeCount = view.showsNodeCount == false
+        view.showsNodeCount               = view.showsNodeCount == false
+        Preferences.shared.showsNodeCount = view.showsNodeCount
     }
     
     @IBAction public func toggleQuadCount( _ sender: Any? )
@@ -255,7 +263,8 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        view.showsQuadCount = view.showsQuadCount == false
+        view.showsQuadCount               = view.showsQuadCount == false
+        Preferences.shared.showsQuadCount = view.showsQuadCount
     }
     
     @IBAction public func viewEventLog( _ sender: Any? )

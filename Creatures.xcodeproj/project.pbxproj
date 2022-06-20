@@ -130,6 +130,7 @@
 		05394A382860009C0077D90C /* PreySense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A372860009C0077D90C /* PreySense.swift */; };
 		05394A3A28607C1B0077D90C /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A3928607C1B0077D90C /* Speed.swift */; };
 		05394A3C28607C700077D90C /* SpeedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A3B28607C700077D90C /* SpeedSettings.swift */; };
+		05394A51286086B90077D90C /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A50286086B90077D90C /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -305,6 +306,7 @@
 		05394A372860009C0077D90C /* PreySense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreySense.swift; sourceTree = "<group>"; };
 		05394A3928607C1B0077D90C /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		05394A3B28607C700077D90C /* SpeedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedSettings.swift; sourceTree = "<group>"; };
+		05394A50286086B90077D90C /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -639,6 +641,7 @@
 			children = (
 				05252E532854DF410090B385 /* ApplicationDelegate.swift */,
 				05252E502854DF410090B385 /* MainMenu.xib */,
+				05394A50286086B90077D90C /* Preferences.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				05252EB52854E9690090B385 /* Vampire.swift in Sources */,
 				0510208C285AA13A00F11184 /* Constants.swift in Sources */,
 				05252EAB2854E9310090B385 /* Meat.swift in Sources */,
+				05394A51286086B90077D90C /* Preferences.swift in Sources */,
 				05252EC32854EA590090B385 /* Updatable.swift in Sources */,
 				051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */,
 				05252EA92854E9290090B385 /* Plant.swift in Sources */,
