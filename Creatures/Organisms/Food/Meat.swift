@@ -28,8 +28,8 @@ import SpriteKit
 public class Meat: Food, Updatable
 {
     public  var isAvailable   = true
-    private var peremptionDate: Date?
-    private var removalDate:    Date?
+    private var peremptionTime: TimeInterval?
+    private var removalTime:    TimeInterval?
     
     public required init( energy: Int, settings: Settings )
     {
@@ -49,11 +49,11 @@ public class Meat: Food, Updatable
         nil
     }
     
-    public func update()
+    public func update( elapsedTime: TimeInterval )
     {
-        if let peremptionDate = self.peremptionDate
+        if let peremptionTime = self.peremptionTime
         {
-            if peremptionDate.timeIntervalSinceNow < 0
+            if peremptionTime <= elapsedTime
             {
                 self.energy           = self.settings.meat.decayEnergy
                 self.colorBlendFactor = 0
@@ -64,19 +64,19 @@ public class Meat: Food, Updatable
         }
         else if self.settings.meat.canDecay
         {
-            self.peremptionDate = Date( timeIntervalSinceNow: self.settings.meat.decayAfter + Double.random( in: 0 ... self.settings.meat.decayAfterRange ) )
+            self.peremptionTime = elapsedTime + self.settings.meat.decayAfter + Double.random( in: 0 ... self.settings.meat.decayAfterRange )
         }
         
-        if let removaleDate = self.removalDate
+        if let removalTime = self.removalTime
         {
-            if removaleDate.timeIntervalSinceNow < 0
+            if removalTime <= elapsedTime
             {
                 self.remove()
             }
         }
         else if self.settings.meat.canDisappear
         {
-            self.removalDate = Date( timeIntervalSinceNow: self.settings.meat.disappearAfter + Double.random( in: 0 ... self.settings.meat.disappearAfterRange ) )
+            self.removalTime = elapsedTime + self.settings.meat.disappearAfter + Double.random( in: 0 ... self.settings.meat.disappearAfterRange )
         }
     }
 }

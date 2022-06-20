@@ -28,8 +28,8 @@ import SpriteKit
 public class Plant: Food, Updatable
 {
     public  var isAvailable   = true
-    private var peremptionDate: Date?
-    private var removalDate:    Date?
+    private var peremptionTime: TimeInterval?
+    private var removalTime:    TimeInterval?
     
     public required init( energy: Int, settings: Settings )
     {
@@ -49,11 +49,11 @@ public class Plant: Food, Updatable
         nil
     }
     
-    public func update()
+    public func update( elapsedTime: TimeInterval )
     {
-        if let peremptionDate = self.peremptionDate
+        if let peremptionTime = self.peremptionTime
         {
-            if peremptionDate.timeIntervalSinceNow < 0
+            if peremptionTime <= elapsedTime
             {
                 self.energy           = self.settings.plants.decayEnergy
                 self.colorBlendFactor = 0
@@ -64,19 +64,19 @@ public class Plant: Food, Updatable
         }
         else if self.settings.plants.canDecay
         {
-            self.peremptionDate = Date( timeIntervalSinceNow: self.settings.plants.decayAfter + Double.random( in: 0 ... self.settings.plants.decayAfterRange ) )
+            self.peremptionTime = elapsedTime + self.settings.plants.decayAfter + Double.random( in: 0 ... self.settings.plants.decayAfterRange )
         }
         
-        if let removaleDate = self.removalDate
+        if let removalTime = self.removalTime
         {
-            if removaleDate.timeIntervalSinceNow < 0
+            if removalTime <= elapsedTime
             {
                 self.remove()
             }
         }
         else if self.settings.plants.canDisappear
         {
-            self.removalDate = Date( timeIntervalSinceNow: self.settings.plants.disappearAfter + Double.random( in: 0 ... self.settings.plants.disappearAfterRange ) )
+            self.removalTime = elapsedTime + self.settings.plants.disappearAfter + Double.random( in: 0 ... self.settings.plants.disappearAfterRange )
         }
     }
 }

@@ -34,7 +34,7 @@ public class Creature: SpriteNode, Updatable
     @objc public private( set ) dynamic var settings: Settings
     @objc public private( set ) dynamic var born    = Date()
     
-    private var nextEnergyDecrease: Date?
+    private var nextEnergyDecrease: TimeInterval?
     
     @objc public dynamic var customName: String?
     {
@@ -176,7 +176,7 @@ public class Creature: SpriteNode, Updatable
         return nil
     }
     
-    public func update()
+    public func update( elapsedTime: TimeInterval )
     {
         self.willChangeValue( for: \.born )
         self.didChangeValue(  for: \.born )
@@ -188,7 +188,7 @@ public class Creature: SpriteNode, Updatable
         
         if let nextEnergyDecrease = self.nextEnergyDecrease
         {
-            if nextEnergyDecrease.timeIntervalSinceNow < 0
+            if nextEnergyDecrease <= elapsedTime
             {
                 self.nextEnergyDecrease = nil
                 self.energy            -= 1
@@ -196,7 +196,7 @@ public class Creature: SpriteNode, Updatable
         }
         else
         {
-            self.nextEnergyDecrease = Date( timeIntervalSinceNow: self.settings.creatures.energyDecreaseInterval + Double.random( in: 0 ... self.settings.creatures.energyDecreaseIntervalRange ) )
+            self.nextEnergyDecrease = elapsedTime + self.settings.creatures.energyDecreaseInterval + Double.random( in: 0 ... self.settings.creatures.energyDecreaseIntervalRange )
         }
     }
     

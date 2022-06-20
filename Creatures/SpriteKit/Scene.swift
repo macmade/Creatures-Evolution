@@ -157,7 +157,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         
         for child in self.children
         {
-            ( child as? Updatable )?.update()
+            ( child as? Updatable )?.update( elapsedTime: self.elapsedTime )
         }
         
         let creatures = self.children.compactMap { $0 as? Creature }

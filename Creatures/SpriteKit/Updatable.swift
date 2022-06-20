@@ -26,5 +26,5 @@ import Cocoa
 
 public protocol Updatable
 {
-    func update()
+    func update( elapsedTime: TimeInterval )
 }
