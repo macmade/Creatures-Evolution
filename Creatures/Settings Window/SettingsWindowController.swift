@@ -44,6 +44,7 @@ public class SettingsWindowController: NSWindowController
             SettingsItem( title: "Creatures",      symbol: "allergens",                          controller: CreaturesSettingsViewController(     settings: self.settings ) ),
             SettingsItem( title: "Plants",         symbol: "takeoutbag.and.cup.and.straw.fill",  controller: PlantsSettingsViewController(        settings: self.settings ) ),
             SettingsItem( title: "Meat",           symbol: "takeoutbag.and.cup.and.straw.fill",  controller: MeatSettingsViewController(          settings: self.settings ) ),
+            SettingsItem( title: "Speed",          symbol: "hare.fill",                          controller: SpeedSettingsViewController(         settings: self.settings ) ),
             SettingsItem( title: "Mitosis",        symbol: "heart.fill",                         controller: MitosisSettingsViewController(       settings: self.settings ) ),
             SettingsItem( title: "Sex",            symbol: "heart.fill",                         controller: SexSettingsViewController(           settings: self.settings ) ),
             SettingsItem( title: "Herbivore",      symbol: "fork.knife.circle.fill",             controller: HerbivoreSettingsViewController(     settings: self.settings ) ),

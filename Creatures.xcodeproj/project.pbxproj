@@ -131,6 +131,8 @@
 		05394A3A28607C1B0077D90C /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A3928607C1B0077D90C /* Speed.swift */; };
 		05394A3C28607C700077D90C /* SpeedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A3B28607C700077D90C /* SpeedSettings.swift */; };
 		05394A51286086B90077D90C /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A50286086B90077D90C /* Preferences.swift */; };
+		05394A5428608C1F0077D90C /* SpeedSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A5228608C1F0077D90C /* SpeedSettingsViewController.xib */; };
+		05394A5628608C240077D90C /* SpeedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A5528608C240077D90C /* SpeedSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,6 +309,8 @@
 		05394A3928607C1B0077D90C /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
 		05394A3B28607C700077D90C /* SpeedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedSettings.swift; sourceTree = "<group>"; };
 		05394A50286086B90077D90C /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		05394A5328608C1F0077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SpeedSettingsViewController.xib; sourceTree = "<group>"; };
+		05394A5528608C240077D90C /* SpeedSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,8 +677,6 @@
 			children = (
 				05102079285A85F500F11184 /* CannibalSettingsViewController.swift */,
 				05102042285A176F00F11184 /* CannibalSettingsViewController.xib */,
-				0510207E285A88F800F11184 /* PreySenseSettingsViewController.swift */,
-				05102081285A897200F11184 /* PreySenseSettingsViewController.xib */,
 				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
 				05252F76285837920090B385 /* CreaturesSettingsViewController.xib */,
 				05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */,
@@ -693,12 +695,16 @@
 				05102047285A17D800F11184 /* PredatorSenseSettingsViewController.xib */,
 				05102062285A192800F11184 /* PredatorSettingsViewController.swift */,
 				05102040285A176F00F11184 /* PredatorSettingsViewController.xib */,
+				0510207E285A88F800F11184 /* PreySenseSettingsViewController.swift */,
+				05102081285A897200F11184 /* PreySenseSettingsViewController.xib */,
 				0510205D285A192800F11184 /* ScavengerSettingsViewController.swift */,
 				0510203E285A176F00F11184 /* ScavengerSettingsViewController.xib */,
 				05102065285A192800F11184 /* SexSenseSettingsViewController.swift */,
 				0510204A285A17DE00F11184 /* SexSenseSettingsViewController.xib */,
 				05252F63285815D40090B385 /* SexSettingsViewController.swift */,
 				05252F60285815BC0090B385 /* SexSettingsViewController.xib */,
+				05394A5528608C240077D90C /* SpeedSettingsViewController.swift */,
+				05394A5228608C1F0077D90C /* SpeedSettingsViewController.xib */,
 				05102068285A192800F11184 /* VampireSenseSettingsViewController.swift */,
 				0510204E285A17DE00F11184 /* VampireSenseSettingsViewController.xib */,
 				05102038285A165900F11184 /* VampireSettingsViewController.swift */,
@@ -803,6 +809,7 @@
 				053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */,
 				05252E5A2854DFE80090B385 /* MainWindowController.xib in Resources */,
 				05102083285A897200F11184 /* PreySenseSettingsViewController.xib in Resources */,
+				05394A5428608C1F0077D90C /* SpeedSettingsViewController.xib in Resources */,
 				05252E542854DF410090B385 /* MainMenu.xib in Resources */,
 				05252F62285815BC0090B385 /* SexSettingsViewController.xib in Resources */,
 				05102054285A17DE00F11184 /* VampireSenseSettingsViewController.xib in Resources */,
@@ -872,6 +879,7 @@
 				05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */,
 				053949E3285B97280077D90C /* LabelNode.swift in Sources */,
 				05102073285A192800F11184 /* HerbivoreSettingsViewController.swift in Sources */,
+				05394A5628608C240077D90C /* SpeedSettingsViewController.swift in Sources */,
 				05394A07285F6DDC0077D90C /* StatsViewController.swift in Sources */,
 				05252F73285819A60090B385 /* MeatSettingsViewController.swift in Sources */,
 				05102090285AAF0100F11184 /* BackgroundView.swift in Sources */,
@@ -1141,6 +1149,14 @@
 				053949EE285CD0420077D90C /* Base */,
 			);
 			name = FoodDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		05394A5228608C1F0077D90C /* SpeedSettingsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05394A5328608C1F0077D90C /* Base */,
+			);
+			name = SpeedSettingsViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
