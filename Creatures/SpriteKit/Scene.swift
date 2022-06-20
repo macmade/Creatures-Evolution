@@ -31,6 +31,19 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     
     private var newFoodTimer: Timer?
     
+    @objc public private( set ) dynamic var gameOver: Bool = false
+    {
+        didSet
+        {
+            if let controller = self.view?.window?.windowController as? MainWindowController
+            {
+                controller.isPaused = true
+                
+                controller.hideDetails( nil )
+            }
+        }
+    }
+    
     public init( size: CGSize, settings: Settings )
     {
         self.settings = settings
@@ -77,14 +90,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         }
         else if let food = node as? Food ?? node.parent as? Food
         {
-            if event.modifierFlags.contains( .command )
-            {
-                //food.toggleHighlight()
-            }
-            else
-            {
-                windowController.showDetails( node: food )
-            }
+            windowController.showDetails( node: food )
         }
     }
     
@@ -110,6 +116,13 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         for child in self.children
         {
             ( child as? Updatable )?.update()
+        }
+        
+        let creatures = self.children.compactMap { $0 as? Creature }
+        
+        if creatures.count == 0
+        {
+            self.gameOver = true
         }
     }
     
@@ -181,6 +194,11 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     
     public func generatePlants( amount: Int )
     {
+        if self.isPaused
+        {
+            return
+        }
+        
         for _ in 0 ..< amount
         {
             let plant      = Plant( energy: 1, settings: self.settings )

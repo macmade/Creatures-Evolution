@@ -104,7 +104,12 @@ public class StatsViewController: NSViewController
     
     public func update()
     {
-        guard let scene = self.scene else
+        guard let scene = self.scene, let mainWindowController = self.view.window?.windowController as? MainWindowController else
+        {
+            return
+        }
+        
+        if mainWindowController.isPaused
         {
             return
         }

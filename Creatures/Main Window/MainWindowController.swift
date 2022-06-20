@@ -35,7 +35,7 @@ public class MainWindowController: NSWindowController
     @IBOutlet private var contentView: NSView!
     @IBOutlet private var statsView:   NSView!
     
-    @objc private dynamic var isPaused: Bool = false
+    @objc public dynamic var isPaused: Bool = false
     {
         didSet
         {
@@ -81,9 +81,9 @@ public class MainWindowController: NSWindowController
             
             self.settingsWindowController = nil
             
-            if response != .OK && self.scene != nil
+            if response != .OK, let scene = self.scene
             {
-                self.isPaused = false
+                self.isPaused = scene.gameOver ? true : false
                 
                 return
             }
@@ -106,6 +106,8 @@ public class MainWindowController: NSWindowController
             self.contentView.addFillingSubview( view, removeAllExisting: true )
             view.presentScene( scene )
             
+            self.isPaused = false
+            
             #if DEBUG
             view.showsFPS       = true
             view.showsFields    = true
@@ -126,6 +128,13 @@ public class MainWindowController: NSWindowController
     
     @IBAction public func togglePause( _ sender: Any? )
     {
+        if self.scene?.gameOver ?? false
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
         self.isPaused = self.isPaused == false
     }
     
@@ -141,6 +150,11 @@ public class MainWindowController: NSWindowController
     
     public func showDetails( node: SpriteNode )
     {
+        if self.scene?.gameOver ?? false
+        {
+            return
+        }
+        
         if let detail = self.detailViewController
         {
             detail.node.highlight( false )
