@@ -76,4 +76,29 @@ import Cocoa
     {
         self.mainWindowController.resume( sender )
     }
+    
+    @IBAction public func toggleFPS( _ sender: Any? )
+    {
+        self.mainWindowController.toggleFPS( sender )
+    }
+    
+    @IBAction public func toggleDrawCount( _ sender: Any? )
+    {
+        self.mainWindowController.toggleDrawCount( sender )
+    }
+    
+    @IBAction public func toggleNodeCount( _ sender: Any? )
+    {
+        self.mainWindowController.toggleNodeCount( sender )
+    }
+    
+    @IBAction public func toggleQuadCount( _ sender: Any? )
+    {
+        self.mainWindowController.toggleQuadCount( sender )
+    }
+    
+    @IBAction public func viewEventLog( _ sender: Any? )
+    {
+        self.mainWindowController.viewEventLog( sender )
+    }
 }

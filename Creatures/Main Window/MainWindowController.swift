@@ -35,6 +35,7 @@ public class MainWindowController: NSWindowController
     @IBOutlet private var contentView: NSView!
     @IBOutlet private var statsView:   NSView!
     
+    private var view:             SKView?
     private var gameOverObserver: NSKeyValueObservation?
     
     @objc public dynamic var isPaused: Bool = false
@@ -97,6 +98,7 @@ public class MainWindowController: NSWindowController
             
             let view              = SKView( frame: self.contentView.bounds )
             let scene             = Scene( size: view.bounds.size, settings: settingsController.settings )
+            self.view             = view
             self.scene            = scene
             self.gameOverObserver = scene.observe( \.isGameOver )
             {
@@ -116,15 +118,6 @@ public class MainWindowController: NSWindowController
             view.presentScene( scene )
             
             self.isPaused = false
-            
-            #if DEBUG
-            view.showsFPS       = true
-            view.showsFields    = true
-            view.showsPhysics   = false
-            view.showsDrawCount = true
-            view.showsNodeCount = true
-            view.showsQuadCount = true
-            #endif
         }
     }
     
@@ -216,4 +209,55 @@ public class MainWindowController: NSWindowController
             detail.view.removeFromSuperview()
         }
     }
+    
+    @IBAction public func toggleFPS( _ sender: Any? )
+    {
+        guard let view = self.view else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        view.showsFPS = view.showsFPS == false
+    }
+    
+    @IBAction public func toggleDrawCount( _ sender: Any? )
+    {
+        guard let view = self.view else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        view.showsDrawCount = view.showsDrawCount == false
+    }
+    
+    @IBAction public func toggleNodeCount( _ sender: Any? )
+    {
+        guard let view = self.view else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        view.showsNodeCount = view.showsNodeCount == false
+    }
+    
+    @IBAction public func toggleQuadCount( _ sender: Any? )
+    {
+        guard let view = self.view else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        view.showsQuadCount = view.showsQuadCount == false
+    }
+    
+    @IBAction public func viewEventLog( _ sender: Any? )
+    {}
 }
