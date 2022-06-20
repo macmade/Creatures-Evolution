@@ -34,6 +34,11 @@ public class EvolutionHelper
     {
         var genes: [ Gene ] = []
         
+        if settings.speed.isEnabled
+        {
+            genes.append( Speed( active: settings.speed.isActive, settings: settings ) )
+        }
+        
         if settings.mitosis.isEnabled
         {
             genes.append( Mitosis( active: settings.mitosis.isActive, settings: settings ) )

@@ -251,8 +251,16 @@ public class Creature: SpriteNode, Updatable
             }
         }
         
-        let moveX      = SKAction.moveTo( x: destination.point.x, duration: 0.025 * Double( destination.distance ) )
-        let moveY      = SKAction.moveTo( y: destination.point.y, duration: 0.025 * Double( destination.distance ) )
+        let duration   = 0.025 * Double( destination.distance )
+        var multiplier = 1.0
+        
+        if let speed = self.getGene( Speed.self ) as? Speed, speed.isActive
+        {
+            multiplier = speed.multiplier
+        }
+        
+        let moveX      = SKAction.moveTo( x: destination.point.x, duration: duration / multiplier )
+        let moveY      = SKAction.moveTo( y: destination.point.y, duration: duration / multiplier )
         let move       = SKAction.group( [ moveX, moveY ] )
         let completion = SKAction.run
         {

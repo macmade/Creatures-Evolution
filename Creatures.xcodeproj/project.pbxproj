@@ -128,6 +128,8 @@
 		05394A32285FA5E00077D90C /* CreatureStatusGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A31285FA5E00077D90C /* CreatureStatusGraphView.swift */; };
 		05394A34285FAB600077D90C /* CreatureStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A33285FAB600077D90C /* CreatureStatusItem.swift */; };
 		05394A382860009C0077D90C /* PreySense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A372860009C0077D90C /* PreySense.swift */; };
+		05394A3A28607C1B0077D90C /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A3928607C1B0077D90C /* Speed.swift */; };
+		05394A3C28607C700077D90C /* SpeedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A3B28607C700077D90C /* SpeedSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -301,6 +303,8 @@
 		05394A31285FA5E00077D90C /* CreatureStatusGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusGraphView.swift; sourceTree = "<group>"; };
 		05394A33285FAB600077D90C /* CreatureStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusItem.swift; sourceTree = "<group>"; };
 		05394A372860009C0077D90C /* PreySense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreySense.swift; sourceTree = "<group>"; };
+		05394A3928607C1B0077D90C /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
+		05394A3B28607C700077D90C /* SpeedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,7 +515,6 @@
 			isa = PBXGroup;
 			children = (
 				05252EB22854E9640090B385 /* Cannibal.swift */,
-				05394A372860009C0077D90C /* PreySense.swift */,
 				05252EA42854E9180090B385 /* Gene.swift */,
 				05252EAC2854E94B0090B385 /* Herbivore.swift */,
 				05252F00285591E90090B385 /* MeatSense.swift */,
@@ -519,9 +522,11 @@
 				05252EBE2854E9A10090B385 /* PlantSense.swift */,
 				05252EB02854E95D0090B385 /* Predator.swift */,
 				05252EBC2854E9900090B385 /* PredatorSense.swift */,
+				05394A372860009C0077D90C /* PreySense.swift */,
 				05252EAE2854E9540090B385 /* Scavenger.swift */,
 				05252EB82854E9740090B385 /* Sex.swift */,
 				05252F02285592B90090B385 /* SexSense.swift */,
+				05394A3928607C1B0077D90C /* Speed.swift */,
 				05252EB42854E9690090B385 /* Vampire.swift */,
 				05252EBA2854E9830090B385 /* VampireSense.swift */,
 			);
@@ -552,7 +557,6 @@
 			isa = PBXGroup;
 			children = (
 				0510207A285A85F500F11184 /* CannibalSettings.swift */,
-				0510207D285A88F800F11184 /* PreySenseSettings.swift */,
 				05252F7A285837AD0090B385 /* CreaturesSettings.swift */,
 				05102061285A192800F11184 /* HerbivoreSettings.swift */,
 				0510205A285A192800F11184 /* MeatSenseSettings.swift */,
@@ -562,10 +566,12 @@
 				05252F6E285819A60090B385 /* PlantsSettings.swift */,
 				05102060285A192800F11184 /* PredatorSenseSettings.swift */,
 				0510205B285A192800F11184 /* PredatorSettings.swift */,
+				0510207D285A88F800F11184 /* PreySenseSettings.swift */,
 				05102064285A192800F11184 /* ScavengerSettings.swift */,
 				05252EC62854F4220090B385 /* Settings.swift */,
 				05102066285A192800F11184 /* SexSenseSettings.swift */,
 				05252F65285815E30090B385 /* SexSettings.swift */,
+				05394A3B28607C700077D90C /* SpeedSettings.swift */,
 				05102067285A192800F11184 /* VampireSenseSettings.swift */,
 				05102037285A165900F11184 /* VampireSettings.swift */,
 				051020CA285B6DDB00F11184 /* WorldSettings.swift */,
@@ -898,6 +904,7 @@
 				051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */,
 				05252EA92854E9290090B385 /* Plant.swift in Sources */,
 				05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */,
+				05394A3C28607C700077D90C /* SpeedSettings.swift in Sources */,
 				0510208E285AAE2300F11184 /* CreatureDetailViewController.swift in Sources */,
 				05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */,
 				05102078285A192800F11184 /* VampireSenseSettingsViewController.swift in Sources */,
@@ -913,6 +920,7 @@
 				05252F66285815E30090B385 /* SexSettings.swift in Sources */,
 				051020D0285B6E6600F11184 /* WorldSettingsViewController.swift in Sources */,
 				05102076285A192800F11184 /* SexSenseSettings.swift in Sources */,
+				05394A3A28607C1B0077D90C /* Speed.swift in Sources */,
 				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
 				053949E5285BA7DC0077D90C /* AddGeneWindowController.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
