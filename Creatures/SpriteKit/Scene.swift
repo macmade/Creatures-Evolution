@@ -31,8 +31,8 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     @objc public private( set ) dynamic var isGameOver  = false
     @objc public private( set ) dynamic var elapsedTime = TimeInterval( 0 )
     
-    private var lastUpdateTime: TimeInterval?
-    private var newFoodTimer:   Timer?
+    private var lastUpdateTime:         TimeInterval?
+    private var lastFoodGenerationTime: TimeInterval?
     
     public override var isPaused: Bool
     {
@@ -62,7 +62,31 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         self.isUserInteractionEnabled     = true
         self.physicsWorld.contactDelegate = self
         
-        self.reset()
+        let backgroundImage: String? =
+        {
+            let backgroundImages = [ "beach", "desert", "forrest", "moss", "sand", "stones", "wood" ]
+            let index            = self.settings.world.environment
+            
+            if index < 0 || index >= backgroundImages.count
+            {
+                return backgroundImages.randomElement()
+            }
+            
+            return backgroundImages[ index ]
+        }()
+        
+        if let backgroundImage = backgroundImage
+        {
+            let background         = SKSpriteNode( imageNamed: backgroundImage )
+            background.position    = NSPoint( x: 0, y: 0 )
+            background.anchorPoint = NSPoint( x: 0, y: 0 )
+            background.size        = self.size
+            
+            self.addChild( background )
+        }
+        
+        self.generatePlants(    amount: self.settings.plants.initialAmount )
+        self.generateCreatures( amount: self.settings.creatures.initialAmount )
     }
     
     public override func mouseDown( with event: NSEvent )
@@ -118,6 +142,20 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         
         self.lastUpdateTime = currentTime
         
+        if let lastFoodGenerationTime = self.lastFoodGenerationTime
+        {
+            if currentTime - lastFoodGenerationTime >= self.settings.plants.renewInterval
+            {
+                self.generatePlants( amount: self.settings.plants.renewAmount )
+                
+                self.lastFoodGenerationTime = currentTime
+            }
+        }
+        else
+        {
+            self.lastFoodGenerationTime = currentTime
+        }
+        
         for child in self.children
         {
             ( child as? Updatable )?.update()
@@ -128,43 +166,6 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         if creatures.count == 0
         {
             self.isGameOver = true
-        }
-    }
-    
-    public func reset()
-    {
-        self.newFoodTimer?.invalidate()
-        self.removeAllChildren()
-        
-        let backgroundImage: String? =
-        {
-            let backgroundImages = [ "beach", "desert", "forrest", "moss", "sand", "stones", "wood" ]
-            let index            = self.settings.world.environment
-            
-            if index < 0 || index >= backgroundImages.count
-            {
-                return backgroundImages.randomElement()
-            }
-            
-            return backgroundImages[ index ]
-        }()
-        
-        if let backgroundImage = backgroundImage
-        {
-            let background         = SKSpriteNode( imageNamed: backgroundImage )
-            background.position    = NSPoint( x: 0, y: 0 )
-            background.anchorPoint = NSPoint( x: 0, y: 0 )
-            background.size        = self.size
-            
-            self.addChild( background )
-        }
-        
-        self.generatePlants(    amount: self.settings.plants.initialAmount )
-        self.generateCreatures( amount: self.settings.creatures.initialAmount )
-        
-        self.newFoodTimer = Timer.scheduledTimer( withTimeInterval: self.settings.plants.renewInterval, repeats: true )
-        {
-            _ in self.generatePlants( amount: self.settings.plants.renewAmount )
         }
     }
     
