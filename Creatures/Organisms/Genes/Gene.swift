@@ -55,6 +55,16 @@ public class Gene: NSObject, NSCopying
         nil
     }
     
+    @objc public var canToggleValue: Bool
+    {
+        false
+    }
+    
+    @objc public var canIncreaseOrDecreaseValue: Bool
+    {
+        false
+    }
+    
     public override var description: String
     {
         let name = self.name
@@ -98,4 +108,13 @@ public class Gene: NSObject, NSCopying
     {
         nil
     }
+    
+    @objc public func toggleValue()
+    {}
+    
+    @objc public func increaseValue()
+    {}
+    
+    @objc public func decreaseValue()
+    {}
 }

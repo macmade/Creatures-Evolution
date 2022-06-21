@@ -290,7 +290,7 @@
                                 </textField>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qB5-6S-ZiZ">
                                     <rect key="frame" x="89" y="-7" width="36" height="27"/>
-                                    <buttonCell key="cell" type="push" title="Decrease Energy" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1qO-Tq-3qJ">
+                                    <buttonCell key="cell" type="push" title="Decrease Energy" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" continuous="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1qO-Tq-3qJ">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="smallSystem"/>
                                     </buttonCell>
@@ -305,7 +305,7 @@
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bdY-FH-lFq">
                                     <rect key="frame" x="121" y="-7" width="36" height="27"/>
-                                    <buttonCell key="cell" type="push" title="Increase Energy" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="u1p-4Z-O5u">
+                                    <buttonCell key="cell" type="push" title="Increase Energy" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" continuous="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="u1p-4Z-O5u">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="smallSystem"/>
                                     </buttonCell>
@@ -536,8 +536,80 @@
                                                 <rect key="frame" x="156" y="0.0" width="144" height="24"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
+                                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Whd-R2-Y5d">
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="24"/>
+                                                        <subviews>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8h2-v7-UxO">
+                                                                <rect key="frame" x="-6" y="-3" width="39" height="27"/>
+                                                                <buttonCell key="cell" type="push" title="Toggle" bezelStyle="rounded" image="repeat" catalog="system" imagePosition="only" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Eib-aR-xP5">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canToggleValue" id="08y-Fu-dnn">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="Deu-WY-lEh" name="target" keyPath="objectValue" id="VFi-zT-dvC">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSSelectorName">toggleValue</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </button>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cbP-Zs-4UX">
+                                                                <rect key="frame" x="29" y="-3" width="36" height="27"/>
+                                                                <buttonCell key="cell" type="push" title="Decrease" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" continuous="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vxG-UU-6xx">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canIncreaseOrDecreaseValue" id="LGt-1n-lFP">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="Deu-WY-lEh" name="target" keyPath="objectValue" id="o1U-NW-zA6">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSSelectorName">decreaseValue</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </button>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QPC-fr-Zfr">
+                                                                <rect key="frame" x="61" y="-3" width="36" height="27"/>
+                                                                <buttonCell key="cell" type="push" title="Increase" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" continuous="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Pwr-J6-9CB">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" metaFont="smallSystem"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canIncreaseOrDecreaseValue" id="ey3-AN-hzG">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="Deu-WY-lEh" name="target" keyPath="objectValue" id="aqE-AF-8iR">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSSelectorName">increaseValue</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MXH-0b-o0n">
-                                                        <rect key="frame" x="8" y="4" width="138" height="16"/>
+                                                        <rect key="frame" x="97" y="4" width="49" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" id="6mr-J9-lrB">
                                                             <font key="font" metaFont="systemBold"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -549,7 +621,10 @@
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="MXH-0b-o0n" firstAttribute="leading" secondItem="Deu-WY-lEh" secondAttribute="leading" constant="10" id="Xev-JZ-jK7"/>
+                                                    <constraint firstItem="Whd-R2-Y5d" firstAttribute="top" secondItem="Deu-WY-lEh" secondAttribute="top" id="Hd2-30-yNh"/>
+                                                    <constraint firstItem="Whd-R2-Y5d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Deu-WY-lEh" secondAttribute="leading" id="Lm8-yv-pNP"/>
+                                                    <constraint firstItem="MXH-0b-o0n" firstAttribute="leading" secondItem="Whd-R2-Y5d" secondAttribute="trailing" constant="8" symbolic="YES" id="Szn-1r-1NF"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Whd-R2-Y5d" secondAttribute="bottom" id="XV6-PI-pdY"/>
                                                     <constraint firstAttribute="trailing" secondItem="MXH-0b-o0n" secondAttribute="trailing" id="f6a-MF-HtA"/>
                                                     <constraint firstItem="MXH-0b-o0n" firstAttribute="centerY" secondItem="Deu-WY-lEh" secondAttribute="centerY" id="lu4-A5-pp9"/>
                                                 </constraints>
@@ -657,5 +732,6 @@
         <image name="NSRemoveTemplate" width="14" height="4"/>
         <image name="NSStopProgressFreestandingTemplate" width="15" height="15"/>
         <image name="pencil" catalog="system" width="14" height="13"/>
+        <image name="repeat" catalog="system" width="17" height="14"/>
     </resources>
 </document>

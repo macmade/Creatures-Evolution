@@ -52,6 +52,11 @@ public class Speed: Gene
         NSImage( systemSymbolName: "hare.fill", accessibilityDescription: nil )
     }
     
+    public override var canIncreaseOrDecreaseValue: Bool
+    {
+        true
+    }
+    
     public private( set ) var multiplier: Double
     
     public override init( active: Bool, settings: Settings )
@@ -112,5 +117,25 @@ public class Speed: Gene
         }
         
         return true
+    }
+    
+    public override func increaseValue()
+    {
+        self.willChangeValue( for: \.details )
+        
+        let multiplier  = self.multiplier + 0.1
+        self.multiplier = multiplier > self.settings.speed.maximumMultiplier ? self.settings.speed.maximumMultiplier : multiplier
+        
+        self.didChangeValue( for: \.details )
+    }
+    
+    public override func decreaseValue()
+    {
+        self.willChangeValue( for: \.details )
+        
+        let multiplier  = self.multiplier - 0.1
+        self.multiplier = multiplier < self.settings.speed.minimumMultiplier ? self.settings.speed.minimumMultiplier : multiplier
+        
+        self.didChangeValue( for: \.details )
     }
 }

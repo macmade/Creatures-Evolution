@@ -57,6 +57,11 @@ public class Sex: Gene
         NSImage( systemSymbolName: "heart.fill", accessibilityDescription: nil )
     }
     
+    public override var canToggleValue: Bool
+    {
+        true
+    }
+    
     private var lastUsed: TimeInterval?
     private var sexNode:  SKSpriteNode?
     private var isMale:   Bool
@@ -183,5 +188,32 @@ public class Sex: Gene
                 }
             }
         }
+    }
+    
+    public override func toggleValue()
+    {
+        self.willChangeValue( for: \.details )
+        
+        if self.isMale && self.isFemale
+        {
+            self.isMale   = true
+            self.isFemale = false
+        }
+        else if self.isMale
+        {
+            self.isMale   = false
+            self.isFemale = true
+        }
+        else if self.isFemale
+        {
+            self.isMale   = true
+            self.isFemale = true
+        }
+        
+        self.sexNode?.removeFromParent()
+        
+        self.sexNode = nil
+        
+        self.didChangeValue( for: \.details )
     }
 }
