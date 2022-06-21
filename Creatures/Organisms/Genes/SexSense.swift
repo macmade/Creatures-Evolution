@@ -25,65 +25,30 @@
 import Cocoa
 import SpriteKit
 
-public class SexSense: NSObject, Gene
+public class SexSense: Gene
 {
-    public var isActive: Bool
-    
-    public var canRegress: Bool
+    public override var canRegress: Bool
     {
         self.settings.sexSense.canRegress
     }
     
-    public var deactivates: [ String ]
+    public override var deactivates: [ String ]
     {
-        get
-        {
-            self.settings.sexSense.deactivates
-        }
+        self.settings.sexSense.deactivates
     }
     
-    public var name: String
+    public override var name: String
     {
         "Sex Sense"
     }
     
-    public override var description: String
-    {
-        self.name
-    }
-    
-    public var details: String?
-    {
-        nil
-    }
-    
-    public var icon: NSImage?
+    public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
     }
     
-    @objc public private( set ) dynamic var settings: Settings
-    
-    public required init( active: Bool, settings: Settings )
-    {
-        self.isActive = active
-        self.settings = settings
-    }
-    
-    public func copy( with zone: NSZone? = nil ) -> Any
+    public override func copy( with zone: NSZone? = nil ) -> Any
     {
         SexSense( active: self.isActive, settings: self.settings )
-    }
-    
-    public func mutate() -> Bool
-    {
-        if self.canRegress == false && self.isActive
-        {
-            return false
-        }
-        
-        self.isActive = self.isActive == false
-        
-        return true
     }
 }

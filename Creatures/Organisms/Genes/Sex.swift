@@ -25,89 +25,59 @@
 import Cocoa
 import SpriteKit
 
-public class Sex: NSObject, Gene
+public class Sex: Gene
 {
-    public var isActive: Bool
-    public var isMale:   Bool
-    public var isFemale: Bool
-    
-    public var canRegress: Bool
+    public override var canRegress: Bool
     {
         self.settings.sex.canRegress
     }
     
-    public var deactivates: [ String ]
+    public override var deactivates: [ String ]
     {
-        get
-        {
-            self.settings.sex.deactivates
-        }
+        self.settings.sex.deactivates
     }
     
-    public var name: String
+    public override var name: String
     {
         "Sex"
     }
     
-    public override var description: String
-    {
-        self.name
-    }
-    
-    public var details: String?
+    public override var details: String?
     {
         if self.isMale && self.isFemale
         {
             return "Hermaphrodite"
         }
         
-        if self.isMale
-        {
-            return "Male"
-        }
-        
-        return "Female"
+        return self.isMale ? "Male" : "Female"
     }
     
-    public var icon: NSImage?
+    public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "heart.fill", accessibilityDescription: nil )
     }
     
     private var lastUsed: TimeInterval?
     private var sexNode:  SKSpriteNode?
+    private var isMale:   Bool
+    private var isFemale: Bool
     
-    @objc public private( set ) dynamic var settings: Settings
-    
-    public required init( active: Bool, settings: Settings )
+    public override init( active: Bool, settings: Settings )
     {
-        self.isActive = active
-        self.settings = settings
-        
         let sex = Int.random( in: 0 ... 2 )
         
         self.isMale   = sex == 0 || sex == 2
         self.isFemale = sex == 1 || sex == 2
+        
+        super.init( active: active, settings: settings )
     }
     
-    public func copy( with zone: NSZone? = nil ) -> Any
+    public override func copy( with zone: NSZone? = nil ) -> Any
     {
         Sex( active: self.isActive, settings: self.settings )
     }
     
-    public func mutate() -> Bool
-    {
-        if self.canRegress == false && self.isActive
-        {
-            return false
-        }
-        
-        self.isActive = self.isActive == false
-        
-        return true
-    }
-    
-    public func onUpdate( creature: Creature )
+    public override func onUpdate( creature: Creature )
     {
         if self.sexNode == nil
         {
@@ -133,7 +103,7 @@ public class Sex: NSObject, Gene
         }
     }
     
-    public func onCollision( creature: Creature, node: SKNode )
+    public override func onCollision( creature: Creature, node: SKNode )
     {
         guard let scene = creature.scene as? Scene else
         {

@@ -25,55 +25,43 @@
 import Cocoa
 import SpriteKit
 
-public class Speed: NSObject, Gene
+public class Speed: Gene
 {
-    public var isActive: Bool
-    
-    public var canRegress: Bool
+    public override var canRegress: Bool
     {
         self.settings.speed.canRegress
     }
     
-    public var deactivates: [ String ]
+    public override var deactivates: [ String ]
     {
-        get
-        {
-            self.settings.speed.deactivates
-        }
+        self.settings.speed.deactivates
     }
     
-    public var name: String
+    public override var name: String
     {
         "Speed"
     }
     
-    public override var description: String
-    {
-        self.name
-    }
-    
-    public var details: String?
+    public override var details: String?
     {
         String( format: "%.02f", self.multiplier )
     }
     
-    public var icon: NSImage?
+    public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "hare.fill", accessibilityDescription: nil )
     }
     
-    @objc public private( set ) dynamic var settings: Settings
+    public private( set ) var multiplier: Double
     
-    public var multiplier: Double
-    
-    public required init( active: Bool, settings: Settings )
+    public override init( active: Bool, settings: Settings )
     {
-        self.isActive   = active
-        self.settings   = settings
         self.multiplier = settings.speed.defaultMultiplier
+        
+        super.init( active: active, settings: settings )
     }
     
-    public func copy( with zone: NSZone? = nil ) -> Any
+    public override func copy( with zone: NSZone? = nil ) -> Any
     {
         let copy        = Speed( active: self.isActive, settings: self.settings )
         copy.multiplier = self.multiplier
@@ -81,7 +69,7 @@ public class Speed: NSObject, Gene
         return copy
     }
     
-    public func mutate() -> Bool
+    public override func mutate() -> Bool
     {
         if self.isActive == false
         {

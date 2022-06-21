@@ -25,69 +25,34 @@
 import Cocoa
 import SpriteKit
 
-public class Vampire: NSObject, Gene
+public class Vampire: Gene
 {
-    public var isActive: Bool
-    
-    public var canRegress: Bool
+    public override var canRegress: Bool
     {
         self.settings.vampire.canRegress
     }
     
-    public var deactivates: [ String ]
+    public override var deactivates: [ String ]
     {
-        get
-        {
-            self.settings.vampire.deactivates
-        }
+        self.settings.vampire.deactivates
     }
     
-    public var name: String
+    public override var name: String
     {
         "Vampire"
     }
     
-    public override var description: String
-    {
-        self.name
-    }
-    
-    public var details: String?
-    {
-        nil
-    }
-    
-    public var icon: NSImage?
+    public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
     }
     
-    @objc public private( set ) dynamic var settings: Settings
-    
-    public required init( active: Bool, settings: Settings )
-    {
-        self.isActive = active
-        self.settings = settings
-    }
-    
-    public func copy( with zone: NSZone? = nil ) -> Any
+    public override func copy( with zone: NSZone? = nil ) -> Any
     {
         Vampire( active: self.isActive, settings: self.settings )
     }
     
-    public func mutate() -> Bool
-    {
-        if self.canRegress == false && self.isActive
-        {
-            return false
-        }
-        
-        self.isActive = self.isActive == false
-        
-        return true
-    }
-    
-    public func onCollision( creature: Creature, node: SKNode )
+    public override func onCollision( creature: Creature, node: SKNode )
     {
         guard let other = node as? Creature else
         {

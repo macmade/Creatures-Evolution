@@ -25,71 +25,36 @@
 import Cocoa
 import SpriteKit
 
-public class Mitosis: NSObject, Gene
+public class Mitosis: Gene
 {
-    public var isActive: Bool
-    
-    public var canRegress: Bool
+    public override var canRegress: Bool
     {
         self.settings.mitosis.canRegress
     }
     
-    public var deactivates: [ String ]
+    public override var deactivates: [ String ]
     {
-        get
-        {
-            self.settings.mitosis.deactivates
-        }
+        self.settings.mitosis.deactivates
     }
     
-    public var name: String
+    public override var name: String
     {
         "Mitosis"
     }
     
-    public override var description: String
-    {
-        self.name
-    }
-    
-    public var details: String?
-    {
-        nil
-    }
-    
-    public var icon: NSImage?
+    public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "heart.fill", accessibilityDescription: nil )
     }
     
     private var lastUsed: TimeInterval?
     
-    @objc public private( set ) dynamic var settings: Settings
-    
-    public required init( active: Bool, settings: Settings )
-    {
-        self.isActive = active
-        self.settings = settings
-    }
-    
-    public func copy( with zone: NSZone? = nil ) -> Any
+    public override func copy( with zone: NSZone? = nil ) -> Any
     {
         Mitosis( active: self.isActive, settings: self.settings )
     }
     
-    public func mutate() -> Bool
-    {
-        if self.canRegress == false && self.isActive
-        {
-            return false
-        }
-        
-        self.isActive = self.isActive == false
-        
-        return true
-    }
-    
-    public func onEnergyChanged( creature: Creature )
+    public override func onEnergyChanged( creature: Creature )
     {
         guard let scene = creature.scene as? Scene else
         {

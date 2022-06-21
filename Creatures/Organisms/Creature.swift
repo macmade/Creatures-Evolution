@@ -227,7 +227,7 @@ public class Creature: SpriteNode, Updatable
         
         self.genes.filter{ $0.isActive }.forEach
         {
-            $0.onUpdate?( creature: self )
+            $0.onUpdate( creature: self )
         }
     }
     
@@ -247,7 +247,7 @@ public class Creature: SpriteNode, Updatable
                 return
             }
             
-            guard let d = $0.chooseDestination?( creature: self ) else
+            guard let d = $0.chooseDestination( creature: self ) else
             {
                 return
             }
@@ -313,7 +313,7 @@ public class Creature: SpriteNode, Updatable
         
         self.genes.filter { $0.isActive }.forEach
         {
-            $0.onCollision?( creature: self, node: node )
+            $0.onCollision( creature: self, node: node )
         }
         
         if let food = node as? Food, food.isBeingRemoved
@@ -344,7 +344,7 @@ public class Creature: SpriteNode, Updatable
         
         self.genes.filter { $0.isActive }.forEach
         {
-            $0.onEnergyChanged?( creature: self )
+            $0.onEnergyChanged( creature: self )
         }
         
         if self.energy == -1

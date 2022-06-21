@@ -25,45 +25,77 @@
 import Cocoa
 import SpriteKit
 
-@objc public protocol Gene: NSObjectProtocol, NSCopying
+public class Gene: NSObject, NSCopying
 {
-    var isActive: Bool
+    @objc public                dynamic var isActive: Bool
+    @objc public private( set ) dynamic var settings: Settings
+    
+    @objc public var canRegress: Bool
     {
-        get
-        set
+        false
     }
     
-    var canRegress: Bool
+    @objc public var deactivates: [ String ]
     {
-        get
+        []
     }
     
-    var deactivates: [ String ]
+    @objc public var name: String
     {
-        get
+        ""
     }
     
-    var name: String
+    @objc public var details: String?
     {
-        get
+        nil
     }
     
-    var details: String?
+    @objc public var icon: NSImage?
     {
-        get
+        nil
     }
     
-    var icon: NSImage?
+    public override var description: String
     {
-        get
+        let name = self.name
+        
+        return name.isEmpty ? super.description : name
     }
     
-    init( active: Bool, settings: Settings )
+    public init( active: Bool, settings: Settings )
+    {
+        self.isActive = active
+        self.settings = settings
+    }
     
-    func mutate() -> Bool
+    public func copy( with zone: NSZone? = nil ) -> Any
+    {
+        fatalError( "Not implemented" )
+    }
     
-    @objc optional func onUpdate( creature: Creature )
-    @objc optional func onEnergyChanged( creature: Creature )
-    @objc optional func onCollision( creature: Creature, node: SKNode )
-    @objc optional func chooseDestination( creature: Creature ) -> Destination?
+    public func mutate() -> Bool
+    {
+        if self.canRegress == false && self.isActive
+        {
+            return false
+        }
+        
+        self.isActive = self.isActive == false
+        
+        return true
+    }
+    
+    public func onUpdate( creature: Creature )
+    {}
+    
+    public func onEnergyChanged( creature: Creature )
+    {}
+    
+    public func onCollision( creature: Creature, node: SKNode )
+    {}
+    
+    public func chooseDestination( creature: Creature ) -> Destination?
+    {
+        nil
+    }
 }
