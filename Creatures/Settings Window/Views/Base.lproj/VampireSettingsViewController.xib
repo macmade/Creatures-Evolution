@@ -13,11 +13,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="650" height="207"/>
+            <rect key="frame" x="0.0" y="0.0" width="650" height="223"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-nq-Tt9">
-                    <rect key="frame" x="-2" y="176" width="96" height="31"/>
+                    <rect key="frame" x="-2" y="192" width="96" height="31"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Vampire" id="TV5-Mj-9H2">
                         <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -25,16 +25,16 @@
                     </textFieldCell>
                 </textField>
                 <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="OAp-E4-DFv">
-                    <rect key="frame" x="610" y="179" width="42" height="25"/>
+                    <rect key="frame" x="610" y="195" width="42" height="25"/>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.settings.vampire.isEnabled" id="chL-xP-y7M"/>
                     </connections>
                 </switch>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e1L-tq-cm8">
-                    <rect key="frame" x="0.0" y="165" width="650" height="5"/>
+                    <rect key="frame" x="0.0" y="181" width="650" height="5"/>
                 </box>
                 <box title="General" translatesAutoresizingMaskIntoConstraints="NO" id="ivo-ds-4PX">
-                    <rect key="frame" x="-3" y="61" width="656" height="98"/>
+                    <rect key="frame" x="-3" y="77" width="656" height="98"/>
                     <view key="contentView" id="IYi-NW-JP4">
                         <rect key="frame" x="3" y="3" width="650" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,10 +82,10 @@
                     </view>
                 </box>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="L0v-H0-NDV">
-                    <rect key="frame" x="0.0" y="54" width="650" height="5"/>
+                    <rect key="frame" x="0.0" y="70" width="650" height="5"/>
                 </box>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bKy-Qc-H1S">
-                    <rect key="frame" x="0.0" y="11" width="20" height="26"/>
+                    <rect key="frame" x="0.0" y="19" width="20" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="5dL-dZ-Jaz"/>
                         <constraint firstAttribute="width" constant="20" id="z8c-dJ-AYt"/>
@@ -93,12 +93,12 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="questionmark.circle.fill" catalog="system" id="mIX-mT-Fmv"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OUE-qp-TTO">
-                    <rect key="frame" x="26" y="0.0" width="626" height="48"/>
+                    <rect key="frame" x="26" y="0.0" width="626" height="64"/>
                     <textFieldCell key="cell" selectable="YES" id="OQQ-mb-sKO">
                         <font key="font" metaFont="system"/>
                         <string key="title">Creatures evolving this gene will use other creatures as food source.
 Unlike predators, vampires won't necessarily kill their preys.
-Note that vampires won't attack other vampires, unless they've evolved the cannibal gene.</string>
+Note that vampires won't attack other vampires or related creatures, unless they've evolved the cannibal gene.</string>
                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

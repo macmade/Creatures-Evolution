@@ -104,7 +104,17 @@ public class Vampire: NSObject, Gene
             return
         }
         
-        if creature.isRelated( to: other ) && creature.hasActiveGene( Cannibal.self ) == false
+        if creature.isChild( of: other ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatParents == false )
+        {
+            return
+        }
+        
+        if creature.isParentOf( of: other ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatChildren == false )
+        {
+            return
+        }
+        
+        if creature.isSibling( of: other ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatSiblings == false )
         {
             return
         }
