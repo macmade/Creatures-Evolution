@@ -252,4 +252,20 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         NSPoint( x: Double.random( in: 0 ..< self.frame.size.width ), y: Double.random( in: 0 ..< self.frame.size.height ) )
     }
+    
+    public func emitHeart( for node: SKNode )
+    {
+        if let emitter = SKEmitterNode( fileNamed: "Heart" )
+        {
+            emitter.position   = node.position
+            emitter.targetNode = node
+            emitter.zPosition  = CGFloat.infinity
+            
+            let emit   = SKAction.run { [ weak self ] in self?.addChild( emitter ) }
+            let wait   = SKAction.wait( forDuration: 2 )
+            let remove = SKAction.run { [ weak self ] in self?.removeChildren( in: [ emitter ] ) }
+            
+            self.run( SKAction.sequence( [ emit, wait, remove ] ) )
+        }
+    }
 }

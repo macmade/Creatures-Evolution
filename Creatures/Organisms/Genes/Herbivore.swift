@@ -54,7 +54,7 @@ public class Herbivore: Gene
     
     public override func onCollision( creature: Creature, node: SKNode )
     {
-        if let plant = node as? Plant, plant.isAvailable
+        if let plant = node as? Plant, plant.isBeingRemoved == false
         {
             plant.remove()
             

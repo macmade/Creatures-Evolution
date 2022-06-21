@@ -54,7 +54,7 @@ public class Scavenger: Gene
     
     public override func onCollision( creature: Creature, node: SKNode )
     {
-        if let meat = node as? Meat, meat.isAvailable
+        if let meat = node as? Meat, meat.isBeingRemoved == false
         {
             meat.remove()
             

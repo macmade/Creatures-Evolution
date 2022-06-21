@@ -142,6 +142,8 @@
 		05394A742860DC370077D90C /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A732860DC370077D90C /* NameGenerator.swift */; };
 		05394A782860DD700077D90C /* names-female.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05394A762860DD700077D90C /* names-female.txt */; };
 		05394A792860DD700077D90C /* names-male.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05394A772860DD700077D90C /* names-male.txt */; };
+		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
+		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05B8A35628616034007870B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35528616034007870B3 /* Assets.xcassets */; };
 		05B8A3622861F2F3007870B3 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35B2861F2F3007870B3 /* Credit.swift */; };
 		05B8A3632861F2F3007870B3 /* CreditsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */; };
@@ -335,6 +337,8 @@
 		05394A732860DC370077D90C /* NameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
 		05394A762860DD700077D90C /* names-female.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-female.txt"; sourceTree = "<group>"; };
 		05394A772860DD700077D90C /* names-male.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-male.txt"; sourceTree = "<group>"; };
+		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
+		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05B8A35528616034007870B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B8A35B2861F2F3007870B3 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsWindowController.swift; sourceTree = "<group>"; };
@@ -402,17 +406,18 @@
 			isa = PBXGroup;
 			children = (
 				053949FB285F6B3C0077D90C /* About Window */,
-				05B8A35A2861F2F3007870B3 /* Credits */,
 				053949FF285F6B990077D90C /* Application */,
+				05B8A35A2861F2F3007870B3 /* Credits */,
 				053949FE285F6B7E0077D90C /* Details */,
+				05A334422862410600905208 /* Effects */,
 				05394A5728608D7E0077D90C /* Event Log */,
 				05252F7528582D030090B385 /* Extensions */,
 				05394A00285F6C210077D90C /* Helpers */,
 				053949FC285F6B600077D90C /* Main Window */,
 				05252EA32854E90D0090B385 /* Organisms */,
+				05394A752860DD700077D90C /* Resources */,
 				05252F0A2855E1FC0090B385 /* Settings */,
 				05102084285A8C9600F11184 /* Settings Window */,
-				05394A752860DD700077D90C /* Resources */,
 				05394A01285F6C420077D90C /* SpriteKit */,
 				05394A04285F6DC60077D90C /* Stats */,
 				051020B1285B548500F11184 /* Transformers */,
@@ -787,6 +792,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		05A334422862410600905208 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				05A3346A2862620900905208 /* Heart.sks */,
+				05A334472862470F00905208 /* Rot.sks */,
+			);
+			path = Effects;
+			sourceTree = "<group>";
+		};
 		05B8A35A2861F2F3007870B3 /* Credits */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,6 +872,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A334492862470F00905208 /* Rot.sks in Resources */,
 				05102053285A17DE00F11184 /* PlantSenseSettingsViewController.xib in Resources */,
 				05394A1A285F7C3A0077D90C /* CreatureStatusChartViewController.xib in Resources */,
 				05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */,
@@ -879,6 +894,7 @@
 				05102055285A17DE00F11184 /* MeatSenseSettingsViewController.xib in Resources */,
 				05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */,
 				051020CE285B6E4C00F11184 /* WorldSettingsViewController.xib in Resources */,
+				05A3346B2862620900905208 /* Heart.sks in Resources */,
 				053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */,
 				05252E5A2854DFE80090B385 /* MainWindowController.xib in Resources */,
 				05102083285A897200F11184 /* PreySenseSettingsViewController.xib in Resources */,

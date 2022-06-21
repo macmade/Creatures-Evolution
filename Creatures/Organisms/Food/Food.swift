@@ -25,10 +25,16 @@
 import Cocoa
 import SpriteKit
 
-@objc public class Food: SpriteNode
+@objc public class Food: SpriteNode, Updatable
 {
     @objc public                dynamic var energy:   Int
     @objc public private( set ) dynamic var settings: Settings
+    @objc public private( set ) dynamic var born:     TimeInterval = -1
+    @objc public private( set ) dynamic var age:      TimeInterval = -1
+    
+    private var peremptionTime: TimeInterval?
+    private var removalTime:    TimeInterval?
+    private var emitter:        SKEmitterNode?
     
     @objc public dynamic var isAlive: Bool
     {
@@ -38,12 +44,53 @@ import SpriteKit
         }
     }
     
-    init( energy: Int, settings: Settings, texture: SKTexture?, color: NSColor, size: CGSize )
+    public var decayEnergy: Int
+    {
+        0
+    }
+    
+    public var canDecay: Bool
+    {
+        false
+    }
+    
+    public var decayAfter: Double
+    {
+        0.0
+    }
+    
+    public var decayAfterRange: Double
+    {
+        0.0
+    }
+    
+    public var canDisappear: Bool
+    {
+        false
+    }
+    
+    public var disappearAfter: Double
+    {
+        0.0
+    }
+    
+    public var disappearAfterRange: Double
+    {
+        0.0
+    }
+    
+    public init( energy: Int, settings: Settings, texture: String )
     {
         self.energy   = energy
         self.settings = settings
         
-        super.init( texture: texture, color: color, size: size )
+        super.init( texture: SKTexture( imageNamed: texture ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
+        
+        let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
+        physicsBody.affectedByGravity  = false
+        physicsBody.isDynamic          = true
+        physicsBody.categoryBitMask    = Constants.foodPhysicsCategory
+        self.physicsBody               = physicsBody
     }
     
     required init?( coder: NSCoder )
@@ -56,5 +103,63 @@ import SpriteKit
         self.willChangeValue( for: \.isAlive )
         super.remove()
         self.didChangeValue( for: \.isAlive )
+    }
+    
+    public override func toggleHighlight()
+    {
+        self.toggleHighlight( radius: 15 )
+    }
+    
+    public override func highlight( _ flag: Bool )
+    {
+        self.highlight( flag, radius: 15 )
+    }
+    
+    public func update( elapsedTime: TimeInterval )
+    {
+        if self.born < 0
+        {
+            self.born = elapsedTime
+            self.age  = 0
+        }
+        else
+        {
+            self.age = elapsedTime - born
+        }
+        
+        if let peremptionTime = self.peremptionTime
+        {
+            if peremptionTime <= elapsedTime && self.emitter == nil
+            {
+                self.energy = self.decayEnergy
+                
+                if let emitter = SKEmitterNode( fileNamed: "Rot.sks" )
+                {
+                    self.colorBlendFactor = 0
+                    self.color            = NSColor.black
+                    emitter.targetNode    = self
+                    self.emitter          = emitter
+                    
+                    self.addChild( emitter )
+                    self.run( SKAction.colorize( withColorBlendFactor: 0.5, duration: 1 ) )
+                }
+            }
+        }
+        else if self.canDecay
+        {
+            self.peremptionTime = elapsedTime + self.decayAfter + Double.random( in: 0 ... self.decayAfterRange )
+        }
+        
+        if let removalTime = self.removalTime
+        {
+            if removalTime <= elapsedTime
+            {
+                self.remove()
+            }
+        }
+        else if self.canDisappear
+        {
+            self.removalTime = elapsedTime + self.disappearAfter + Double.random( in: 0 ... self.disappearAfterRange )
+        }
     }
 }

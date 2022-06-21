@@ -1,62 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
+	 viewBox="0 0 180 180" style="enable-background:new 0 0 180 180;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:url(#SVGID_1_);}
-	.st1{fill:url(#SVGID_00000010280401771664841100000001666036458535292552_);}
-	.st2{fill:url(#SVGID_00000108305788195794116510000011706064345158083000_);}
-	.st3{fill:url(#SVGID_00000117657814199294269140000017154473632596378017_);stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
-	.st4{fill:url(#SVGID_00000036224872481280858550000011246368071240990391_);stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
-	.st5{fill:url(#SVGID_00000096017561329237023610000017008546032831728026_);stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
-	.st6{fill:url(#SVGID_00000119831196834079865850000014298172561877170847_);}
+	.st0{fill:url(#SVGID_1_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;}
+	
+		.st1{fill:url(#SVGID_00000071534345886469238670000016057172951146866086_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;}
+	
+		.st2{fill:url(#SVGID_00000129894770362885835860000010627088142136240019_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;}
+	
+		.st3{fill:url(#SVGID_00000000215485142678007770000009945773704596641448_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;}
+	
+		.st4{fill:url(#SVGID_00000105424069863040951310000012067427149179494291_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;}
+	
+		.st5{fill:url(#SVGID_00000178897900923030806610000001360957582358716311_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;}
+	
+		.st6{fill:url(#SVGID_00000063630899664032450770000007103048557637429174_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;}
 </style>
 <g>
 	
-		<radialGradient id="SVGID_1_" cx="56.1344" cy="94.9984" r="23.9829" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 78.2047 -45.0354)" gradientUnits="userSpaceOnUse">
-		<stop  offset="0" style="stop-color:#FF8080"/>
-		<stop  offset="1" style="stop-color:#320000"/>
-	</radialGradient>
-	<circle class="st0" cx="50.72" cy="61.83" r="23.98"/>
-	
-		<radialGradient id="SVGID_00000089548382358723458940000011393030418955151533_" cx="57.4176" cy="118.8848" r="23.9829" gradientTransform="matrix(0.7071 0.7071 -0.7071 0.7071 78.2047 -45.0354)" gradientUnits="userSpaceOnUse">
-		<stop  offset="0" style="stop-color:#FF8080"/>
-		<stop  offset="1" style="stop-color:#320000"/>
-	</radialGradient>
-	<circle style="fill:url(#SVGID_00000089548382358723458940000011393030418955151533_);" cx="34.74" cy="79.63" r="23.98"/>
-	
-		<radialGradient id="SVGID_00000051377500944783193430000010321548909104264093_" cx="215.6884" cy="-17.8009" r="24.3112" gradientTransform="matrix(-0.7071 0.7071 -0.7071 -0.7071 190.6514 -82.9444)" gradientUnits="userSpaceOnUse">
-		<stop  offset="0" style="stop-color:#FF8080"/>
-		<stop  offset="1" style="stop-color:#320000"/>
-	</radialGradient>
-	<circle style="fill:url(#SVGID_00000051377500944783193430000010321548909104264093_);" cx="50.72" cy="82.16" r="24.31"/>
-	
-		<radialGradient id="SVGID_00000083070322785866566930000018327281159483921545_" cx="71.9661" cy="48.1545" r="19.8858" gradientUnits="userSpaceOnUse">
+		<radialGradient id="SVGID_1_" cx="103.8968" cy="18.1276" r="16.1962" gradientTransform="matrix(0.9749 -0.2224 0.2224 0.9749 28.0386 52.8872)" gradientUnits="userSpaceOnUse">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
-		<stop  offset="1" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#999999"/>
+	</radialGradient>
+	<circle class="st0" cx="133.36" cy="47.45" r="16.2"/>
+	
+		<radialGradient id="SVGID_00000000943141952226469220000010640720794294550163_" cx="95.805" cy="105.4198" r="38.3278" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FF3200"/>
+		<stop  offset="1" style="stop-color:#500000"/>
 	</radialGradient>
 	
-		<polyline style="fill:url(#SVGID_00000083070322785866566930000018327281159483921545_);stroke:#000000;stroke-width:2;stroke-miterlimit:10;" points="
-		49.51,60.15 85.92,31.23 94.43,44.2 54.68,65.08 	"/>
+		<circle style="fill:url(#SVGID_00000000943141952226469220000010640720794294550163_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;" cx="95.81" cy="105.42" r="38.33"/>
 	
-		<radialGradient id="SVGID_00000066481413362720983240000003386799351850828675_" cx="87.8855" cy="30.3577" r="16.8263" gradientUnits="userSpaceOnUse">
+		<radialGradient id="SVGID_00000119811353768696608810000003279982199983239825_" cx="68.7634" cy="110.6306" r="38.3278" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FF3200"/>
+		<stop  offset="1" style="stop-color:#500000"/>
+	</radialGradient>
+	
+		<circle style="fill:url(#SVGID_00000119811353768696608810000003279982199983239825_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;" cx="68.76" cy="110.63" r="38.33"/>
+	
+		<radialGradient id="SVGID_00000000214457470983983970000005543057381850258590_" cx="279.9022" cy="16.044" r="26.7121" gradientTransform="matrix(0.8467 0.5321 -0.5321 0.8467 -127.7307 -81.0572)" gradientUnits="userSpaceOnUse">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
-		<stop  offset="1" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#999999"/>
 	</radialGradient>
 	
-		<circle style="fill:url(#SVGID_00000066481413362720983240000003386799351850828675_);stroke:#000000;stroke-width:2;stroke-miterlimit:10;" cx="87.89" cy="30.36" r="16.83"/>
+		<polygon style="fill:url(#SVGID_00000000214457470983983970000005543057381850258590_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;" points="
+		87.91,117 85.15,108.42 113.54,45.93 127.18,54.5 	"/>
 	
-		<radialGradient id="SVGID_00000091013327812430031330000003892337245994151074_" cx="94.8906" cy="47.5802" r="14.3513" gradientUnits="userSpaceOnUse">
+		<radialGradient id="SVGID_00000116221119360135465110000016933904880966549121_" cx="73.5847" cy="127.2908" r="38.3278" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FF3200"/>
+		<stop  offset="1" style="stop-color:#500000"/>
+	</radialGradient>
+	
+		<circle style="fill:url(#SVGID_00000116221119360135465110000016933904880966549121_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;" cx="73.58" cy="127.29" r="38.33"/>
+	
+		<radialGradient id="SVGID_00000086690351000307289510000001554038813407108262_" cx="100.7212" cy="129.7283" r="38.3278" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FF3200"/>
+		<stop  offset="1" style="stop-color:#500000"/>
+	</radialGradient>
+	
+		<circle style="fill:url(#SVGID_00000086690351000307289510000001554038813407108262_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;" cx="100.72" cy="129.73" r="38.33"/>
+	
+		<radialGradient id="SVGID_00000172429739728352908090000004454376717745554366_" cx="92.6107" cy="1.9314" r="22.2204" gradientTransform="matrix(0.9749 -0.2224 0.2224 0.9749 28.0386 52.8872)" gradientUnits="userSpaceOnUse">
 		<stop  offset="0" style="stop-color:#FFFFFF"/>
-		<stop  offset="1" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#999999"/>
 	</radialGradient>
 	
-		<circle style="fill:url(#SVGID_00000091013327812430031330000003892337245994151074_);stroke:#000000;stroke-width:2;stroke-miterlimit:10;" cx="94.89" cy="47.58" r="14.35"/>
-	
-		<radialGradient id="SVGID_00000157267079954000841310000012886823870735046543_" cx="212.6174" cy="7.8733" r="22.7087" gradientTransform="matrix(-0.7071 0.7071 -0.7071 -0.7071 190.6514 -82.9444)" gradientUnits="userSpaceOnUse">
-		<stop  offset="0" style="stop-color:#FF8080"/>
-		<stop  offset="1" style="stop-color:#320000"/>
-	</radialGradient>
-	<circle style="fill:url(#SVGID_00000157267079954000841310000012886823870735046543_);" cx="34.74" cy="61.83" r="22.71"/>
+		<circle style="fill:url(#SVGID_00000172429739728352908090000004454376717745554366_);stroke:#000000;stroke-width:1.6745;stroke-miterlimit:10;" cx="118.76" cy="34.17" r="22.22"/>
 </g>
 </svg>

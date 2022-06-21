@@ -184,7 +184,7 @@
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="wdO-80-40j" customClass="BackgroundView" customModule="Creatures" customModuleProvider="target">
+                <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wdO-80-40j" customClass="BackgroundView" customModule="Creatures" customModuleProvider="target">
                     <rect key="frame" x="235" y="60" width="85" height="85"/>
                     <subviews>
                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JNS-CX-jbH">

@@ -25,26 +25,11 @@
 import Cocoa
 import SpriteKit
 
-public class Meat: Food, Updatable
+public class Meat: Food
 {
-    public  var isAvailable   = true
-    private var peremptionTime: TimeInterval?
-    private var removalTime:    TimeInterval?
-    
-    @objc public private( set ) dynamic var born: TimeInterval = -1
-    @objc public private( set ) dynamic var age:  TimeInterval = -1
-    
-    public required init( energy: Int, settings: Settings )
+    public init( energy: Int, settings: Settings )
     {
-        super.init( energy: energy, settings: settings, texture: SKTexture( imageNamed: "Meat" ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
-        
-        let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
-        physicsBody.affectedByGravity  = false
-        physicsBody.isDynamic          = true
-        physicsBody.categoryBitMask    = Constants.organismPhysicsCategory
-        
-        self.physicsBody = physicsBody
-        self.energy      = energy
+        super.init( energy: energy, settings: settings, texture: "Meat" )
     }
     
     public required init?( coder: NSCoder )
@@ -52,54 +37,38 @@ public class Meat: Food, Updatable
         nil
     }
     
-    public func update( elapsedTime: TimeInterval )
+    public override var decayEnergy: Int
     {
-        if self.born < 0
-        {
-            self.born = elapsedTime
-            self.age  = 0
-        }
-        else
-        {
-            self.age = elapsedTime - born
-        }
-        
-        if let peremptionTime = self.peremptionTime
-        {
-            if peremptionTime <= elapsedTime
-            {
-                self.energy           = self.settings.meat.decayEnergy
-                self.colorBlendFactor = 0
-                self.color            = NSColor.purple
-                
-                self.run( SKAction.colorize( withColorBlendFactor: 0.75, duration: 1 ) )
-            }
-        }
-        else if self.settings.meat.canDecay
-        {
-            self.peremptionTime = elapsedTime + self.settings.meat.decayAfter + Double.random( in: 0 ... self.settings.meat.decayAfterRange )
-        }
-        
-        if let removalTime = self.removalTime
-        {
-            if removalTime <= elapsedTime
-            {
-                self.remove()
-            }
-        }
-        else if self.settings.meat.canDisappear
-        {
-            self.removalTime = elapsedTime + self.settings.meat.disappearAfter + Double.random( in: 0 ... self.settings.meat.disappearAfterRange )
-        }
+        self.settings.meat.decayEnergy
     }
     
-    public override func toggleHighlight()
+    public override var canDecay: Bool
     {
-        self.toggleHighlight( radius: 15 )
+        self.settings.meat.canDecay
     }
     
-    public override func highlight( _ flag: Bool )
+    public override var decayAfter: Double
     {
-        self.highlight( flag, radius: 15 )
+        self.settings.meat.decayAfter
+    }
+    
+    public override var decayAfterRange: Double
+    {
+        self.settings.meat.decayAfterRange
+    }
+    
+    public override var canDisappear: Bool
+    {
+        self.settings.meat.canDisappear
+    }
+    
+    public override var disappearAfter: Double
+    {
+        self.settings.meat.disappearAfter
+    }
+    
+    public override var disappearAfterRange: Double
+    {
+        self.settings.meat.disappearAfterRange
     }
 }
