@@ -58,9 +58,9 @@ public class AddGeneWindowController: NSWindowController
     {
         super.windowDidLoad()
         
-        for gene in self.creature.genes
+        self.creature.genes.forEach
         {
-            self.genesController.addObject( gene )
+            self.genesController.addObject( $0 )
         }
         
         self.selectedGene = self.creature.genes.first

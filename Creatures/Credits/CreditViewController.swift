@@ -23,47 +23,52 @@
  ******************************************************************************/
 
 import Cocoa
-import SpriteKit
 
-@objc public protocol Gene: NSObjectProtocol, NSCopying
+public class CreditViewController: NSViewController
 {
-    var isActive: Bool
+    @objc public private( set ) dynamic var credit:      Credit
+    @objc private               dynamic var licenseText: NSAttributedString?
+    
+    @IBOutlet private var textView: NSTextView!
+    
+    public init( credit: Credit )
     {
-        get
-        set
+        self.credit = credit
+        
+        super.init( nibName: nil, bundle: nil )
     }
     
-    var canRegress: Bool
+    required init?( coder: NSCoder )
     {
-        get
+        return nil
     }
     
-    var deactivates: [ String ]
+    public override var nibName: NSNib.Name?
     {
-        get
+        "CreditViewController"
     }
     
-    var name: String
+    public override func viewDidLoad()
     {
-        get
+        super.viewDidLoad()
+        
+        self.textView.textContainerInset = NSMakeSize( 10, 10 )
+        
+        if let text = self.credit.licenseText
+        {
+            self.licenseText = NSAttributedString( string: text, attributes: [ .foregroundColor : NSColor.textColor ] )
+        }
     }
     
-    var details: String?
+    @IBAction private func openURL( _ sender: Any? )
     {
-        get
+        guard let url = self.credit.url else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSWorkspace.shared.open( url )
     }
-    
-    var icon: NSImage?
-    {
-        get
-    }
-    
-    init( active: Bool, settings: Settings )
-    
-    func mutate() -> Bool
-    
-    @objc optional func onUpdate( creature: Creature )
-    @objc optional func onEnergyChanged( creature: Creature )
-    @objc optional func onCollision( creature: Creature, node: SKNode )
-    @objc optional func chooseDestination( creature: Creature ) -> Destination?
 }

@@ -39,7 +39,7 @@ public class CreatureStatusChartView: NSView
         
         if remaining > 0
         {
-            self.items?.insert( CreatureStatusChartViewItem( title: nil, count: remaining, color: NSColor.white ), at: 0 )
+            self.items?.insert( CreatureStatusChartViewItem( title: nil, count: remaining, color: NSColor.white, gene: nil ), at: 0 )
         }
         
         self.needsDisplay = true

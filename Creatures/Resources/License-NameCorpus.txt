@@ -1,0 +1,3 @@
+Copyright (c) January 1991 by Mark Kantrowitz
+May be used for any purpose, so long as credit is given in any published work.
+Additions should be sent to the author.

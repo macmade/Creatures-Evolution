@@ -28,7 +28,6 @@ import SpriteKit
 public class MainWindowController: NSWindowController
 {
     @objc public private( set ) dynamic var scene:                    Scene?
-    @objc public private( set ) dynamic var settingsWindowController: SettingsWindowController?
     @objc public private( set ) dynamic var detailViewController:     DetailViewController?
     @objc public private( set ) dynamic var statsViewController:      StatsViewController?
     @objc public private( set ) dynamic var view:                     SKView?
@@ -84,14 +83,14 @@ public class MainWindowController: NSWindowController
         {
             response in
             
-            self.settingsWindowController = nil
-            
             if response != .OK, let scene = self.scene
             {
                 self.isPaused = scene.isGameOver ? true : false
                 
                 return
             }
+            
+            EventLog.shared.clear()
             
             try? settingsController.settings.save()
             
@@ -375,5 +374,10 @@ public class MainWindowController: NSWindowController
         }
         
         NSMenu.popUpContextMenu( self.settingsMenu, with: event, for: view )
+    }
+    
+    @IBAction public func highlightGene( _ gene: AnyClass? )
+    {
+        self.scene?.highlightedGene = gene
     }
 }

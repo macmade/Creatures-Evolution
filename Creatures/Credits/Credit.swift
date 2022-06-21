@@ -22,48 +22,30 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-import Cocoa
-import SpriteKit
+import Foundation
 
-@objc public protocol Gene: NSObjectProtocol, NSCopying
+public class Credit: NSObject
 {
-    var isActive: Bool
+    @objc public dynamic var title:           String
+    @objc public dynamic var abstract:        String
+    @objc public dynamic var descriptionText: String
+    @objc public dynamic var url:             URL?
+    @objc public dynamic var license:         String
+    @objc public dynamic var licenseText:     String?
+    
+    public init( title: String, abstract: String, descriptionText: String, url: String, license: String, licenseFile: String )
     {
-        get
-        set
+        self.title           = title
+        self.abstract        = abstract
+        self.descriptionText = descriptionText
+        self.url             = URL( string: url )
+        self.license         = license
+        
+        if let url  = Bundle.main.url( forResource: licenseFile, withExtension: "txt" ),
+           let data = try? Data( contentsOf: url ),
+           let text = String( data: data, encoding: .utf8 )
+        {
+            self.licenseText = text
+        }
     }
-    
-    var canRegress: Bool
-    {
-        get
-    }
-    
-    var deactivates: [ String ]
-    {
-        get
-    }
-    
-    var name: String
-    {
-        get
-    }
-    
-    var details: String?
-    {
-        get
-    }
-    
-    var icon: NSImage?
-    {
-        get
-    }
-    
-    init( active: Bool, settings: Settings )
-    
-    func mutate() -> Bool
-    
-    @objc optional func onUpdate( creature: Creature )
-    @objc optional func onEnergyChanged( creature: Creature )
-    @objc optional func onCollision( creature: Creature, node: SKNode )
-    @objc optional func chooseDestination( creature: Creature ) -> Destination?
 }

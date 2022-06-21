@@ -69,7 +69,17 @@ public class SpriteNode: SKSpriteNode
         self.highlight( self.highlight == nil )
     }
     
+    public func toggleHighlight( radius: Double )
+    {
+        self.highlight( self.highlight == nil, radius: radius )
+    }
+    
     public func highlight( _ flag: Bool )
+    {
+        self.highlight( flag, radius: max( self.size.width, self.size.height ) )
+    }
+    
+    public func highlight( _ flag: Bool, radius: Double )
     {
         if flag && self.highlight != nil
         {
@@ -80,8 +90,8 @@ public class SpriteNode: SKSpriteNode
         
         if flag
         {
-            let highlight         = SKShapeNode( circleOfRadius: 15 )
-            highlight.fillColor   = NSColor.black.withAlphaComponent( 0.25 )
+            let highlight         = SKShapeNode( circleOfRadius: radius )
+            highlight.fillColor   = NSColor.systemRed.withAlphaComponent( 0.5 )
             highlight.strokeColor = NSColor.white
             highlight.zPosition   = 0
             self.highlight        = highlight

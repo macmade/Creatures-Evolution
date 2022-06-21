@@ -39,18 +39,8 @@ public class AboutWindowController: NSWindowController
     {
         super.windowDidLoad()
         
-        let version = Bundle.main.object( forInfoDictionaryKey: "CFBundleShortVersionString" ) as? String ?? "0.0.0"
-        
-        if let build = Bundle.main.object( forInfoDictionaryKey: "CFBundleVersion" ) as? String
-        {
-            self.version = "\(version) (\(build))"
-        }
-        else
-        {
-            self.version = version
-        }
-        
-        self.name      = Bundle.main.object( forInfoDictionaryKey: "CFBundleName"             ) as? String
-        self.copyright = Bundle.main.object( forInfoDictionaryKey: "NSHumanReadableCopyright" ) as? String
+        self.version   = Bundle.main.humanReadableVersion
+        self.name      = Bundle.main.bundleName
+        self.copyright = Bundle.main.humanReadableCopyright
     }
 }

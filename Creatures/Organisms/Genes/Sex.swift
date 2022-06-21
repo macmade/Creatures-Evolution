@@ -75,6 +75,7 @@ public class Sex: NSObject, Gene
     }
     
     private var lastUsed: TimeInterval?
+    private var sexNode:  SKSpriteNode?
     
     @objc public private( set ) dynamic var settings: Settings
     
@@ -106,8 +107,31 @@ public class Sex: NSObject, Gene
         return true
     }
     
-    public func onEnergyChanged( creature: Creature )
-    {}
+    public func onUpdate( creature: Creature )
+    {
+        if self.sexNode == nil
+        {
+            let node = SKSpriteNode( texture: nil, color: NSColor.clear, size: NSSize( width: 8, height: 8 ) )
+            
+            if self.isMale && self.isFemale
+            {
+                node.texture = SKTexture( imageNamed: "Sex-MF" )
+            }
+            else if self.isMale
+            {
+                node.texture = SKTexture( imageNamed: "Sex-M" )
+            }
+            else if self.isFemale
+            {
+                node.texture = SKTexture( imageNamed: "Sex-F" )
+            }
+            
+            node.position = NSPoint( x: -2, y: -21 )
+            self.sexNode  = node
+            
+            creature.addChild( node )
+        }
+    }
     
     public func onCollision( creature: Creature, node: SKNode )
     {
@@ -189,10 +213,5 @@ public class Sex: NSObject, Gene
                 }
             }
         }
-    }
-    
-    public func chooseDestination( creature: Creature ) -> Destination?
-    {
-        nil
     }
 }

@@ -143,12 +143,4 @@ public class Mitosis: NSObject, Gene
             EventLog.shared.add( event: Event( message: event, time: scene.elapsedTime, node: copy ) )
         }
     }
-    
-    public func onCollision( creature: Creature, node: SKNode )
-    {}
-    
-    public func chooseDestination( creature: Creature ) -> Destination?
-    {
-        nil
-    }
 }

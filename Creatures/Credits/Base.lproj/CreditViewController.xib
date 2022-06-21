@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="CreditViewController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="textView" destination="4u7-fK-fbp" id="sd5-hs-JIa"/>
+                <outlet property="view" destination="c22-O7-iKe" id="jsR-Om-2e4"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pBq-Ul-bq6">
+                    <rect key="frame" x="18" y="349" width="66" height="31"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="FFR-w2-h2T">
+                        <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.credit.title" id="eY6-UU-EUj"/>
+                    </connections>
+                </textField>
+                <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ncq-mk-BFI">
+                    <rect key="frame" x="419" y="356" width="40" height="18"/>
+                    <buttonCell key="cell" type="inline" title="Inline" bezelStyle="inline" alignment="center" enabled="NO" borderStyle="border" inset="2" id="yde-Hm-QXd">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystemBold"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="-2" name="title" keyPath="self.credit.license" id="TzX-xs-fox"/>
+                    </connections>
+                </button>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-Sd-wCg">
+                    <rect key="frame" x="12" y="338" width="455" height="5"/>
+                </box>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="20" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sQx-n6-bWd">
+                    <rect key="frame" x="20" y="276" width="439" height="56"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="f9T-Bc-4tn">
+                            <rect key="frame" x="-2" y="40" width="92" height="16"/>
+                            <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="a7o-TD-fVc">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="value" keyPath="self.credit.descriptionText" id="7vN-Yh-sgb"/>
+                            </connections>
+                        </textField>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="51R-xC-VLV">
+                            <rect key="frame" x="-7" y="-7" width="194" height="32"/>
+                            <buttonCell key="cell" type="push" title="Visit Project Homepage" bezelStyle="rounded" image="NSFollowLinkFreestandingTemplate" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YnO-fP-VeA">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="openURL:" target="-2" id="aA8-xm-omV"/>
+                                <binding destination="-2" name="hidden" keyPath="self.credit.url" id="JRo-KB-xLu">
+                                    <dictionary key="options">
+                                        <string key="NSValueTransformerName">NSIsNil</string>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <scrollView borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2AT-An-8Rg">
+                    <rect key="frame" x="20" y="20" width="439" height="236"/>
+                    <clipView key="contentView" copiesOnScroll="NO" id="PWQ-rY-mRs">
+                        <rect key="frame" x="1" y="1" width="437" height="234"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="4u7-fK-fbp">
+                                <rect key="frame" x="0.0" y="0.0" width="437" height="234"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="437" height="234"/>
+                                <size key="maxSize" width="439" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <binding destination="-2" name="editable" keyPath="self" id="lbj-pE-7Eo">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSIsNil</string>
+                                        </dictionary>
+                                    </binding>
+                                    <binding destination="-2" name="attributedString" keyPath="self.licenseText" id="1sN-aE-QI5"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="YbO-8h-MGT">
+                        <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="A4R-nh-X4u">
+                        <rect key="frame" x="422" y="1" width="16" height="234"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="self.licenseText" id="h6p-ly-6bZ">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNil</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="sQx-n6-bWd" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="4l4-Hm-Viv"/>
+                <constraint firstItem="sQx-n6-bWd" firstAttribute="top" secondItem="jxd-Sd-wCg" secondAttribute="bottom" constant="8" id="Pqj-mi-CJx"/>
+                <constraint firstAttribute="trailing" secondItem="sQx-n6-bWd" secondAttribute="trailing" constant="20" id="Wh1-Uu-Mzs"/>
+                <constraint firstItem="jxd-Sd-wCg" firstAttribute="top" secondItem="pBq-Ul-bq6" secondAttribute="bottom" constant="8" id="YVU-WN-bte"/>
+                <constraint firstItem="ncq-mk-BFI" firstAttribute="centerY" secondItem="pBq-Ul-bq6" secondAttribute="centerY" id="ZLx-nE-aup"/>
+                <constraint firstItem="2AT-An-8Rg" firstAttribute="top" secondItem="sQx-n6-bWd" secondAttribute="bottom" constant="20" id="boc-jz-yhw"/>
+                <constraint firstItem="ncq-mk-BFI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pBq-Ul-bq6" secondAttribute="trailing" constant="20" id="dhA-9i-uD9"/>
+                <constraint firstAttribute="trailing" secondItem="2AT-An-8Rg" secondAttribute="trailing" constant="20" id="ggR-3S-qIB"/>
+                <constraint firstItem="2AT-An-8Rg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="hxL-Bx-ozP"/>
+                <constraint firstAttribute="bottom" secondItem="2AT-An-8Rg" secondAttribute="bottom" constant="20" id="nCP-sW-LIE"/>
+                <constraint firstAttribute="trailing" secondItem="ncq-mk-BFI" secondAttribute="trailing" constant="20" id="qMQ-2X-9dc"/>
+                <constraint firstItem="jxd-Sd-wCg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="12" id="qSE-aH-uP0"/>
+                <constraint firstItem="pBq-Ul-bq6" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="rKe-vK-JOs"/>
+                <constraint firstAttribute="trailing" secondItem="jxd-Sd-wCg" secondAttribute="trailing" constant="12" id="w86-i8-78H"/>
+                <constraint firstItem="pBq-Ul-bq6" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="xyO-AK-OuA"/>
+            </constraints>
+            <point key="canvasLocation" x="159" y="133"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="NSFollowLinkFreestandingTemplate" width="15" height="15"/>
+    </resources>
+</document>

@@ -23,47 +23,41 @@
  ******************************************************************************/
 
 import Cocoa
-import SpriteKit
 
-@objc public protocol Gene: NSObjectProtocol, NSCopying
+extension Bundle
 {
-    var isActive: Bool
+    var bundleShortVersionString: String?
     {
-        get
-        set
+        self.object( forInfoDictionaryKey: "CFBundleShortVersionString" ) as? String
     }
     
-    var canRegress: Bool
+    var bundleVersion: String?
     {
-        get
+        self.object( forInfoDictionaryKey: "CFBundleVersion" ) as? String
     }
     
-    var deactivates: [ String ]
+    var bundleName: String?
     {
-        get
+        self.object( forInfoDictionaryKey: "CFBundleName" ) as? String
     }
     
-    var name: String
+    var humanReadableCopyright: String?
     {
-        get
+        self.object( forInfoDictionaryKey: "NSHumanReadableCopyright" ) as? String
     }
     
-    var details: String?
+    var humanReadableVersion: String?
     {
-        get
+        guard let version = self.bundleShortVersionString, version.isEmpty == false else
+        {
+            return "0.0.0"
+        }
+        
+        if let build = self.bundleVersion, build.isEmpty == false
+        {
+            return "\(version) (\(build))"
+        }
+        
+        return version
     }
-    
-    var icon: NSImage?
-    {
-        get
-    }
-    
-    init( active: Bool, settings: Settings )
-    
-    func mutate() -> Bool
-    
-    @objc optional func onUpdate( creature: Creature )
-    @objc optional func onEnergyChanged( creature: Creature )
-    @objc optional func onCollision( creature: Creature, node: SKNode )
-    @objc optional func chooseDestination( creature: Creature ) -> Destination?
 }

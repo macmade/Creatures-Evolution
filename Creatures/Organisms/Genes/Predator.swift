@@ -87,9 +87,6 @@ public class Predator: NSObject, Gene
         return true
     }
     
-    public func onEnergyChanged( creature: Creature )
-    {}
-    
     public func onCollision( creature: Creature, node: SKNode )
     {
         guard let other = node as? Creature else
@@ -125,10 +122,5 @@ public class Predator: NSObject, Gene
             other.die( dropFood: true )
             EventLog.shared.killed( creature: other, by: creature )
         }
-    }
-    
-    public func chooseDestination( creature: Creature ) -> Destination?
-    {
-        nil
     }
 }

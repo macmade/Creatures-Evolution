@@ -87,9 +87,6 @@ public class Vampire: NSObject, Gene
         return true
     }
     
-    public func onEnergyChanged( creature: Creature )
-    {}
-    
     public func onCollision( creature: Creature, node: SKNode )
     {
         guard let other = node as? Creature else
@@ -127,10 +124,5 @@ public class Vampire: NSObject, Gene
                 EventLog.shared.killed( creature: other, by: creature )
             }
         }
-    }
-    
-    public func chooseDestination( creature: Creature ) -> Destination?
-    {
-        nil
     }
 }

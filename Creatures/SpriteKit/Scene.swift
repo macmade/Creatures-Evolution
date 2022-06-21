@@ -34,6 +34,20 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     private var lastUpdateTime:         TimeInterval?
     private var lastFoodGenerationTime: TimeInterval?
     
+    public var highlightedGene: AnyClass?
+    {
+        didSet
+        {
+            if self.highlightedGene == nil
+            {
+                self.children.forEach
+                {
+                    ( $0 as? Creature )?.highlight( false )
+                }
+            }
+        }
+    }
+    
     public override var isPaused: Bool
     {
         didSet
@@ -155,9 +169,14 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             self.lastFoodGenerationTime = currentTime
         }
         
-        for child in self.children
+        self.children.forEach
         {
-            ( child as? Updatable )?.update( elapsedTime: self.elapsedTime )
+            ( $0 as? Updatable )?.update( elapsedTime: self.elapsedTime )
+            
+            if let gene = self.highlightedGene, let creature = $0 as? Creature, creature.hasActiveGene( gene )
+            {
+                creature.highlight( true )
+            }
         }
         
         let creatures = self.children.compactMap { $0 as? Creature }

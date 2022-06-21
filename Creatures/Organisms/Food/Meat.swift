@@ -92,4 +92,14 @@ public class Meat: Food, Updatable
             self.removalTime = elapsedTime + self.settings.meat.disappearAfter + Double.random( in: 0 ... self.settings.meat.disappearAfterRange )
         }
     }
+    
+    public override func toggleHighlight()
+    {
+        self.toggleHighlight( radius: 15 )
+    }
+    
+    public override func highlight( _ flag: Bool )
+    {
+        self.highlight( flag, radius: 15 )
+    }
 }

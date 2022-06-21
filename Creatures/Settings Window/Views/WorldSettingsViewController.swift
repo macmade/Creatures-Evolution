@@ -30,6 +30,14 @@ public class WorldSettingsViewController: SettingsViewController
     
     private var environmentObserver: NSKeyValueObservation?
     
+    public override var settings: Settings
+    {
+        didSet
+        {
+            self.updatePreview()
+        }
+    }
+    
     public override var nibName: NSNib.Name?
     {
         "WorldSettingsViewController"
@@ -39,15 +47,15 @@ public class WorldSettingsViewController: SettingsViewController
     {
         super.viewDidLoad()
         self.updatePreview()
-        
-        self.environmentObserver = self.observe( \.settings.world.environment )
-        {
-            [ weak self ] _, _ in self?.updatePreview()
-        }
     }
     
     private func updatePreview()
     {
+        self.environmentObserver = self.settings.observe( \.world.environment )
+        {
+            [ weak self ] _, _ in self?.updatePreview()
+        }
+        
         let index = self.settings.world.environment
         
         if index < 0 || index >= Constants.backgroundImages.count

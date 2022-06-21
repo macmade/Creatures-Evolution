@@ -30,10 +30,10 @@ public class LabelNode: SKNode
     private var textNode:   SKLabelNode
     private var shadowNode: SKLabelNode?
     
-    public init( text: String, fontName: String?, fontSize: Double?, textColor: NSColor, shadowColor: NSColor? )
+    public init( text: String, fontName: String?, fontSize: Double?, textColor: NSColor, shadowColor: NSColor?, shadowOffset: NSPoint )
     {
         let fontSize = fontSize ?? NSFont.systemFontSize
-        let fontName = fontName ?? NSFont.monospacedSystemFont( ofSize: fontSize, weight: .regular ).fontName
+        let fontName = fontName ?? NSFont.systemFont( ofSize: fontSize, weight: .bold ).fontName
         
         let textNode       = SKLabelNode()
         textNode.text      = text
@@ -54,7 +54,7 @@ public class LabelNode: SKNode
             shadowNode.fontSize  = fontSize
             shadowNode.fontSize  = fontSize
             shadowNode.fontColor = shadowColor
-            shadowNode.position  = NSPoint( x: 0.5, y: -0.5 )
+            shadowNode.position  = shadowOffset
             shadowNode.alpha     = 1
             shadowNode.zPosition = 0
             self.shadowNode      = shadowNode
@@ -69,9 +69,12 @@ public class LabelNode: SKNode
         nil
     }
     
-    public func update( text: String )
+    public func update( text: String, fontSize: Double, shadowOffset: NSPoint )
     {
-        self.textNode.text    = text
-        self.shadowNode?.text = text
+        self.textNode.text        = text
+        self.shadowNode?.text     = text
+        self.textNode.fontSize    = fontSize
+        self.shadowNode?.fontSize = fontSize
+        self.shadowNode?.position = shadowOffset
     }
 }

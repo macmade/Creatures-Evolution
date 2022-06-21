@@ -87,9 +87,6 @@ public class Herbivore: NSObject, Gene
         return true
     }
     
-    public func onEnergyChanged( creature: Creature )
-    {}
-    
     public func onCollision( creature: Creature, node: SKNode )
     {
         if let plant = node as? Plant, plant.isAvailable
@@ -98,10 +95,5 @@ public class Herbivore: NSObject, Gene
             
             creature.energy += plant.energy
         }
-    }
-    
-    public func chooseDestination( creature: Creature ) -> Destination?
-    {
-        nil
     }
 }

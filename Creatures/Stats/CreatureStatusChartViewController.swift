@@ -47,10 +47,10 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
     {
         self.data = data
         let items = [
-            CreatureStatusChartViewItem( title: "Herbivores", count: data.herbivores, color: NSColor.systemGreen ),
-            CreatureStatusChartViewItem( title: "Scavengers", count: data.scavengers, color: NSColor.systemGray ),
-            CreatureStatusChartViewItem( title: "Predators",  count: data.predators,  color: NSColor.systemOrange ),
-            CreatureStatusChartViewItem( title: "Vampires",   count: data.vampires,   color: NSColor.systemPurple ),
+            CreatureStatusChartViewItem( title: "Herbivores", count: data.herbivores, color: NSColor.systemGreen,  gene: Herbivore.self ),
+            CreatureStatusChartViewItem( title: "Scavengers", count: data.scavengers, color: NSColor.systemGray,   gene: Scavenger.self ),
+            CreatureStatusChartViewItem( title: "Predators",  count: data.predators,  color: NSColor.systemOrange, gene: Predator.self ),
+            CreatureStatusChartViewItem( title: "Vampires",   count: data.vampires,   color: NSColor.systemPurple, gene: Vampire.self ),
         ]
         
         self.dataView?.setData( total: data.total, items: items )
@@ -76,7 +76,8 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
     
     public func tableView( _ tableView: NSTableView, rowViewForRow row: Int ) -> NSTableRowView?
     {
-        let view = TableRowView( frame: NSZeroRect )
+        let view                 = TableRowView( frame: NSZeroRect )
+        let mainWindowController = self.view.window?.windowController as? MainWindowController
         
         view.onMouseEnter =
         {
@@ -89,6 +90,8 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
                 self.highlightedItem  = items[ row ]
                 self.highlightedColor = items[ row ].color
             }
+            
+            mainWindowController?.highlightGene( self.highlightedItem?.gene )
         }
         
         view.onMouseExit =
@@ -99,6 +102,8 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
             
             self.highlightedItem  = nil
             self.highlightedColor = nil
+            
+            mainWindowController?.highlightGene( nil )
         }
         
         return view

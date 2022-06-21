@@ -27,6 +27,7 @@ import SpriteKit
 
 public class Creature: SpriteNode, Updatable
 {
+    private static let growActionKey = "Grow"
     private static let moveActionKey = "Move"
     private static var index         = UInt64( 0 )
     
@@ -41,14 +42,7 @@ public class Creature: SpriteNode, Updatable
     {
         didSet
         {
-            if let name = self.customName, name.isEmpty == false
-            {
-                self.customNameLabel?.update( text: name )
-            }
-            else
-            {
-                self.hideCustomName()
-            }
+            self.updateCustomName()
         }
     }
     
@@ -78,6 +72,7 @@ public class Creature: SpriteNode, Updatable
     
     private var parents:         [ Weak< Creature > ]?
     private var customNameLabel: LabelNode?
+    private var initialized    = false
     
     public convenience init( energy: Int, settings: Settings )
     {
@@ -95,7 +90,7 @@ public class Creature: SpriteNode, Updatable
         self.settings = settings
         self.parents  = parents?.map{ Weak( value: $0 ) }
         
-        super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
+        super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 40, height: 40 ) )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
@@ -178,19 +173,21 @@ public class Creature: SpriteNode, Updatable
     
     public func getGene( _ kind: AnyClass ) -> Gene?
     {
-        for gene in self.genes
-        {
-            if gene.isKind( of: kind )
-            {
-                return gene
-            }
-        }
-        
-        return nil
+        return self.genes.first { $0.isKind( of: kind ) }
     }
     
     public func update( elapsedTime: TimeInterval )
     {
+        if self.initialized == false
+        {
+            self.initialized = true
+            
+            if self.isBaby
+            {
+                self.run( SKAction.scale( to: NSSize( width: 20, height: 20 ), duration: 0 ) )
+            }
+        }
+        
         if self.settings.world.showCreaturesNames
         {
             self.showCustomName()
@@ -227,6 +224,11 @@ public class Creature: SpriteNode, Updatable
         {
             self.nextEnergyDecrease = elapsedTime + self.settings.creatures.energyDecreaseInterval + Double.random( in: 0 ... self.settings.creatures.energyDecreaseIntervalRange )
         }
+        
+        self.genes.filter{ $0.isActive }.forEach
+        {
+            $0.onUpdate?( creature: self )
+        }
     }
     
     public func move()
@@ -245,7 +247,7 @@ public class Creature: SpriteNode, Updatable
                 return
             }
             
-            guard let d = $0.chooseDestination( creature: self ) else
+            guard let d = $0.chooseDestination?( creature: self ) else
             {
                 return
             }
@@ -309,12 +311,9 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        for gene in self.genes
+        self.genes.filter { $0.isActive }.forEach
         {
-            if gene.isActive
-            {
-                gene.onCollision( creature: self, node: node )
-            }
+            $0.onCollision?( creature: self, node: node )
         }
         
         if let food = node as? Food, food.isBeingRemoved
@@ -343,12 +342,9 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        for gene in self.genes
+        self.genes.filter { $0.isActive }.forEach
         {
-            if gene.isActive
-            {
-                gene.onEnergyChanged( creature: self )
-            }
+            $0.onEnergyChanged?( creature: self )
         }
         
         if self.energy == -1
@@ -435,14 +431,14 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        if grow
-        {
-            self.run( SKAction.scale( to: NSSize( width: 40, height: 40 ), duration: 1 ) )
-        }
-        else
-        {
-            self.run( SKAction.scale( to: NSSize( width: 20, height: 20 ), duration: 0.5 ) )
-        }
+        self.removeAction( forKey: Creature.growActionKey )
+        
+        let size       = grow ? NSSize( width: 40, height: 40 ) : NSSize( width: 20, height: 20 )
+        let scale      = SKAction.scale( to: size, duration: 1 )
+        let completion = SKAction.run { self.updateCustomName() }
+        let sequence   = grow ? [ completion, scale ] : [ scale, completion ]
+        
+        self.run( SKAction.sequence( sequence ), withKey: Creature.growActionKey )
     }
     
     public func updateTexture()
@@ -469,6 +465,29 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
+    private func updateCustomName()
+    {
+        if let name = self.customName, name.isEmpty == false
+        {
+            if self.isBaby
+            {
+                self.customNameLabel?.update( text: name, fontSize: 24, shadowOffset: NSPoint( x: 2, y: -2 ) )
+                
+                self.customNameLabel?.position = NSPoint( x: 0, y: 30 )
+            }
+            else
+            {
+                self.customNameLabel?.update( text: name, fontSize: 12, shadowOffset: NSPoint( x: 1, y: -1 ) )
+                
+                self.customNameLabel?.position = NSPoint( x: 0, y: 25 )
+            }
+        }
+        else
+        {
+            self.hideCustomName()
+        }
+    }
+    
     private func showCustomName()
     {
         if let _ = self.customNameLabel
@@ -481,12 +500,13 @@ public class Creature: SpriteNode, Updatable
             return
         }
         
-        let label            = LabelNode( text: name, fontName: nil, fontSize: 8, textColor: NSColor.white, shadowColor: NSColor.black )
-        label.position       = NSPoint( x: 0, y: 12 )
+        let label            = LabelNode( text: name, fontName: nil, fontSize: 24, textColor: NSColor.white, shadowColor: NSColor.black, shadowOffset: NSPoint( x: 1, y: -1 ) )
+        label.position       = NSPoint( x: 0, y: 25 )
         label.zPosition      = 1
         self.customNameLabel = label
         
         self.addChild( label )
+        self.updateCustomName()
     }
     
     private func hideCustomName()
@@ -496,9 +516,19 @@ public class Creature: SpriteNode, Updatable
         self.customNameLabel = nil
     }
     
+    public override func toggleHighlight()
+    {
+        self.toggleHighlight( radius: 25 )
+    }
+    
     public override func highlight( _ flag: Bool )
     {
-        super.highlight( flag )
+        self.highlight( flag, radius: 25 )
+    }
+    
+    public override func highlight( _ flag: Bool, radius: Double )
+    {
+        super.highlight( flag, radius: radius )
         
         if self.settings.world.showCreaturesNames
         {

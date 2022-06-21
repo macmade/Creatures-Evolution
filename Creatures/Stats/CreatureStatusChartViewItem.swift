@@ -29,11 +29,13 @@ public class CreatureStatusChartViewItem: NSObject
     @objc public dynamic var title: String?
     @objc public dynamic var count: Int
     @objc public dynamic var color: NSColor
+    @objc public dynamic var gene:  AnyClass?
     
-    @objc public init( title: String?, count: Int, color: NSColor )
+    @objc public init( title: String?, count: Int, color: NSColor, gene: AnyClass? )
     {
         self.title = title
         self.count = count
         self.color = color
+        self.gene  = gene
     }
 }

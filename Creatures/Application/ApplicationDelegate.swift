@@ -26,8 +26,9 @@ import Cocoa
 
 @main public class ApplicationDelegate: NSObject, NSApplicationDelegate
 {
-    @objc public private( set ) dynamic var aboutWindowController = AboutWindowController()
-    @objc public private( set ) dynamic var mainWindowController  = MainWindowController()
+    @objc public private( set ) dynamic var aboutWindowController   = AboutWindowController()
+    @objc public private( set ) dynamic var creditsWindowController = CreditsWindowController()
+    @objc public private( set ) dynamic var mainWindowController    = MainWindowController()
     
     public func applicationDidFinishLaunching( _ notification: Notification )
     {
@@ -53,10 +54,22 @@ import Cocoa
     {
         if self.aboutWindowController.window?.isVisible == false
         {
+            self.aboutWindowController.window?.layoutIfNeeded()
             self.aboutWindowController.window?.center()
         }
         
         self.aboutWindowController.window?.makeKeyAndOrderFront( sender )
+    }
+    
+    @IBAction public func showCreditsWindow( _ sender: Any? )
+    {
+        if self.creditsWindowController.window?.isVisible == false
+        {
+            self.creditsWindowController.window?.layoutIfNeeded()
+            self.creditsWindowController.window?.center()
+        }
+        
+        self.creditsWindowController.window?.makeKeyAndOrderFront( sender )
     }
     
     @IBAction public func reset( _ sender: Any? )

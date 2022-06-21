@@ -125,15 +125,4 @@ public class Speed: NSObject, Gene
         
         return true
     }
-    
-    public func onEnergyChanged( creature: Creature )
-    {}
-    
-    public func onCollision( creature: Creature, node: SKNode )
-    {}
-    
-    public func chooseDestination( creature: Creature ) -> Destination?
-    {
-        nil
-    }
 }
