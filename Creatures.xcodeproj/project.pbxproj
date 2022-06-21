@@ -137,6 +137,9 @@
 		05394A5B28608DC30077D90C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A5A28608DC30077D90C /* Event.swift */; };
 		05394A5D286093DE0077D90C /* EventLogWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A5C286093DE0077D90C /* EventLogWindowController.swift */; };
 		05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A5E2860945F0077D90C /* EventLogWindowController.xib */; };
+		05394A742860DC370077D90C /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A732860DC370077D90C /* NameGenerator.swift */; };
+		05394A782860DD700077D90C /* names-female.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05394A762860DD700077D90C /* names-female.txt */; };
+		05394A792860DD700077D90C /* names-male.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05394A772860DD700077D90C /* names-male.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -319,6 +322,9 @@
 		05394A5A28608DC30077D90C /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		05394A5C286093DE0077D90C /* EventLogWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogWindowController.swift; sourceTree = "<group>"; };
 		05394A5E2860945F0077D90C /* EventLogWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventLogWindowController.xib; sourceTree = "<group>"; };
+		05394A732860DC370077D90C /* NameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
+		05394A762860DD700077D90C /* names-female.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-female.txt"; sourceTree = "<group>"; };
+		05394A772860DD700077D90C /* names-male.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-male.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,9 +368,9 @@
 		05252E362854DEF70090B385 = {
 			isa = PBXGroup;
 			children = (
-				05252E632854E1F20090B385 /* xcconfig */,
 				05252E412854DEF70090B385 /* Creatures */,
 				05252E402854DEF70090B385 /* Products */,
+				05252E632854E1F20090B385 /* xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -379,12 +385,12 @@
 		05252E412854DEF70090B385 /* Creatures */ = {
 			isa = PBXGroup;
 			children = (
-				05394A5728608D7E0077D90C /* Event Log */,
 				053949FB285F6B3C0077D90C /* About Window */,
 				053949FF285F6B990077D90C /* Application */,
 				05252E442854DEF80090B385 /* Assets.xcassets */,
 				05252E492854DEF80090B385 /* Creatures.entitlements */,
 				053949FE285F6B7E0077D90C /* Details */,
+				05394A5728608D7E0077D90C /* Event Log */,
 				05252F7528582D030090B385 /* Extensions */,
 				05394A00285F6C210077D90C /* Helpers */,
 				05252E602854E0D50090B385 /* Info.plist */,
@@ -392,6 +398,7 @@
 				05252EA32854E90D0090B385 /* Organisms */,
 				05252F0A2855E1FC0090B385 /* Settings */,
 				05102084285A8C9600F11184 /* Settings Window */,
+				05394A752860DD700077D90C /* Resources */,
 				05394A01285F6C420077D90C /* SpriteKit */,
 				05394A04285F6DC60077D90C /* Stats */,
 				051020B1285B548500F11184 /* Transformers */,
@@ -665,6 +672,7 @@
 				0510208B285AA13A00F11184 /* Constants.swift */,
 				05102094285ABD1000F11184 /* Destination.swift */,
 				05252ED0285580190090B385 /* EvolutionHelper.swift */,
+				05394A732860DC370077D90C /* NameGenerator.swift */,
 				05252F04285599DD0090B385 /* Weak.swift */,
 			);
 			path = Helpers;
@@ -750,6 +758,15 @@
 			path = "Event Log";
 			sourceTree = "<group>";
 		};
+		05394A752860DD700077D90C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				05394A762860DD700077D90C /* names-female.txt */,
+				05394A772860DD700077D90C /* names-male.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -814,6 +831,7 @@
 				05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */,
 				053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */,
 				05252F78285837920090B385 /* CreaturesSettingsViewController.xib in Resources */,
+				05394A782860DD700077D90C /* names-female.txt in Resources */,
 				05252E452854DEF80090B385 /* Assets.xcassets in Resources */,
 				05102049285A17D800F11184 /* PredatorSenseSettingsViewController.xib in Resources */,
 				05102045285A176F00F11184 /* PredatorSettingsViewController.xib in Resources */,
@@ -836,6 +854,7 @@
 				05102054285A17DE00F11184 /* VampireSenseSettingsViewController.xib in Resources */,
 				05252F6B285819710090B385 /* PlantsSettingsViewController.xib in Resources */,
 				05252F502857F55C0090B385 /* MitosisSettingsViewController.xib in Resources */,
+				05394A792860DD700077D90C /* names-male.txt in Resources */,
 				05102044285A176F00F11184 /* ScavengerSettingsViewController.xib in Resources */,
 				05252F6C285819710090B385 /* MeatSettingsViewController.xib in Resources */,
 				05102107285B902600F11184 /* EditNameWindowController.xib in Resources */,
@@ -911,6 +930,7 @@
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
 				0510206B285A192800F11184 /* PredatorSettings.swift in Sources */,
 				051020E0285B79AF00F11184 /* ClassTransformer.swift in Sources */,
+				05394A742860DC370077D90C /* NameGenerator.swift in Sources */,
 				05394A0B285F761E0077D90C /* TimeTransformer.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */,

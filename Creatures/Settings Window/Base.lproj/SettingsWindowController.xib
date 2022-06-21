@@ -29,8 +29,8 @@
                             <rect key="frame" x="1" y="1" width="198" height="617"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="32" rowSizeStyle="automatic" viewBased="YES" id="7K5-N6-yOA">
-                                    <rect key="frame" x="0.0" y="0.0" width="198" height="617"/>
+                                <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" tableStyle="fullWidth" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="32" rowSizeStyle="automatic" viewBased="YES" id="7K5-N6-yOA">
+                                    <rect key="frame" x="0.0" y="0.0" width="178" height="597"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="10" height="10"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -94,9 +94,12 @@
                                         <binding destination="wsf-Lv-NCu" name="content" keyPath="arrangedObjects" id="tBV-8c-6zI"/>
                                         <binding destination="wsf-Lv-NCu" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="tBV-8c-6zI" id="Ta7-gX-tfP"/>
                                         <binding destination="wsf-Lv-NCu" name="sortDescriptors" keyPath="sortDescriptors" previousBinding="Ta7-gX-tfP" id="xci-Zy-fIi"/>
+                                        <outlet property="dataSource" destination="-2" id="RFE-96-eCz"/>
+                                        <outlet property="delegate" destination="-2" id="jfe-Yt-mY8"/>
                                     </connections>
                                 </tableView>
                             </subviews>
+                            <edgeInsets key="contentInsets" left="10" right="10" top="10" bottom="10"/>
                         </clipView>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="Fzz-Ot-vs8"/>

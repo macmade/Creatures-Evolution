@@ -41,7 +41,14 @@ public class Creature: SpriteNode, Updatable
     {
         didSet
         {
-            self.updateCustomName()
+            if let name = self.customName, name.isEmpty == false
+            {
+                self.customNameLabel?.update( text: name )
+            }
+            else
+            {
+                self.hideCustomName()
+            }
         }
     }
     
@@ -101,6 +108,11 @@ public class Creature: SpriteNode, Updatable
         self.energy       = energy
         self.name         = String( format: "%010X", Creature.index )
         Creature.index   += 1
+        
+        if settings.creatures.generateRandomNames
+        {
+            self.customName = NameGenerator.shared.generate( range: 4 ... 8 )
+        }
         
         self.updateTexture()
     }
@@ -179,6 +191,15 @@ public class Creature: SpriteNode, Updatable
     
     public func update( elapsedTime: TimeInterval )
     {
+        if self.settings.world.showCreaturesNames
+        {
+            self.showCustomName()
+        }
+        else if self.isHighlighted == false
+        {
+            self.hideCustomName()
+        }
+        
         if self.born < 0
         {
             self.born = elapsedTime
@@ -333,6 +354,7 @@ public class Creature: SpriteNode, Updatable
         if self.energy == -1
         {
             self.die( dropFood: true )
+            EventLog.shared.died( creature: self )
         }
         else if self.energy == 0
         {
@@ -447,13 +469,14 @@ public class Creature: SpriteNode, Updatable
         }
     }
     
-    private func updateCustomName()
+    private func showCustomName()
     {
-        self.customNameLabel?.removeFromParent()
+        if let _ = self.customNameLabel
+        {
+            return
+        }
         
-        self.customNameLabel = nil
-        
-        guard let name = self.customName else
+        guard let name = self.customName, name.isEmpty == false else
         {
             return
         }
@@ -464,5 +487,31 @@ public class Creature: SpriteNode, Updatable
         self.customNameLabel = label
         
         self.addChild( label )
+    }
+    
+    private func hideCustomName()
+    {
+        self.customNameLabel?.removeFromParent()
+        
+        self.customNameLabel = nil
+    }
+    
+    public override func highlight( _ flag: Bool )
+    {
+        super.highlight( flag )
+        
+        if self.settings.world.showCreaturesNames
+        {
+            return
+        }
+        
+        if flag
+        {
+            self.showCustomName()
+        }
+        else
+        {
+            self.hideCustomName()
+        }
     }
 }

@@ -44,4 +44,64 @@ public class EventLog: NSObject
         self.events.removeAll()
         self.didChangeValue( for: \.events )
     }
+    
+    private func name( of creature: Creature ) -> String
+    {
+        if let name = creature.customName, name.isEmpty == false
+        {
+            return name
+        }
+        else if let name = creature.name, name.isEmpty == false
+        {
+            return name
+        }
+        
+        return "<unknown>"
+    }
+    
+    public func killed( creature: Creature, by killer: Creature? )
+    {
+        if let scene = creature.scene as? Scene
+        {
+            if let predator = killer, predator.hasActiveGene( Predator.self )
+            {
+                self.add( event: Event( message: "Died: killed by predator \( self.name( of: predator ) )", time: scene.elapsedTime, node: creature ) )
+            }
+            else if let vampire = killer, vampire.hasActiveGene( Vampire.self )
+            {
+                self.add( event: Event( message: "Died: killed by vampire \( self.name( of: vampire ) )", time: scene.elapsedTime, node: creature ) )
+            }
+            else
+            {
+                self.add( event: Event( message: "Died: killed by a greater will", time: scene.elapsedTime, node: creature ) )
+            }
+        }
+    }
+    
+    public func died( creature: Creature )
+    {
+        if let scene = creature.scene as? Scene
+        {
+            self.add( event: Event( message: "Died: out of energy", time: scene.elapsedTime, node: creature ) )
+        }
+    }
+    
+    public func born( creature: Creature, from parents: [ Creature ] )
+    {
+        if let scene = creature.scene as? Scene
+        {
+            if parents.count == 1
+            {
+                self.add( event: Event( message: "Born: birth by mitosis from \( self.name( of: parents[ 0 ] ) )", time: scene.elapsedTime, node: creature ) )
+            }
+            else if parents.count == 2
+            {
+                self.add( event: Event( message: "Born: birth by sexual reproduction from \( self.name( of: parents[ 0 ] ) ) and \( self.name( of: parents[ 1 ] ) )", time: scene.elapsedTime, node: creature ) )
+            }
+            else
+            {
+                self.add( event: Event( message: "Born: unknown reason", time: scene.elapsedTime, node: creature ) )
+            }
+        }
+    }
 }

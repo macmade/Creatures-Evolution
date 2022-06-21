@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="Creatures" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="UI4-ED-jS1" id="Mm8-YN-MJn"/>
+                <outlet property="settingsMenu" destination="MFK-Ry-TDC" id="8uQ-v7-A8N"/>
                 <outlet property="statsView" destination="Boo-FY-2AE" id="PTt-f8-Y6V"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Vd5-fy-HOD"/>
             </connections>
@@ -33,6 +34,39 @@
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Boo-FY-2AE">
                         <rect key="frame" x="0.0" y="0.0" width="1200" height="100"/>
+                    </customView>
+                    <customView appearanceType="darkAqua" translatesAutoresizingMaskIntoConstraints="NO" id="1Ax-4x-uJi" customClass="BackgroundView" customModule="Creatures" customModuleProvider="target">
+                        <rect key="frame" x="1160" y="860" width="30" height="30"/>
+                        <subviews>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="JcM-TD-nvW">
+                                <rect key="frame" x="5" y="2" width="20" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="6RC-eH-ELC"/>
+                                    <constraint firstAttribute="width" constant="20" id="ITJ-mM-28s"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSActionTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="EAJ-V5-DgZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showSettingsMenu:" target="-2" id="ZSH-xF-2Zu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="JcM-TD-nvW" firstAttribute="top" secondItem="1Ax-4x-uJi" secondAttribute="top" constant="5" id="OYH-YK-8jB"/>
+                            <constraint firstItem="JcM-TD-nvW" firstAttribute="leading" secondItem="1Ax-4x-uJi" secondAttribute="leading" constant="5" id="ZbG-K0-F7D"/>
+                            <constraint firstAttribute="trailing" secondItem="JcM-TD-nvW" secondAttribute="trailing" constant="5" id="dTf-ZT-MuS"/>
+                            <constraint firstAttribute="bottom" secondItem="JcM-TD-nvW" secondAttribute="bottom" constant="5" id="pyG-2N-cez"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </customView>
                     <customView appearanceType="darkAqua" translatesAutoresizingMaskIntoConstraints="NO" id="zgk-Sc-1bJ" customClass="BackgroundView" customModule="Creatures" customModuleProvider="target">
                         <rect key="frame" x="150" y="348" width="900" height="304"/>
@@ -99,11 +133,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="UI4-ED-jS1" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="0zq-6c-cmR"/>
+                    <constraint firstItem="1Ax-4x-uJi" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="10" id="62n-8e-zFn"/>
                     <constraint firstItem="Boo-FY-2AE" firstAttribute="top" secondItem="UI4-ED-jS1" secondAttribute="bottom" id="AqM-vP-oR4"/>
                     <constraint firstItem="Boo-FY-2AE" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="Bem-XH-pv1"/>
                     <constraint firstAttribute="trailing" secondItem="UI4-ED-jS1" secondAttribute="trailing" id="M06-gK-XZM"/>
                     <constraint firstItem="zgk-Sc-1bJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="PtC-cu-cN5"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zgk-Sc-1bJ" secondAttribute="trailing" constant="20" symbolic="YES" id="Wsp-ZG-UgH"/>
+                    <constraint firstAttribute="trailing" secondItem="1Ax-4x-uJi" secondAttribute="trailing" constant="10" id="aQY-05-ypG"/>
                     <constraint firstAttribute="trailing" secondItem="Boo-FY-2AE" secondAttribute="trailing" id="eGD-eP-8lf"/>
                     <constraint firstItem="UI4-ED-jS1" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="mw0-bY-BIM"/>
                     <constraint firstAttribute="bottom" secondItem="Boo-FY-2AE" secondAttribute="bottom" id="nZ7-U8-OdK"/>
@@ -113,8 +149,140 @@
             </view>
             <point key="canvasLocation" x="139" y="144"/>
         </window>
+        <menu id="MFK-Ry-TDC">
+            <items>
+                <menuItem title="Pause" image="pause.fill" catalog="system" id="nLd-Nb-SYs">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="pause:" target="-2" id="6Sz-Z6-sFo"/>
+                        <binding destination="-2" name="hidden" keyPath="self.isPaused" id="w2s-GH-ff3"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Resume" image="play.fill" catalog="system" id="yIz-zP-vi8">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="resume:" target="-2" id="YAk-q3-S3d"/>
+                        <binding destination="-2" name="hidden" keyPath="self.isPaused" id="Hcj-9o-dSm">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="yPB-76-RDa"/>
+                <menuItem title="Show Creature Names" id="G8L-kU-kt4">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showCreaturesNames:" target="-2" id="yLO-Xi-5vU"/>
+                        <binding destination="-2" name="hidden" keyPath="self.settings.world.showCreaturesNames" id="zea-gC-FgF"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Show Creature Names" state="on" id="FaV-8Q-lqu">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="hideCreaturesNames:" target="-2" id="CWW-bd-Scf"/>
+                        <binding destination="-2" name="hidden" keyPath="self.settings.world.showCreaturesNames" id="Oai-Ae-y8Y">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </menuItem>
+                <menuItem title="View Event Log..." id="aen-kK-jIR">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="viewEventLog:" target="-2" id="yyB-il-XUz"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="8ja-sE-j1X"/>
+                <menuItem title="Debug" id="4zw-8h-Vnt">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Debug" id="LvI-uZ-vvP">
+                        <items>
+                            <menuItem title="Show FPS" id="wF1-4V-1cD">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showFPS:" target="-2" id="HmL-AD-rmg"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsFPS" id="jqP-GY-fag"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show FPS" state="on" id="fRe-tU-rLY">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="hideFPS:" target="-2" id="14d-jQ-gIg"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsFPS" id="HIZ-qB-GFj">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Draw Count" id="yGf-gG-fIg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showDrawCount:" target="-2" id="z3O-gM-dvm"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsDrawCount" id="98z-Vr-xYL"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Draw Count" state="on" id="KEM-k1-zlE">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="hideDrawCount:" target="-2" id="XsR-5S-ZNx"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsDrawCount" id="U3q-KD-NTS">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Node Count" id="KVH-gk-fa6">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showNodeCount:" target="-2" id="2iN-CK-MyX"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsNodeCount" id="XXZ-kW-OhB"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Node Count" state="on" id="420-z3-Qxu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="hideNodeCount:" target="-2" id="RHJ-7d-Mgb"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsNodeCount" id="hAJ-DN-yxP">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Quad Count" id="EcV-vk-rtm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="showQuadCount:" target="-2" id="Edi-Nw-sSx"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsQuadCount" id="IHJ-X0-kLL"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show Quad Count" state="on" id="2I3-gI-U22">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="hideQuadCount:" target="-2" id="nBP-hU-3Db"/>
+                                    <binding destination="-2" name="hidden" keyPath="self.view.showsQuadCount" id="uUq-wL-sDP">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="859" y="-154"/>
+        </menu>
+        <userDefaultsController representsSharedInstance="YES" id="2Sa-Xy-SSQ"/>
     </objects>
     <resources>
+        <image name="NSActionTemplate" width="15" height="15"/>
         <image name="NSRefreshTemplate" width="14" height="16"/>
+        <image name="pause.fill" catalog="system" width="11" height="13"/>
+        <image name="play.fill" catalog="system" width="12" height="13"/>
     </resources>
 </document>

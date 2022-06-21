@@ -136,6 +136,7 @@ public class Mitosis: NSObject, Gene
         creature.scene?.addChild( copy )
         copy.move()
         NotificationCenter.default.post( name: Constants.creatureBornNotification, object: copy )
+        EventLog.shared.born( creature: copy, from: [ creature ] )
         
         if let event = mutation.event
         {

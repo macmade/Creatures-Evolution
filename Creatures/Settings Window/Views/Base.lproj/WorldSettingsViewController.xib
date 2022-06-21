@@ -13,11 +13,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="645" height="404"/>
+            <rect key="frame" x="0.0" y="0.0" width="645" height="414"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-nq-Tt9">
-                    <rect key="frame" x="-2" y="373" width="70" height="31"/>
+                    <rect key="frame" x="-2" y="383" width="70" height="31"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="World" id="TV5-Mj-9H2">
                         <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -25,19 +25,19 @@
                     </textFieldCell>
                 </textField>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e1L-tq-cm8">
-                    <rect key="frame" x="0.0" y="362" width="645" height="5"/>
+                    <rect key="frame" x="0.0" y="372" width="645" height="5"/>
                 </box>
                 <box title="General" translatesAutoresizingMaskIntoConstraints="NO" id="ivo-ds-4PX">
-                    <rect key="frame" x="-3" y="278" width="651" height="78"/>
+                    <rect key="frame" x="-3" y="258" width="651" height="108"/>
                     <view key="contentView" id="IYi-NW-JP4">
-                        <rect key="frame" x="3" y="3" width="645" height="60"/>
+                        <rect key="frame" x="3" y="3" width="645" height="90"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8M1-qU-ezE">
-                                <rect key="frame" x="20" y="20" width="605" height="20"/>
+                                <rect key="frame" x="20" y="20" width="605" height="50"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXd-VD-J1s">
-                                        <rect key="frame" x="0.0" y="0.0" width="605" height="20"/>
+                                        <rect key="frame" x="0.0" y="30" width="605" height="20"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hlB-Ix-h1M">
                                                 <rect key="frame" x="-2" y="4" width="519" height="16"/>
@@ -80,6 +80,33 @@
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NhV-FX-hcp">
+                                        <rect key="frame" x="0.0" y="0.0" width="605" height="22"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UhT-Do-wka">
+                                                <rect key="frame" x="-2" y="6" width="563" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Always show creatures names:" id="0c7-pO-kjW">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="unE-nt-nF5">
+                                                <rect key="frame" x="565" y="-2" width="42" height="25"/>
+                                                <connections>
+                                                    <binding destination="-2" name="value" keyPath="self.settings.world.showCreaturesNames" id="qFH-TT-FA5"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="HXd-VD-J1s" firstAttribute="leading" secondItem="8M1-qU-ezE" secondAttribute="leading" id="66d-tO-lkP"/>
@@ -87,8 +114,10 @@
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>

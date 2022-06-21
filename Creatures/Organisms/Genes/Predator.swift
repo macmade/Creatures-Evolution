@@ -123,6 +123,7 @@ public class Predator: NSObject, Gene
             }
             
             other.die( dropFood: true )
+            EventLog.shared.killed( creature: other, by: creature )
         }
     }
     

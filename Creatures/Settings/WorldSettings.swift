@@ -26,5 +26,6 @@ import Cocoa
 
 public class WorldSettings: NSObject, Codable
 {
-    @objc public dynamic var environment = 0
+    @objc public dynamic var environment        = 0
+    @objc public dynamic var showCreaturesNames = false
 }

@@ -156,10 +156,9 @@ public class Sex: NSObject, Gene
             return
         }
         
-        self.lastUsed = scene.elapsedTime
-        
-        if sex1.isMale && sex2.isFemale || sex1.isFemale && sex2.isMale
+        if sex1.isFemale && sex2.isMale
         {
+            self.lastUsed    = scene.elapsedTime
             creature.energy -= self.settings.sex.energyCost
             other.energy    -= self.settings.sex.energyCost
             
@@ -182,6 +181,7 @@ public class Sex: NSObject, Gene
                 creature.scene?.addChild( copy )
                 copy.move()
                 NotificationCenter.default.post( name: Constants.creatureBornNotification, object: copy )
+                EventLog.shared.born( creature: copy, from: [ creature, other ] )
                 
                 if let event = mutation.event
                 {

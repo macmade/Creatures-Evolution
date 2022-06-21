@@ -33,16 +33,40 @@ public class Event: NSObject
     @objc public private( set ) dynamic      var image:    NSImage?
     @objc public private( set ) dynamic      var nodeName: String?
     
+    private let uid = UUID()
+    
     public init( message: String, time: TimeInterval, node: SKNode? )
     {
         self.message  = message
         self.time     = time
         self.node     = node
-        self.nodeName = node?.name
+        
+        if let creature = node as? Creature, let name = creature.customName, name.isEmpty == false
+        {
+            self.nodeName = name
+        }
+        else if let name = node?.name, name.isEmpty == false
+        {
+            self.nodeName = name
+        }
+        else
+        {
+            self.nodeName = "<unknown>"
+        }
         
         if let sprite = node as? SKSpriteNode, let image = sprite.texture?.cgImage()
         {
             self.image = NSImage( cgImage: image, size: NSMakeSize( 1024, 1024 ) )
         }
+    }
+    
+    public override func isEqual( to object: Any? ) -> Bool
+    {
+        guard let event = object as? Event else
+        {
+            return false
+        }
+        
+        return self.uid == event.uid
     }
 }

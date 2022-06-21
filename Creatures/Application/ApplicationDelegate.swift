@@ -35,7 +35,9 @@ import Cocoa
     }
     
     public func applicationWillTerminate( _ notification: Notification )
-    {}
+    {
+        try? self.mainWindowController.settings?.save()
+    }
     
     public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
     {
@@ -100,5 +102,10 @@ import Cocoa
     @IBAction public func viewEventLog( _ sender: Any? )
     {
         self.mainWindowController.viewEventLog( sender )
+    }
+    
+    @IBAction public func toggleCreaturesNames( _ sender: Any? )
+    {
+        self.mainWindowController.toggleCreaturesNames( sender )
     }
 }

@@ -628,43 +628,15 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="FU7-FV-XbO"/>
-                            <menuItem title="Debug" id="qnT-Rw-1eq">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Debug" id="4dq-Vy-2Qa">
-                                    <items>
-                                        <menuItem title="Toggle FPS" id="0ke-RD-vsz">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="toggleFPS:" target="-1" id="5eR-PX-dvV"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Toggle Draw Count" id="PN0-Ti-lev">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="toggleDrawCount:" target="-1" id="vYE-QI-yba"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Toggle Node Count" id="wem-C2-kgY">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="toggleNodeCount:" target="-1" id="EOk-SM-8iv"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Toggle Quad Count" id="5Eh-CD-atI">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="toggleQuadCount:" target="-1" id="bVc-6p-ISy"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="Ufx-Zh-ciW"/>
-                                        <menuItem title="View Event Log" id="AxF-2l-ghM">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="viewEventLog:" target="-1" id="Vx4-7n-TDg"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
+                            <menuItem title="Toggle Creatures Names" keyEquivalent="N" id="AxF-2l-ghM">
+                                <connections>
+                                    <action selector="toggleCreaturesNames:" target="-1" id="qjS-at-7IN"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="View Event Log..." keyEquivalent="l" id="MtZ-FE-Jg7">
+                                <connections>
+                                    <action selector="viewEventLog:" target="-1" id="Gxl-Os-NTn"/>
+                                </connections>
                             </menuItem>
                         </items>
                     </menu>

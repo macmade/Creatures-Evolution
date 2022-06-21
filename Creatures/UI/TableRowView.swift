@@ -31,12 +31,21 @@ public class TableRowView: NSTableRowView
     public var onMouseEnter: ( () -> Void )?
     public var onMouseExit:  ( () -> Void )?
     
+    private var alternate: Bool?
+    
     @objc private dynamic var mouseOver = false
     {
         didSet
         {
             self.needsDisplay = true
         }
+    }
+    
+    public convenience init( frame: NSRect, alternate: Bool )
+    {
+        self.init( frame: frame )
+        
+        self.alternate = alternate
     }
     
     public override init( frame: NSRect )
@@ -85,6 +94,21 @@ public class TableRowView: NSTableRowView
         if self.mouseOver
         {
             let color = NSColor.controlAccentColor.withAlphaComponent( 0.2 )
+            let path  = NSBezierPath( roundedRect: rect, xRadius: 6, yRadius: 6 )
+            
+            color.setFill()
+            path.fill()
+        }
+        else if let alternate = self.alternate
+        {
+            let colors = NSColor.alternatingContentBackgroundColors
+            
+            if colors.count < 2
+            {
+                return
+            }
+            
+            let color = alternate ? colors[ 1 ] : colors[ 0 ]
             let path  = NSBezierPath( roundedRect: rect, xRadius: 6, yRadius: 6 )
             
             color.setFill()

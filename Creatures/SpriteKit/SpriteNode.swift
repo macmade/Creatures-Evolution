@@ -30,6 +30,7 @@ public class SpriteNode: SKSpriteNode
     private static let flashActionKey = "Flash"
     
     public private( set ) var isBeingRemoved = false
+    public private( set ) var isHighlighted  = false
     
     private var highlight: SKShapeNode?
     
@@ -74,6 +75,8 @@ public class SpriteNode: SKSpriteNode
         {
             return
         }
+        
+        self.isHighlighted = flag
         
         if flag
         {

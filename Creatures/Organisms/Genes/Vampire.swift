@@ -124,6 +124,7 @@ public class Vampire: NSObject, Gene
             else
             {
                 other.die( dropFood: true )
+                EventLog.shared.killed( creature: other, by: creature )
             }
         }
     }

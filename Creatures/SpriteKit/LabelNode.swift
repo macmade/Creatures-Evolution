@@ -46,7 +46,6 @@ public class LabelNode: SKNode
         super.init()
         self.addChild( textNode )
         
-        
         if let shadowColor = shadowColor
         {
             let shadowNode       = SKLabelNode()
@@ -68,5 +67,11 @@ public class LabelNode: SKNode
     required init?( coder: NSCoder )
     {
         nil
+    }
+    
+    public func update( text: String )
+    {
+        self.textNode.text    = text
+        self.shadowNode?.text = text
     }
 }

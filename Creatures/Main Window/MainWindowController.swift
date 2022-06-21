@@ -31,11 +31,13 @@ public class MainWindowController: NSWindowController
     @objc public private( set ) dynamic var settingsWindowController: SettingsWindowController?
     @objc public private( set ) dynamic var detailViewController:     DetailViewController?
     @objc public private( set ) dynamic var statsViewController:      StatsViewController?
+    @objc public private( set ) dynamic var view:                     SKView?
+    @objc public private( set ) dynamic var settings:                 Settings?
     
-    @IBOutlet private var contentView: NSView!
-    @IBOutlet private var statsView:   NSView!
+    @IBOutlet private var contentView:  NSView!
+    @IBOutlet private var statsView:    NSView!
+    @IBOutlet private var settingsMenu: NSMenu!
     
-    private var view:                     SKView?
     private var gameOverObserver:         NSKeyValueObservation?
     private var eventLogWindowController: EventLogWindowController?
     
@@ -66,7 +68,7 @@ public class MainWindowController: NSWindowController
     
     @IBAction func show( _ sender: Any? )
     {
-        let settingsController              = SettingsWindowController()
+        let settingsController              = SettingsWindowController( settings: self.settings )
         settingsController.showCancelButton = self.scene != nil
         
         guard let window = self.window, let settingsWindow = settingsController.window else
@@ -101,6 +103,7 @@ public class MainWindowController: NSWindowController
             let scene             = Scene( size: view.bounds.size, settings: settingsController.settings )
             self.view             = view
             self.scene            = scene
+            self.settings         = settingsController.settings
             self.gameOverObserver = scene.observe( \.isGameOver )
             {
                 [ weak self ] _, _ in guard let self = self else { return }
@@ -216,7 +219,22 @@ public class MainWindowController: NSWindowController
         }
     }
     
+    @IBAction public func showFPS( _ sender: Any? )
+    {
+        self.toggleFPS( true )
+    }
+    
+    @IBAction public func hideFPS( _ sender: Any? )
+    {
+        self.toggleFPS( false )
+    }
+    
     @IBAction public func toggleFPS( _ sender: Any? )
+    {
+        self.toggleFPS( self.view?.showsFPS ?? false )
+    }
+    
+    private func toggleFPS( _ flag: Bool )
     {
         guard let view = self.view else
         {
@@ -225,12 +243,27 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        view.showsFPS               = view.showsFPS == false
-        Preferences.shared.showsFPS = view.showsFPS
+        view.showsFPS               = flag
+        Preferences.shared.showsFPS = flag
+    }
+    
+    @IBAction public func showDrawCount( _ sender: Any? )
+    {
+        self.toggleDrawCount( true )
+    }
+    
+    @IBAction public func hideDrawCount( _ sender: Any? )
+    {
+        self.toggleDrawCount( false )
     }
     
     @IBAction public func toggleDrawCount( _ sender: Any? )
     {
+        self.toggleDrawCount( self.view?.showsDrawCount ?? false )
+    }
+    
+    private func toggleDrawCount( _ flag: Bool )
+    {
         guard let view = self.view else
         {
             NSSound.beep()
@@ -238,24 +271,26 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        view.showsDrawCount               = view.showsDrawCount == false
-        Preferences.shared.showsDrawCount = view.showsDrawCount
+        view.showsDrawCount               = flag
+        Preferences.shared.showsDrawCount = flag
+    }
+    
+    @IBAction public func showNodeCount( _ sender: Any? )
+    {
+        self.toggleNodeCount( true )
+    }
+    
+    @IBAction public func hideNodeCount( _ sender: Any? )
+    {
+        self.toggleNodeCount( false )
     }
     
     @IBAction public func toggleNodeCount( _ sender: Any? )
     {
-        guard let view = self.view else
-        {
-            NSSound.beep()
-            
-            return
-        }
-        
-        view.showsNodeCount               = view.showsNodeCount == false
-        Preferences.shared.showsNodeCount = view.showsNodeCount
+        self.toggleNodeCount( self.view?.showsNodeCount ?? false )
     }
     
-    @IBAction public func toggleQuadCount( _ sender: Any? )
+    private func toggleNodeCount( _ flag: Bool )
     {
         guard let view = self.view else
         {
@@ -264,8 +299,58 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        view.showsQuadCount               = view.showsQuadCount == false
-        Preferences.shared.showsQuadCount = view.showsQuadCount
+        view.showsNodeCount               = flag
+        Preferences.shared.showsNodeCount = flag
+    }
+    
+    @IBAction public func showQuadCount( _ sender: Any? )
+    {
+        self.toggleQuadCount( true )
+    }
+    
+    @IBAction public func hideQuadCount( _ sender: Any? )
+    {
+        self.toggleQuadCount( false )
+    }
+    
+    @IBAction public func toggleQuadCount( _ sender: Any? )
+    {
+        self.toggleQuadCount( self.view?.showsQuadCount ?? false )
+    }
+    
+    private func toggleQuadCount( _ flag: Bool )
+    {
+        guard let view = self.view else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        view.showsQuadCount               = flag
+        Preferences.shared.showsQuadCount = flag
+    }
+    
+    @IBAction public func showCreaturesNames( _ sender: Any? )
+    {
+        self.settings?.world.showCreaturesNames = true
+    }
+    
+    @IBAction public func hideCreaturesNames( _ sender: Any? )
+    {
+        self.settings?.world.showCreaturesNames = false
+    }
+    
+    @IBAction public func toggleCreaturesNames( _ sender: Any? )
+    {
+        guard let settings = self.settings else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        settings.world.showCreaturesNames = settings.world.showCreaturesNames == false
     }
     
     @IBAction public func viewEventLog( _ sender: Any? )
@@ -278,5 +363,17 @@ public class MainWindowController: NSWindowController
         }
         
         self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )
+    }
+    
+    @IBAction public func showSettingsMenu( _ sender: Any? )
+    {
+        guard let view = sender as? NSView, let event = NSApp.currentEvent else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSMenu.popUpContextMenu( self.settingsMenu, with: event, for: view )
     }
 }

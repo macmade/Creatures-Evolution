@@ -27,9 +27,12 @@ import SpriteKit
 
 public class EventLogWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource
 {
-    @objc private dynamic var log = EventLog.shared
+    @objc private dynamic var log      = EventLog.shared
+    @objc private dynamic var isPaused = false
     
     @IBOutlet private var eventsController: NSArrayController!
+    
+    private var pauseObserver: NSKeyValueObservation?
     
     public override var windowNibName: NSNib.Name?
     {
@@ -41,6 +44,16 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
         super.windowDidLoad()
         
         self.eventsController.sortDescriptors = [ NSSortDescriptor( key: "time", ascending: false ) ]
+        
+        if let delegate = NSApp.delegate as? ApplicationDelegate
+        {
+            self.pauseObserver = delegate.mainWindowController.observe( \.isPaused )
+            {
+                [ weak self ] _, _ in self?.isPaused = delegate.mainWindowController.isPaused
+            }
+            
+            self.isPaused = delegate.mainWindowController.isPaused
+        }
     }
     
     @IBAction @objc public func showNode( _ event: Event )
@@ -53,6 +66,30 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
         }
         
         delegate.mainWindowController.showDetails( node: node )
+    }
+    
+    @IBAction @objc public func pause( _ sender: Any? )
+    {
+        guard let delegate = NSApp.delegate as? ApplicationDelegate else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        delegate.pause( nil )
+    }
+    
+    @IBAction @objc public func resume( _ sender: Any? )
+    {
+        guard let delegate = NSApp.delegate as? ApplicationDelegate else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        delegate.resume( nil )
     }
     
     @IBAction @objc public func clear( _ sender: Any? )

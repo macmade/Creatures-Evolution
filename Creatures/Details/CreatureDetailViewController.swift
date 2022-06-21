@@ -89,7 +89,15 @@ public class CreatureDetailViewController: DetailViewController, NSTableViewDele
     
     @IBAction public func kill( _ sender: Any? )
     {
-        ( self.node as? Creature )?.die( dropFood: true )
+        guard let creature = self.node as? Creature else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        creature.die( dropFood: true )
+        EventLog.shared.killed( creature: creature, by: nil )
     }
     
     @IBAction public func editName( _ sender: Any? )

@@ -25,10 +25,10 @@
 import Cocoa
 import SpriteKit
 
-public class SettingsWindowController: NSWindowController
+public class SettingsWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource
 {
     @objc public dynamic var showCancelButton = true
-    @objc public dynamic var settings         = Settings.restore()
+    @objc public dynamic var settings:          Settings
     
     @objc private dynamic var items: [ SettingsItem ]
     
@@ -37,9 +37,10 @@ public class SettingsWindowController: NSWindowController
     
     private var selectionObserver: NSKeyValueObservation?
     
-    public override init( window: NSWindow? )
+    public init( settings: Settings? )
     {
-        self.items = [
+        self.settings = settings ?? Settings.restore()
+        self.items    = [
             SettingsItem( title: "World",          symbol: "globe.europe.africa.fill",           controller: WorldSettingsViewController(         settings: self.settings ) ),
             SettingsItem( title: "Creatures",      symbol: "allergens",                          controller: CreaturesSettingsViewController(     settings: self.settings ) ),
             SettingsItem( title: "Plants",         symbol: "takeoutbag.and.cup.and.straw.fill",  controller: PlantsSettingsViewController(        settings: self.settings ) ),
@@ -60,7 +61,7 @@ public class SettingsWindowController: NSWindowController
             SettingsItem( title: "Vampire Sense",  symbol: "sensor.tag.radiowaves.forward.fill", controller: VampireSenseSettingsViewController(  settings: self.settings ) ),
         ]
         
-        super.init( window: window )
+        super.init( window: nil )
     }
     
     required init?( coder: NSCoder )
@@ -132,5 +133,10 @@ public class SettingsWindowController: NSWindowController
         {
             window.close()
         }
+    }
+    
+    public func tableView( _ tableView: NSTableView, rowViewForRow row: Int ) -> NSTableRowView?
+    {
+        TableRowView( frame: NSZeroRect )
     }
 }
