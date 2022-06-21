@@ -283,7 +283,6 @@
             </items>
             <point key="canvasLocation" x="859" y="-154"/>
         </menu>
-        <userDefaultsController representsSharedInstance="YES" id="2Sa-Xy-SSQ"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="15" height="15"/>
