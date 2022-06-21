@@ -13,7 +13,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="645" height="617"/>
+            <rect key="frame" x="0.0" y="0.0" width="650" height="617"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-nq-Tt9">
@@ -25,22 +25,22 @@
                     </textFieldCell>
                 </textField>
                 <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="OAp-E4-DFv">
-                    <rect key="frame" x="605" y="589" width="42" height="25"/>
+                    <rect key="frame" x="610" y="589" width="42" height="25"/>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.settings.sex.isEnabled" id="mK3-Z9-CBU"/>
                     </connections>
                 </switch>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e1L-tq-cm8">
-                    <rect key="frame" x="0.0" y="575" width="645" height="5"/>
+                    <rect key="frame" x="0.0" y="575" width="650" height="5"/>
                 </box>
                 <box title="General" translatesAutoresizingMaskIntoConstraints="NO" id="ivo-ds-4PX">
-                    <rect key="frame" x="-3" y="471" width="651" height="98"/>
+                    <rect key="frame" x="-3" y="471" width="656" height="98"/>
                     <view key="contentView" id="IYi-NW-JP4">
-                        <rect key="frame" x="3" y="3" width="645" height="80"/>
+                        <rect key="frame" x="3" y="3" width="650" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8M1-qU-ezE">
-                                <rect key="frame" x="20" y="20" width="605" height="40"/>
+                                <rect key="frame" x="20" y="20" width="610" height="40"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MsB-jE-8fK">
                                         <rect key="frame" x="-2" y="23" width="156" height="18"/>
@@ -82,16 +82,16 @@
                     </view>
                 </box>
                 <box title="Energy" translatesAutoresizingMaskIntoConstraints="NO" id="flN-2f-nI6">
-                    <rect key="frame" x="-3" y="258" width="651" height="209"/>
+                    <rect key="frame" x="-3" y="258" width="656" height="209"/>
                     <view key="contentView" id="8Jy-Af-9Yk">
-                        <rect key="frame" x="3" y="3" width="645" height="191"/>
+                        <rect key="frame" x="3" y="3" width="650" height="191"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9i-gR-XA6">
-                                <rect key="frame" x="20" y="20" width="605" height="151"/>
+                                <rect key="frame" x="20" y="20" width="610" height="151"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="qUb-IW-klk">
-                                        <rect key="frame" x="0.0" y="106" width="605" height="45"/>
+                                        <rect key="frame" x="0.0" y="106" width="610" height="45"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eP1-Vu-ZsJ">
                                                 <rect key="frame" x="-2" y="29" width="181" height="16"/>
@@ -102,14 +102,14 @@
                                                 </textFieldCell>
                                             </textField>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EGi-u7-ZEz">
-                                                <rect key="frame" x="-2" y="-5" width="505" height="28"/>
+                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
                                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="20" doubleValue="20" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="TbA-OS-ZiK"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.energyNeeded" id="f71-9o-EBz"/>
                                                 </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BNw-jq-XGq">
-                                                <rect key="frame" x="509" y="0.0" width="75" height="21"/>
+                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="Sa4-iR-f90"/>
                                                 </constraints>
@@ -127,7 +127,7 @@
                                                 </connections>
                                             </textField>
                                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="32A-Ck-6LG">
-                                                <rect key="frame" x="589" y="-3" width="19" height="28"/>
+                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
                                                 <stepperCell key="cell" continuous="YES" alignment="left" maxValue="20" id="Sjo-wF-Grv"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.energyNeeded" id="WNK-sk-grN"/>
@@ -149,7 +149,7 @@
                                         </constraints>
                                     </customView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Oon-KX-JsY">
-                                        <rect key="frame" x="0.0" y="53" width="605" height="45"/>
+                                        <rect key="frame" x="0.0" y="53" width="610" height="45"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ron-5W-no5">
                                                 <rect key="frame" x="-2" y="29" width="161" height="16"/>
@@ -160,14 +160,14 @@
                                                 </textFieldCell>
                                             </textField>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R91-II-nqd">
-                                                <rect key="frame" x="-2" y="-5" width="505" height="28"/>
+                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
                                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="20" doubleValue="20" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="PBA-WQ-Cry"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.energyCost" id="qoS-EB-WiH"/>
                                                 </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-sn-DzU">
-                                                <rect key="frame" x="509" y="0.0" width="75" height="21"/>
+                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="Ibg-1j-9ec"/>
                                                 </constraints>
@@ -185,7 +185,7 @@
                                                 </connections>
                                             </textField>
                                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-rt-EGi">
-                                                <rect key="frame" x="589" y="-3" width="19" height="28"/>
+                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
                                                 <stepperCell key="cell" continuous="YES" alignment="left" maxValue="20" id="Joa-bo-Nxs"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.energyCost" id="Oaa-Ea-syv"/>
@@ -207,7 +207,7 @@
                                         </constraints>
                                     </customView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="zyF-1u-9ap">
-                                        <rect key="frame" x="0.0" y="0.0" width="605" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="610" height="45"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OcK-U6-haK">
                                                 <rect key="frame" x="-2" y="29" width="137" height="16"/>
@@ -218,14 +218,14 @@
                                                 </textFieldCell>
                                             </textField>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qal-ji-dh2">
-                                                <rect key="frame" x="-2" y="-5" width="505" height="28"/>
+                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
                                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="100" tickMarkPosition="below" numberOfTickMarks="20" sliderType="linear" id="FJc-H2-GaW"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.chance" id="whG-Mt-x3b"/>
                                                 </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7dA-vj-qvk">
-                                                <rect key="frame" x="509" y="0.0" width="75" height="21"/>
+                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="WEA-M8-4KL"/>
                                                 </constraints>
@@ -243,7 +243,7 @@
                                                 </connections>
                                             </textField>
                                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rca-FJ-JMs">
-                                                <rect key="frame" x="589" y="-3" width="19" height="28"/>
+                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
                                                 <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="qFL-mS-izd"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.chance" id="Fv7-4C-XZl"/>
@@ -294,16 +294,16 @@
                     </view>
                 </box>
                 <box title="Other" translatesAutoresizingMaskIntoConstraints="NO" id="Pgb-k2-FAn">
-                    <rect key="frame" x="-3" y="45" width="651" height="209"/>
+                    <rect key="frame" x="-3" y="45" width="656" height="209"/>
                     <view key="contentView" id="ooG-tD-K2K">
-                        <rect key="frame" x="3" y="3" width="645" height="191"/>
+                        <rect key="frame" x="3" y="3" width="650" height="191"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XfR-2B-BYv">
-                                <rect key="frame" x="20" y="20" width="605" height="151"/>
+                                <rect key="frame" x="20" y="20" width="610" height="151"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="CKj-Q9-eMr">
-                                        <rect key="frame" x="0.0" y="106" width="605" height="45"/>
+                                        <rect key="frame" x="0.0" y="106" width="610" height="45"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NAX-Ep-TSm">
                                                 <rect key="frame" x="-2" y="29" width="159" height="16"/>
@@ -314,14 +314,14 @@
                                                 </textFieldCell>
                                             </textField>
                                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vHw-dH-aUn">
-                                                <rect key="frame" x="-2" y="-5" width="505" height="28"/>
+                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
                                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="20" doubleValue="20" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Im6-AL-CIH"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.recoveryTime" id="FA9-tM-we0"/>
                                                 </connections>
                                             </slider>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qj6-jH-hN2">
-                                                <rect key="frame" x="509" y="0.0" width="75" height="21"/>
+                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="5y8-ep-mft"/>
                                                 </constraints>
@@ -339,7 +339,7 @@
                                                 </connections>
                                             </textField>
                                             <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uwZ-zI-FIB">
-                                                <rect key="frame" x="589" y="-3" width="19" height="28"/>
+                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
                                                 <stepperCell key="cell" continuous="YES" alignment="left" maxValue="20" id="gdX-UV-490"/>
                                                 <connections>
                                                     <binding destination="-2" name="value" keyPath="self.settings.sex.recoveryTime" id="aBT-DF-Dih"/>
@@ -502,7 +502,7 @@
                     </view>
                 </box>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jxj-NJ-V9h">
-                    <rect key="frame" x="0.0" y="38" width="645" height="5"/>
+                    <rect key="frame" x="0.0" y="38" width="650" height="5"/>
                 </box>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abn-UQ-uZx">
                     <rect key="frame" x="0.0" y="3" width="20" height="26"/>
@@ -513,7 +513,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="questionmark.circle.fill" catalog="system" id="XI6-B0-M9v"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-2v-NVU">
-                    <rect key="frame" x="26" y="0.0" width="621" height="32"/>
+                    <rect key="frame" x="26" y="0.0" width="626" height="32"/>
                     <textFieldCell key="cell" selectable="YES" id="GTl-LT-Ear">
                         <font key="font" metaFont="system"/>
                         <string key="title">Creatures evolving this gene will be able to reproduce using sex.

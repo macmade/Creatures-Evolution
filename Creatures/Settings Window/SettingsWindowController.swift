@@ -35,7 +35,9 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     @IBOutlet private var itemsController: NSArrayController!
     @IBOutlet private var contentView:     NSView!
     
-    private var selectionObserver: NSKeyValueObservation?
+    private var selectionObserver:    NSKeyValueObservation?
+    private var animating           = false
+    private let controllerMinHeight = 400.0
     
     public init( settings: Settings? )
     {
@@ -86,16 +88,6 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
         self.selectionChanged()
     }
     
-    private func selectionChanged()
-    {
-        guard let selected = self.itemsController.selectedObjects.first as? SettingsItem else
-        {
-            return
-        }
-        
-        self.contentView.addFillingSubview( selected.controller.view, removeAllExisting: true )
-    }
-    
     @IBAction public func save( _ sender: Any? )
     {
         self.endSheet( response: .OK )
@@ -138,5 +130,107 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     public func tableView( _ tableView: NSTableView, rowViewForRow row: Int ) -> NSTableRowView?
     {
         TableRowView( frame: NSZeroRect )
+    }
+    
+    private func selectionChanged()
+    {
+        guard let item = self.itemsController.selectedObjects.first as? SettingsItem else
+        {
+            return
+        }
+        
+        self.showController( item.controller )
+    }
+    
+    private func windowFrame( for controller: NSViewController ) -> NSRect
+    {
+        guard let container = self.contentView,
+              let window    = self.window
+        else
+        {
+            return NSRect.zero
+        }
+        
+        let diffX = container.frame.size.width  - controller.view.frame.size.width
+        let diffY = container.frame.size.height - controller.view.frame.size.height
+        var rect  = window.frame
+        
+        rect.origin.x    += diffX / 2
+        rect.origin.y    += diffY
+        rect.size.width  -= diffX
+        rect.size.height -= diffY
+        
+        return rect
+    }
+    
+    private func showController( _ controller: NSViewController )
+    {
+        guard let container = self.contentView, let window = self.window else
+        {
+            return
+        }
+        
+        if controller.view == container.subviews.first
+        {
+            return
+        }
+        
+        if controller.view.frame.size.height < self.controllerMinHeight
+        {
+            var frame             = controller.view.frame
+            frame.size.height     = self.controllerMinHeight
+            controller.view.frame = frame
+        }
+        
+        let rect = self.windowFrame( for: controller )
+        
+        container.subviews.forEach { $0.removeFromSuperview() }
+        
+        if window.isVisible
+        {
+            self.animating             = true
+            controller.view.alphaValue = 0
+            
+            self.window?.layoutIfNeeded()
+            container.layoutSubtreeIfNeeded()
+            controller.view.layoutSubtreeIfNeeded()
+            
+            NSAnimationContext.runAnimationGroup(
+                {
+                    context in
+                    
+                    self.window?.layoutIfNeeded()
+                    container.layoutSubtreeIfNeeded()
+                    controller.view.layoutSubtreeIfNeeded()
+                    
+                    window.animator().setFrame( rect, display: true, animate: true )
+                },
+                completionHandler:
+                {
+                    container.addSubview( controller.view )
+                    container.addConstraint( NSLayoutConstraint( item: container, attribute: .width,   relatedBy: .equal, toItem: controller.view, attribute: .width,   multiplier: 1, constant: 0 ) )
+                    container.addConstraint( NSLayoutConstraint( item: container, attribute: .height,  relatedBy: .equal, toItem: controller.view, attribute: .height,  multiplier: 1, constant: 0 ) )
+                    container.addConstraint( NSLayoutConstraint( item: container, attribute: .centerX, relatedBy: .equal, toItem: controller.view, attribute: .centerX, multiplier: 1, constant: 0 ) )
+                    container.addConstraint( NSLayoutConstraint( item: container, attribute: .centerY, relatedBy: .equal, toItem: controller.view, attribute: .centerY, multiplier: 1, constant: 0 ) )
+                    
+                    controller.view.animator().alphaValue = 1
+                    self.animating                        = false
+                }
+            )
+        }
+        else
+        {
+            self.window?.setFrame( rect, display: false, animate: false )
+            container.addSubview( controller.view )
+            container.addConstraint( NSLayoutConstraint( item: container, attribute: .width,   relatedBy: .equal, toItem: controller.view, attribute: .width,   multiplier: 1, constant: 0 ) )
+            container.addConstraint( NSLayoutConstraint( item: container, attribute: .height,  relatedBy: .equal, toItem: controller.view, attribute: .height,  multiplier: 1, constant: 0 ) )
+            container.addConstraint( NSLayoutConstraint( item: container, attribute: .centerX, relatedBy: .equal, toItem: controller.view, attribute: .centerX, multiplier: 1, constant: 0 ) )
+            container.addConstraint( NSLayoutConstraint( item: container, attribute: .centerY, relatedBy: .equal, toItem: controller.view, attribute: .centerY, multiplier: 1, constant: 0 ) )
+        }
+    }
+    
+    public func tableView( _ tableView: NSTableView, shouldSelectRow row: Int ) -> Bool
+    {
+        return self.animating == false
     }
 }

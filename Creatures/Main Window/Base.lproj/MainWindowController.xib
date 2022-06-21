@@ -169,15 +169,21 @@
                         </binding>
                     </connections>
                 </menuItem>
+                <menuItem title="Reset" image="arrow.clockwise" catalog="system" id="HVx-l4-Lh1">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="reset:" target="-2" id="Lrb-ZZ-Wii"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="yPB-76-RDa"/>
-                <menuItem title="Show Creature Names" id="G8L-kU-kt4">
+                <menuItem title="Show Creature Names" image="NSTouchBarTagIconTemplate" id="G8L-kU-kt4">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="showCreaturesNames:" target="-2" id="yLO-Xi-5vU"/>
                         <binding destination="-2" name="hidden" keyPath="self.settings.world.showCreaturesNames" id="zea-gC-FgF"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Show Creature Names" state="on" id="FaV-8Q-lqu">
+                <menuItem title="Hide Creature Names" image="tag.slash" catalog="system" id="FaV-8Q-lqu">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="hideCreaturesNames:" target="-2" id="CWW-bd-Scf"/>
@@ -188,14 +194,14 @@
                         </binding>
                     </connections>
                 </menuItem>
-                <menuItem title="View Event Log..." id="aen-kK-jIR">
+                <menuItem title="View Event Log..." image="macwindow" catalog="system" id="aen-kK-jIR">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="viewEventLog:" target="-2" id="yyB-il-XUz"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="8ja-sE-j1X"/>
-                <menuItem title="Debug" id="4zw-8h-Vnt">
+                <menuItem title="Debug" image="ladybug" catalog="system" id="4zw-8h-Vnt">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Debug" id="LvI-uZ-vvP">
                         <items>
@@ -282,7 +288,12 @@
     <resources>
         <image name="NSActionTemplate" width="15" height="15"/>
         <image name="NSRefreshTemplate" width="14" height="16"/>
+        <image name="NSTouchBarTagIconTemplate" width="17" height="17"/>
+        <image name="arrow.clockwise" catalog="system" width="14" height="16"/>
+        <image name="ladybug" catalog="system" width="18" height="18"/>
+        <image name="macwindow" catalog="system" width="18" height="14"/>
         <image name="pause.fill" catalog="system" width="11" height="13"/>
         <image name="play.fill" catalog="system" width="12" height="13"/>
+        <image name="tag.slash" catalog="system" width="17" height="17"/>
     </resources>
 </document>
