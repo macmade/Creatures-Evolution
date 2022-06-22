@@ -24,36 +24,18 @@
 
 import Cocoa
 
-public class PredatorSettingsViewController: SettingsViewController
+public class CombatSettings: NSObject, Codable
 {
-    public init( settings: Settings )
-    {
-        super.init( title: "Predator", settings: settings, enabled: \.predator.isEnabled )
-    }
-    
-    required init?( coder: NSCoder )
-    {
-        nil
-    }
-    
-    public override func restoreDefaults()
-    {
-        self.settings.predator = PredatorSettings()
-    }
-    
-    public override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        
-        self.helpText = "Creatures evolving this gene will use other creatures as food source, killing them in the process.\nNote that predators won't attack other predators or related creatures, unless they've evolved the cannibal gene."
-        
-        self.addBox(
-            title: "General",
-            controllers:
-            [
-                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.predator.isActive ),
-                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.predator.canRegress ),
-            ]
-        )
-    }
+    @objc public dynamic var isEnabled              = true
+    @objc public dynamic var isActive               = false
+    @objc public dynamic var canRegress             = true
+    @objc public dynamic var deactivates            = [ String ]()
+    @objc public dynamic var defaultMultiplier      = 1.0
+    @objc public dynamic var minimumMultiplier      = 0.1
+    @objc public dynamic var maximumMultiplier      = 5.0
+    @objc public dynamic var minimumMutationChange  = 0.2
+    @objc public dynamic var maximumMutationChange  = 0.5
+    @objc public dynamic var chanceIfSmaller        = 30
+    @objc public dynamic var chanceIfSameSize       = 60
+    @objc public dynamic var chanceIfBigger         = 90
 }

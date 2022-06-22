@@ -63,7 +63,10 @@ public class AddGeneWindowController: NSWindowController
             self.genesController.addObject( $0 )
         }
         
-        self.selectedGene = self.creature.genes.first
+        self.genesController.sortDescriptors = [ NSSortDescriptor( key: "name", ascending: true ) ]
+        
+        let arranged      = self.genesController.arrangedObjects as? [ Gene ]
+        self.selectedGene = arranged?.first
     }
     
     @IBAction public func cancel( _ sender: Any? )

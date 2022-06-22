@@ -39,6 +39,11 @@ public class EvolutionHelper
             genes.append( Speed( active: settings.speed.isActive, settings: settings ) )
         }
         
+        if settings.combat.isEnabled
+        {
+            genes.append( Combat( active: settings.combat.isActive, settings: settings ) )
+        }
+        
         if settings.mitosis.isEnabled
         {
             genes.append( Mitosis( active: settings.mitosis.isActive, settings: settings ) )

@@ -31,6 +31,7 @@ public class Settings: NSObject, Codable
     @objc public dynamic var plants         = PlantsSettings()
     @objc public dynamic var meat           = MeatSettings()
     @objc public dynamic var speed          = SpeedSettings()
+    @objc public dynamic var combat         = CombatSettings()
     @objc public dynamic var mitosis        = MitosisSettings()
     @objc public dynamic var sex            = SexSettings()
     @objc public dynamic var herbivore      = HerbivoreSettings()

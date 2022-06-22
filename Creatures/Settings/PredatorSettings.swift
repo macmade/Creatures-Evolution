@@ -26,11 +26,8 @@ import Cocoa
 
 public class PredatorSettings: NSObject, Codable
 {
-    @objc public dynamic var isEnabled              = true
-    @objc public dynamic var isActive               = false
-    @objc public dynamic var canRegress             = false
-    @objc public dynamic var deactivates            = [ "Herbivore", "Scavenger", "Vampire" ]
-    @objc public dynamic var combatChanceIfSmaller  = 30
-    @objc public dynamic var combatChanceIfSameSize = 60
-    @objc public dynamic var combatChanceIfBigger   = 90
+    @objc public dynamic var isEnabled   = true
+    @objc public dynamic var isActive    = false
+    @objc public dynamic var canRegress  = false
+    @objc public dynamic var deactivates = [ "Herbivore", "Scavenger", "Vampire" ]
 }

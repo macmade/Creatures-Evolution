@@ -100,13 +100,7 @@ public class Predator: Gene
             return
         }
         
-        let chances = (
-            smaller: self.settings.predator.combatChanceIfSmaller,
-            same:    self.settings.predator.combatChanceIfSameSize,
-            bigger:  self.settings.predator.combatChanceIfBigger
-        )
-        
-        if creature.fight( other: other, chances: chances )
+        if creature.fight( other: other )
         {
             if other.energy > 0
             {

@@ -39,7 +39,7 @@ public class PreySense: Gene
     
     public override var name: String
     {
-        "Creature Sense"
+        "Prey Sense"
     }
     
     public override var icon: NSImage?
