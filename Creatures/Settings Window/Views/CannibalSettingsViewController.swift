@@ -46,8 +46,8 @@ public class CannibalSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.cannibal.isActive ),
-                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.cannibal.canRegress ),
+                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.cannibal.isActive ),
+                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.cannibal.canRegress ),
             ]
         )
         
@@ -55,9 +55,9 @@ public class CannibalSettingsViewController: SettingsViewController
             title: "Behavior",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Can eat parents",  settings: self.settings, key: \.cannibal.canEatParents ),
-                SettingsBoolValueCheckboxViewController( title: "Can eat children", settings: self.settings, key: \.cannibal.canEatChildren ),
-                SettingsBoolValueCheckboxViewController( title: "Can eat siblings", settings: self.settings, key: \.cannibal.canEatSiblings ),
+                SettingsBoolViewController( title: "Can eat parents",  settings: self.settings, key: \.cannibal.canEatParents ),
+                SettingsBoolViewController( title: "Can eat children", settings: self.settings, key: \.cannibal.canEatChildren ),
+                SettingsBoolViewController( title: "Can eat siblings", settings: self.settings, key: \.cannibal.canEatSiblings ),
             ]
         )
     }

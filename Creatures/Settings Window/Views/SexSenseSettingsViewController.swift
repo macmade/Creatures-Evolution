@@ -46,8 +46,8 @@ public class SexSenseSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.sexSense.isActive ),
-                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.sexSense.canRegress ),
+                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.sexSense.isActive ),
+                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.sexSense.canRegress ),
             ]
         )
     }

@@ -46,8 +46,8 @@ public class PredatorSenseSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.predatorSense.isActive ),
-                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.predatorSense.canRegress ),
+                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.predatorSense.isActive ),
+                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.predatorSense.canRegress ),
             ]
         )
     }

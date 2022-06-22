@@ -46,8 +46,8 @@ public class VampireSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.vampire.isActive ),
-                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.vampire.canRegress ),
+                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.vampire.isActive ),
+                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.vampire.canRegress ),
             ]
         )
     }

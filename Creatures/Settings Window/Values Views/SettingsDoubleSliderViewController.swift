@@ -24,7 +24,7 @@
 
 import Cocoa
 
-public class SettingsDoubleValueSliderViewController: NSViewController, SettingsValueViewController
+public class SettingsDoubleSliderViewController: NSViewController, SettingsValueViewController
 {
     @objc private dynamic var settings: Settings
     
@@ -61,7 +61,7 @@ public class SettingsDoubleValueSliderViewController: NSViewController, Settings
     
     public override var nibName: NSNib.Name?
     {
-        "SettingsValueSliderViewController"
+        "SettingsSliderViewController"
     }
     
     public override func viewDidLoad()

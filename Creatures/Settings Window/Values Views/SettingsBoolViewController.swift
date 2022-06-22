@@ -24,7 +24,7 @@
 
 import Cocoa
 
-public class SettingsBoolValueCheckboxViewController: NSViewController, SettingsValueViewController
+public class SettingsBoolViewController: NSViewController, SettingsValueViewController
 {
     @objc private dynamic var settings: Settings
     
@@ -36,10 +36,18 @@ public class SettingsBoolValueCheckboxViewController: NSViewController, Settings
         }
     }
     
-    private var key: WritableKeyPath< Settings, Bool >
+    private var style: Style
+    private var key:   WritableKeyPath< Settings, Bool >
     
-    public init( title: String, settings: Settings, key: WritableKeyPath< Settings, Bool > )
+    public enum Style
     {
+        case asCheckbox
+        case asSwitch
+    }
+    
+    public init( title: String, settings: Settings, key: WritableKeyPath< Settings, Bool >, style: Style = .asCheckbox )
+    {
+        self.style    = style
         self.settings = settings
         self.key      = key
         self.value    = settings[ keyPath: key ]
@@ -56,7 +64,7 @@ public class SettingsBoolValueCheckboxViewController: NSViewController, Settings
     
     public override var nibName: NSNib.Name?
     {
-        "SettingsBoolValueCheckboxViewController"
+        style == .asSwitch ? "SettingsBoolSwitchViewController" : "SettingsBoolCheckboxViewController"
     }
     
     public override func viewDidLoad()

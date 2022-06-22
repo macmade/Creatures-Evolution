@@ -44,6 +44,14 @@ public class WorldSettingsViewController: SettingsViewController
     {
         super.viewDidLoad()
         self.updatePreview()
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsBoolViewController( title: "Show creatures names:", settings: self.settings, key: \.world.showCreaturesNames, style: .asSwitch )
+            ]
+        )
     }
     
     public override func updateSettings( settings: Settings )

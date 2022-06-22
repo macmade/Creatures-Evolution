@@ -46,8 +46,8 @@ public class HerbivoreSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.herbivore.isActive ),
-                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.herbivore.canRegress ),
+                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.herbivore.isActive ),
+                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.herbivore.canRegress ),
             ]
         )
     }

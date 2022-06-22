@@ -46,8 +46,8 @@ public class MitosisSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.mitosis.isActive ),
-                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.mitosis.canRegress ),
+                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.mitosis.isActive ),
+                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.mitosis.canRegress ),
             ]
         )
     }

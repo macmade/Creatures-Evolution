@@ -46,8 +46,8 @@ public class SpeedSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.speed.isActive ),
-                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.speed.canRegress ),
+                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.speed.isActive ),
+                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.speed.canRegress ),
             ]
         )
     }

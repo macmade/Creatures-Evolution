@@ -127,12 +127,13 @@
 		05394A792860DD700077D90C /* names-male.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05394A772860DD700077D90C /* names-male.txt */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
-		05A334712862A47500905208 /* SettingsDoubleValueSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleValueSliderViewController.swift */; };
-		05A334762862B9D500905208 /* SettingsIntValueSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334742862B9D500905208 /* SettingsIntValueSliderViewController.swift */; };
+		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
+		05A334762862B9D500905208 /* SettingsIntSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334742862B9D500905208 /* SettingsIntSliderViewController.swift */; };
 		05A334792862BA7F00905208 /* SettingsValueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334782862BA7F00905208 /* SettingsValueViewController.swift */; };
-		05A3347D2863240300905208 /* SettingsBoolValueCheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A3347C2863240300905208 /* SettingsBoolValueCheckboxViewController.swift */; };
-		05A334802863243300905208 /* SettingsBoolValueCheckboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A3347E2863243300905208 /* SettingsBoolValueCheckboxViewController.xib */; };
-		05A334812863243D00905208 /* SettingsValueSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A334832863243D00905208 /* SettingsValueSliderViewController.xib */; };
+		05A3347D2863240300905208 /* SettingsBoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A3347C2863240300905208 /* SettingsBoolViewController.swift */; };
+		05A334802863243300905208 /* SettingsBoolCheckboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A3347E2863243300905208 /* SettingsBoolCheckboxViewController.xib */; };
+		05A334812863243D00905208 /* SettingsSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A334832863243D00905208 /* SettingsSliderViewController.xib */; };
+		05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A334AE286346A400905208 /* SettingsBoolSwitchViewController.xib */; };
 		05B8A35628616034007870B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35528616034007870B3 /* Assets.xcassets */; };
 		05B8A3622861F2F3007870B3 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35B2861F2F3007870B3 /* Credit.swift */; };
 		05B8A3632861F2F3007870B3 /* CreditsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */; };
@@ -311,12 +312,13 @@
 		05394A772860DD700077D90C /* names-male.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-male.txt"; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
-		05A334702862A47500905208 /* SettingsDoubleValueSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleValueSliderViewController.swift; sourceTree = "<group>"; };
-		05A334742862B9D500905208 /* SettingsIntValueSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsIntValueSliderViewController.swift; sourceTree = "<group>"; };
+		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
+		05A334742862B9D500905208 /* SettingsIntSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsIntSliderViewController.swift; sourceTree = "<group>"; };
 		05A334782862BA7F00905208 /* SettingsValueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsValueViewController.swift; sourceTree = "<group>"; };
-		05A3347C2863240300905208 /* SettingsBoolValueCheckboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBoolValueCheckboxViewController.swift; sourceTree = "<group>"; };
-		05A3347F2863243300905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsBoolValueCheckboxViewController.xib; sourceTree = "<group>"; };
-		05A334822863243D00905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsValueSliderViewController.xib; sourceTree = "<group>"; };
+		05A3347C2863240300905208 /* SettingsBoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBoolViewController.swift; sourceTree = "<group>"; };
+		05A3347F2863243300905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsBoolCheckboxViewController.xib; sourceTree = "<group>"; };
+		05A334822863243D00905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsSliderViewController.xib; sourceTree = "<group>"; };
+		05A334AF286346A400905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsBoolSwitchViewController.xib; sourceTree = "<group>"; };
 		05B8A35528616034007870B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B8A35B2861F2F3007870B3 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsWindowController.swift; sourceTree = "<group>"; };
@@ -766,11 +768,12 @@
 		05A334AD286344E800905208 /* Values Views */ = {
 			isa = PBXGroup;
 			children = (
-				05A3347C2863240300905208 /* SettingsBoolValueCheckboxViewController.swift */,
-				05A3347E2863243300905208 /* SettingsBoolValueCheckboxViewController.xib */,
-				05A334702862A47500905208 /* SettingsDoubleValueSliderViewController.swift */,
-				05A334742862B9D500905208 /* SettingsIntValueSliderViewController.swift */,
-				05A334832863243D00905208 /* SettingsValueSliderViewController.xib */,
+				05A3347E2863243300905208 /* SettingsBoolCheckboxViewController.xib */,
+				05A334AE286346A400905208 /* SettingsBoolSwitchViewController.xib */,
+				05A3347C2863240300905208 /* SettingsBoolViewController.swift */,
+				05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */,
+				05A334742862B9D500905208 /* SettingsIntSliderViewController.swift */,
+				05A334832863243D00905208 /* SettingsSliderViewController.xib */,
 				05A334782862BA7F00905208 /* SettingsValueViewController.swift */,
 			);
 			path = "Values Views";
@@ -852,13 +855,14 @@
 				05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */,
 				053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */,
 				051A33412861F9B3001B605D /* License-Creatures.txt in Resources */,
+				05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */,
 				05394A782860DD700077D90C /* names-female.txt in Resources */,
 				05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */,
 				05394A09285F6E460077D90C /* StatsViewController.xib in Resources */,
 				05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */,
 				05252F092855E1F40090B385 /* SettingsWindowController.xib in Resources */,
 				05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */,
-				05A334812863243D00905208 /* SettingsValueSliderViewController.xib in Resources */,
+				05A334812863243D00905208 /* SettingsSliderViewController.xib in Resources */,
 				05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */,
 				05A3346B2862620900905208 /* Heart.sks in Resources */,
 				053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */,
@@ -866,7 +870,7 @@
 				051A33422861F9B3001B605D /* License-NameCorpus.txt in Resources */,
 				05252E542854DF410090B385 /* MainMenu.xib in Resources */,
 				05394A792860DD700077D90C /* names-male.txt in Resources */,
-				05A334802863243300905208 /* SettingsBoolValueCheckboxViewController.xib in Resources */,
+				05A334802863243300905208 /* SettingsBoolCheckboxViewController.xib in Resources */,
 				05252F6C285819710090B385 /* SettingsViewController.xib in Resources */,
 				05B8A35628616034007870B3 /* Assets.xcassets in Resources */,
 				05102107285B902600F11184 /* EditNameWindowController.xib in Resources */,
@@ -915,7 +919,7 @@
 				05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */,
 				05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */,
 				053949F8285EB8830077D90C /* DraggableView.swift in Sources */,
-				05A334762862B9D500905208 /* SettingsIntValueSliderViewController.swift in Sources */,
+				05A334762862B9D500905208 /* SettingsIntSliderViewController.swift in Sources */,
 				05252F5D2857FF3C0090B385 /* SettingsViewController.swift in Sources */,
 				05A334792862BA7F00905208 /* SettingsValueViewController.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
@@ -941,7 +945,7 @@
 				05252F73285819A60090B385 /* MeatSettingsViewController.swift in Sources */,
 				05B8A3622861F2F3007870B3 /* Credit.swift in Sources */,
 				05102090285AAF0100F11184 /* BackgroundView.swift in Sources */,
-				05A334712862A47500905208 /* SettingsDoubleValueSliderViewController.swift in Sources */,
+				05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */,
 				05252F74285819A60090B385 /* MeatSettings.swift in Sources */,
 				0510206C285A192800F11184 /* PlantSenseSettings.swift in Sources */,
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
@@ -992,7 +996,7 @@
 				05102077285A192800F11184 /* VampireSenseSettings.swift in Sources */,
 				05252EA72854E9210090B385 /* Food.swift in Sources */,
 				05252F66285815E30090B385 /* SexSettings.swift in Sources */,
-				05A3347D2863240300905208 /* SettingsBoolValueCheckboxViewController.swift in Sources */,
+				05A3347D2863240300905208 /* SettingsBoolViewController.swift in Sources */,
 				051020D0285B6E6600F11184 /* WorldSettingsViewController.swift in Sources */,
 				05102076285A192800F11184 /* SexSenseSettings.swift in Sources */,
 				05394A3A28607C1B0077D90C /* Speed.swift in Sources */,
@@ -1087,20 +1091,28 @@
 			name = FoodDetailViewController.xib;
 			sourceTree = "<group>";
 		};
-		05A3347E2863243300905208 /* SettingsBoolValueCheckboxViewController.xib */ = {
+		05A3347E2863243300905208 /* SettingsBoolCheckboxViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				05A3347F2863243300905208 /* Base */,
 			);
-			name = SettingsBoolValueCheckboxViewController.xib;
+			name = SettingsBoolCheckboxViewController.xib;
 			sourceTree = "<group>";
 		};
-		05A334832863243D00905208 /* SettingsValueSliderViewController.xib */ = {
+		05A334832863243D00905208 /* SettingsSliderViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				05A334822863243D00905208 /* Base */,
 			);
-			name = SettingsValueSliderViewController.xib;
+			name = SettingsSliderViewController.xib;
+			sourceTree = "<group>";
+		};
+		05A334AE286346A400905208 /* SettingsBoolSwitchViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05A334AF286346A400905208 /* Base */,
+			);
+			name = SettingsBoolSwitchViewController.xib;
 			sourceTree = "<group>";
 		};
 		05B8A35E2861F2F3007870B3 /* CreditsWindowController.xib */ = {
