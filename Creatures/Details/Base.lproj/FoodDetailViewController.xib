@@ -96,7 +96,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="195" height="16"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PFC-t3-O7o">
-                                    <rect key="frame" x="-2" y="0.0" width="91" height="16"/>
+                                    <rect key="frame" x="-2" y="0.0" width="99" height="16"/>
                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Energy:" id="6cv-5A-rHh">
                                         <font key="font" metaFont="systemBold"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -104,10 +104,10 @@
                                     </textFieldCell>
                                 </textField>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qB5-6S-ZiZ">
-                                    <rect key="frame" x="89" y="-7" width="36" height="27"/>
-                                    <buttonCell key="cell" type="push" title="Decrease Energy" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1qO-Tq-3qJ">
+                                    <rect key="frame" x="101" y="0.0" width="24" height="16"/>
+                                    <buttonCell key="cell" type="push" title="Decrease Energy" bezelStyle="rounded" image="NSRemoveTemplate" imagePosition="only" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1qO-Tq-3qJ">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="smallSystem"/>
+                                        <font key="font" metaFont="miniSystem"/>
                                     </buttonCell>
                                     <connections>
                                         <action selector="decreaseEnergy:" target="-2" id="nOd-lt-cNo"/>
@@ -119,10 +119,10 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bdY-FH-lFq">
-                                    <rect key="frame" x="121" y="-7" width="36" height="27"/>
-                                    <buttonCell key="cell" type="push" title="Increase Energy" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="u1p-4Z-O5u">
+                                    <rect key="frame" x="129" y="0.0" width="24" height="16"/>
+                                    <buttonCell key="cell" type="push" title="Increase Energy" bezelStyle="rounded" image="NSAddTemplate" imagePosition="only" alignment="center" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="u1p-4Z-O5u">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                        <font key="font" metaFont="smallSystem"/>
+                                        <font key="font" metaFont="miniSystem"/>
                                     </buttonCell>
                                     <connections>
                                         <action selector="increaseEnergy:" target="-2" id="vHq-65-luv"/>
