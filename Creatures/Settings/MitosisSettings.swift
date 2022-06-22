@@ -32,7 +32,7 @@ public class MitosisSettings: NSObject, Codable
     @objc public dynamic var deactivates    = [ "Sex" ]
     @objc public dynamic var energyNeeded   = 2
     @objc public dynamic var energyCost     = 1
-    @objc public dynamic var chance         = 75.0
-    @objc public dynamic var recoveryTime   = 5.0
+    @objc public dynamic var chance         = 75
+    @objc public dynamic var recoveryTime   = 5
     @objc public dynamic var mutationChance = 20
 }

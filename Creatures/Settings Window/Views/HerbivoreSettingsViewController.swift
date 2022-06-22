@@ -36,6 +36,11 @@ public class HerbivoreSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.herbivore = HerbivoreSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

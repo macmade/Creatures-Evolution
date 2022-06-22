@@ -24,11 +24,33 @@
 
 import Cocoa
 
-public class PreySenseSettingsViewController: SettingsViewController
+public class SettingsIntMenuViewController: NSViewController, SettingsValueViewController
 {
-    public init( settings: Settings )
+    @objc private dynamic var settings: Settings
+    
+    @objc private dynamic var value: Int
     {
-        super.init( title: "Prey Sense", settings: settings, enabled: \.preySense.isEnabled )
+        didSet
+        {
+            self.settings[ keyPath: self.key ] = self.value
+        }
+    }
+    
+    private var key:    WritableKeyPath< Settings, Int >
+    private var values: [ ( String, Int ) ]
+    
+    @IBOutlet private var popUp: NSPopUpButton!
+    
+    public init( title: String, settings: Settings, key: WritableKeyPath< Settings, Int >, values: [ ( String, Int ) ] )
+    {
+        self.settings = settings
+        self.key      = key
+        self.values   = values
+        self.value    = settings[ keyPath: key ]
+        
+        super.init( nibName: nil, bundle: nil )
+        
+        self.title = title
     }
     
     required init?( coder: NSCoder )
@@ -36,24 +58,33 @@ public class PreySenseSettingsViewController: SettingsViewController
         nil
     }
     
-    public override func restoreDefaults()
+    public override var nibName: NSNib.Name?
     {
-        self.settings.preySense = PreySenseSettings()
+        "SettingsIntMenuViewController"
     }
     
     public override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        self.helpText = "Creatures evolving this gene will be able to detect other creatures that can be used as preys.\nOnly effective for creatures having evolved the predator or vampire gene."
+        self.popUp.menu?.removeAllItems()
         
-        self.addBox(
-            title: "General",
-            controllers:
-            [
-                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.preySense.isActive ),
-                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.preySense.canRegress ),
-            ]
-        )
+        let items: [ NSMenuItem ] = self.values.map
+        {
+            let item = $0 == "--" ? NSMenuItem.separator() : NSMenuItem( title: $0, action: nil, keyEquivalent: "" )
+            item.tag = $1
+            
+            return item
+        }
+        
+        self.popUp.menu?.items = items
+        
+        self.popUp.selectItem( withTag: self.value )
+    }
+    
+    public func updateSettings( _ settings: Settings )
+    {
+        self.settings = settings
+        self.value    = settings[ keyPath: self.key ]
     }
 }

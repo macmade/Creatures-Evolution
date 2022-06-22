@@ -36,6 +36,11 @@ public class SexSenseSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.sexSense = SexSenseSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

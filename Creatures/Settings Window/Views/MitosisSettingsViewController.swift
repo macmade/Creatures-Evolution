@@ -36,6 +36,11 @@ public class MitosisSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.mitosis = MitosisSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -48,6 +53,25 @@ public class MitosisSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.mitosis.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.mitosis.canRegress ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Energy",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Energy needed:", settings: self.settings, key: \.mitosis.energyNeeded, minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Energy cost:",   settings: self.settings, key: \.mitosis.energyCost,   minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Recovery time:", settings: self.settings, key: \.mitosis.recoveryTime, minValue: 0, maxValue: 10 ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Other",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Reproduction chance:", settings: self.settings, key: \.mitosis.chance,         minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Mutation chance:",     settings: self.settings, key: \.mitosis.mutationChance, minValue: 0, maxValue: 100 ),
             ]
         )
     }

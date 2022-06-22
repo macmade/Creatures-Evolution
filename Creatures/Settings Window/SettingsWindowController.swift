@@ -35,6 +35,7 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     @IBOutlet private var itemsController: NSArrayController!
     @IBOutlet private var contentView:     NSView!
     
+    private var currentController:    SettingsViewController?
     private var selectionObserver:    NSKeyValueObservation?
     private var animating           = false
     private let controllerMinHeight = 400.0
@@ -100,12 +101,39 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     
     @IBAction public func restoreDefaults( _ sender: Any? )
     {
-        self.settings = Settings()
-        
-        self.items.forEach
+        guard let window = self.window else
         {
-            $0.controller.updateSettings( settings: self.settings )
+            NSSound.beep()
+            
+            return
         }
+        
+        let alert             = NSAlert()
+        alert.messageText     = "Restore Defaults"
+        alert.informativeText = "Do you want to restore defaults for all settings or only the current view?"
+        
+        alert.addButton( withTitle: "Restore All" )
+        alert.addButton( withTitle: "Restore Current" )
+        alert.addButton( withTitle: "Cancel" )
+        
+        alert.beginSheetModal( for: window )
+        {
+            if $0 == .alertFirstButtonReturn
+            {
+                self.settings = Settings()
+                
+                self.items.forEach
+                {
+                    $0.controller.updateSettings( settings: self.settings )
+                }
+            }
+            else if $0 == .alertSecondButtonReturn
+            {
+                self.currentController?.restoreDefaults()
+                self.currentController?.updateSettings( settings: self.settings )
+            }
+        }
+        
     }
     
     private func endSheet( response: NSApplication.ModalResponse )
@@ -163,7 +191,7 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
         return rect
     }
     
-    private func showController( _ controller: NSViewController )
+    private func showController( _ controller: SettingsViewController )
     {
         guard let container = self.contentView, let window = self.window else
         {
@@ -227,6 +255,8 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
             container.addConstraint( NSLayoutConstraint( item: container, attribute: .centerX, relatedBy: .equal, toItem: controller.view, attribute: .centerX, multiplier: 1, constant: 0 ) )
             container.addConstraint( NSLayoutConstraint( item: container, attribute: .centerY, relatedBy: .equal, toItem: controller.view, attribute: .centerY, multiplier: 1, constant: 0 ) )
         }
+        
+        self.currentController = controller
     }
     
     public func tableView( _ tableView: NSTableView, shouldSelectRow row: Int ) -> Bool

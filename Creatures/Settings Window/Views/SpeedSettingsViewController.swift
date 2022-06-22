@@ -36,6 +36,11 @@ public class SpeedSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.speed = SpeedSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -48,6 +53,18 @@ public class SpeedSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.speed.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.speed.canRegress ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Speed Multiplier",
+            controllers:
+            [
+                SettingsDoubleSliderViewController( title: "Default multiplier:",      settings: self.settings, key: \.speed.defaultMultiplier,     minValue: 0.1, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Minimum multiplier:",      settings: self.settings, key: \.speed.minimumMultiplier,     minValue: 0.1, maxValue: 1 ),
+                SettingsDoubleSliderViewController( title: "Maximum multiplier:",      settings: self.settings, key: \.speed.maximumMultiplier,     minValue: 2.0, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.speed.minimumMutationChange, minValue: 0.1, maxValue: 1 ),
+                SettingsDoubleSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.speed.maximumMutationChange, minValue: 0.1, maxValue: 1 ),
             ]
         )
     }

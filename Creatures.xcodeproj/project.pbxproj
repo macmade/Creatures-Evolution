@@ -134,6 +134,8 @@
 		05A334802863243300905208 /* SettingsBoolCheckboxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A3347E2863243300905208 /* SettingsBoolCheckboxViewController.xib */; };
 		05A334812863243D00905208 /* SettingsSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A334832863243D00905208 /* SettingsSliderViewController.xib */; };
 		05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A334AE286346A400905208 /* SettingsBoolSwitchViewController.xib */; };
+		05A334B7286348A100905208 /* SettingsIntMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334B6286348A100905208 /* SettingsIntMenuViewController.swift */; };
+		05A334BA286348A900905208 /* SettingsIntMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A334B8286348A900905208 /* SettingsIntMenuViewController.xib */; };
 		05B8A35628616034007870B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35528616034007870B3 /* Assets.xcassets */; };
 		05B8A3622861F2F3007870B3 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35B2861F2F3007870B3 /* Credit.swift */; };
 		05B8A3632861F2F3007870B3 /* CreditsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */; };
@@ -319,6 +321,8 @@
 		05A3347F2863243300905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsBoolCheckboxViewController.xib; sourceTree = "<group>"; };
 		05A334822863243D00905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsSliderViewController.xib; sourceTree = "<group>"; };
 		05A334AF286346A400905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsBoolSwitchViewController.xib; sourceTree = "<group>"; };
+		05A334B6286348A100905208 /* SettingsIntMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsIntMenuViewController.swift; sourceTree = "<group>"; };
+		05A334B9286348A900905208 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsIntMenuViewController.xib; sourceTree = "<group>"; };
 		05B8A35528616034007870B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B8A35B2861F2F3007870B3 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsWindowController.swift; sourceTree = "<group>"; };
@@ -772,6 +776,8 @@
 				05A334AE286346A400905208 /* SettingsBoolSwitchViewController.xib */,
 				05A3347C2863240300905208 /* SettingsBoolViewController.swift */,
 				05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */,
+				05A334B6286348A100905208 /* SettingsIntMenuViewController.swift */,
+				05A334B8286348A900905208 /* SettingsIntMenuViewController.xib */,
 				05A334742862B9D500905208 /* SettingsIntSliderViewController.swift */,
 				05A334832863243D00905208 /* SettingsSliderViewController.xib */,
 				05A334782862BA7F00905208 /* SettingsValueViewController.swift */,
@@ -854,6 +860,7 @@
 				05394A1A285F7C3A0077D90C /* CreatureStatusChartViewController.xib in Resources */,
 				05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */,
 				053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */,
+				05A334BA286348A900905208 /* SettingsIntMenuViewController.xib in Resources */,
 				051A33412861F9B3001B605D /* License-Creatures.txt in Resources */,
 				05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */,
 				05394A782860DD700077D90C /* names-female.txt in Resources */,
@@ -908,6 +915,7 @@
 				05394A5B28608DC30077D90C /* Event.swift in Sources */,
 				05102074285A192800F11184 /* ScavengerSettings.swift in Sources */,
 				051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */,
+				05A334B7286348A100905208 /* SettingsIntMenuViewController.swift in Sources */,
 				053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */,
 				05252F5F2858011B0090B385 /* MitosisSettings.swift in Sources */,
 				05394A1E285F7D100077D90C /* CreatureStatusChartViewItem.swift in Sources */,
@@ -1113,6 +1121,14 @@
 				05A334AF286346A400905208 /* Base */,
 			);
 			name = SettingsBoolSwitchViewController.xib;
+			sourceTree = "<group>";
+		};
+		05A334B8286348A900905208 /* SettingsIntMenuViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05A334B9286348A900905208 /* Base */,
+			);
+			name = SettingsIntMenuViewController.xib;
 			sourceTree = "<group>";
 		};
 		05B8A35E2861F2F3007870B3 /* CreditsWindowController.xib */ = {

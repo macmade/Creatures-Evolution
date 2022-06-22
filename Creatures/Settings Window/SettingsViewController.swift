@@ -81,6 +81,9 @@ import Cocoa
         "SettingsViewController"
     }
     
+    public func restoreDefaults()
+    {}
+    
     public func updateSettings( settings: Settings )
     {
         self.settings = settings

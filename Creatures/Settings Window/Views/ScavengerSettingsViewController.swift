@@ -36,6 +36,11 @@ public class ScavengerSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.scavenger = ScavengerSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

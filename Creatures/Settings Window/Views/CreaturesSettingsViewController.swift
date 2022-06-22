@@ -36,6 +36,11 @@ public class CreaturesSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.creatures = CreaturesSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

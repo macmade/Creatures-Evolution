@@ -36,6 +36,11 @@ public class SexSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.sex = SexSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -48,6 +53,26 @@ public class SexSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.sex.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.sex.canRegress ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Energy",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Energy needed:", settings: self.settings, key: \.sex.energyNeeded, minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Energy cost:",   settings: self.settings, key: \.sex.energyCost,   minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Recovery time:", settings: self.settings, key: \.sex.recoveryTime, minValue: 0, maxValue: 10 ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Other",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Reproduction chance:",    settings: self.settings, key: \.sex.chance,              minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Mutation chance:",        settings: self.settings, key: \.sex.mutationChance,      minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Max number of children:", settings: self.settings, key: \.sex.maxNumberOfChildren, minValue: 1, maxValue: 10 ),
             ]
         )
     }

@@ -76,12 +76,12 @@ public class Mitosis: Gene
             return
         }
         
-        if let lastUsed = self.lastUsed, lastUsed + self.settings.mitosis.recoveryTime > scene.elapsedTime 
+        if let lastUsed = self.lastUsed, lastUsed + Double( self.settings.mitosis.recoveryTime ) > scene.elapsedTime
         {
             return
         }
         
-        if Double.random( in: 0 ... 100 ) > self.settings.mitosis.chance
+        if Double.random( in: 0 ... 100 ) > Double( self.settings.mitosis.chance )
         {
             return
         }

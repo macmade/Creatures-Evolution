@@ -40,16 +40,27 @@ public class WorldSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.world = WorldSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
         self.updatePreview()
         
+        var backgrounds = Constants.backgroundImages.enumerated().map { ( $1, $0 ) }
+        
+        backgrounds.insert( ( "Random", -1 ), at: 0 )
+        backgrounds.insert( ( "--",     -2 ), at: 1 )
+        
         self.addBox(
             title: "General",
             controllers:
             [
-                SettingsBoolViewController( title: "Show creatures names:", settings: self.settings, key: \.world.showCreaturesNames, style: .asSwitch )
+                SettingsIntMenuViewController( title: "Environment:",          settings: self.settings, key: \.world.environment, values: backgrounds ),
+                SettingsBoolViewController(    title: "Show creatures names:", settings: self.settings, key: \.world.showCreaturesNames, style: .asSwitch ),
             ]
         )
     }

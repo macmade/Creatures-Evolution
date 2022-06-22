@@ -26,14 +26,14 @@ import Cocoa
 
 public class SexSettings: NSObject, Codable
 {
-    @objc public dynamic var isEnabled                = true
-    @objc public dynamic var isActive                 = false
-    @objc public dynamic var canRegress               = false
-    @objc public dynamic var deactivates              = [ "Mitosis" ]
-    @objc public dynamic var energyNeeded             = 2
-    @objc public dynamic var energyCost               = 1
-    @objc public dynamic var chance                   = 75.0
-    @objc public dynamic var recoveryTime             = 5.0
-    @objc public dynamic var possibleNumberOfChildren = 3
-    @objc public dynamic var mutationChance           = 20
+    @objc public dynamic var isEnabled           = true
+    @objc public dynamic var isActive            = false
+    @objc public dynamic var canRegress          = false
+    @objc public dynamic var deactivates         = [ "Mitosis" ]
+    @objc public dynamic var energyNeeded        = 2
+    @objc public dynamic var energyCost          = 1
+    @objc public dynamic var chance              = 75
+    @objc public dynamic var recoveryTime        = 5
+    @objc public dynamic var maxNumberOfChildren = 3
+    @objc public dynamic var mutationChance      = 20
 }

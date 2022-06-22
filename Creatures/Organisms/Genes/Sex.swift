@@ -145,12 +145,12 @@ public class Sex: Gene
             return
         }
         
-        if let lastUsed = self.lastUsed, lastUsed + self.settings.mitosis.recoveryTime > scene.elapsedTime
+        if let lastUsed = self.lastUsed, lastUsed + Double( self.settings.sex.recoveryTime ) > scene.elapsedTime
         {
             return
         }
         
-        if Double.random( in: 0 ... 100 ) > self.settings.sex.chance
+        if Double.random( in: 0 ... 100 ) > Double( self.settings.sex.chance )
         {
             return
         }
@@ -171,7 +171,7 @@ public class Sex: Gene
                 other.isBaby = true
             }
             
-            for _ in 0 ..< self.settings.sex.possibleNumberOfChildren
+            for _ in 0 ..< self.settings.sex.maxNumberOfChildren
             {
                 let mutation = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.sex.mutationChance )
                 let copy      = Creature( energy: 1, genes: mutation.genes, parents: [ creature ], settings: self.settings )

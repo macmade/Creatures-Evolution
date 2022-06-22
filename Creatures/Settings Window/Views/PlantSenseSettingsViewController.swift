@@ -36,6 +36,11 @@ public class PlantSenseSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.plantSense = PlantSenseSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

@@ -26,8 +26,8 @@ import Cocoa
 
 public class VampireSettings: NSObject, Codable
 {
-    @objc public dynamic var isEnabled    = true
-    @objc public dynamic var isActive     = false
-    @objc public dynamic var canRegress   = false
-    @objc public dynamic var deactivates  = [ "Herbivore", "Scavenger", "Predator" ]
+    @objc public dynamic var isEnabled   = true
+    @objc public dynamic var isActive    = false
+    @objc public dynamic var canRegress  = false
+    @objc public dynamic var deactivates = [ "Herbivore", "Scavenger", "Predator" ]
 }

@@ -36,6 +36,11 @@ public class PlantsSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.plants = PlantsSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

@@ -36,6 +36,11 @@ public class VampireSenseSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.vampireSense = VampireSenseSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

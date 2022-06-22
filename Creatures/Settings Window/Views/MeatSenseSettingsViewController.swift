@@ -36,6 +36,11 @@ public class MeatSenseSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.meatSense = MeatSenseSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

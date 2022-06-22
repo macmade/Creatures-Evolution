@@ -36,6 +36,11 @@ public class CannibalSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.cannibal = CannibalSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()

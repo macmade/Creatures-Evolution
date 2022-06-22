@@ -36,6 +36,11 @@ public class PredatorSettingsViewController: SettingsViewController
         nil
     }
     
+    public override func restoreDefaults()
+    {
+        self.settings.predator = PredatorSettings()
+    }
+    
     public override func viewDidLoad()
     {
         super.viewDidLoad()
