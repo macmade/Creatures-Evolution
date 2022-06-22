@@ -96,12 +96,12 @@ public class NameGenerator
             return letters.randomElement()!
         }
         
-        public static func isVoyel( character: Character ) -> Bool
+        public class func isVoyel( character: Character ) -> Bool
         {
             return Letter.voyels.contains( character )
         }
         
-        public static func isConsonant( character: Character ) -> Bool
+        public class func isConsonant( character: Character ) -> Bool
         {
             return Letter.consonants.contains( character )
         }
@@ -167,7 +167,7 @@ public class NameGenerator
         }
     }
     
-    private static func readNames( source: String ) -> [ String ]
+    private class func readNames( source: String ) -> [ String ]
     {
         guard let url  = Bundle.main.url( forResource: source, withExtension: "txt" ),
               let data = try? Data( contentsOf: url ),

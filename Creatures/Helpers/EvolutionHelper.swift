@@ -30,7 +30,7 @@ public class EvolutionHelper
     private init()
     {}
     
-    public static func defaultGenes( settings: Settings ) -> [ Gene ]
+    public class func defaultGenes( settings: Settings ) -> [ Gene ]
     {
         var genes: [ Gene ] = []
         
@@ -120,7 +120,7 @@ public class EvolutionHelper
         return genes
     }
     
-    public static func deactivateConflictingGenes( gene: Gene, in genes: [ Gene ] )
+    public class func deactivateConflictingGenes( gene: Gene, in genes: [ Gene ] )
     {
         gene.deactivates.forEach
         {
@@ -139,7 +139,7 @@ public class EvolutionHelper
         }
     }
     
-    public static func mutate( genes: [ Gene ], mutationChance: Int ) -> ( genes: [ Gene ], event: String? )
+    public class func mutate( genes: [ Gene ], mutationChance: Int ) -> ( genes: [ Gene ], event: String? )
     {
         let copy = genes.compactMap { $0.copy() as? Gene }
             
@@ -193,5 +193,13 @@ public class EvolutionHelper
         }
         
         return ( genes: copy, event: event )
+    }
+    
+    public class func genes( from parent1: Creature, and parent2: Creature ) -> [ Gene ]
+    {
+        zip( parent1.genes, parent2.genes ).map
+        {
+            Bool.random() ? $0.0 : $0.1
+        }
     }
 }

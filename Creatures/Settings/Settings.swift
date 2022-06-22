@@ -46,7 +46,7 @@ public class Settings: NSObject, Codable
     @objc public dynamic var predatorSense  = PredatorSenseSettings()
     @objc public dynamic var vampireSense   = VampireSenseSettings()
     
-    public static func restore() -> Settings
+    public class func restore() -> Settings
     {
         guard let data = Preferences.shared.settings else
         {
