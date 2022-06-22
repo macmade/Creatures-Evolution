@@ -31,8 +31,8 @@ public class CreaturesSettings: NSObject, Codable
     @objc public dynamic var energyNeededToGrow          = 2
     @objc public dynamic var growthEnergyCost            = 1
     @objc public dynamic var energyDecrease              = 1
-    @objc public dynamic var energyDecreaseInterval      = 15.0
-    @objc public dynamic var energyDecreaseIntervalRange = 5.0
+    @objc public dynamic var energyDecreaseInterval      = 15
+    @objc public dynamic var energyDecreaseIntervalRange = 5
     @objc public dynamic var combatChanceIfSmaller       = 30
     @objc public dynamic var combatChanceIfSameSize      = 60
     @objc public dynamic var combatChanceIfBigger        = 90

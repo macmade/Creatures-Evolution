@@ -5,19 +5,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SexSettingsViewController" customModule="Creatures" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="PlantsSettingsViewController" customModule="Creatures" customModuleProvider="target">
             <connections>
+                <outlet property="decayView" destination="Agw-ML-G37" id="snX-uZ-B88"/>
+                <outlet property="growthView" destination="jl5-Vv-nVh" id="kYA-Qx-0sx"/>
+                <outlet property="lifetimeView" destination="ty2-TM-2ze" id="EX5-FS-SoQ"/>
                 <outlet property="view" destination="c22-O7-iKe" id="m42-jP-UHh"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="650" height="761"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="650" height="385"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-nq-Tt9">
-                    <rect key="frame" x="-2" y="730" width="74" height="31"/>
+                    <rect key="frame" x="-2" y="354" width="74" height="31"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Plants" id="TV5-Mj-9H2">
                         <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -25,16 +28,16 @@
                     </textFieldCell>
                 </textField>
                 <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="c1o-lB-7FU">
-                    <rect key="frame" x="610" y="733" width="42" height="25"/>
+                    <rect key="frame" x="610" y="357" width="42" height="25"/>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.settings.plants.isEnabled" id="Qm9-YH-DX7"/>
                     </connections>
                 </switch>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e1L-tq-cm8">
-                    <rect key="frame" x="0.0" y="719" width="650" height="5"/>
+                    <rect key="frame" x="0.0" y="343" width="650" height="5"/>
                 </box>
                 <box title="General" translatesAutoresizingMaskIntoConstraints="NO" id="dVo-6P-RuA">
-                    <rect key="frame" x="-3" y="615" width="656" height="98"/>
+                    <rect key="frame" x="-3" y="227" width="656" height="98"/>
                     <view key="contentView" id="Zjw-q3-V4t">
                         <rect key="frame" x="3" y="3" width="650" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,205 +85,13 @@
                     </view>
                 </box>
                 <box title="Growth" translatesAutoresizingMaskIntoConstraints="NO" id="GAu-bf-1SC">
-                    <rect key="frame" x="-3" y="402" width="656" height="209"/>
+                    <rect key="frame" x="-3" y="165" width="656" height="58"/>
                     <view key="contentView" id="cbn-87-cR3">
-                        <rect key="frame" x="3" y="3" width="650" height="191"/>
+                        <rect key="frame" x="3" y="3" width="650" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jl5-Vv-nVh">
-                                <rect key="frame" x="20" y="20" width="610" height="151"/>
-                                <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="aIy-HG-qQh">
-                                        <rect key="frame" x="0.0" y="106" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bu2-UQ-plG">
-                                                <rect key="frame" x="-2" y="29" width="90" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Initial amount:" id="TJk-Fe-8jm">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ju1-I1-V0n">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="20" doubleValue="20" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VQd-7I-Phr"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.initialAmount" id="SWz-1q-5Co"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8nL-uk-aWz">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="uQn-qw-SaO"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="0W6-Nv-HKW">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="UsP-ff-GCq">
-                                                        <real key="minimum" value="1"/>
-                                                        <real key="maximum" value="20"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.initialAmount" id="OGb-ON-FK9"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Slc-kG-yB0">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="20" doubleValue="1" id="77B-rO-s7V"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.initialAmount" id="sVa-Rn-iDH"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Ju1-I1-V0n" firstAttribute="centerY" secondItem="8nL-uk-aWz" secondAttribute="centerY" id="3eM-nI-y2T"/>
-                                            <constraint firstItem="8nL-uk-aWz" firstAttribute="leading" secondItem="Ju1-I1-V0n" secondAttribute="trailing" constant="8" symbolic="YES" id="6bA-Ez-STK"/>
-                                            <constraint firstItem="Ju1-I1-V0n" firstAttribute="leading" secondItem="aIy-HG-qQh" secondAttribute="leading" id="CbO-mY-6hS"/>
-                                            <constraint firstAttribute="bottom" secondItem="8nL-uk-aWz" secondAttribute="bottom" id="HIC-sb-F3x"/>
-                                            <constraint firstAttribute="trailing" secondItem="Slc-kG-yB0" secondAttribute="trailing" id="LBS-J1-p6u"/>
-                                            <constraint firstItem="Slc-kG-yB0" firstAttribute="leading" secondItem="8nL-uk-aWz" secondAttribute="trailing" constant="8" symbolic="YES" id="LnH-Xg-FAE"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bu2-UQ-plG" secondAttribute="trailing" id="ZtU-EL-0ZD"/>
-                                            <constraint firstItem="8nL-uk-aWz" firstAttribute="top" secondItem="bu2-UQ-plG" secondAttribute="bottom" constant="8" symbolic="YES" id="iS1-GR-JgS"/>
-                                            <constraint firstItem="bu2-UQ-plG" firstAttribute="leading" secondItem="aIy-HG-qQh" secondAttribute="leading" id="jHz-uF-Dmr"/>
-                                            <constraint firstItem="bu2-UQ-plG" firstAttribute="top" secondItem="aIy-HG-qQh" secondAttribute="top" id="lfP-uw-oiA"/>
-                                            <constraint firstItem="Slc-kG-yB0" firstAttribute="centerY" secondItem="8nL-uk-aWz" secondAttribute="centerY" id="q4F-Ue-vaJ"/>
-                                        </constraints>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="3z9-TS-gi2">
-                                        <rect key="frame" x="0.0" y="53" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5HL-84-7QN">
-                                                <rect key="frame" x="-2" y="29" width="98" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Renew amount:" id="1ZC-9Z-meq">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9wT-F8-aBp">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="10" doubleValue="10" tickMarkPosition="below" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="D7a-hJ-HAb"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.renewAmount" id="7xb-PH-sLD"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ch4-Be-QpR">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="mFw-us-gdx"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="dvk-bv-GTf">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="QFK-jd-oOw">
-                                                        <real key="minimum" value="0.0"/>
-                                                        <real key="maximum" value="10"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.renewAmount" id="Vdx-EL-Lwd"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eXS-Tr-bPw">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="10" id="ChN-2P-Thy"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.renewAmount" id="AfT-d1-reL"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="eXS-Tr-bPw" firstAttribute="centerY" secondItem="ch4-Be-QpR" secondAttribute="centerY" id="4WZ-gC-Jg2"/>
-                                            <constraint firstAttribute="bottom" secondItem="ch4-Be-QpR" secondAttribute="bottom" id="AU1-hn-uWR"/>
-                                            <constraint firstAttribute="trailing" secondItem="eXS-Tr-bPw" secondAttribute="trailing" id="BuN-Z7-oDP"/>
-                                            <constraint firstItem="ch4-Be-QpR" firstAttribute="top" secondItem="5HL-84-7QN" secondAttribute="bottom" constant="8" symbolic="YES" id="Grd-Z6-LSl"/>
-                                            <constraint firstItem="9wT-F8-aBp" firstAttribute="centerY" secondItem="ch4-Be-QpR" secondAttribute="centerY" id="Wfv-Jz-yWT"/>
-                                            <constraint firstItem="ch4-Be-QpR" firstAttribute="leading" secondItem="9wT-F8-aBp" secondAttribute="trailing" constant="8" symbolic="YES" id="afG-xG-mz1"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5HL-84-7QN" secondAttribute="trailing" id="d93-zT-cJ1"/>
-                                            <constraint firstItem="eXS-Tr-bPw" firstAttribute="leading" secondItem="ch4-Be-QpR" secondAttribute="trailing" constant="8" symbolic="YES" id="iyO-Oq-MdZ"/>
-                                            <constraint firstItem="5HL-84-7QN" firstAttribute="top" secondItem="3z9-TS-gi2" secondAttribute="top" id="s7q-gT-MhH"/>
-                                            <constraint firstItem="5HL-84-7QN" firstAttribute="leading" secondItem="3z9-TS-gi2" secondAttribute="leading" id="syk-z4-Vlc"/>
-                                            <constraint firstItem="9wT-F8-aBp" firstAttribute="leading" secondItem="3z9-TS-gi2" secondAttribute="leading" id="wZ5-Uq-Xzp"/>
-                                        </constraints>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="GI0-t6-iTg">
-                                        <rect key="frame" x="0.0" y="0.0" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BMY-pN-WLd">
-                                                <rect key="frame" x="-2" y="29" width="97" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Renew interval:" id="Auw-ej-sT8">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ue8-O5-IXf">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="10" doubleValue="10" tickMarkPosition="below" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="bgm-Wd-91a"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.renewInterval" id="eNh-N6-is1"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZNs-o9-0fx">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="Lhc-eg-wKj"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="vXy-7J-Hbh">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="eFs-cz-l7k">
-                                                        <real key="minimum" value="0.0"/>
-                                                        <real key="maximum" value="10"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.renewInterval" id="CKb-Bu-DzO"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nQr-P9-1sR">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="10" id="TOa-10-GI1"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.renewInterval" id="DQ3-dp-dg0"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="nQr-P9-1sR" secondAttribute="trailing" id="1Vh-XT-hkv"/>
-                                            <constraint firstItem="ZNs-o9-0fx" firstAttribute="top" secondItem="BMY-pN-WLd" secondAttribute="bottom" constant="8" symbolic="YES" id="6up-XD-pzj"/>
-                                            <constraint firstItem="ZNs-o9-0fx" firstAttribute="leading" secondItem="Ue8-O5-IXf" secondAttribute="trailing" constant="8" symbolic="YES" id="7Dp-Ab-8wx"/>
-                                            <constraint firstAttribute="bottom" secondItem="ZNs-o9-0fx" secondAttribute="bottom" id="Ghc-Q5-X5k"/>
-                                            <constraint firstItem="nQr-P9-1sR" firstAttribute="leading" secondItem="ZNs-o9-0fx" secondAttribute="trailing" constant="8" symbolic="YES" id="NAA-pk-pk6"/>
-                                            <constraint firstItem="BMY-pN-WLd" firstAttribute="top" secondItem="GI0-t6-iTg" secondAttribute="top" id="NNU-jR-HLg"/>
-                                            <constraint firstItem="nQr-P9-1sR" firstAttribute="centerY" secondItem="ZNs-o9-0fx" secondAttribute="centerY" id="a9K-v9-Hsw"/>
-                                            <constraint firstItem="Ue8-O5-IXf" firstAttribute="centerY" secondItem="ZNs-o9-0fx" secondAttribute="centerY" id="ab7-hn-omy"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BMY-pN-WLd" secondAttribute="trailing" id="iBV-UL-hop"/>
-                                            <constraint firstItem="BMY-pN-WLd" firstAttribute="leading" secondItem="GI0-t6-iTg" secondAttribute="leading" id="qGh-0B-SxZ"/>
-                                            <constraint firstItem="Ue8-O5-IXf" firstAttribute="leading" secondItem="GI0-t6-iTg" secondAttribute="leading" id="yye-WN-ztg"/>
-                                        </constraints>
-                                    </customView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="aIy-HG-qQh" firstAttribute="leading" secondItem="jl5-Vv-nVh" secondAttribute="leading" id="2H1-TQ-a4G"/>
-                                    <constraint firstAttribute="trailing" secondItem="aIy-HG-qQh" secondAttribute="trailing" id="4mm-Hf-eDa"/>
-                                    <constraint firstItem="3z9-TS-gi2" firstAttribute="leading" secondItem="jl5-Vv-nVh" secondAttribute="leading" id="J6P-Pg-MsT"/>
-                                    <constraint firstAttribute="trailing" secondItem="3z9-TS-gi2" secondAttribute="trailing" id="XV1-w9-K5y"/>
-                                </constraints>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
+                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
                             </stackView>
                         </subviews>
                         <constraints>
@@ -292,145 +103,13 @@
                     </view>
                 </box>
                 <box title="Lifetime" translatesAutoresizingMaskIntoConstraints="NO" id="i4T-Dz-cnU">
-                    <rect key="frame" x="-3" y="242" width="656" height="156"/>
+                    <rect key="frame" x="-3" y="103" width="656" height="58"/>
                     <view key="contentView" id="YZN-05-veV">
-                        <rect key="frame" x="3" y="3" width="650" height="138"/>
+                        <rect key="frame" x="3" y="3" width="650" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ty2-TM-2ze">
-                                <rect key="frame" x="20" y="20" width="610" height="98"/>
-                                <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="qOe-Ql-fuD">
-                                        <rect key="frame" x="0.0" y="53" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k9u-QX-30H">
-                                                <rect key="frame" x="-2" y="29" width="102" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Disappear after:" id="5Fe-Wx-BlM">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TZl-Mq-XeP">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="20" doubleValue="20" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="7Br-1a-mX0"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.disappearAfter" id="TN4-Cj-Bps"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oTh-2d-dHt">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="Pet-bl-zay"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="RyN-jc-MnE">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="ufp-cz-1e0">
-                                                        <real key="minimum" value="1"/>
-                                                        <real key="maximum" value="20"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.disappearAfter" id="YnT-PE-GDr"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CfX-8K-dcA">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="20" doubleValue="1" id="cRK-IT-WB2"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.disappearAfter" id="KMF-m6-YCa"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="TZl-Mq-XeP" firstAttribute="leading" secondItem="qOe-Ql-fuD" secondAttribute="leading" id="6hq-94-T88"/>
-                                            <constraint firstItem="oTh-2d-dHt" firstAttribute="top" secondItem="k9u-QX-30H" secondAttribute="bottom" constant="8" symbolic="YES" id="Gze-39-dXz"/>
-                                            <constraint firstItem="CfX-8K-dcA" firstAttribute="leading" secondItem="oTh-2d-dHt" secondAttribute="trailing" constant="8" symbolic="YES" id="Je1-Zz-i4d"/>
-                                            <constraint firstItem="k9u-QX-30H" firstAttribute="top" secondItem="qOe-Ql-fuD" secondAttribute="top" id="QKQ-jv-JgU"/>
-                                            <constraint firstItem="TZl-Mq-XeP" firstAttribute="centerY" secondItem="oTh-2d-dHt" secondAttribute="centerY" id="QUe-J5-JrV"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k9u-QX-30H" secondAttribute="trailing" id="QuT-Z1-TyH"/>
-                                            <constraint firstItem="CfX-8K-dcA" firstAttribute="centerY" secondItem="oTh-2d-dHt" secondAttribute="centerY" id="TXd-eS-hZW"/>
-                                            <constraint firstAttribute="trailing" secondItem="CfX-8K-dcA" secondAttribute="trailing" id="Ydh-Cg-nxc"/>
-                                            <constraint firstItem="oTh-2d-dHt" firstAttribute="leading" secondItem="TZl-Mq-XeP" secondAttribute="trailing" constant="8" symbolic="YES" id="fhj-up-g0x"/>
-                                            <constraint firstItem="k9u-QX-30H" firstAttribute="leading" secondItem="qOe-Ql-fuD" secondAttribute="leading" id="pq7-Sx-0Xh"/>
-                                            <constraint firstAttribute="bottom" secondItem="oTh-2d-dHt" secondAttribute="bottom" id="udv-wW-KWi"/>
-                                        </constraints>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="5Uf-SY-yHU">
-                                        <rect key="frame" x="0.0" y="0.0" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bjY-Kw-B6d">
-                                                <rect key="frame" x="-2" y="29" width="190" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Disappear after (randomness):" id="hxm-1x-rTs">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0KD-LC-yy9">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="10" doubleValue="10" tickMarkPosition="below" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="VVt-jm-kw3"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.disappearAfterRange" id="gbO-lG-dYS"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kLe-O9-Xcp">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="svU-jD-x0X"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="ZRJ-8F-7va">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Cu8-LJ-Mmw">
-                                                        <real key="minimum" value="0.0"/>
-                                                        <real key="maximum" value="10"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.disappearAfterRange" id="i0J-tn-hPE"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YXh-Qr-Bd6">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="10" id="QsX-lc-htC"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.disappearAfterRange" id="cZi-xn-34C"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="kLe-O9-Xcp" firstAttribute="top" secondItem="bjY-Kw-B6d" secondAttribute="bottom" constant="8" symbolic="YES" id="9CC-YL-eqb"/>
-                                            <constraint firstItem="YXh-Qr-Bd6" firstAttribute="centerY" secondItem="kLe-O9-Xcp" secondAttribute="centerY" id="CFF-f5-spt"/>
-                                            <constraint firstItem="kLe-O9-Xcp" firstAttribute="leading" secondItem="0KD-LC-yy9" secondAttribute="trailing" constant="8" symbolic="YES" id="CSh-H6-Baq"/>
-                                            <constraint firstItem="bjY-Kw-B6d" firstAttribute="leading" secondItem="5Uf-SY-yHU" secondAttribute="leading" id="OGz-pz-h0n"/>
-                                            <constraint firstItem="0KD-LC-yy9" firstAttribute="centerY" secondItem="kLe-O9-Xcp" secondAttribute="centerY" id="OyN-ph-6fu"/>
-                                            <constraint firstAttribute="trailing" secondItem="YXh-Qr-Bd6" secondAttribute="trailing" id="YJw-Ha-Bcd"/>
-                                            <constraint firstItem="YXh-Qr-Bd6" firstAttribute="leading" secondItem="kLe-O9-Xcp" secondAttribute="trailing" constant="8" symbolic="YES" id="Zt5-SK-Yhf"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bjY-Kw-B6d" secondAttribute="trailing" id="ZtN-Dd-hPG"/>
-                                            <constraint firstItem="bjY-Kw-B6d" firstAttribute="top" secondItem="5Uf-SY-yHU" secondAttribute="top" id="fnS-Ry-NKw"/>
-                                            <constraint firstItem="0KD-LC-yy9" firstAttribute="leading" secondItem="5Uf-SY-yHU" secondAttribute="leading" id="ius-6K-JyB"/>
-                                            <constraint firstAttribute="bottom" secondItem="kLe-O9-Xcp" secondAttribute="bottom" id="w2h-UY-zsc"/>
-                                        </constraints>
-                                    </customView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="5Uf-SY-yHU" firstAttribute="leading" secondItem="ty2-TM-2ze" secondAttribute="leading" id="J3F-90-3DQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="qOe-Ql-fuD" secondAttribute="trailing" id="TDt-rr-f9J"/>
-                                    <constraint firstAttribute="trailing" secondItem="5Uf-SY-yHU" secondAttribute="trailing" id="Ygx-yM-WIN"/>
-                                    <constraint firstItem="qOe-Ql-fuD" firstAttribute="leading" secondItem="ty2-TM-2ze" secondAttribute="leading" id="bny-UX-XdZ"/>
-                                </constraints>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
+                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
                             </stackView>
                         </subviews>
                         <constraints>
@@ -442,207 +121,13 @@
                     </view>
                 </box>
                 <box title="Decay" translatesAutoresizingMaskIntoConstraints="NO" id="ipu-Zj-oEf">
-                    <rect key="frame" x="-3" y="29" width="656" height="209"/>
+                    <rect key="frame" x="-3" y="41" width="656" height="58"/>
                     <view key="contentView" id="F2D-X8-U3l">
-                        <rect key="frame" x="3" y="3" width="650" height="191"/>
+                        <rect key="frame" x="3" y="3" width="650" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Agw-ML-G37">
-                                <rect key="frame" x="20" y="20" width="610" height="151"/>
-                                <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="gCr-1K-rWt">
-                                        <rect key="frame" x="0.0" y="106" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GHW-a8-YWu">
-                                                <rect key="frame" x="-2" y="29" width="78" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Decay after:" id="k1G-ko-GWF">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7jR-kO-OEq">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="1" maxValue="20" doubleValue="20" tickMarkPosition="below" numberOfTickMarks="20" allowsTickMarkValuesOnly="YES" sliderType="linear" id="lrn-Ns-FI4"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayAfter" id="Erw-Xb-1cT"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sZp-aU-3Yx">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="wmR-ho-Sub"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="2FY-Z8-2LG">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="ZVw-vU-AID">
-                                                        <real key="minimum" value="1"/>
-                                                        <real key="maximum" value="20"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayAfter" id="p3s-fL-pj8"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eeg-bj-fa0">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="20" doubleValue="1" id="asZ-3A-0YE"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayAfter" id="SfF-yb-8iA"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="eeg-bj-fa0" secondAttribute="trailing" id="CL8-0e-yJM"/>
-                                            <constraint firstItem="sZp-aU-3Yx" firstAttribute="leading" secondItem="7jR-kO-OEq" secondAttribute="trailing" constant="8" symbolic="YES" id="HhW-wy-5uS"/>
-                                            <constraint firstItem="GHW-a8-YWu" firstAttribute="top" secondItem="gCr-1K-rWt" secondAttribute="top" id="JGC-LI-Xgo"/>
-                                            <constraint firstItem="sZp-aU-3Yx" firstAttribute="top" secondItem="GHW-a8-YWu" secondAttribute="bottom" constant="8" symbolic="YES" id="Q6s-4h-hFe"/>
-                                            <constraint firstItem="GHW-a8-YWu" firstAttribute="leading" secondItem="gCr-1K-rWt" secondAttribute="leading" id="WMH-3D-zjG"/>
-                                            <constraint firstItem="7jR-kO-OEq" firstAttribute="leading" secondItem="gCr-1K-rWt" secondAttribute="leading" id="j7M-4Y-ixR"/>
-                                            <constraint firstItem="eeg-bj-fa0" firstAttribute="centerY" secondItem="sZp-aU-3Yx" secondAttribute="centerY" id="jkU-bs-whW"/>
-                                            <constraint firstAttribute="bottom" secondItem="sZp-aU-3Yx" secondAttribute="bottom" id="jqQ-tJ-qJo"/>
-                                            <constraint firstItem="7jR-kO-OEq" firstAttribute="centerY" secondItem="sZp-aU-3Yx" secondAttribute="centerY" id="pEd-HX-2Ov"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GHW-a8-YWu" secondAttribute="trailing" id="sv7-VS-nu0"/>
-                                            <constraint firstItem="eeg-bj-fa0" firstAttribute="leading" secondItem="sZp-aU-3Yx" secondAttribute="trailing" constant="8" symbolic="YES" id="xvc-na-Or2"/>
-                                        </constraints>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="WWU-H9-fOu">
-                                        <rect key="frame" x="0.0" y="53" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mj1-6b-YpK">
-                                                <rect key="frame" x="-2" y="29" width="166" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Decay after (randomness):" id="nYt-Zo-7nc">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pga-Yc-8XS">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="10" doubleValue="5" tickMarkPosition="below" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="zbp-0L-8fU"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayAfterRange" id="KGe-o8-uWk"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8jr-0J-Qs7">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="bvf-Og-iaf"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Y0J-gt-4v1">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="LIB-xA-gpP">
-                                                        <real key="minimum" value="0.0"/>
-                                                        <real key="maximum" value="10"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayAfterRange" id="Ib6-tY-ote"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="s54-fK-0Lv">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="10" id="K4L-bG-kNZ"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayAfterRange" id="MWW-yP-LaU"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="pga-Yc-8XS" firstAttribute="leading" secondItem="WWU-H9-fOu" secondAttribute="leading" id="C06-GU-y0v"/>
-                                            <constraint firstItem="pga-Yc-8XS" firstAttribute="centerY" secondItem="8jr-0J-Qs7" secondAttribute="centerY" id="Cv9-I6-WJX"/>
-                                            <constraint firstItem="8jr-0J-Qs7" firstAttribute="top" secondItem="Mj1-6b-YpK" secondAttribute="bottom" constant="8" symbolic="YES" id="Dcs-CY-5jo"/>
-                                            <constraint firstItem="Mj1-6b-YpK" firstAttribute="top" secondItem="WWU-H9-fOu" secondAttribute="top" id="LTX-Ft-AVG"/>
-                                            <constraint firstItem="s54-fK-0Lv" firstAttribute="leading" secondItem="8jr-0J-Qs7" secondAttribute="trailing" constant="8" symbolic="YES" id="QFb-4u-xFL"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mj1-6b-YpK" secondAttribute="trailing" id="Ubj-Ix-Zyu"/>
-                                            <constraint firstAttribute="bottom" secondItem="8jr-0J-Qs7" secondAttribute="bottom" id="UdQ-g6-3c9"/>
-                                            <constraint firstItem="Mj1-6b-YpK" firstAttribute="leading" secondItem="WWU-H9-fOu" secondAttribute="leading" id="V11-ho-Dw8"/>
-                                            <constraint firstItem="8jr-0J-Qs7" firstAttribute="leading" secondItem="pga-Yc-8XS" secondAttribute="trailing" constant="8" symbolic="YES" id="cgU-CO-AsX"/>
-                                            <constraint firstAttribute="trailing" secondItem="s54-fK-0Lv" secondAttribute="trailing" id="sVB-fG-iGc"/>
-                                            <constraint firstItem="s54-fK-0Lv" firstAttribute="centerY" secondItem="8jr-0J-Qs7" secondAttribute="centerY" id="z75-Wk-yES"/>
-                                        </constraints>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="bZA-EF-P6Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="610" height="45"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qm0-bg-kQ9">
-                                                <rect key="frame" x="-2" y="29" width="141" height="16"/>
-                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Energy when decayed:" id="iWV-Yj-yX8">
-                                                    <font key="font" usesAppearanceFont="YES"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5aD-7A-jKF">
-                                                <rect key="frame" x="-2" y="-5" width="510" height="28"/>
-                                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="-10" tickMarkPosition="below" numberOfTickMarks="11" allowsTickMarkValuesOnly="YES" sliderType="linear" id="kap-Bg-D9V"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayEnergy" id="XBH-ls-dux"/>
-                                                </connections>
-                                            </slider>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CLy-Pg-25h">
-                                                <rect key="frame" x="514" y="0.0" width="75" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="j51-el-HES"/>
-                                                </constraints>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="caO-u3-F1c">
-                                                    <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="53J-J9-XvY">
-                                                        <real key="minimum" value="-10"/>
-                                                        <real key="maximum" value="0.0"/>
-                                                    </numberFormatter>
-                                                    <font key="font" metaFont="system"/>
-                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayEnergy" id="zZn-6W-k69"/>
-                                                </connections>
-                                            </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BWf-xS-IVm">
-                                                <rect key="frame" x="594" y="-3" width="19" height="28"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" minValue="-10" id="wzp-xG-JCz"/>
-                                                <connections>
-                                                    <binding destination="-2" name="value" keyPath="self.settings.plants.decayEnergy" id="u8N-fr-lHC"/>
-                                                </connections>
-                                            </stepper>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="CLy-Pg-25h" secondAttribute="bottom" id="Crr-gw-gWy"/>
-                                            <constraint firstItem="qm0-bg-kQ9" firstAttribute="top" secondItem="bZA-EF-P6Z" secondAttribute="top" id="RZk-zE-di8"/>
-                                            <constraint firstAttribute="trailing" secondItem="BWf-xS-IVm" secondAttribute="trailing" id="UGM-Ta-u7z"/>
-                                            <constraint firstItem="BWf-xS-IVm" firstAttribute="leading" secondItem="CLy-Pg-25h" secondAttribute="trailing" constant="8" symbolic="YES" id="VGZ-VK-hEf"/>
-                                            <constraint firstItem="5aD-7A-jKF" firstAttribute="centerY" secondItem="CLy-Pg-25h" secondAttribute="centerY" id="emm-2r-ur1"/>
-                                            <constraint firstItem="qm0-bg-kQ9" firstAttribute="leading" secondItem="bZA-EF-P6Z" secondAttribute="leading" id="kCw-Dc-Hpd"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qm0-bg-kQ9" secondAttribute="trailing" id="kLX-DP-Bd8"/>
-                                            <constraint firstItem="CLy-Pg-25h" firstAttribute="leading" secondItem="5aD-7A-jKF" secondAttribute="trailing" constant="8" symbolic="YES" id="kZQ-ju-fuP"/>
-                                            <constraint firstItem="CLy-Pg-25h" firstAttribute="top" secondItem="qm0-bg-kQ9" secondAttribute="bottom" constant="8" symbolic="YES" id="m8t-uU-nnD"/>
-                                            <constraint firstItem="5aD-7A-jKF" firstAttribute="leading" secondItem="bZA-EF-P6Z" secondAttribute="leading" id="owC-n6-ZjS"/>
-                                            <constraint firstItem="BWf-xS-IVm" firstAttribute="centerY" secondItem="CLy-Pg-25h" secondAttribute="centerY" id="ufJ-DL-yqi"/>
-                                        </constraints>
-                                    </customView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WWU-H9-fOu" secondAttribute="trailing" id="TrV-b2-v8L"/>
-                                    <constraint firstItem="gCr-1K-rWt" firstAttribute="leading" secondItem="Agw-ML-G37" secondAttribute="leading" id="YFx-oK-IU3"/>
-                                    <constraint firstAttribute="trailing" secondItem="bZA-EF-P6Z" secondAttribute="trailing" id="Yj9-qr-rM5"/>
-                                    <constraint firstItem="WWU-H9-fOu" firstAttribute="leading" secondItem="Agw-ML-G37" secondAttribute="leading" id="jCy-dB-CST"/>
-                                    <constraint firstItem="bZA-EF-P6Z" firstAttribute="leading" secondItem="Agw-ML-G37" secondAttribute="leading" id="ofa-CW-3PK"/>
-                                    <constraint firstAttribute="trailing" secondItem="gCr-1K-rWt" secondAttribute="trailing" id="tGl-l0-4id"/>
-                                </constraints>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
+                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
                             </stackView>
                         </subviews>
                         <constraints>
@@ -679,8 +164,8 @@
                 <constraint firstItem="e1L-tq-cm8" firstAttribute="top" secondItem="Gjy-nq-Tt9" secondAttribute="bottom" constant="8" symbolic="YES" id="3UJ-JT-XzN"/>
                 <constraint firstItem="c1o-lB-7FU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gjy-nq-Tt9" secondAttribute="trailing" constant="8" symbolic="YES" id="4yK-Aa-lar"/>
                 <constraint firstAttribute="trailing" secondItem="8Q5-46-zXr" secondAttribute="trailing" id="AuM-9V-jtK"/>
-                <constraint firstItem="dVo-6P-RuA" firstAttribute="top" secondItem="e1L-tq-cm8" secondAttribute="bottom" constant="8" symbolic="YES" id="Bb8-M6-oo5"/>
-                <constraint firstItem="8Q5-46-zXr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ipu-Zj-oEf" secondAttribute="bottom" constant="8" symbolic="YES" id="CRw-Lx-c6z"/>
+                <constraint firstItem="dVo-6P-RuA" firstAttribute="top" secondItem="e1L-tq-cm8" secondAttribute="bottom" constant="20" id="Bb8-M6-oo5"/>
+                <constraint firstItem="8Q5-46-zXr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ipu-Zj-oEf" secondAttribute="bottom" constant="20" id="CRw-Lx-c6z"/>
                 <constraint firstAttribute="trailing" secondItem="dVo-6P-RuA" secondAttribute="trailing" id="Gnb-Mx-4d4"/>
                 <constraint firstItem="ipu-Zj-oEf" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="JV7-zp-MAs"/>
                 <constraint firstAttribute="trailing" secondItem="GAu-bf-1SC" secondAttribute="trailing" id="KwY-BA-PJa"/>
@@ -705,7 +190,7 @@
                 <constraint firstItem="8Q5-46-zXr" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="wsn-Q7-ABd"/>
                 <constraint firstItem="Gjy-nq-Tt9" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="zIo-rF-Bbg"/>
             </constraints>
-            <point key="canvasLocation" x="149" y="346"/>
+            <point key="canvasLocation" x="149" y="117"/>
         </customView>
     </objects>
     <resources>

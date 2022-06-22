@@ -34,7 +34,7 @@ import Cocoa
         }
     }
     
-    private var valueSliderControllers = [ ValueSliderViewController ]()
+    private var valueSliderControllers = [ SettingsValueViewController ]()
     
     public init( settings: Settings )
     {
@@ -48,7 +48,7 @@ import Cocoa
         nil
     }
     
-    public func setSliders( controllers: [ ValueSliderViewController ], in stackView: NSStackView )
+    public func setSliders( controllers: [ SettingsValueViewController ], in stackView: NSStackView )
     {
         self.valueSliderControllers.append( contentsOf: controllers )
         stackView.setViews( controllers.map { $0.view }, in: .leading )

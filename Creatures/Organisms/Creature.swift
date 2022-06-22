@@ -222,7 +222,7 @@ public class Creature: SpriteNode, Updatable
         }
         else
         {
-            self.nextEnergyDecrease = elapsedTime + self.settings.creatures.energyDecreaseInterval + Double.random( in: 0 ... self.settings.creatures.energyDecreaseIntervalRange )
+            self.nextEnergyDecrease = elapsedTime + Double( self.settings.creatures.energyDecreaseInterval ) + Double.random( in: 0 ... Double( self.settings.creatures.energyDecreaseIntervalRange ) )
         }
         
         self.genes.filter{ $0.isActive }.forEach

@@ -28,7 +28,7 @@ public class PlantsSettings: NSObject, Codable
 {
     @objc public dynamic var isEnabled           = true
     @objc public dynamic var initialAmount       = 75
-    @objc public dynamic var renewInterval       = 10.0
+    @objc public dynamic var renewInterval       = 10
     @objc public dynamic var renewAmount         = 75
     @objc public dynamic var canDisappear        = true
     @objc public dynamic var disappearAfter      = 30

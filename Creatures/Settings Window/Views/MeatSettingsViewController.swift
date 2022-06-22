@@ -41,8 +41,8 @@ public class MeatSettingsViewController: SettingsViewController
         self.setSliders(
             controllers:
             [
-                IntValueSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.meat.disappearAfter,      minValue: 1, maxValue: 60 ),
-                IntValueSliderViewController( title: "Disappear after (randomness):", settings: self.settings, key: \.meat.disappearAfterRange, minValue: 0, maxValue: 60 ),
+                SettingsIntValueSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.meat.disappearAfter,      minValue: 1, maxValue: 60 ),
+                SettingsIntValueSliderViewController( title: "Disappear after (randomness):", settings: self.settings, key: \.meat.disappearAfterRange, minValue: 0, maxValue: 60 ),
             ],
             in: self.lifetimeView
         )
@@ -50,9 +50,9 @@ public class MeatSettingsViewController: SettingsViewController
         self.setSliders(
             controllers:
             [
-                IntValueSliderViewController( title: "Decay after:",              settings: self.settings, key: \.meat.decayAfter,      minValue:   1, maxValue: 60 ),
-                IntValueSliderViewController( title: "Decay after (randomness):", settings: self.settings, key: \.meat.decayAfterRange, minValue:   0, maxValue: 60 ),
-                IntValueSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.meat.decayEnergy,     minValue: -10, maxValue: 0 ),
+                SettingsIntValueSliderViewController( title: "Decay after:",              settings: self.settings, key: \.meat.decayAfter,      minValue:   1, maxValue: 60 ),
+                SettingsIntValueSliderViewController( title: "Decay after (randomness):", settings: self.settings, key: \.meat.decayAfterRange, minValue:   0, maxValue: 60 ),
+                SettingsIntValueSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.meat.decayEnergy,     minValue: -10, maxValue: 0 ),
             ],
             in: self.decayView
         )

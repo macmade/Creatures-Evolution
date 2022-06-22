@@ -24,54 +24,7 @@
 
 import Cocoa
 
-public class DoubleValueSliderViewController: NSViewController, ValueSliderViewController
+public protocol SettingsValueViewController: NSViewController
 {
-    @objc private dynamic var settings: Settings
-    
-    @objc private dynamic var value: Double
-    {
-        didSet
-        {
-            self.settings[ keyPath: self.key ] = self.value
-        }
-    }
-    
-    @objc private dynamic var minValue: Double
-    @objc private dynamic var maxValue: Double
-    
-    private var key: WritableKeyPath< Settings, Double >
-    
-    public init( title: String, settings: Settings, key: WritableKeyPath< Settings, Double >, minValue: Double, maxValue: Double )
-    {
-        self.settings = settings
-        self.key      = key
-        self.value    = settings[ keyPath: key ]
-        self.minValue = minValue
-        self.maxValue = maxValue
-        
-        super.init( nibName: nil, bundle: nil )
-        
-        self.title = title
-    }
-    
-    required init?( coder: NSCoder )
-    {
-        nil
-    }
-    
-    public override var nibName: NSNib.Name?
-    {
-        "ValueSliderViewController"
-    }
-    
-    public override func viewDidLoad()
-    {
-        super.viewDidLoad()
-    }
-    
-    public func updateSettings( _ settings: Settings )
-    {
-        self.settings = settings
-        self.value    = settings[ keyPath: self.key ]
-    }
+    func updateSettings( _ settings: Settings )
 }

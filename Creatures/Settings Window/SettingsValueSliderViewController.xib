@@ -5,7 +5,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="DoubleValueSliderViewController" customModule="Creatures" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="SettingsValueViewController">
             <connections>
                 <outlet property="view" destination="Wzw-2g-hhY" id="KRv-Gl-72k"/>
             </connections>
@@ -17,12 +17,12 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-Ob-Jgo">
-                    <rect key="frame" x="-2" y="3" width="174" height="16"/>
+                    <rect key="frame" x="-2" y="4" width="174" height="14"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="a8C-Pb-H5I"/>
                     </constraints>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="TAR-If-6KJ">
-                        <font key="font" usesAppearanceFont="YES"/>
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Label" id="TAR-If-6KJ">
+                        <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>

@@ -26,8 +26,46 @@ import Cocoa
 
 public class PlantsSettingsViewController: SettingsViewController
 {
+    @IBOutlet private var growthView:   NSStackView!
+    @IBOutlet private var lifetimeView: NSStackView!
+    @IBOutlet private var decayView:    NSStackView!
+    
     public override var nibName: NSNib.Name?
     {
         "PlantsSettingsViewController"
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.setSliders(
+            controllers:
+            [
+                SettingsIntValueSliderViewController( title: "Initial amount:", settings: self.settings, key: \.plants.initialAmount, minValue: 0, maxValue: 200 ),
+                SettingsIntValueSliderViewController( title: "Renew amount:",   settings: self.settings, key: \.plants.renewAmount,   minValue: 0, maxValue: 200 ),
+                SettingsIntValueSliderViewController( title: "Renew interval:", settings: self.settings, key: \.plants.renewInterval, minValue: 1, maxValue: 60 ),
+            ],
+            in: self.growthView
+        )
+        
+        self.setSliders(
+            controllers:
+            [
+                SettingsIntValueSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.plants.disappearAfter,      minValue: 1, maxValue: 60 ),
+                SettingsIntValueSliderViewController( title: "Disappear after (randomness):", settings: self.settings, key: \.plants.disappearAfterRange, minValue: 0, maxValue: 60 ),
+            ],
+            in: self.lifetimeView
+        )
+        
+        self.setSliders(
+            controllers:
+            [
+                SettingsIntValueSliderViewController( title: "Decay after:",              settings: self.settings, key: \.plants.decayAfter,      minValue:   1, maxValue: 60 ),
+                SettingsIntValueSliderViewController( title: "Decay after (randomness):", settings: self.settings, key: \.plants.decayAfterRange, minValue:   0, maxValue: 60 ),
+                SettingsIntValueSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.plants.decayEnergy,     minValue: -10, maxValue: 0 ),
+            ],
+            in: self.decayView
+        )
     }
 }

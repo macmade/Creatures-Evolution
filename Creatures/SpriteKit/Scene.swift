@@ -157,7 +157,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         
         if let lastFoodGenerationTime = self.lastFoodGenerationTime
         {
-            if currentTime - lastFoodGenerationTime >= self.settings.plants.renewInterval
+            if currentTime - lastFoodGenerationTime >= Double( self.settings.plants.renewInterval )
             {
                 self.generatePlants( amount: self.settings.plants.renewAmount )
                 
@@ -218,7 +218,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     
     public func generatePlants( amount: Int )
     {
-        if self.isPaused
+        if self.isPaused || self.settings.plants.isEnabled == false
         {
             return
         }
