@@ -215,6 +215,8 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
             return NSRect.zero
         }
         
+        controller.view.layoutSubtreeIfNeeded()
+        
         let diffX = container.frame.size.width  - controller.view.frame.size.width
         let diffY = container.frame.size.height - controller.view.frame.size.height
         var rect  = window.frame
