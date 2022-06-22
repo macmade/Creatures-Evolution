@@ -60,9 +60,9 @@ public class PlantsSettingsViewController: SettingsViewController
             title: "Growth",
             controllers:
             [
-                SettingsIntSliderViewController( title: "Initial amount:", settings: self.settings, key: \.plants.initialAmount, minValue: 0, maxValue: 200 ),
-                SettingsIntSliderViewController( title: "Renew amount:",   settings: self.settings, key: \.plants.renewAmount,   minValue: 0, maxValue: 200 ),
-                SettingsIntSliderViewController( title: "Renew interval:", settings: self.settings, key: \.plants.renewInterval, minValue: 1, maxValue: 60 ),
+                SettingsIntSliderViewController( title: "Initial amount:", settings: self.settings, key: \.plants.initialAmount, minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Renew amount:",   settings: self.settings, key: \.plants.renewAmount,   minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Renew interval:", settings: self.settings, key: \.plants.renewInterval, minValue: 5, maxValue: 60 ),
             ]
         )
         

@@ -24,6 +24,7 @@
 
 import Cocoa
 import SpriteKit
+import UniformTypeIdentifiers
 
 public class SettingsWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource
 {
@@ -32,8 +33,9 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     
     @objc private dynamic var items: [ SettingsItem ]
     
-    @IBOutlet private var itemsController: NSArrayController!
-    @IBOutlet private var contentView:     NSView!
+    @IBOutlet private var itemsController:  NSArrayController!
+    @IBOutlet private var contentView:      NSView!
+    @IBOutlet private var importExportMenu: NSMenu!
     
     private var currentController:    SettingsViewController?
     private var selectionObserver:    NSKeyValueObservation?
@@ -262,5 +264,99 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     public func tableView( _ tableView: NSTableView, shouldSelectRow row: Int ) -> Bool
     {
         return self.animating == false
+    }
+    
+    @IBAction private func importExportSettings( _ sender: Any? )
+    {
+        guard let view = sender as? NSView, let event = NSApp.currentEvent else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        NSMenu.popUpContextMenu( self.importExportMenu, with: event, for: view )
+    }
+    
+    @IBAction private func importSettings( _ sender: Any? )
+    {
+        guard let window = self.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let panel                     = NSOpenPanel()
+        panel.canCreateDirectories    = false
+        panel.canChooseFiles          = true
+        panel.canChooseDirectories    = false
+        panel.allowsMultipleSelection = false
+        panel.allowsOtherFileTypes    = false
+        panel.allowedContentTypes     = [ .propertyList ]
+        
+        panel.beginSheetModal( for: window )
+        {
+            guard let url = panel.url, $0 == .OK else
+            {
+                return
+            }
+            
+            do
+            {
+                let data      = try Data( contentsOf: url )
+                self.settings = try PropertyListDecoder().decode( Settings.self, from: data )
+                
+                self.items.forEach
+                {
+                    $0.controller.updateSettings( settings: self.settings )
+                }
+            }
+            catch let error
+            {
+                NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+            }
+        }
+    }
+    
+    @IBAction private func exportSettings( _ sender: Any? )
+    {
+        guard let window = self.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        do
+        {
+            let data                   = try PropertyListEncoder().encode( self.settings )
+            let panel                  = NSSavePanel()
+            panel.canCreateDirectories = true
+            panel.allowsOtherFileTypes = false
+            panel.allowsOtherFileTypes = false
+            panel.allowedContentTypes  = [ .propertyList ]
+            
+            panel.beginSheetModal( for: window )
+            {
+                guard let url = panel.url, $0 == .OK else
+                {
+                    return
+                }
+                
+                do
+                {
+                    try data.write( to: url )
+                }
+                catch let error
+                {
+                    NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+                }
+            }
+        }
+        catch let error
+        {
+            NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
+        }
     }
 }

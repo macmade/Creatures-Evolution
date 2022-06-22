@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsWindowController" customModule="Creatures" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="EJY-de-uVA" id="s3c-i2-8rd"/>
+                <outlet property="importExportMenu" destination="guc-nz-oub" id="XeP-ce-KhK"/>
                 <outlet property="itemsController" destination="wsf-Lv-NCu" id="DP5-vE-Any"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="HPy-us-UZo"/>
             </connections>
@@ -172,21 +173,37 @@ DQ
                             <action selector="restoreDefaults:" target="-2" id="Civ-Qb-rQz"/>
                         </connections>
                     </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="BT0-GG-wkz">
+                        <rect key="frame" x="349" y="17" width="20" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="1yf-gq-5h5"/>
+                            <constraint firstAttribute="width" constant="20" id="LVt-Bf-riZ"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSActionTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="S7Y-ff-W46">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="importExportSettings:" target="-2" id="UhF-1r-72e"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ggk-q9-NXt" firstAttribute="leading" secondItem="GjJ-qE-mSl" secondAttribute="trailing" constant="12" symbolic="YES" id="4KY-en-FJU"/>
                     <constraint firstItem="EJY-de-uVA" firstAttribute="leading" secondItem="pCd-Yf-exp" secondAttribute="trailing" constant="20" id="8lX-gI-SpI"/>
                     <constraint firstItem="GjJ-qE-mSl" firstAttribute="centerY" secondItem="ggk-q9-NXt" secondAttribute="centerY" id="8rF-tY-E56"/>
                     <constraint firstItem="Bry-i7-Ah1" firstAttribute="top" secondItem="EJY-de-uVA" secondAttribute="bottom" constant="20" id="9Hd-Yu-BLX"/>
+                    <constraint firstItem="GjJ-qE-mSl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BT0-GG-wkz" secondAttribute="trailing" constant="8" symbolic="YES" id="DEh-nq-taZ"/>
                     <constraint firstAttribute="trailing" secondItem="Bry-i7-Ah1" secondAttribute="trailing" constant="12" symbolic="YES" id="F0t-dA-NRj"/>
+                    <constraint firstItem="BT0-GG-wkz" firstAttribute="leading" secondItem="sgZ-0W-US6" secondAttribute="trailing" constant="8" symbolic="YES" id="GDK-xn-PKr"/>
                     <constraint firstItem="sgZ-0W-US6" firstAttribute="leading" secondItem="EJY-de-uVA" secondAttribute="leading" id="J5R-vg-ORb"/>
                     <constraint firstItem="pCd-Yf-exp" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="J6V-5v-WAV"/>
                     <constraint firstAttribute="trailing" secondItem="EJY-de-uVA" secondAttribute="trailing" constant="20" symbolic="YES" id="Ksm-MU-P1x"/>
-                    <constraint firstItem="GjJ-qE-mSl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sgZ-0W-US6" secondAttribute="trailing" constant="12" symbolic="YES" id="NHV-wC-rVm"/>
                     <constraint firstItem="Bry-i7-Ah1" firstAttribute="leading" secondItem="pCd-Yf-exp" secondAttribute="trailing" constant="8" symbolic="YES" id="OWu-Yl-tgF"/>
                     <constraint firstItem="sgZ-0W-US6" firstAttribute="centerY" secondItem="GjJ-qE-mSl" secondAttribute="centerY" id="TwT-9M-9Uu"/>
                     <constraint firstItem="EJY-de-uVA" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="ePD-v5-QwR"/>
                     <constraint firstItem="sgZ-0W-US6" firstAttribute="top" secondItem="Bry-i7-Ah1" secondAttribute="bottom" constant="20" symbolic="YES" id="m4r-l2-p5n"/>
+                    <constraint firstItem="BT0-GG-wkz" firstAttribute="centerY" secondItem="sgZ-0W-US6" secondAttribute="centerY" id="pIc-27-IRZ"/>
                     <constraint firstAttribute="bottom" secondItem="pCd-Yf-exp" secondAttribute="bottom" id="q1x-WR-C5b"/>
                     <constraint firstAttribute="bottom" secondItem="ggk-q9-NXt" secondAttribute="bottom" constant="20" symbolic="YES" id="tHR-6s-sFQ"/>
                     <constraint firstAttribute="trailing" secondItem="ggk-q9-NXt" secondAttribute="trailing" constant="20" symbolic="YES" id="uKB-JD-97H"/>
@@ -201,8 +218,26 @@ DQ
                 <binding destination="-2" name="contentArray" keyPath="self.items" id="3kp-Ny-BYr"/>
             </connections>
         </arrayController>
+        <menu id="guc-nz-oub">
+            <items>
+                <menuItem title="Import Settings..." id="7EL-Ab-ptw">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="importSettings:" target="-2" id="DOn-FH-dnx"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Export Settings..." id="Zis-Vm-vRq">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="exportSettings:" target="-2" id="YVB-bW-W26"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="58" y="604"/>
+        </menu>
     </objects>
     <resources>
+        <image name="NSActionTemplate" width="15" height="15"/>
         <image name="NSApplicationIcon" width="32" height="32"/>
     </resources>
 </document>

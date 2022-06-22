@@ -29,13 +29,16 @@ public class StatsViewController: NSViewController
     @objc public dynamic var alive = 0
     @objc public dynamic var dead  = 0
     
-    private var creatureDieObserver:   Any?
-    private var creatureBornObserver:  Any?
-    private var timer:                 Timer?
-    private var statusViewController = CreatureStatusChartViewController()
+    private var creatureDieObserver:               Any?
+    private var creatureBornObserver:              Any?
+    private var timer:                             Timer?
+    private var classStatusViewController        = CreatureStatusChartViewController()
+    private var reproductionStatusViewController = CreatureStatusChartViewController()
     
-    @IBOutlet private var creatureStatusView: NSView?
-    @IBOutlet private var creatureGraphView:  CreatureStatusGraphView?
+    @IBOutlet private var creatureClassStatusView:        NSView?
+    @IBOutlet private var creatureClassGraphView:         CreatureStatusGraphView?
+    @IBOutlet private var creatureReproductionStatusView: NSView?
+    @IBOutlet private var creatureReproductionGraphView:  CreatureStatusGraphView?
     
     public override init( nibName: NSNib.Name?, bundle: Bundle? )
     {
@@ -96,20 +99,53 @@ public class StatsViewController: NSViewController
             return
         }
         
-        if let chart = self.creatureStatusView, let graph = self.creatureGraphView
+        if let chart = self.creatureClassStatusView, let graph = self.creatureClassGraphView
         {
             if chart.subviews.count == 0
             {
-                chart.addFillingSubview( self.statusViewController.view, removeAllExisting: true )
+                chart.addFillingSubview( self.classStatusViewController.view, removeAllExisting: true )
             }
             
-            let data        = CreatureStatusItem()
-            data.herbivores = creatures.compactMap { $0.hasActiveGene( Herbivore.self ) ? $0 : nil }.count
-            data.scavengers = creatures.compactMap { $0.hasActiveGene( Scavenger.self ) ? $0 : nil }.count
-            data.predators  = creatures.compactMap { $0.hasActiveGene( Predator.self  ) ? $0 : nil }.count
-            data.vampires   = creatures.compactMap { $0.hasActiveGene( Vampire.self   ) ? $0 : nil }.count
+            let data    = CreatureStatusItem()
+            data.data1  = creatures.compactMap { $0.hasActiveGene( Herbivore.self ) ? $0 : nil }.count
+            data.data2  = creatures.compactMap { $0.hasActiveGene( Scavenger.self ) ? $0 : nil }.count
+            data.data3  = creatures.compactMap { $0.hasActiveGene( Predator.self  ) ? $0 : nil }.count
+            data.data4  = creatures.compactMap { $0.hasActiveGene( Vampire.self   ) ? $0 : nil }.count
+            data.title1 = "Herbivores"
+            data.title2 = "Scavengers"
+            data.title3 = "Predators"
+            data.title4 = "Vampires"
+            data.color1 = NSColor.systemGreen
+            data.color2 = NSColor.systemGray
+            data.color3 = NSColor.systemOrange
+            data.color4 = NSColor.systemPurple
+            data.gene1  = Herbivore.self
+            data.gene1  = Scavenger.self
+            data.gene1  = Predator.self
+            data.gene1  = Vampire.self
             
-            self.statusViewController.setData( data )
+            self.classStatusViewController.setData( data )
+            graph.addData( data )
+        }
+        
+        if let chart = self.creatureReproductionStatusView, let graph = self.creatureReproductionGraphView
+        {
+            if chart.subviews.count == 0
+            {
+                chart.addFillingSubview( self.reproductionStatusViewController.view, removeAllExisting: true )
+            }
+            
+            let data   = CreatureStatusItem()
+            data.data1 = creatures.compactMap { $0.hasActiveGene( Mitosis.self ) ? $0 : nil }.count
+            data.data2 = creatures.compactMap { $0.hasActiveGene( Sex.self     ) ? $0 : nil }.count
+            data.title1 = "Mitosis"
+            data.title2 = "Sex"
+            data.color1 = NSColor.systemBlue
+            data.color2 = NSColor.systemPink
+            data.gene1  = Mitosis.self
+            data.gene2  = Sex.self
+            
+            self.reproductionStatusViewController.setData( data )
             graph.addData( data )
         }
     }

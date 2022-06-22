@@ -44,12 +44,12 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <binding destination="-2" name="value" keyPath="self.data.total" id="XF5-HG-fO5"/>
                         <binding destination="-2" name="hidden" keyPath="self.highlightedItem" id="I1w-Uc-ymx">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NSIsNotNil</string>
                             </dictionary>
                         </binding>
-                        <binding destination="-2" name="value" keyPath="self.data.total" id="XF5-HG-fO5"/>
                     </connections>
                 </textField>
                 <scrollView autoresizesSubviews="NO" borderType="none" autohidesScrollers="YES" horizontalLineScroll="18" horizontalPageScroll="10" verticalLineScroll="18" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfs-3F-PCa">

@@ -61,15 +61,30 @@ public class CreatureStatusGraphView: NSView
             return
         }
         
-        let herbivores = self.data.map { $0.herbivores }
-        let scavengers = self.data.map { $0.herbivores + $0.scavengers }
-        let predators  = self.data.map { $0.herbivores + $0.scavengers + $0.predators }
-        let vampires   = self.data.map { $0.herbivores + $0.scavengers + $0.predators + $0.vampires }
+        let data1 = self.data.map { $0.data1 }
+        let data2 = self.data.map { $0.data1 + $0.data2 }
+        let data3 = self.data.map { $0.data1 + $0.data2 + $0.data3 }
+        let data4 = self.data.map { $0.data1 + $0.data2 + $0.data3 + $0.data4 }
         
-        self.draw( points: vampires,   color: NSColor.systemPurple, in: rect.insetBy( dx: 4, dy: 4 ) )
-        self.draw( points: predators,  color: NSColor.systemOrange, in: rect.insetBy( dx: 4, dy: 4 ) )
-        self.draw( points: scavengers, color: NSColor.systemGray,   in: rect.insetBy( dx: 4, dy: 4 ) )
-        self.draw( points: herbivores, color: NSColor.systemGreen,  in: rect.insetBy( dx: 4, dy: 4 ) )
+        if let color = self.data[ 0 ].color4
+        {
+            self.draw( points: data4, color: color, in: rect.insetBy( dx: 4, dy: 4 ) )
+        }
+        
+        if let color = self.data[ 0 ].color3
+        {
+            self.draw( points: data3, color: color, in: rect.insetBy( dx: 4, dy: 4 ) )
+        }
+        
+        if let color = self.data[ 0 ].color2
+        {
+            self.draw( points: data2, color: color, in: rect.insetBy( dx: 4, dy: 4 ) )
+        }
+        
+        if let color = self.data[ 0 ].color1
+        {
+            self.draw( points: data1, color: color, in: rect.insetBy( dx: 4, dy: 4 ) )
+        }
     }
     
     private func draw( points: [ Int ], color: NSColor, in rect: NSRect )

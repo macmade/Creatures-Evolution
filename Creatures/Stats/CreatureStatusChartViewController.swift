@@ -46,14 +46,15 @@ public class CreatureStatusChartViewController: NSViewController, NSTableViewDel
     public func setData( _ data: CreatureStatusItem )
     {
         self.data = data
-        let items = [
-            CreatureStatusChartViewItem( title: "Herbivores", count: data.herbivores, color: NSColor.systemGreen,  gene: Herbivore.self ),
-            CreatureStatusChartViewItem( title: "Scavengers", count: data.scavengers, color: NSColor.systemGray,   gene: Scavenger.self ),
-            CreatureStatusChartViewItem( title: "Predators",  count: data.predators,  color: NSColor.systemOrange, gene: Predator.self ),
-            CreatureStatusChartViewItem( title: "Vampires",   count: data.vampires,   color: NSColor.systemPurple, gene: Vampire.self ),
+        let items =
+        [
+            CreatureStatusChartViewItem( title: data.title1, count: data.data1, color: data.color1, gene: data.gene1 ),
+            CreatureStatusChartViewItem( title: data.title2, count: data.data2, color: data.color2, gene: data.gene2 ),
+            CreatureStatusChartViewItem( title: data.title3, count: data.data3, color: data.color3, gene: data.gene3 ),
+            CreatureStatusChartViewItem( title: data.title4, count: data.data4, color: data.color4, gene: data.gene4 ),
         ]
         
-        self.dataView?.setData( total: data.total, items: items )
+        self.dataView?.setData( total: data.total, items: items.filter { $0.title?.isEmpty == false && $0.color != nil } )
     }
     
     public func tableView( _ tableView: NSTableView, shouldSelectRow row: Int ) -> Bool

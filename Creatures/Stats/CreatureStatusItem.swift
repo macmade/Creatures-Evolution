@@ -26,13 +26,28 @@ import Cocoa
 
 @objc public class CreatureStatusItem: NSObject
 {
-    @objc public dynamic var herbivores = 0
-    @objc public dynamic var scavengers = 0
-    @objc public dynamic var predators  = 0
-    @objc public dynamic var vampires   = 0
+    @objc public dynamic var data1 = 0
+    @objc public dynamic var data2 = 0
+    @objc public dynamic var data3 = 0
+    @objc public dynamic var data4 = 0
+    
+    @objc public dynamic var title1 = ""
+    @objc public dynamic var title2 = ""
+    @objc public dynamic var title3 = ""
+    @objc public dynamic var title4 = ""
+    
+    @objc public dynamic var color1: NSColor?
+    @objc public dynamic var color2: NSColor?
+    @objc public dynamic var color3: NSColor?
+    @objc public dynamic var color4: NSColor?
+    
+    @objc public dynamic var gene1: AnyClass?
+    @objc public dynamic var gene2: AnyClass?
+    @objc public dynamic var gene3: AnyClass?
+    @objc public dynamic var gene4: AnyClass?
     
     @objc public var total: Int
     {
-        self.herbivores + self.scavengers + self.predators + self.vampires
+        self.data1 + self.data2 + self.data3 + self.data4
     }
 }

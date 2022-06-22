@@ -107,8 +107,11 @@ public class CreatureStatusChartView: NSView
             clip.append( mask.reversed )
             clip.setClip()
             
-            item.color.setFill()
-            path.fill()
+            if let color = item.color
+            {
+                color.setFill()
+                path.fill()
+            }
             
             start = end
             i    += 1

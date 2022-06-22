@@ -7,15 +7,17 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="StatsViewController" customModule="Creatures" customModuleProvider="target">
             <connections>
-                <outlet property="creatureGraphView" destination="0fc-iT-6nB" id="YXS-fT-uPX"/>
-                <outlet property="creatureStatusView" destination="XKq-1d-vdd" id="Y0U-Qi-b3Z"/>
+                <outlet property="creatureClassGraphView" destination="XKq-1d-vdd" id="f4g-8p-1qP"/>
+                <outlet property="creatureClassStatusView" destination="0fc-iT-6nB" id="1G2-m7-Kbt"/>
+                <outlet property="creatureReproductionGraphView" destination="W5i-nI-Rde" id="kP0-PY-Moo"/>
+                <outlet property="creatureReproductionStatusView" destination="vkc-BC-7A9" id="LFV-0f-R4l"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Cpc-av-8zT"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="1200" height="104"/>
+            <rect key="frame" x="0.0" y="0.0" width="1014" height="104"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOU-D6-m9v">
@@ -190,24 +192,38 @@
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="0fc-iT-6nB" customClass="CreatureStatusGraphView" customModule="Creatures" customModuleProvider="target">
-                    <rect key="frame" x="190" y="15" width="720" height="74"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="0fc-iT-6nB">
+                    <rect key="frame" x="190" y="15" width="200" height="74"/>
                 </customView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="XKq-1d-vdd">
-                    <rect key="frame" x="930" y="15" width="250" height="74"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="XKq-1d-vdd" customClass="CreatureStatusGraphView" customModule="Creatures" customModuleProvider="target">
+                    <rect key="frame" x="398" y="15" width="187" height="74"/>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="vkc-BC-7A9">
+                    <rect key="frame" x="605" y="15" width="200" height="74"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="250" id="Oiy-dC-6JH"/>
+                        <constraint firstAttribute="width" constant="200" id="AFa-F5-32n"/>
                     </constraints>
+                </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="W5i-nI-Rde" customClass="CreatureStatusGraphView" customModule="Creatures" customModuleProvider="target">
+                    <rect key="frame" x="813" y="15" width="186" height="74"/>
                 </customView>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="W5i-nI-Rde" secondAttribute="trailing" constant="15" id="3gy-f4-scW"/>
+                <constraint firstItem="W5i-nI-Rde" firstAttribute="leading" secondItem="vkc-BC-7A9" secondAttribute="trailing" constant="8" symbolic="YES" id="6BC-pM-Iva"/>
                 <constraint firstItem="XKq-1d-vdd" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="15" id="6JI-UQ-fOG"/>
+                <constraint firstItem="vkc-BC-7A9" firstAttribute="width" secondItem="0fc-iT-6nB" secondAttribute="width" id="9Gc-DR-8Y8"/>
                 <constraint firstItem="fOU-D6-m9v" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="FdS-Mx-quU"/>
                 <constraint firstItem="0fc-iT-6nB" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="15" id="KY3-PX-pFM"/>
-                <constraint firstItem="XKq-1d-vdd" firstAttribute="leading" secondItem="0fc-iT-6nB" secondAttribute="trailing" constant="20" id="L1L-wB-sp3"/>
-                <constraint firstAttribute="trailing" secondItem="XKq-1d-vdd" secondAttribute="trailing" constant="20" symbolic="YES" id="P78-5F-59f"/>
+                <constraint firstItem="XKq-1d-vdd" firstAttribute="leading" secondItem="0fc-iT-6nB" secondAttribute="trailing" constant="8" symbolic="YES" id="L1L-wB-sp3"/>
+                <constraint firstAttribute="bottom" secondItem="W5i-nI-Rde" secondAttribute="bottom" constant="15" id="Mug-ut-527"/>
+                <constraint firstAttribute="bottom" secondItem="vkc-BC-7A9" secondAttribute="bottom" constant="15" id="Rc6-Cl-wYr"/>
+                <constraint firstItem="XKq-1d-vdd" firstAttribute="width" secondItem="W5i-nI-Rde" secondAttribute="width" id="UlL-nu-3ac"/>
+                <constraint firstItem="vkc-BC-7A9" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="15" id="Vhf-p3-ZcD"/>
                 <constraint firstItem="0fc-iT-6nB" firstAttribute="leading" secondItem="fOU-D6-m9v" secondAttribute="trailing" constant="20" id="W9b-S8-lwT"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fOU-D6-m9v" secondAttribute="bottom" constant="20" symbolic="YES" id="fuD-I3-boF"/>
+                <constraint firstItem="W5i-nI-Rde" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="15" id="jua-ck-OTH"/>
+                <constraint firstItem="vkc-BC-7A9" firstAttribute="leading" secondItem="XKq-1d-vdd" secondAttribute="trailing" constant="20" id="mu8-hj-8gd"/>
                 <constraint firstAttribute="bottom" secondItem="XKq-1d-vdd" secondAttribute="bottom" constant="15" id="sNQ-U0-Mv0"/>
                 <constraint firstItem="fOU-D6-m9v" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="tK8-lT-pQ0"/>
                 <constraint firstAttribute="bottom" secondItem="0fc-iT-6nB" secondAttribute="bottom" constant="15" id="u2I-Gw-0OR"/>
