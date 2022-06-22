@@ -30,22 +30,25 @@ public class WorldSettingsViewController: SettingsViewController
     
     private var environmentObserver: NSKeyValueObservation?
     
-    public override var settings: Settings
+    public init( settings: Settings )
     {
-        didSet
-        {
-            self.updatePreview()
-        }
+        super.init( title: "World", settings: settings, enabled: nil )
     }
     
-    public override var nibName: NSNib.Name?
+    required init?( coder: NSCoder )
     {
-        "WorldSettingsViewController"
+        nil
     }
     
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.updatePreview()
+    }
+    
+    public override func updateSettings( settings: Settings )
+    {
+        super.updateSettings( settings: settings )
         self.updatePreview()
     }
     

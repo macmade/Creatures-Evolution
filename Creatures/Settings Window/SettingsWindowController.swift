@@ -104,7 +104,7 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
         
         self.items.forEach
         {
-            $0.controller.settings = self.settings
+            $0.controller.updateSettings( settings: self.settings )
         }
     }
     

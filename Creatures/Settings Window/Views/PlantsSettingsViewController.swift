@@ -26,14 +26,21 @@ import Cocoa
 
 public class PlantsSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "PlantsSettingsViewController"
+        super.init( title: "Plants", settings: settings, enabled: \.plants.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
     }
     
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.helpText = "If enabled, plants will grow repeatedly in the world."
         
         self.addBox(
             title: "General",

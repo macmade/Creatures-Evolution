@@ -26,14 +26,21 @@ import Cocoa
 
 public class MeatSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "MeatSettingsViewController"
+        super.init( title: "Meat", settings: settings, enabled: \.meat.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
     }
     
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.helpText = "If enabled, creatures will drop meat when dying."
         
         self.addBox(
             title: "General",

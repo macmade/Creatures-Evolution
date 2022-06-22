@@ -26,28 +26,71 @@ import Cocoa
 
 @objc public class SettingsViewController: NSViewController
 {
-    @IBOutlet private var contentView: NSStackView!
-    
-    @objc public dynamic var settings: Settings
+    @objc public                dynamic var helpText:     String?
+    @objc public private( set ) dynamic var settings:     Settings
+    @objc public private( set ) dynamic var canBeEnabled: Bool
+    @objc public private( set ) dynamic var isEnabled:    Bool
     {
         didSet
         {
-            self.controllers.forEach { $0.updateSettings( self.settings ) }
+            if let enabledKey = self.enabledKey
+            {
+                self.settings[ keyPath: enabledKey ] = self.isEnabled
+            }
         }
     }
     
+    private var enabledKey:   WritableKeyPath< Settings, Bool >?
     private var controllers = [ SettingsValueViewController ]()
     
-    public init( settings: Settings )
+    @IBOutlet private var contentView: NSStackView!
+    
+    public init( title: String, settings: Settings, enabled: WritableKeyPath< Settings, Bool >? )
     {
         self.settings = settings
         
+        if let enabled = enabled
+        {
+            self.isEnabled    = settings[ keyPath: enabled ]
+            self.canBeEnabled = true
+        }
+        else
+        {
+            self.isEnabled    = false
+            self.canBeEnabled = false
+        }
+        
         super.init( nibName: nil, bundle: nil )
+        
+        self.enabledKey = enabled
+        self.title      = title
+    }
+    
+    public convenience init( settings: Settings )
+    {
+        self.init( title: "", settings: settings, enabled: nil )
     }
     
     required init?( coder: NSCoder )
     {
         nil
+    }
+    
+    public override var nibName: NSNib.Name?
+    {
+        "SettingsViewController"
+    }
+    
+    public func updateSettings( settings: Settings )
+    {
+        self.settings = settings
+        
+        if let enabledKey = self.enabledKey
+        {
+            self.isEnabled = self.settings[ keyPath: enabledKey ]
+        }
+        
+        self.controllers.forEach { $0.updateSettings( settings ) }
     }
     
     public func addBox( title: String, controllers: [ SettingsValueViewController ] )

@@ -26,8 +26,29 @@ import Cocoa
 
 public class MeatSenseSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "MeatSenseSettingsViewController"
+        super.init( title: "Meat Sense", settings: settings, enabled: \.meatSense.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.helpText = "Creatures evolving this gene will be able to detect meat dropped by dead creatures.\nOnly effective for creatures having evolved the scavenger gene."
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.meatSense.isActive ),
+                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.meatSense.canRegress ),
+            ]
+        )
     }
 }

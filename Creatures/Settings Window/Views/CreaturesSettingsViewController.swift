@@ -26,8 +26,18 @@ import Cocoa
 
 public class CreaturesSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "CreaturesSettingsViewController"
+        super.init( title: "Creatures", settings: settings, enabled: nil )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
     }
 }

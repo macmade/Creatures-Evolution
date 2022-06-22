@@ -26,8 +26,29 @@ import Cocoa
 
 public class MitosisSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "MitosisSettingsViewController"
+        super.init( title: "Mitosis", settings: settings, enabled: \.mitosis.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.helpText = "Creatures evolving this gene will be able to replicate using mitosis."
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.mitosis.isActive ),
+                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.mitosis.canRegress ),
+            ]
+        )
     }
 }

@@ -26,8 +26,29 @@ import Cocoa
 
 public class PreySenseSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "PreySenseSettingsViewController"
+        super.init( title: "Prey Sense", settings: settings, enabled: \.preySense.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.helpText = "Creatures evolving this gene will be able to detect other creatures that can be used as preys.\nOnly effective for creatures having evolved the predator or vampire gene."
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.preySense.isActive ),
+                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.preySense.canRegress ),
+            ]
+        )
     }
 }

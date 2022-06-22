@@ -26,8 +26,29 @@ import Cocoa
 
 public class HerbivoreSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "HerbivoreSettingsViewController"
+        super.init( title: "Herbivore", settings: settings, enabled: \.herbivore.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.helpText = "Creatures evolving this gene will use plants as food source."
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.herbivore.isActive ),
+                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.herbivore.canRegress ),
+            ]
+        )
     }
 }

@@ -26,8 +26,29 @@ import Cocoa
 
 public class PredatorSenseSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "PredatorSenseSettingsViewController"
+        super.init( title: "Predator Sense", settings: settings, enabled: \.predatorSense.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.helpText = "Creatures evolving this gene will be able to detect predators.\nOnly effective for non creatures without the predator gene."
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.predatorSense.isActive ),
+                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.predatorSense.canRegress ),
+            ]
+        )
     }
 }

@@ -26,8 +26,29 @@ import Cocoa
 
 public class SexSettingsViewController: SettingsViewController
 {
-    public override var nibName: NSNib.Name?
+    public init( settings: Settings )
     {
-        "SexSettingsViewController"
+        super.init( title: "Sex", settings: settings, enabled: \.sex.isEnabled )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.helpText = "Creatures evolving this gene will be able to reproduce using sex.\nSexual reproduction requires mating with another creature having a compatible sex."
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Activate gene at start", settings: self.settings, key: \.sex.isActive ),
+                SettingsBoolValueCheckboxViewController( title: "Allow gene to regress",  settings: self.settings, key: \.sex.canRegress ),
+            ]
+        )
     }
 }
