@@ -31,10 +31,11 @@ public class Creature: SpriteNode, Updatable
     private static let moveActionKey = "Move"
     private static var index         = UInt64( 0 )
     
-          public private( set ) dynamic var genes:    [ Gene ]
-    @objc public private( set ) dynamic var settings: Settings
-    @objc public private( set ) dynamic var born:     TimeInterval = -1
-    @objc public private( set ) dynamic var age:      TimeInterval = -1
+          public private( set ) dynamic var genes:         [ Gene ]
+    @objc public private( set ) dynamic var settings:      Settings
+    @objc public private( set ) dynamic var born:          TimeInterval = -1
+    @objc public private( set ) dynamic var age:           TimeInterval = -1
+    @objc public                dynamic var childrenCount: Int          = 0
     
     private var nextEnergyDecrease: TimeInterval?
     

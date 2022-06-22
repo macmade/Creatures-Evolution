@@ -71,46 +71,8 @@
                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KB9-dd-be2">
                     <rect key="frame" x="20" y="262" width="195" height="136"/>
                     <subviews>
-                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZGv-W8-sQW">
-                            <rect key="frame" x="0.0" y="120" width="195" height="16"/>
-                            <subviews>
-                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hhj-7Y-NSh">
-                                    <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
-                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Identifier:" id="7FJ-qC-qB6">
-                                        <font key="font" metaFont="systemBold"/>
-                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Kku-z6-iHX">
-                                    <rect key="frame" x="157" y="0.0" width="40" height="16"/>
-                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="c2i-AZ-Chk">
-                                        <font key="font" metaFont="systemBold"/>
-                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="-2" name="value" keyPath="self.node.name" id="oKh-8g-NV4"/>
-                                    </connections>
-                                </textField>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="Kku-z6-iHX" firstAttribute="centerY" secondItem="ZGv-W8-sQW" secondAttribute="centerY" id="3Vf-YX-yn5"/>
-                                <constraint firstItem="hhj-7Y-NSh" firstAttribute="top" secondItem="ZGv-W8-sQW" secondAttribute="top" id="7U0-p3-leu"/>
-                                <constraint firstAttribute="bottom" secondItem="hhj-7Y-NSh" secondAttribute="bottom" id="Mjb-uY-GrK"/>
-                                <constraint firstItem="hhj-7Y-NSh" firstAttribute="centerY" secondItem="ZGv-W8-sQW" secondAttribute="centerY" id="btS-nT-pSE"/>
-                            </constraints>
-                            <visibilityPriorities>
-                                <integer value="1000"/>
-                                <integer value="1000"/>
-                            </visibilityPriorities>
-                            <customSpacing>
-                                <real value="3.4028234663852886e+38"/>
-                                <real value="3.4028234663852886e+38"/>
-                            </customSpacing>
-                        </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6l-WC-wtd">
-                            <rect key="frame" x="0.0" y="96" width="195" height="16"/>
+                            <rect key="frame" x="0.0" y="120" width="195" height="16"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OEU-Fn-4Tv">
                                     <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
@@ -152,7 +114,7 @@
                             </customSpacing>
                         </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Tx-tw-bHc">
-                            <rect key="frame" x="0.0" y="72" width="195" height="16"/>
+                            <rect key="frame" x="0.0" y="96" width="195" height="16"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DrB-zM-J6h">
                                     <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
@@ -194,7 +156,7 @@
                             </customSpacing>
                         </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gH-sb-abp">
-                            <rect key="frame" x="0.0" y="48" width="195" height="16"/>
+                            <rect key="frame" x="0.0" y="72" width="195" height="16"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YRy-n5-JCl">
                                     <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
@@ -236,7 +198,7 @@
                             </customSpacing>
                         </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H6e-Qx-eA4">
-                            <rect key="frame" x="0.0" y="24" width="195" height="16"/>
+                            <rect key="frame" x="0.0" y="48" width="195" height="16"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-OQ-u2q">
                                     <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
@@ -267,6 +229,44 @@
                                 <constraint firstAttribute="bottom" secondItem="EyM-OQ-u2q" secondAttribute="bottom" id="bCl-fV-1kf"/>
                                 <constraint firstItem="EyM-OQ-u2q" firstAttribute="top" secondItem="H6e-Qx-eA4" secondAttribute="top" id="pGg-36-TN0"/>
                                 <constraint firstItem="EyM-OQ-u2q" firstAttribute="centerY" secondItem="H6e-Qx-eA4" secondAttribute="centerY" id="xgC-zu-8bA"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lLh-a3-L0w">
+                            <rect key="frame" x="0.0" y="24" width="195" height="16"/>
+                            <subviews>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ySz-4n-PJ1">
+                                    <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Children:" id="Kln-7z-LEc">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="oiT-Js-FVG">
+                                    <rect key="frame" x="157" y="0.0" width="40" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="CFg-Gb-w3y">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="-2" name="value" keyPath="self.node.childrenCount" id="5D8-Go-1Oy"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="ySz-4n-PJ1" firstAttribute="top" secondItem="lLh-a3-L0w" secondAttribute="top" id="Kvk-ev-zSE"/>
+                                <constraint firstItem="oiT-Js-FVG" firstAttribute="centerY" secondItem="lLh-a3-L0w" secondAttribute="centerY" id="Uh5-2y-eBv"/>
+                                <constraint firstAttribute="bottom" secondItem="ySz-4n-PJ1" secondAttribute="bottom" id="jIG-3Y-EYL"/>
+                                <constraint firstItem="ySz-4n-PJ1" firstAttribute="centerY" secondItem="lLh-a3-L0w" secondAttribute="centerY" id="qFA-A7-jrb"/>
                             </constraints>
                             <visibilityPriorities>
                                 <integer value="1000"/>
@@ -357,16 +357,16 @@
                         </stackView>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="lLh-a3-L0w" firstAttribute="leading" secondItem="KB9-dd-be2" secondAttribute="leading" id="8gF-Y6-28e"/>
                         <constraint firstItem="H6e-Qx-eA4" firstAttribute="leading" secondItem="KB9-dd-be2" secondAttribute="leading" id="DW5-nU-Y6D"/>
                         <constraint firstAttribute="trailing" secondItem="f14-Sl-55O" secondAttribute="trailing" id="KeE-hl-Meq"/>
-                        <constraint firstItem="ZGv-W8-sQW" firstAttribute="leading" secondItem="KB9-dd-be2" secondAttribute="leading" id="Kpz-aw-Uqj"/>
                         <constraint firstItem="f14-Sl-55O" firstAttribute="leading" secondItem="KB9-dd-be2" secondAttribute="leading" id="Meo-Cx-hwq"/>
                         <constraint firstAttribute="trailing" secondItem="P6l-WC-wtd" secondAttribute="trailing" id="Nsv-dr-qJI"/>
                         <constraint firstItem="1gH-sb-abp" firstAttribute="leading" secondItem="KB9-dd-be2" secondAttribute="leading" id="UWU-K4-JHw"/>
                         <constraint firstItem="P6l-WC-wtd" firstAttribute="leading" secondItem="KB9-dd-be2" secondAttribute="leading" id="b2M-Gw-ysc"/>
+                        <constraint firstAttribute="trailing" secondItem="lLh-a3-L0w" secondAttribute="trailing" id="d1f-G5-ej7"/>
                         <constraint firstAttribute="trailing" secondItem="1gH-sb-abp" secondAttribute="trailing" id="ikd-Ue-NIY"/>
                         <constraint firstAttribute="trailing" secondItem="2Tx-tw-bHc" secondAttribute="trailing" id="s7G-SF-8Jl"/>
-                        <constraint firstAttribute="trailing" secondItem="ZGv-W8-sQW" secondAttribute="trailing" id="sHC-dA-dCd"/>
                         <constraint firstItem="2Tx-tw-bHc" firstAttribute="leading" secondItem="KB9-dd-be2" secondAttribute="leading" id="t4A-kL-ZEL"/>
                         <constraint firstAttribute="trailing" secondItem="H6e-Qx-eA4" secondAttribute="trailing" id="wBH-qi-DMH"/>
                     </constraints>
@@ -546,14 +546,14 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canToggleValue" id="08y-Fu-dnn">
-                                                                        <dictionary key="options">
-                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                                        </dictionary>
-                                                                    </binding>
                                                                     <binding destination="Deu-WY-lEh" name="target" keyPath="objectValue" id="VFi-zT-dvC">
                                                                         <dictionary key="options">
                                                                             <string key="NSSelectorName">toggleValue</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canToggleValue" id="08y-Fu-dnn">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                                         </dictionary>
                                                                     </binding>
                                                                 </connections>
@@ -565,14 +565,14 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canIncreaseOrDecreaseValue" id="LGt-1n-lFP">
-                                                                        <dictionary key="options">
-                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                                        </dictionary>
-                                                                    </binding>
                                                                     <binding destination="Deu-WY-lEh" name="target" keyPath="objectValue" id="o1U-NW-zA6">
                                                                         <dictionary key="options">
                                                                             <string key="NSSelectorName">decreaseValue</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canIncreaseOrDecreaseValue" id="LGt-1n-lFP">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                                         </dictionary>
                                                                     </binding>
                                                                 </connections>
@@ -584,14 +584,14 @@
                                                                     <font key="font" metaFont="smallSystem"/>
                                                                 </buttonCell>
                                                                 <connections>
-                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canIncreaseOrDecreaseValue" id="ey3-AN-hzG">
-                                                                        <dictionary key="options">
-                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                                        </dictionary>
-                                                                    </binding>
                                                                     <binding destination="Deu-WY-lEh" name="target" keyPath="objectValue" id="aqE-AF-8iR">
                                                                         <dictionary key="options">
                                                                             <string key="NSSelectorName">increaseValue</string>
+                                                                        </dictionary>
+                                                                    </binding>
+                                                                    <binding destination="Deu-WY-lEh" name="hidden" keyPath="objectValue.canIncreaseOrDecreaseValue" id="ey3-AN-hzG">
+                                                                        <dictionary key="options">
+                                                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
                                                                         </dictionary>
                                                                     </binding>
                                                                 </connections>
