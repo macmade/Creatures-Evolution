@@ -26,10 +26,6 @@ import Cocoa
 
 public class MeatSettingsViewController: SettingsViewController
 {
-    @IBOutlet private var generalView:  NSStackView!
-    @IBOutlet private var lifetimeView: NSStackView!
-    @IBOutlet private var decayView:    NSStackView!
-    
     public override var nibName: NSNib.Name?
     {
         "MeatSettingsViewController"
@@ -39,32 +35,32 @@ public class MeatSettingsViewController: SettingsViewController
     {
         super.viewDidLoad()
         
-        self.set(
+        self.addBox(
+            title: "General",
             controllers:
             [
                 SettingsBoolValueCheckboxViewController( title: "Meat can disappear", settings: self.settings, key: \.meat.canDisappear ),
                 SettingsBoolValueCheckboxViewController( title: "Meat can decay",     settings: self.settings, key: \.meat.canDecay ),
-            ],
-            in: self.generalView
+            ]
         )
         
-        self.set(
+        self.addBox(
+            title: "Lifetime",
             controllers:
             [
                 SettingsIntValueSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.meat.disappearAfter,      minValue: 1, maxValue: 60 ),
                 SettingsIntValueSliderViewController( title: "Disappear after (randomness):", settings: self.settings, key: \.meat.disappearAfterRange, minValue: 0, maxValue: 60 ),
-            ],
-            in: self.lifetimeView
+            ]
         )
         
-        self.set(
+        self.addBox(
+            title: "Decay",
             controllers:
             [
                 SettingsIntValueSliderViewController( title: "Decay after:",              settings: self.settings, key: \.meat.decayAfter,      minValue:   1, maxValue: 60 ),
                 SettingsIntValueSliderViewController( title: "Decay after (randomness):", settings: self.settings, key: \.meat.decayAfterRange, minValue:   0, maxValue: 60 ),
                 SettingsIntValueSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.meat.decayEnergy,     minValue: -10, maxValue: 0 ),
-            ],
-            in: self.decayView
+            ]
         )
     }
 }

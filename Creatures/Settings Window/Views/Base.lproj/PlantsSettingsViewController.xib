@@ -7,21 +7,18 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PlantsSettingsViewController" customModule="Creatures" customModuleProvider="target">
             <connections>
-                <outlet property="decayView" destination="Agw-ML-G37" id="snX-uZ-B88"/>
-                <outlet property="generalView" destination="5LG-vq-OF3" id="LCd-QP-Z2K"/>
-                <outlet property="growthView" destination="jl5-Vv-nVh" id="kYA-Qx-0sx"/>
-                <outlet property="lifetimeView" destination="ty2-TM-2ze" id="EX5-FS-SoQ"/>
+                <outlet property="contentView" destination="cKz-Hz-hsv" id="G4T-iW-Nw1"/>
                 <outlet property="view" destination="c22-O7-iKe" id="m42-jP-UHh"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="650" height="345"/>
+            <rect key="frame" x="0.0" y="0.0" width="650" height="105"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-nq-Tt9">
-                    <rect key="frame" x="-2" y="314" width="74" height="31"/>
+                    <rect key="frame" x="-2" y="74" width="74" height="31"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Plants" id="TV5-Mj-9H2">
                         <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -29,86 +26,17 @@
                     </textFieldCell>
                 </textField>
                 <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="c1o-lB-7FU">
-                    <rect key="frame" x="610" y="317" width="42" height="25"/>
+                    <rect key="frame" x="610" y="77" width="42" height="25"/>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.settings.plants.isEnabled" id="Qm9-YH-DX7"/>
                     </connections>
                 </switch>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e1L-tq-cm8">
-                    <rect key="frame" x="0.0" y="303" width="650" height="5"/>
+                    <rect key="frame" x="0.0" y="63" width="650" height="5"/>
                 </box>
-                <box title="General" translatesAutoresizingMaskIntoConstraints="NO" id="dVo-6P-RuA">
-                    <rect key="frame" x="-3" y="227" width="656" height="58"/>
-                    <view key="contentView" id="Zjw-q3-V4t">
-                        <rect key="frame" x="3" y="3" width="650" height="40"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-vq-OF3">
-                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
-                            </stackView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="5LG-vq-OF3" secondAttribute="bottom" constant="20" symbolic="YES" id="HGn-Tc-ouJ"/>
-                            <constraint firstItem="5LG-vq-OF3" firstAttribute="top" secondItem="Zjw-q3-V4t" secondAttribute="top" constant="20" symbolic="YES" id="Njy-gz-U8O"/>
-                            <constraint firstItem="5LG-vq-OF3" firstAttribute="leading" secondItem="Zjw-q3-V4t" secondAttribute="leading" constant="20" symbolic="YES" id="TSU-9f-osG"/>
-                            <constraint firstAttribute="trailing" secondItem="5LG-vq-OF3" secondAttribute="trailing" constant="20" symbolic="YES" id="V7Q-oe-iOP"/>
-                        </constraints>
-                    </view>
-                </box>
-                <box title="Growth" translatesAutoresizingMaskIntoConstraints="NO" id="GAu-bf-1SC">
-                    <rect key="frame" x="-3" y="165" width="656" height="58"/>
-                    <view key="contentView" id="cbn-87-cR3">
-                        <rect key="frame" x="3" y="3" width="650" height="40"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jl5-Vv-nVh">
-                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
-                            </stackView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="jl5-Vv-nVh" firstAttribute="leading" secondItem="cbn-87-cR3" secondAttribute="leading" constant="20" symbolic="YES" id="0Q5-UQ-Y9h"/>
-                            <constraint firstItem="jl5-Vv-nVh" firstAttribute="top" secondItem="cbn-87-cR3" secondAttribute="top" constant="20" symbolic="YES" id="9hD-eX-XiP"/>
-                            <constraint firstAttribute="bottom" secondItem="jl5-Vv-nVh" secondAttribute="bottom" constant="20" symbolic="YES" id="B2N-Ec-zpX"/>
-                            <constraint firstAttribute="trailing" secondItem="jl5-Vv-nVh" secondAttribute="trailing" constant="20" symbolic="YES" id="l7a-8A-oVe"/>
-                        </constraints>
-                    </view>
-                </box>
-                <box title="Lifetime" translatesAutoresizingMaskIntoConstraints="NO" id="i4T-Dz-cnU">
-                    <rect key="frame" x="-3" y="103" width="656" height="58"/>
-                    <view key="contentView" id="YZN-05-veV">
-                        <rect key="frame" x="3" y="3" width="650" height="40"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ty2-TM-2ze">
-                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
-                            </stackView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="ty2-TM-2ze" secondAttribute="trailing" constant="20" symbolic="YES" id="0t4-jS-Ivr"/>
-                            <constraint firstItem="ty2-TM-2ze" firstAttribute="top" secondItem="YZN-05-veV" secondAttribute="top" constant="20" symbolic="YES" id="hJo-2R-ZzP"/>
-                            <constraint firstItem="ty2-TM-2ze" firstAttribute="leading" secondItem="YZN-05-veV" secondAttribute="leading" constant="20" symbolic="YES" id="kKB-fd-4g8"/>
-                            <constraint firstAttribute="bottom" secondItem="ty2-TM-2ze" secondAttribute="bottom" constant="20" symbolic="YES" id="lNi-si-wjv"/>
-                        </constraints>
-                    </view>
-                </box>
-                <box title="Decay" translatesAutoresizingMaskIntoConstraints="NO" id="ipu-Zj-oEf">
-                    <rect key="frame" x="-3" y="41" width="656" height="58"/>
-                    <view key="contentView" id="F2D-X8-U3l">
-                        <rect key="frame" x="3" y="3" width="650" height="40"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Agw-ML-G37">
-                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
-                            </stackView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Agw-ML-G37" secondAttribute="trailing" constant="20" symbolic="YES" id="L4a-x2-T61"/>
-                            <constraint firstItem="Agw-ML-G37" firstAttribute="leading" secondItem="F2D-X8-U3l" secondAttribute="leading" constant="20" symbolic="YES" id="Pa3-iO-Alv"/>
-                            <constraint firstItem="Agw-ML-G37" firstAttribute="top" secondItem="F2D-X8-U3l" secondAttribute="top" constant="20" symbolic="YES" id="UxR-K8-Q95"/>
-                            <constraint firstAttribute="bottom" secondItem="Agw-ML-G37" secondAttribute="bottom" constant="20" symbolic="YES" id="aGg-w0-hH9"/>
-                        </constraints>
-                    </view>
-                </box>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKz-Hz-hsv">
+                    <rect key="frame" x="0.0" y="45" width="650" height="0.0"/>
+                </stackView>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="8Q5-46-zXr">
                     <rect key="frame" x="0.0" y="22" width="650" height="5"/>
                 </box>
@@ -130,38 +58,29 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="i4T-Dz-cnU" secondAttribute="trailing" id="05Y-FE-Q0L"/>
                 <constraint firstAttribute="bottom" secondItem="DFu-GX-uOc" secondAttribute="bottom" id="3QH-jw-7Wp"/>
                 <constraint firstItem="e1L-tq-cm8" firstAttribute="top" secondItem="Gjy-nq-Tt9" secondAttribute="bottom" constant="8" symbolic="YES" id="3UJ-JT-XzN"/>
                 <constraint firstItem="c1o-lB-7FU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gjy-nq-Tt9" secondAttribute="trailing" constant="8" symbolic="YES" id="4yK-Aa-lar"/>
                 <constraint firstAttribute="trailing" secondItem="8Q5-46-zXr" secondAttribute="trailing" id="AuM-9V-jtK"/>
-                <constraint firstItem="dVo-6P-RuA" firstAttribute="top" secondItem="e1L-tq-cm8" secondAttribute="bottom" constant="20" id="Bb8-M6-oo5"/>
-                <constraint firstItem="8Q5-46-zXr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ipu-Zj-oEf" secondAttribute="bottom" constant="20" id="CRw-Lx-c6z"/>
-                <constraint firstAttribute="trailing" secondItem="dVo-6P-RuA" secondAttribute="trailing" id="Gnb-Mx-4d4"/>
-                <constraint firstItem="ipu-Zj-oEf" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="JV7-zp-MAs"/>
-                <constraint firstAttribute="trailing" secondItem="GAu-bf-1SC" secondAttribute="trailing" id="KwY-BA-PJa"/>
                 <constraint firstAttribute="trailing" secondItem="c1o-lB-7FU" secondAttribute="trailing" id="L3p-L8-KRD"/>
                 <constraint firstItem="ihZ-6x-a01" firstAttribute="centerY" secondItem="DFu-GX-uOc" secondAttribute="centerY" id="MBq-7h-2eX"/>
-                <constraint firstItem="i4T-Dz-cnU" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="MQc-fA-Xff"/>
-                <constraint firstItem="i4T-Dz-cnU" firstAttribute="top" secondItem="GAu-bf-1SC" secondAttribute="bottom" constant="8" symbolic="YES" id="QMj-Ti-0ng"/>
-                <constraint firstItem="GAu-bf-1SC" firstAttribute="top" secondItem="dVo-6P-RuA" secondAttribute="bottom" constant="8" symbolic="YES" id="S4X-61-eb1"/>
                 <constraint firstItem="ihZ-6x-a01" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="YFn-zs-A9g"/>
-                <constraint firstItem="ipu-Zj-oEf" firstAttribute="top" secondItem="i4T-Dz-cnU" secondAttribute="bottom" constant="8" symbolic="YES" id="Yft-fu-WJJ"/>
-                <constraint firstItem="dVo-6P-RuA" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Ytx-Up-Seo"/>
                 <constraint firstItem="Gjy-nq-Tt9" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="ZvV-ox-Goo"/>
+                <constraint firstItem="8Q5-46-zXr" firstAttribute="top" secondItem="cKz-Hz-hsv" secondAttribute="bottom" constant="20" id="a1B-09-6Df"/>
+                <constraint firstItem="cKz-Hz-hsv" firstAttribute="top" secondItem="e1L-tq-cm8" secondAttribute="bottom" constant="20" id="dRn-G3-mcV"/>
                 <constraint firstItem="DFu-GX-uOc" firstAttribute="leading" secondItem="ihZ-6x-a01" secondAttribute="trailing" constant="8" symbolic="YES" id="eAD-jE-Swd"/>
                 <constraint firstItem="c1o-lB-7FU" firstAttribute="centerY" secondItem="Gjy-nq-Tt9" secondAttribute="centerY" id="gQv-U4-dnP"/>
                 <constraint firstItem="DFu-GX-uOc" firstAttribute="top" secondItem="8Q5-46-zXr" secondAttribute="bottom" constant="8" symbolic="YES" id="hzG-hm-9fy"/>
+                <constraint firstAttribute="trailing" secondItem="cKz-Hz-hsv" secondAttribute="trailing" id="ilB-Tm-wpD"/>
                 <constraint firstAttribute="trailing" secondItem="e1L-tq-cm8" secondAttribute="trailing" id="jgx-Sp-xJT"/>
-                <constraint firstItem="GAu-bf-1SC" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="nuK-O5-At3"/>
                 <constraint firstAttribute="trailing" secondItem="DFu-GX-uOc" secondAttribute="trailing" id="oD2-zx-wS1"/>
-                <constraint firstAttribute="trailing" secondItem="ipu-Zj-oEf" secondAttribute="trailing" id="q1d-Og-ff1"/>
+                <constraint firstItem="cKz-Hz-hsv" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="qUG-Uo-Txh"/>
                 <constraint firstItem="e1L-tq-cm8" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="quE-du-UUZ"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gjy-nq-Tt9" secondAttribute="trailing" id="v4I-fh-egW"/>
                 <constraint firstItem="8Q5-46-zXr" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="wsn-Q7-ABd"/>
                 <constraint firstItem="Gjy-nq-Tt9" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="zIo-rF-Bbg"/>
             </constraints>
-            <point key="canvasLocation" x="149" y="34.5"/>
+            <point key="canvasLocation" x="149" y="-112.5"/>
         </customView>
     </objects>
     <resources>

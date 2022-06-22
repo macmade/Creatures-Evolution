@@ -26,15 +26,17 @@ import Cocoa
 
 @objc public class SettingsViewController: NSViewController
 {
+    @IBOutlet private var contentView: NSStackView!
+    
     @objc public dynamic var settings: Settings
     {
         didSet
         {
-            self.valueSliderControllers.forEach { $0.updateSettings( self.settings ) }
+            self.controllers.forEach { $0.updateSettings( self.settings ) }
         }
     }
     
-    private var valueSliderControllers = [ SettingsValueViewController ]()
+    private var controllers = [ SettingsValueViewController ]()
     
     public init( settings: Settings )
     {
@@ -48,9 +50,25 @@ import Cocoa
         nil
     }
     
-    public func set( controllers: [ SettingsValueViewController ], in stackView: NSStackView )
+    public func addBox( title: String, controllers: [ SettingsValueViewController ] )
     {
-        self.valueSliderControllers.append( contentsOf: controllers )
-        stackView.setViews( controllers.map { $0.view }, in: .leading )
+        let box   = NSBox()
+        box.title = title
+        
+        self.contentView.addView( box, in: .top )
+        self.contentView.addConstraint( NSLayoutConstraint( item: box, attribute: .left,  relatedBy: .equal, toItem: self.contentView, attribute: .left,  multiplier: 1, constant: 0 ) )
+        self.contentView.addConstraint( NSLayoutConstraint( item: box, attribute: .right, relatedBy: .equal, toItem: self.contentView, attribute: .right, multiplier: 1, constant: 0 ) )
+        
+        let stack                 = NSStackView()
+        stack.orientation         = .vertical
+        stack.distribution        = .fill
+        stack.alignment           = .leading
+        stack.spacing             = 8
+        stack.detachesHiddenViews = true
+        
+        stack.setViews( controllers.map { $0.view }, in: .leading )
+        box.contentView?.addFillingSubview( stack, insets: NSEdgeInsets( top: 20, left: 20, bottom: 20, right: 20 ), removeAllExisting: true )
+        
+        self.controllers.append( contentsOf: controllers )
     }
 }
