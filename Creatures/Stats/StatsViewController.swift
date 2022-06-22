@@ -120,9 +120,9 @@ public class StatsViewController: NSViewController
             data.color3 = NSColor.systemOrange
             data.color4 = NSColor.systemPurple
             data.gene1  = Herbivore.self
-            data.gene1  = Scavenger.self
-            data.gene1  = Predator.self
-            data.gene1  = Vampire.self
+            data.gene2  = Scavenger.self
+            data.gene3  = Predator.self
+            data.gene4  = Vampire.self
             
             self.classStatusViewController.setData( data )
             graph.addData( data )
