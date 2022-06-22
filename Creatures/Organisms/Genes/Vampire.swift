@@ -47,6 +47,22 @@ public class Vampire: Gene
         NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
     }
     
+    public override var details: String?
+    {
+        if self.meals == 1
+        {
+            return "\( self.meals ) meal"
+        }
+        
+        return "\( self.meals ) meals"
+    }
+    
+    private dynamic var meals = 0
+    {
+        willSet { self.willChangeValue( for: \.details ) }
+        didSet  { self.didChangeValue(  for: \.details ) }
+    }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
         Vampire( active: self.isActive, settings: self.settings )
@@ -104,6 +120,8 @@ public class Vampire: Gene
                 other.die( dropFood: true )
                 EventLog.shared.killed( creature: other, by: creature )
             }
+            
+            self.meals += 1
         }
     }
 }

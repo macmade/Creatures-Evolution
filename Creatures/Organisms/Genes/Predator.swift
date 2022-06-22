@@ -47,6 +47,22 @@ public class Predator: Gene
         NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
     }
     
+    public override var details: String?
+    {
+        if self.kills == 1
+        {
+            return "\( self.kills ) kill"
+        }
+        
+        return "\( self.kills ) kills"
+    }
+    
+    private dynamic var kills = 0
+    {
+        willSet { self.willChangeValue( for: \.details ) }
+        didSet  { self.didChangeValue(  for: \.details ) }
+    }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
         Predator( active: self.isActive, settings: self.settings )
@@ -99,6 +115,8 @@ public class Predator: Gene
                 creature.energy += energy
                 other.energy    -= energy
             }
+            
+            self.kills += 1
             
             other.die( dropFood: true )
             EventLog.shared.killed( creature: other, by: creature )

@@ -47,6 +47,22 @@ public class Scavenger: Gene
         NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
     }
     
+    public override var details: String?
+    {
+        if self.meals == 1
+        {
+            return "\( self.meals ) meal"
+        }
+        
+        return "\( self.meals ) meals"
+    }
+    
+    private dynamic var meals = 0
+    {
+        willSet { self.willChangeValue( for: \.details ) }
+        didSet  { self.didChangeValue(  for: \.details ) }
+    }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
         Scavenger( active: self.isActive, settings: self.settings )
@@ -59,6 +75,7 @@ public class Scavenger: Gene
             meat.remove()
             
             creature.energy += meat.energy
+            self.meals      += 1
         }
     }
 }
