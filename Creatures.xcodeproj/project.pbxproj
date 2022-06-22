@@ -139,6 +139,7 @@
 		05A334BC2863863800905208 /* Combat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334BB2863863800905208 /* Combat.swift */; };
 		05A334BE2863877600905208 /* CombatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334BD2863877600905208 /* CombatSettings.swift */; };
 		05A334C02863886B00905208 /* CombatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334BF2863886B00905208 /* CombatSettingsViewController.swift */; };
+		05A334C228638D9000905208 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334C128638D9000905208 /* SettingsSection.swift */; };
 		05B8A35628616034007870B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35528616034007870B3 /* Assets.xcassets */; };
 		05B8A3622861F2F3007870B3 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35B2861F2F3007870B3 /* Credit.swift */; };
 		05B8A3632861F2F3007870B3 /* CreditsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */; };
@@ -329,6 +330,7 @@
 		05A334BB2863863800905208 /* Combat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Combat.swift; sourceTree = "<group>"; };
 		05A334BD2863877600905208 /* CombatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatSettings.swift; sourceTree = "<group>"; };
 		05A334BF2863886B00905208 /* CombatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatSettingsViewController.swift; sourceTree = "<group>"; };
+		05A334C128638D9000905208 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		05B8A35528616034007870B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B8A35B2861F2F3007870B3 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsWindowController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				05252F0D2855EAE80090B385 /* SettingsItem.swift */,
+				05A334C128638D9000905208 /* SettingsSection.swift */,
 				05252F5C2857FF3C0090B385 /* SettingsViewController.swift */,
 				05252F69285819710090B385 /* SettingsViewController.xib */,
 				05252F0B2855E2100090B385 /* SettingsWindowController.swift */,
@@ -968,6 +971,7 @@
 				05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */,
 				05252F74285819A60090B385 /* MeatSettings.swift in Sources */,
 				0510206C285A192800F11184 /* PlantSenseSettings.swift in Sources */,
+				05A334C228638D9000905208 /* SettingsSection.swift in Sources */,
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
 				0510206B285A192800F11184 /* PredatorSettings.swift in Sources */,
 				051A33442862075A001B605D /* Bundle.swift in Sources */,

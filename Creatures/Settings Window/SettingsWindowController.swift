@@ -26,16 +26,17 @@ import Cocoa
 import SpriteKit
 import UniformTypeIdentifiers
 
-public class SettingsWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource
+public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate, NSOutlineViewDataSource
 {
     @objc public dynamic var showCancelButton = true
     @objc public dynamic var settings:          Settings
     
-    @objc private dynamic var items: [ SettingsItem ]
+    @objc private dynamic var items: [ SettingsSection ]
     
-    @IBOutlet private var itemsController:  NSArrayController!
+    @IBOutlet private var itemsController:  NSTreeController!
     @IBOutlet private var contentView:      NSView!
     @IBOutlet private var importExportMenu: NSMenu!
+    @IBOutlet private var outlineView:      NSOutlineView!
     
     private var currentController:    SettingsViewController?
     private var selectionObserver:    NSKeyValueObservation?
@@ -45,26 +46,63 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     public init( settings: Settings? )
     {
         self.settings = settings ?? Settings.restore()
-        self.items    = [
-            SettingsItem( title: "World",          symbol: "globe.europe.africa.fill",           controller: WorldSettingsViewController(         settings: self.settings ) ),
-            SettingsItem( title: "Creatures",      symbol: "allergens",                          controller: CreaturesSettingsViewController(     settings: self.settings ) ),
-            SettingsItem( title: "Plants",         symbol: "takeoutbag.and.cup.and.straw.fill",  controller: PlantsSettingsViewController(        settings: self.settings ) ),
-            SettingsItem( title: "Meat",           symbol: "takeoutbag.and.cup.and.straw.fill",  controller: MeatSettingsViewController(          settings: self.settings ) ),
-            SettingsItem( title: "Speed",          symbol: "hare.fill",                          controller: SpeedSettingsViewController(         settings: self.settings ) ),
-            SettingsItem( title: "Combat",         symbol: "shield.fill",                        controller: CombatSettingsViewController(        settings: self.settings ) ),
-            SettingsItem( title: "Mitosis",        symbol: "heart.fill",                         controller: MitosisSettingsViewController(       settings: self.settings ) ),
-            SettingsItem( title: "Sex",            symbol: "heart.fill",                         controller: SexSettingsViewController(           settings: self.settings ) ),
-            SettingsItem( title: "Herbivore",      symbol: "fork.knife.circle.fill",             controller: HerbivoreSettingsViewController(     settings: self.settings ) ),
-            SettingsItem( title: "Scavenger",      symbol: "fork.knife.circle.fill",             controller: ScavengerSettingsViewController(     settings: self.settings ) ),
-            SettingsItem( title: "Predator",       symbol: "fork.knife.circle.fill",             controller: PredatorSettingsViewController(      settings: self.settings ) ),
-            SettingsItem( title: "Vampire",        symbol: "fork.knife.circle.fill",             controller: VampireSettingsViewController(       settings: self.settings ) ),
-            SettingsItem( title: "Cannibal",       symbol: "fork.knife.circle.fill",             controller: CannibalSettingsViewController(      settings: self.settings ) ),
-            SettingsItem( title: "Plant Sense",    symbol: "sensor.tag.radiowaves.forward.fill", controller: PlantSenseSettingsViewController(    settings: self.settings ) ),
-            SettingsItem( title: "Meat Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: MeatSenseSettingsViewController(     settings: self.settings ) ),
-            SettingsItem( title: "Prey Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: PreySenseSettingsViewController(     settings: self.settings ) ),
-            SettingsItem( title: "Sex Sense",      symbol: "sensor.tag.radiowaves.forward.fill", controller: SexSenseSettingsViewController(      settings: self.settings ) ),
-            SettingsItem( title: "Predator Sense", symbol: "sensor.tag.radiowaves.forward.fill", controller: PredatorSenseSettingsViewController( settings: self.settings ) ),
-            SettingsItem( title: "Vampire Sense",  symbol: "sensor.tag.radiowaves.forward.fill", controller: VampireSenseSettingsViewController(  settings: self.settings ) ),
+        self.items    =
+        [
+            SettingsSection(
+                title: "General",
+                children:
+                [
+                    SettingsItem( title: "World",     symbol: "globe.europe.africa.fill",          controller: WorldSettingsViewController(     settings: self.settings ) ),
+                    SettingsItem( title: "Creatures", symbol: "allergens",                         controller: CreaturesSettingsViewController( settings: self.settings ) ),
+                ]
+            ),
+            SettingsSection(
+                title: "Food",
+                children:
+                [
+                    SettingsItem( title: "Plants",    symbol: "takeoutbag.and.cup.and.straw.fill", controller: PlantsSettingsViewController(    settings: self.settings ) ),
+                    SettingsItem( title: "Meat",      symbol: "takeoutbag.and.cup.and.straw.fill", controller: MeatSettingsViewController(      settings: self.settings ) ),
+                ]
+            ),
+            SettingsSection(
+                title: "Abilities",
+                children:
+                [
+                    SettingsItem( title: "Speed", symbol: "hare.fill",    controller: SpeedSettingsViewController(  settings: self.settings ) ),
+                    SettingsItem( title: "Combat", symbol: "shield.fill", controller: CombatSettingsViewController( settings: self.settings ) ),
+                ]
+            ),
+            SettingsSection(
+                title: "Reproduction",
+                children:
+                [
+                    SettingsItem( title: "Mitosis", symbol: "heart.fill", controller: MitosisSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Sex",     symbol: "heart.fill", controller: SexSettingsViewController(     settings: self.settings ) ),
+                ]
+            ),
+            SettingsSection(
+                title: "Diet",
+                children:
+                [
+                    SettingsItem( title: "Herbivore", symbol: "fork.knife.circle.fill", controller: HerbivoreSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Scavenger", symbol: "fork.knife.circle.fill", controller: ScavengerSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Predator",  symbol: "fork.knife.circle.fill", controller: PredatorSettingsViewController(  settings: self.settings ) ),
+                    SettingsItem( title: "Vampire",   symbol: "fork.knife.circle.fill", controller: VampireSettingsViewController(   settings: self.settings ) ),
+                    SettingsItem( title: "Cannibal",  symbol: "fork.knife.circle.fill", controller: CannibalSettingsViewController(  settings: self.settings ) ),
+                ]
+            ),
+            SettingsSection(
+                title: "Senses",
+                children:
+                [
+                    SettingsItem( title: "Plant Sense",    symbol: "sensor.tag.radiowaves.forward.fill", controller: PlantSenseSettingsViewController(    settings: self.settings ) ),
+                    SettingsItem( title: "Meat Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: MeatSenseSettingsViewController(     settings: self.settings ) ),
+                    SettingsItem( title: "Prey Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: PreySenseSettingsViewController(     settings: self.settings ) ),
+                    SettingsItem( title: "Sex Sense",      symbol: "sensor.tag.radiowaves.forward.fill", controller: SexSenseSettingsViewController(      settings: self.settings ) ),
+                    SettingsItem( title: "Predator Sense", symbol: "sensor.tag.radiowaves.forward.fill", controller: PredatorSenseSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Vampire Sense",  symbol: "sensor.tag.radiowaves.forward.fill", controller: VampireSenseSettingsViewController(  settings: self.settings ) ),
+                ]
+            ),
         ]
         
         super.init( window: nil )
@@ -84,12 +122,13 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
     {
         super.windowDidLoad()
         
-        self.selectionObserver = self.itemsController.observe( \.selectionIndex )
+        self.selectionObserver = self.itemsController.observe( \.selectionIndexPath )
         {
             [ weak self ] _, _ in self?.selectionChanged()
         }
         
-        self.selectionChanged()
+        self.outlineView.expandItem( nil, expandChildren: true )
+        self.outlineView.selectRowIndexes( IndexSet( integer: 1 ), byExtendingSelection: false )
     }
     
     @IBAction public func save( _ sender: Any? )
@@ -125,7 +164,7 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
             {
                 self.settings = Settings()
                 
-                self.items.forEach
+                self.items.flatMap { $0.children }.forEach
                 {
                     $0.controller.updateSettings( settings: self.settings )
                 }
@@ -136,7 +175,6 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
                 self.currentController?.updateSettings( settings: self.settings )
             }
         }
-        
     }
     
     private func endSheet( response: NSApplication.ModalResponse )
@@ -156,11 +194,6 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
         {
             window.close()
         }
-    }
-    
-    public func tableView( _ tableView: NSTableView, rowViewForRow row: Int ) -> NSTableRowView?
-    {
-        TableRowView( frame: NSZeroRect )
     }
     
     private func selectionChanged()
@@ -262,11 +295,6 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
         self.currentController = controller
     }
     
-    public func tableView( _ tableView: NSTableView, shouldSelectRow row: Int ) -> Bool
-    {
-        return self.animating == false
-    }
-    
     @IBAction private func importExportSettings( _ sender: Any? )
     {
         guard let view = sender as? NSView, let event = NSApp.currentEvent else
@@ -308,7 +336,7 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
                 let data      = try Data( contentsOf: url )
                 self.settings = try PropertyListDecoder().decode( Settings.self, from: data )
                 
-                self.items.forEach
+                self.items.flatMap { $0.children }.forEach
                 {
                     $0.controller.updateSettings( settings: self.settings )
                 }
@@ -359,5 +387,72 @@ public class SettingsWindowController: NSWindowController, NSTableViewDelegate, 
         {
             NSAlert( error: error ).beginSheetModal( for: window, completionHandler: nil )
         }
+    }
+    
+    public func outlineView( _ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any ) -> NSView?
+    {
+        guard let node = item as? NSTreeNode else
+        {
+            return nil
+        }
+        
+        let identifier = node.representedObject is SettingsItem ? "DataCell" : "HeaderCell"
+        
+        return outlineView.makeView( withIdentifier: NSUserInterfaceItemIdentifier( identifier ), owner: self )
+    }
+    
+    public func outlineView( _ outlineView: NSOutlineView, isGroupItem item: Any ) -> Bool
+    {
+        guard let node = item as? NSTreeNode else
+        {
+            return false
+        }
+        
+        return node.representedObject is SettingsItem ? false : true
+    }
+    
+    public func outlineView( _ outlineView: NSOutlineView, shouldSelectItem item: Any ) -> Bool
+    {
+        guard let node = item as? NSTreeNode else
+        {
+            return false
+        }
+        
+        return node.representedObject is SettingsItem
+    }
+    
+    public func outlineView( _ outlineView: NSOutlineView, shouldCollapseItem item: Any ) -> Bool
+    {
+        false
+    }
+    
+    public func outlineView( _ outlineView: NSOutlineView, isItemExpandable item: Any ) -> Bool
+    {
+        false
+    }
+    
+    public func outlineView( _ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any ) -> Bool
+    {
+        false
+    }
+    
+    public func outlineView( _ outlineView: NSOutlineView, selectionIndexesForProposedSelection indexes: IndexSet ) -> IndexSet
+    {
+        if self.animating
+        {
+            return outlineView.selectedRowIndexes
+        }
+        
+        guard let items = indexes.enumerated().map( { outlineView.item( atRow: $0.element ) } ) as? [ NSTreeNode ] else
+        {
+            return outlineView.selectedRowIndexes
+        }
+        
+        if items.filter( { $0.representedObject is SettingsItem == false } ).isEmpty
+        {
+            return indexes
+        }
+        
+        return outlineView.selectedRowIndexes
     }
 }

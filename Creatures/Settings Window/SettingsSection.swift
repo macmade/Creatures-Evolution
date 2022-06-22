@@ -24,23 +24,14 @@
 
 import Cocoa
 
-public class SettingsItem: SettingsSection
+public class SettingsSection: NSObject
 {
-    @objc public dynamic var icon:       NSImage?
-    @objc public dynamic var controller: SettingsViewController
+    @objc public dynamic var title:    String
+    @objc public dynamic var children: [ SettingsItem ]
     
-    public convenience init( title: String, symbol: String, controller: SettingsViewController )
+    public init( title: String, children: [ SettingsItem ] = [] )
     {
-        let icon = NSImage( systemSymbolName: symbol, accessibilityDescription: nil ) ?? NSImage( named: symbol )
-        
-        self.init( title: title, icon: icon, controller: controller )
-    }
-    
-    public init( title: String, icon: NSImage?, controller: SettingsViewController )
-    {
-        self.icon       = icon
-        self.controller = controller
-        
-        super.init( title: title )
+        self.title    = title
+        self.children = children
     }
 }
