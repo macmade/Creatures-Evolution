@@ -24,23 +24,29 @@
 
 import Cocoa
 
-@objc public class SettingsViewController: NSViewController
+public class SettingsBoolValueCheckboxViewController: NSViewController, SettingsValueViewController
 {
-    @objc public dynamic var settings: Settings
+    @objc private dynamic var settings: Settings
+    
+    @objc private dynamic var value: Bool
     {
         didSet
         {
-            self.valueSliderControllers.forEach { $0.updateSettings( self.settings ) }
+            self.settings[ keyPath: self.key ] = self.value
         }
     }
     
-    private var valueSliderControllers = [ SettingsValueViewController ]()
+    private var key: WritableKeyPath< Settings, Bool >
     
-    public init( settings: Settings )
+    public init( title: String, settings: Settings, key: WritableKeyPath< Settings, Bool > )
     {
         self.settings = settings
+        self.key      = key
+        self.value    = settings[ keyPath: key ]
         
         super.init( nibName: nil, bundle: nil )
+        
+        self.title = title
     }
     
     required init?( coder: NSCoder )
@@ -48,9 +54,19 @@ import Cocoa
         nil
     }
     
-    public func set( controllers: [ SettingsValueViewController ], in stackView: NSStackView )
+    public override var nibName: NSNib.Name?
     {
-        self.valueSliderControllers.append( contentsOf: controllers )
-        stackView.setViews( controllers.map { $0.view }, in: .leading )
+        "SettingsBoolValueCheckboxViewController"
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+    }
+    
+    public func updateSettings( _ settings: Settings )
+    {
+        self.settings = settings
+        self.value    = settings[ keyPath: self.key ]
     }
 }

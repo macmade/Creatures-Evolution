@@ -26,6 +26,7 @@ import Cocoa
 
 public class MeatSettingsViewController: SettingsViewController
 {
+    @IBOutlet private var generalView:  NSStackView!
     @IBOutlet private var lifetimeView: NSStackView!
     @IBOutlet private var decayView:    NSStackView!
     
@@ -38,7 +39,16 @@ public class MeatSettingsViewController: SettingsViewController
     {
         super.viewDidLoad()
         
-        self.setSliders(
+        self.set(
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Meat can disappear", settings: self.settings, key: \.meat.canDisappear ),
+                SettingsBoolValueCheckboxViewController( title: "Meat can decay",     settings: self.settings, key: \.meat.canDecay ),
+            ],
+            in: self.generalView
+        )
+        
+        self.set(
             controllers:
             [
                 SettingsIntValueSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.meat.disappearAfter,      minValue: 1, maxValue: 60 ),
@@ -47,7 +57,7 @@ public class MeatSettingsViewController: SettingsViewController
             in: self.lifetimeView
         )
         
-        self.setSliders(
+        self.set(
             controllers:
             [
                 SettingsIntValueSliderViewController( title: "Decay after:",              settings: self.settings, key: \.meat.decayAfter,      minValue:   1, maxValue: 60 ),

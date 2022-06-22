@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PlantsSettingsViewController" customModule="Creatures" customModuleProvider="target">
             <connections>
                 <outlet property="decayView" destination="Agw-ML-G37" id="snX-uZ-B88"/>
+                <outlet property="generalView" destination="5LG-vq-OF3" id="LCd-QP-Z2K"/>
                 <outlet property="growthView" destination="jl5-Vv-nVh" id="kYA-Qx-0sx"/>
                 <outlet property="lifetimeView" destination="ty2-TM-2ze" id="EX5-FS-SoQ"/>
                 <outlet property="view" destination="c22-O7-iKe" id="m42-jP-UHh"/>
@@ -16,11 +17,11 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="650" height="385"/>
+            <rect key="frame" x="0.0" y="0.0" width="650" height="345"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjy-nq-Tt9">
-                    <rect key="frame" x="-2" y="354" width="74" height="31"/>
+                    <rect key="frame" x="-2" y="314" width="74" height="31"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Plants" id="TV5-Mj-9H2">
                         <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -28,52 +29,22 @@
                     </textFieldCell>
                 </textField>
                 <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="c1o-lB-7FU">
-                    <rect key="frame" x="610" y="357" width="42" height="25"/>
+                    <rect key="frame" x="610" y="317" width="42" height="25"/>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.settings.plants.isEnabled" id="Qm9-YH-DX7"/>
                     </connections>
                 </switch>
                 <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e1L-tq-cm8">
-                    <rect key="frame" x="0.0" y="343" width="650" height="5"/>
+                    <rect key="frame" x="0.0" y="303" width="650" height="5"/>
                 </box>
                 <box title="General" translatesAutoresizingMaskIntoConstraints="NO" id="dVo-6P-RuA">
-                    <rect key="frame" x="-3" y="227" width="656" height="98"/>
+                    <rect key="frame" x="-3" y="227" width="656" height="58"/>
                     <view key="contentView" id="Zjw-q3-V4t">
-                        <rect key="frame" x="3" y="3" width="650" height="80"/>
+                        <rect key="frame" x="3" y="3" width="650" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-vq-OF3">
-                                <rect key="frame" x="20" y="20" width="610" height="40"/>
-                                <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="58l-u9-H7Z">
-                                        <rect key="frame" x="-2" y="23" width="153" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Plants can disappear" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="BPP-iN-9sF">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.settings.plants.canDisappear" id="S33-RJ-KFI"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="H50-kP-1f1">
-                                        <rect key="frame" x="-2" y="-1" width="129" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Plants can decay" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="d8g-fj-JIw">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <binding destination="-2" name="value" keyPath="self.settings.plants.canDecay" id="CFE-Tr-3f8"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <visibilityPriorities>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                </visibilityPriorities>
-                                <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                </customSpacing>
+                                <rect key="frame" x="20" y="20" width="610" height="0.0"/>
                             </stackView>
                         </subviews>
                         <constraints>
@@ -190,7 +161,7 @@
                 <constraint firstItem="8Q5-46-zXr" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="wsn-Q7-ABd"/>
                 <constraint firstItem="Gjy-nq-Tt9" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="zIo-rF-Bbg"/>
             </constraints>
-            <point key="canvasLocation" x="149" y="117"/>
+            <point key="canvasLocation" x="149" y="34.5"/>
         </customView>
     </objects>
     <resources>

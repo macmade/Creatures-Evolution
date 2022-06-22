@@ -26,6 +26,7 @@ import Cocoa
 
 public class PlantsSettingsViewController: SettingsViewController
 {
+    @IBOutlet private var generalView:  NSStackView!
     @IBOutlet private var growthView:   NSStackView!
     @IBOutlet private var lifetimeView: NSStackView!
     @IBOutlet private var decayView:    NSStackView!
@@ -39,7 +40,16 @@ public class PlantsSettingsViewController: SettingsViewController
     {
         super.viewDidLoad()
         
-        self.setSliders(
+        self.set(
+            controllers:
+            [
+                SettingsBoolValueCheckboxViewController( title: "Plants can disappear", settings: self.settings, key: \.plants.canDisappear ),
+                SettingsBoolValueCheckboxViewController( title: "Plants can decay",     settings: self.settings, key: \.plants.canDecay ),
+            ],
+            in: self.generalView
+        )
+        
+        self.set(
             controllers:
             [
                 SettingsIntValueSliderViewController( title: "Initial amount:", settings: self.settings, key: \.plants.initialAmount, minValue: 0, maxValue: 200 ),
@@ -49,7 +59,7 @@ public class PlantsSettingsViewController: SettingsViewController
             in: self.growthView
         )
         
-        self.setSliders(
+        self.set(
             controllers:
             [
                 SettingsIntValueSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.plants.disappearAfter,      minValue: 1, maxValue: 60 ),
@@ -58,7 +68,7 @@ public class PlantsSettingsViewController: SettingsViewController
             in: self.lifetimeView
         )
         
-        self.setSliders(
+        self.set(
             controllers:
             [
                 SettingsIntValueSliderViewController( title: "Decay after:",              settings: self.settings, key: \.plants.decayAfter,      minValue:   1, maxValue: 60 ),
