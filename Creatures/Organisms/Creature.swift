@@ -27,8 +27,8 @@ import SpriteKit
 
 public class Creature: SpriteNode, Updatable
 {
-    private static let growActionKey = "Grow"
-    private static let moveActionKey = "Move"
+    public  static let growActionKey = "Grow"
+    public  static let moveActionKey = "Move"
     private static var index         = UInt64( 0 )
     
           public private( set ) dynamic var genes:         [ Gene ]

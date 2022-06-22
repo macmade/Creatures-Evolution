@@ -127,6 +127,14 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         {
             windowController.showDetails( node: food )
         }
+        else if event.clickCount == 2, let creature = windowController.detailViewController?.node as? Creature
+        {
+            creature.removeAction( forKey: Creature.moveActionKey )
+            creature.run( SKAction.move( to: location, duration: 0 ) )
+            {
+                creature.move()
+            }
+        }
     }
     
     public override func keyDown( with event: NSEvent )
