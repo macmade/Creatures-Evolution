@@ -372,7 +372,7 @@ public class Creature: SpriteNode, Updatable
     {
         self.removeAction( forKey: Creature.moveActionKey )
         
-        if dropFood
+        if dropFood && self.settings.meat.isEnabled
         {
             let energy    = self.energy > 0 ? self.energy : 1
             let meat      = Meat( energy: energy, settings: self.settings )

@@ -84,7 +84,7 @@ import SpriteKit
         self.energy   = energy
         self.settings = settings
         
-        super.init( texture: SKTexture( imageNamed: texture ), color: NSColor.clear, size: NSSize( width: 20, height: 20 ) )
+        super.init( texture: SKTexture( imageNamed: texture ), color: NSColor.clear, size: NSSize( width: 30, height: 30 ) )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
@@ -107,12 +107,12 @@ import SpriteKit
     
     public override func toggleHighlight()
     {
-        self.toggleHighlight( radius: 15 )
+        self.toggleHighlight( radius: 20 )
     }
     
     public override func highlight( _ flag: Bool )
     {
-        self.highlight( flag, radius: 15 )
+        self.highlight( flag, radius: 20 )
     }
     
     public func update( elapsedTime: TimeInterval )

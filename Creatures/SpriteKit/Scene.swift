@@ -253,9 +253,9 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         NSPoint( x: Double.random( in: 0 ..< self.frame.size.width ), y: Double.random( in: 0 ..< self.frame.size.height ) )
     }
     
-    public func emitHeart( for node: SKNode )
+    public func emit( effect: String, for node: SKNode )
     {
-        if let emitter = SKEmitterNode( fileNamed: "Heart" )
+        if let emitter = SKEmitterNode( fileNamed: effect )
         {
             emitter.position   = node.position
             emitter.targetNode = node

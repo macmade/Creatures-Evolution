@@ -188,7 +188,8 @@ public class Sex: Gene
                 }
             }
             
-            scene.emitHeart( for: creature )
+            scene.emit( effect: "Heart", for: creature )
+            scene.emit( effect: "Heart", for: other )
         }
     }
     

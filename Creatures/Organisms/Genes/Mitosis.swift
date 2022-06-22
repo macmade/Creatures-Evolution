@@ -108,6 +108,6 @@ public class Mitosis: Gene
             EventLog.shared.add( event: Event( message: event, time: scene.elapsedTime, node: copy ) )
         }
         
-        scene.emitHeart( for: creature )
+        scene.emit( effect: "Heart", for: creature )
     }
 }

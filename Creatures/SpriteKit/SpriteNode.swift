@@ -58,7 +58,12 @@ public class SpriteNode: SKSpriteNode
         self.isBeingRemoved = true
         self.physicsBody    = nil
         
-        self.run( SKAction.fadeOut( withDuration: 0.5 ) )
+        let actions = [
+            SKAction.fadeOut( withDuration: 0.5 ),
+            SKAction.scale( to: NSSize( width:  0, height: 0 ), duration: 0.5 )
+        ]
+        
+        self.run( SKAction.group( actions ) )
         {
             self.removeFromParent()
         }

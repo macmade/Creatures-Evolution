@@ -29,7 +29,7 @@ public class Plant: Food
 {
     public init( energy: Int, settings: Settings )
     {
-        super.init( energy: energy, settings: settings, texture: "Plant" )
+        super.init( energy: energy, settings: settings, texture: "Plant-\( Int.random( in: 1 ... 5 ) )" )
     }
     
     public required init?( coder: NSCoder )
