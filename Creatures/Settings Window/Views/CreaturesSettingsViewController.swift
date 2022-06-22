@@ -44,5 +44,34 @@ public class CreaturesSettingsViewController: SettingsViewController
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.addBox(
+            title: "General",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Initial amount:",        settings: self.settings, key: \.creatures.initialAmount,       minValue: 1, maxValue: 100 ),
+                SettingsBoolViewController(      title: "Generate random names:", settings: self.settings, key: \.creatures.generateRandomNames, style: .asSwitch ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Energy",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Initial energy:",        settings: self.settings, key: \.creatures.initialEnergy,               minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Energy needed to grow:", settings: self.settings, key: \.creatures.energyNeededToGrow,          minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Growth energy cost:",    settings: self.settings, key: \.creatures.growthEnergyCost,            minValue: 0, maxValue: 10 ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Energy Decrease",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Amount:",                settings: self.settings, key: \.creatures.energyDecreaseAmount,        minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Interval:",              settings: self.settings, key: \.creatures.energyDecreaseInterval,      minValue: 0, maxValue: 60 ),
+                SettingsIntSliderViewController( title: "Interval (randomness):", settings: self.settings, key: \.creatures.energyDecreaseIntervalRange, minValue: 0, maxValue: 10 ),
+            ]
+        )
     }
 }

@@ -55,5 +55,15 @@ public class VampireSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.vampire.canRegress ),
             ]
         )
+        
+        self.addBox(
+            title: "Combat",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Chance if smaller:",   settings: self.settings, key: \.vampire.combatChanceIfSmaller,  minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Chance if same size:", settings: self.settings, key: \.vampire.combatChanceIfSameSize, minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Chance if bigger:",    settings: self.settings, key: \.vampire.combatChanceIfBigger,   minValue: 0, maxValue: 100 ),
+            ]
+        )
     }
 }

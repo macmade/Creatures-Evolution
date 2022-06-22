@@ -84,7 +84,13 @@ public class Vampire: Gene
             return
         }
         
-        if creature.fight( other: other )
+        let chances = (
+            smaller: self.settings.vampire.combatChanceIfSmaller,
+            same:    self.settings.vampire.combatChanceIfSameSize,
+            bigger:  self.settings.vampire.combatChanceIfBigger
+        )
+        
+        if creature.fight( other: other, chances: chances )
         {
             if other.energy > 0
             {

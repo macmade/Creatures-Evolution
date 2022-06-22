@@ -217,7 +217,7 @@ public class Creature: SpriteNode, Updatable
             if nextEnergyDecrease <= elapsedTime
             {
                 self.nextEnergyDecrease = nil
-                self.energy            -= 1
+                self.energy            -= self.settings.creatures.energyDecreaseAmount
             }
         }
         else
@@ -390,7 +390,7 @@ public class Creature: SpriteNode, Updatable
         NotificationCenter.default.post( name: Constants.creatureDieNotification, object: self )
     }
     
-    public func fight( other: Creature ) -> Bool
+    public func fight( other: Creature, chances: ( smaller: Int, same: Int, bigger: Int ) ) -> Bool
     {
         if self.isBeingRemoved
         {
@@ -401,14 +401,14 @@ public class Creature: SpriteNode, Updatable
         {
             if self.isSmallerThan( creature: other )
             {
-                return self.settings.creatures.combatChanceIfSmaller
+                return chances.smaller
             }
             else if self.isBiggerThan( creature: other )
             {
-                return self.settings.creatures.combatChanceIfBigger
+                return chances.bigger
             }
             
-            return self.settings.creatures.combatChanceIfSameSize
+            return chances.same
         }()
         
         return Int.random( in: 0 ... 100 ) <= chance

@@ -27,14 +27,11 @@ import Cocoa
 public class CreaturesSettings: NSObject, Codable
 {
     @objc public dynamic var initialAmount               = 75
+    @objc public dynamic var generateRandomNames         = true
     @objc public dynamic var initialEnergy               = 1
     @objc public dynamic var energyNeededToGrow          = 2
     @objc public dynamic var growthEnergyCost            = 1
-    @objc public dynamic var energyDecrease              = 1
+    @objc public dynamic var energyDecreaseAmount        = 1
     @objc public dynamic var energyDecreaseInterval      = 15
     @objc public dynamic var energyDecreaseIntervalRange = 5
-    @objc public dynamic var combatChanceIfSmaller       = 30
-    @objc public dynamic var combatChanceIfSameSize      = 60
-    @objc public dynamic var combatChanceIfBigger        = 90
-    @objc public dynamic var generateRandomNames         = true
 }
