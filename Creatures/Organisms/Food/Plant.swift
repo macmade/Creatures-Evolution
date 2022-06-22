@@ -47,12 +47,12 @@ public class Plant: Food
         self.settings.plants.canDecay
     }
     
-    public override var decayAfter: Double
+    public override var decayAfter: Int
     {
         self.settings.plants.decayAfter
     }
     
-    public override var decayAfterRange: Double
+    public override var decayAfterRange: Int
     {
         self.settings.plants.decayAfterRange
     }
@@ -62,12 +62,12 @@ public class Plant: Food
         self.settings.plants.canDisappear
     }
     
-    public override var disappearAfter: Double
+    public override var disappearAfter: Int
     {
         self.settings.plants.disappearAfter
     }
     
-    public override var disappearAfterRange: Double
+    public override var disappearAfterRange: Int
     {
         self.settings.plants.disappearAfterRange
     }

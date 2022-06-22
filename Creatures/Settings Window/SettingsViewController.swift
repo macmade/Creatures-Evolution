@@ -27,6 +27,14 @@ import Cocoa
 @objc public class SettingsViewController: NSViewController
 {
     @objc public dynamic var settings: Settings
+    {
+        didSet
+        {
+            self.valueSliderControllers.forEach { $0.updateSettings( self.settings ) }
+        }
+    }
+    
+    private var valueSliderControllers = [ ValueSliderViewController ]()
     
     public init( settings: Settings )
     {
@@ -38,5 +46,11 @@ import Cocoa
     required init?( coder: NSCoder )
     {
         nil
+    }
+    
+    public func setSliders( controllers: [ ValueSliderViewController ], in stackView: NSStackView )
+    {
+        self.valueSliderControllers.append( contentsOf: controllers )
+        stackView.setViews( controllers.map { $0.view }, in: .leading )
     }
 }

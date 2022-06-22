@@ -26,8 +26,35 @@ import Cocoa
 
 public class MeatSettingsViewController: SettingsViewController
 {
+    @IBOutlet private var lifetimeView: NSStackView!
+    @IBOutlet private var decayView:    NSStackView!
+    
     public override var nibName: NSNib.Name?
     {
         "MeatSettingsViewController"
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        self.setSliders(
+            controllers:
+            [
+                IntValueSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.meat.disappearAfter,      minValue: 1, maxValue: 60 ),
+                IntValueSliderViewController( title: "Disappear after (randomness):", settings: self.settings, key: \.meat.disappearAfterRange, minValue: 0, maxValue: 60 ),
+            ],
+            in: self.lifetimeView
+        )
+        
+        self.setSliders(
+            controllers:
+            [
+                IntValueSliderViewController( title: "Decay after:",              settings: self.settings, key: \.meat.decayAfter,      minValue:   1, maxValue: 60 ),
+                IntValueSliderViewController( title: "Decay after (randomness):", settings: self.settings, key: \.meat.decayAfterRange, minValue:   0, maxValue: 60 ),
+                IntValueSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.meat.decayEnergy,     minValue: -10, maxValue: 0 ),
+            ],
+            in: self.decayView
+        )
     }
 }

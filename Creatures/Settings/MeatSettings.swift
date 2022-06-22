@@ -28,10 +28,10 @@ public class MeatSettings: NSObject, Codable
 {
     @objc public dynamic var isEnabled             = true
     @objc public dynamic var canDisappear          = true
-    @objc public dynamic var disappearAfter        = 20.0
-    @objc public dynamic var disappearAfterRange   = 5.0
+    @objc public dynamic var disappearAfter        = 20
+    @objc public dynamic var disappearAfterRange   = 5
     @objc public dynamic var canDecay              = true
-    @objc public dynamic var decayAfter            = 10.0
-    @objc public dynamic var decayAfterRange       = 5.0
+    @objc public dynamic var decayAfter            = 10
+    @objc public dynamic var decayAfterRange       = 5
     @objc public dynamic var decayEnergy           = -1
 }

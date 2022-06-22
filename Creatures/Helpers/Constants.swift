@@ -32,7 +32,7 @@ public class Constants
     public static let creatureDieNotification  = Notification.Name( "Creature.Die" )
     public static let creatureBornNotification = Notification.Name( "Creature.Born" )
     
-    public static let backgroundImages = [ "Beach", "Desert", "Forrest", "Moss", "Sand", "Stones", "Wood" ]
+    public static let backgroundImages = [ "Beach", "Desert", "Forrest", "Sand", "Stones", "Wood" ]
     
     private init()
     {}

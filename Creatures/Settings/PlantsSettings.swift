@@ -31,10 +31,10 @@ public class PlantsSettings: NSObject, Codable
     @objc public dynamic var renewInterval       = 10.0
     @objc public dynamic var renewAmount         = 75
     @objc public dynamic var canDisappear        = true
-    @objc public dynamic var disappearAfter      = 30.0
-    @objc public dynamic var disappearAfterRange = 10.0
+    @objc public dynamic var disappearAfter      = 30
+    @objc public dynamic var disappearAfterRange = 10
     @objc public dynamic var canDecay            = true
-    @objc public dynamic var decayAfter          = 20.0
-    @objc public dynamic var decayAfterRange     = 10.0
+    @objc public dynamic var decayAfter          = 20
+    @objc public dynamic var decayAfterRange     = 10
     @objc public dynamic var decayEnergy         = -1
 }

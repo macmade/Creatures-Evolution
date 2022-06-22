@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DoubleValueSliderViewController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Wzw-2g-hhY" id="KRv-Gl-72k"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Wzw-2g-hhY">
+            <rect key="frame" x="0.0" y="0.0" width="610" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-Ob-Jgo">
+                    <rect key="frame" x="-2" y="3" width="174" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="a8C-Pb-H5I"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="TAR-If-6KJ">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.title" id="8gv-2G-F60"/>
+                    </connections>
+                </textField>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ioq-Re-tHs">
+                    <rect key="frame" x="176" y="-5" width="332" height="28"/>
+                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" tickMarkPosition="below" sliderType="linear" id="xWZ-uE-u8p"/>
+                    <connections>
+                        <binding destination="-2" name="maxValue" keyPath="self.maxValue" id="Nf9-pz-ebB"/>
+                        <binding destination="-2" name="minValue" keyPath="self.minValue" previousBinding="Nf9-pz-ebB" id="iw3-vv-6BB"/>
+                        <binding destination="-2" name="value" keyPath="self.value" previousBinding="iw3-vv-6BB" id="8HK-1B-AJC"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eRb-pt-8yx">
+                    <rect key="frame" x="514" y="0.0" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="JNT-Jo-Mx3"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="J6v-oC-aqJ">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="ycE-GG-u2D"/>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="maxValue" keyPath="self.maxValue" id="6Kl-Hv-i7i"/>
+                        <binding destination="-2" name="minValue" keyPath="self.minValue" previousBinding="6Kl-Hv-i7i" id="da6-ar-c8Y"/>
+                        <binding destination="-2" name="value" keyPath="self.value" previousBinding="da6-ar-c8Y" id="EgE-69-54e"/>
+                    </connections>
+                </textField>
+                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ce6-SS-iUd">
+                    <rect key="frame" x="594" y="-3" width="19" height="28"/>
+                    <stepperCell key="cell" continuous="YES" alignment="left" id="zAT-Yr-8hW"/>
+                    <connections>
+                        <binding destination="-2" name="maxValue" keyPath="self.maxValue" id="a88-Yj-eqm"/>
+                        <binding destination="-2" name="minValue" keyPath="self.minValue" previousBinding="a88-Yj-eqm" id="rH5-hT-QTl"/>
+                        <binding destination="-2" name="value" keyPath="self.value" previousBinding="rH5-hT-QTl" id="3zZ-5k-hKz"/>
+                    </connections>
+                </stepper>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="eRb-pt-8yx" secondAttribute="bottom" id="6KS-34-GGm"/>
+                <constraint firstItem="Ioq-Re-tHs" firstAttribute="centerY" secondItem="eRb-pt-8yx" secondAttribute="centerY" id="NXx-Sa-gRp"/>
+                <constraint firstItem="ce6-SS-iUd" firstAttribute="leading" secondItem="eRb-pt-8yx" secondAttribute="trailing" constant="8" symbolic="YES" id="Yar-1O-oeS"/>
+                <constraint firstItem="eRb-pt-8yx" firstAttribute="leading" secondItem="Ioq-Re-tHs" secondAttribute="trailing" constant="8" symbolic="YES" id="aIe-ZW-Pk2"/>
+                <constraint firstItem="Ioq-Re-tHs" firstAttribute="leading" secondItem="TVU-Ob-Jgo" secondAttribute="trailing" constant="8" symbolic="YES" id="gCc-No-Uuf"/>
+                <constraint firstItem="TVU-Ob-Jgo" firstAttribute="leading" secondItem="Wzw-2g-hhY" secondAttribute="leading" id="gVF-vY-M3j"/>
+                <constraint firstItem="eRb-pt-8yx" firstAttribute="top" secondItem="Wzw-2g-hhY" secondAttribute="top" id="gVs-1Q-0ux"/>
+                <constraint firstAttribute="trailing" secondItem="ce6-SS-iUd" secondAttribute="trailing" id="plm-HV-zPl"/>
+                <constraint firstItem="ce6-SS-iUd" firstAttribute="centerY" secondItem="eRb-pt-8yx" secondAttribute="centerY" id="pm9-1i-Q15"/>
+                <constraint firstItem="TVU-Ob-Jgo" firstAttribute="centerY" secondItem="Ioq-Re-tHs" secondAttribute="centerY" id="sKC-NZ-Pwj"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="135.5"/>
+        </customView>
+    </objects>
+</document>

@@ -59,10 +59,9 @@
                                                             <menuItem title="Beach" id="mcu-3q-MTL"/>
                                                             <menuItem title="Desert" tag="1" id="SXN-OB-H8b"/>
                                                             <menuItem title="Forrest" tag="2" id="Brw-Zb-hvt"/>
-                                                            <menuItem title="Moss" tag="3" id="8AL-cU-xBi"/>
-                                                            <menuItem title="Sand" tag="4" id="qMk-ZZ-ykk"/>
-                                                            <menuItem title="Stones" tag="5" id="cnp-3D-azI"/>
-                                                            <menuItem title="Wood" tag="6" id="ISf-kJ-3EI"/>
+                                                            <menuItem title="Sand" tag="3" id="qMk-ZZ-ykk"/>
+                                                            <menuItem title="Stones" tag="4" id="cnp-3D-azI"/>
+                                                            <menuItem title="Wood" tag="5" id="ISf-kJ-3EI"/>
                                                         </items>
                                                     </menu>
                                                 </popUpButtonCell>
@@ -141,11 +140,6 @@
                             </constraints>
                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="HxD-8o-rlC"/>
                             <connections>
-                                <binding destination="-2" name="hidden" keyPath="self.preview" id="jcN-rf-bz7">
-                                    <dictionary key="options">
-                                        <string key="NSValueTransformerName">NSIsNil</string>
-                                    </dictionary>
-                                </binding>
                                 <binding destination="-2" name="value" keyPath="self.preview" id="x0J-xK-smQ"/>
                             </connections>
                         </imageView>
@@ -182,6 +176,13 @@
                             <color key="value" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="self.preview" id="euD-Dp-7Em">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNil</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </customView>
             </subviews>
             <constraints>

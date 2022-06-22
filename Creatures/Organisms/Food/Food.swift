@@ -54,14 +54,14 @@ import SpriteKit
         false
     }
     
-    public var decayAfter: Double
+    public var decayAfter: Int
     {
-        0.0
+        0
     }
     
-    public var decayAfterRange: Double
+    public var decayAfterRange: Int
     {
-        0.0
+        0
     }
     
     public var canDisappear: Bool
@@ -69,14 +69,14 @@ import SpriteKit
         false
     }
     
-    public var disappearAfter: Double
+    public var disappearAfter: Int
     {
-        0.0
+        0
     }
     
-    public var disappearAfterRange: Double
+    public var disappearAfterRange: Int
     {
-        0.0
+        0
     }
     
     public init( energy: Int, settings: Settings, texture: String )
@@ -147,7 +147,7 @@ import SpriteKit
         }
         else if self.canDecay
         {
-            self.peremptionTime = elapsedTime + self.decayAfter + Double.random( in: 0 ... self.decayAfterRange )
+            self.peremptionTime = elapsedTime + Double( self.decayAfter ) + Double.random( in: 0 ... Double( self.decayAfterRange ) )
         }
         
         if let removalTime = self.removalTime
@@ -159,7 +159,7 @@ import SpriteKit
         }
         else if self.canDisappear
         {
-            self.removalTime = elapsedTime + self.disappearAfter + Double.random( in: 0 ... self.disappearAfterRange )
+            self.removalTime = elapsedTime + Double( self.disappearAfter ) + Double.random( in: 0 ... Double( self.disappearAfterRange ) )
         }
     }
 }

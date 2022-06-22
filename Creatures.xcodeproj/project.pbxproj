@@ -144,6 +144,10 @@
 		05394A792860DD700077D90C /* names-male.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05394A772860DD700077D90C /* names-male.txt */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
+		05A334712862A47500905208 /* DoubleValueSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* DoubleValueSliderViewController.swift */; };
+		05A334732862A48600905208 /* ValueSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A334722862A48600905208 /* ValueSliderViewController.xib */; };
+		05A334762862B9D500905208 /* IntValueSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334742862B9D500905208 /* IntValueSliderViewController.swift */; };
+		05A334792862BA7F00905208 /* ValueSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334782862BA7F00905208 /* ValueSliderViewController.swift */; };
 		05B8A35628616034007870B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35528616034007870B3 /* Assets.xcassets */; };
 		05B8A3622861F2F3007870B3 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35B2861F2F3007870B3 /* Credit.swift */; };
 		05B8A3632861F2F3007870B3 /* CreditsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */; };
@@ -339,6 +343,10 @@
 		05394A772860DD700077D90C /* names-male.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "names-male.txt"; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
+		05A334702862A47500905208 /* DoubleValueSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleValueSliderViewController.swift; sourceTree = "<group>"; };
+		05A334722862A48600905208 /* ValueSliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ValueSliderViewController.xib; sourceTree = "<group>"; };
+		05A334742862B9D500905208 /* IntValueSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntValueSliderViewController.swift; sourceTree = "<group>"; };
+		05A334782862BA7F00905208 /* ValueSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueSliderViewController.swift; sourceTree = "<group>"; };
 		05B8A35528616034007870B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B8A35B2861F2F3007870B3 /* Credit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		05B8A35C2861F2F3007870B3 /* CreditsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsWindowController.swift; sourceTree = "<group>"; };
@@ -361,10 +369,14 @@
 		05102084285A8C9600F11184 /* Settings Window */ = {
 			isa = PBXGroup;
 			children = (
+				05A334702862A47500905208 /* DoubleValueSliderViewController.swift */,
+				05A334742862B9D500905208 /* IntValueSliderViewController.swift */,
 				05252F0D2855EAE80090B385 /* SettingsItem.swift */,
 				05252F5C2857FF3C0090B385 /* SettingsViewController.swift */,
 				05252F0B2855E2100090B385 /* SettingsWindowController.swift */,
 				05252F072855E1F40090B385 /* SettingsWindowController.xib */,
+				05A334782862BA7F00905208 /* ValueSliderViewController.swift */,
+				05A334722862A48600905208 /* ValueSliderViewController.xib */,
 				05394A02285F6CA10077D90C /* Views */,
 			);
 			path = "Settings Window";
@@ -892,6 +904,7 @@
 				05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */,
 				0510203D285A16B000F11184 /* VampireSettingsViewController.xib in Resources */,
 				05102055285A17DE00F11184 /* MeatSenseSettingsViewController.xib in Resources */,
+				05A334732862A48600905208 /* ValueSliderViewController.xib in Resources */,
 				05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */,
 				051020CE285B6E4C00F11184 /* WorldSettingsViewController.xib in Resources */,
 				05A3346B2862620900905208 /* Heart.sks in Resources */,
@@ -955,7 +968,9 @@
 				05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */,
 				05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */,
 				053949F8285EB8830077D90C /* DraggableView.swift in Sources */,
+				05A334762862B9D500905208 /* IntValueSliderViewController.swift in Sources */,
 				05252F5D2857FF3C0090B385 /* SettingsViewController.swift in Sources */,
+				05A334792862BA7F00905208 /* ValueSliderViewController.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
 				05394A5D286093DE0077D90C /* EventLogWindowController.swift in Sources */,
 				05252F542857FCF70090B385 /* NSView.swift in Sources */,
@@ -979,6 +994,7 @@
 				05252F73285819A60090B385 /* MeatSettingsViewController.swift in Sources */,
 				05B8A3622861F2F3007870B3 /* Credit.swift in Sources */,
 				05102090285AAF0100F11184 /* BackgroundView.swift in Sources */,
+				05A334712862A47500905208 /* DoubleValueSliderViewController.swift in Sources */,
 				05252F74285819A60090B385 /* MeatSettings.swift in Sources */,
 				0510206C285A192800F11184 /* PlantSenseSettings.swift in Sources */,
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
