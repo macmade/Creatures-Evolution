@@ -33,9 +33,9 @@ public class EventLog: NSObject
     
     public func add( event: Event )
     {
-        self.willChangeValue( for: \.events )
         self.events.append( event )
-        self.didChangeValue( for: \.events )
+        
+        self.events = self.events.suffix( 1000 )
     }
     
     public func clear()

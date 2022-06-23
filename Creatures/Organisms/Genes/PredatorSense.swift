@@ -51,4 +51,9 @@ public class PredatorSense: Gene
     {
         PredatorSense( active: self.isActive, settings: self.settings )
     }
+    
+    public override func chooseDestination( creature: Creature ) -> Destination?
+    {
+        return nil
+    }
 }

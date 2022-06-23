@@ -197,9 +197,19 @@ public class EvolutionHelper
     
     public class func genes( from parent1: Creature, and parent2: Creature ) -> [ Gene ]
     {
-        zip( parent1.genes, parent2.genes ).map
+        let genes = zip( parent1.genes, parent2.genes ).map
         {
             Bool.random() ? $0.0 : $0.1
         }
+        
+        genes.shuffled().forEach
+        {
+            if $0.isActive
+            {
+                self.deactivateConflictingGenes( gene: $0, in: genes )
+            }
+        }
+        
+        return genes
     }
 }

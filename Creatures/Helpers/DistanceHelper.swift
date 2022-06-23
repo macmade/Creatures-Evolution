@@ -25,35 +25,42 @@
 import Cocoa
 import SpriteKit
 
-public class VampireSense: Gene
+public class DistanceHelper
 {
-    public override var canRegress: Bool
+    private init()
+    {}
+    
+    public class func nearbyObjects< T: SKNode >( creature: Creature, maxDistance: Double, predicate: ( ( T ) -> Bool )? = nil ) -> [ ( distance: Double, node: T ) ]
     {
-        self.settings.vampireSense.canRegress
+        guard let scene = creature.scene else
+        {
+            return []
+        }
+        
+        return scene.children.compactMap
+        {
+            $0 as? T
+        }
+        .filter
+        {
+            predicate?( $0 ) ?? true
+        }
+        .reduce( into: [ ( distance: Double, node: T ) ]() )
+        {
+            $0.append( ( creature.position.distance( with: $1.position ), $1 ) )
+        }
+        .filter
+        {
+            $0.distance <= maxDistance
+        }
+        .sorted
+        {
+            $0.distance < $1.distance
+        }
     }
     
-    public override var deactivates: [ String ]
+    public class func nearestObject< T: SKNode >( creature: Creature, maxDistance: Double, predicate: ( ( T ) -> Bool )? = nil ) -> T?
     {
-        self.settings.vampireSense.deactivates
-    }
-    
-    public override var name: String
-    {
-        "Vampire Sense"
-    }
-    
-    public override var icon: NSImage?
-    {
-        NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
-    }
-    
-    public override func copy( with zone: NSZone? = nil ) -> Any
-    {
-        VampireSense( active: self.isActive, settings: self.settings )
-    }
-    
-    public override func chooseDestination( creature: Creature ) -> Destination?
-    {
-        return nil
+        self.nearbyObjects( creature: creature, maxDistance: maxDistance, predicate: predicate ).first?.node
     }
 }

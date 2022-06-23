@@ -59,22 +59,9 @@ public class MeatSense: Gene
             return nil
         }
         
-        guard let scene = creature.scene as? Scene else
+        if let nearest: Meat = DistanceHelper.nearestObject( creature: creature, maxDistance: 100 )
         {
-            return nil
-        }
-        
-        for child in scene.children.shuffled()
-        {
-            guard let meat = child as? Meat else
-            {
-                continue
-            }
-            
-            if creature.position.isClose( to: meat.position, maxDistance: 100 )
-            {
-                return Destination( point: meat.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
-            }
+            return Destination( point: nearest.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
         }
         
         return nil

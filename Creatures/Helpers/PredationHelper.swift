@@ -25,45 +25,48 @@
 import Cocoa
 import SpriteKit
 
-public class PlantSense: Gene
+public class PredationHelper
 {
-    public override var canRegress: Bool
-    {
-        self.settings.plantSense.canRegress
-    }
+    private init()
+    {}
     
-    public override var deactivates: [ String ]
+    public class func canEat( creature: Creature, prey: Creature ) -> Bool
     {
-        self.settings.plantSense.deactivates
-    }
-    
-    public override var name: String
-    {
-        "Plant Sense"
-    }
-    
-    public override var icon: NSImage?
-    {
-        NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
-    }
-    
-    public override func copy( with zone: NSZone? = nil ) -> Any
-    {
-        PlantSense( active: self.isActive, settings: self.settings )
-    }
-    
-    public override func chooseDestination( creature: Creature ) -> Destination?
-    {
-        if creature.hasActiveGene( Herbivore.self ) == false
+        if creature.isBeingRemoved || prey.isBeingRemoved
         {
-            return nil
+            return false
         }
         
-        if let nearest: Plant = DistanceHelper.nearestObject( creature: creature, maxDistance: 100 )
+        if creature.hasActiveGene( Predator.self ) && prey.hasActiveGene( Predator.self ) && creature.hasActiveGene( Cannibal.self ) == false
         {
-            return Destination( point: nearest.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
+            return false
         }
         
-        return nil
+        if creature.hasActiveGene( Vampire.self ) && prey.hasActiveGene( Vampire.self ) && creature.hasActiveGene( Cannibal.self ) == false
+        {
+            return false
+        }
+        
+        if creature.isChild( of: prey ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatParents == false )
+        {
+            return false
+        }
+        
+        if creature.isParentOf( of: prey ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatChildren == false )
+        {
+            return false
+        }
+        
+        if creature.isSibling( of: prey ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatSiblings == false )
+        {
+            return false
+        }
+        
+        return true
+    }
+    
+    public class func canBeEaten( creature: Creature, by attacker: Creature ) -> Bool
+    {
+        self.canEat( creature: attacker, prey: creature )
     }
 }

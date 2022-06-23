@@ -75,27 +75,7 @@ public class Vampire: Gene
             return
         }
         
-        if other.isBeingRemoved
-        {
-            return
-        }
-        
-        if other.hasActiveGene( Vampire.self ) && creature.hasActiveGene( Cannibal.self ) == false
-        {
-            return
-        }
-        
-        if creature.isChild( of: other ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatParents == false )
-        {
-            return
-        }
-        
-        if creature.isParentOf( of: other ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatChildren == false )
-        {
-            return
-        }
-        
-        if creature.isSibling( of: other ) && ( creature.hasActiveGene( Cannibal.self ) == false || creature.settings.cannibal.canEatSiblings == false )
+        if PredationHelper.canEat( creature: creature, prey: other ) == false
         {
             return
         }

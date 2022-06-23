@@ -62,10 +62,11 @@ public class Sex: Gene
         true
     }
     
-    private var lastUsed: TimeInterval?
     private var sexNode:  SKSpriteNode?
-    private var isMale:   Bool
-    private var isFemale: Bool
+    
+    public private( set ) var lastUsed: TimeInterval?
+    public private( set ) var isMale:   Bool
+    public private( set ) var isFemale: Bool
     
     public override init( active: Bool, settings: Settings )
     {
@@ -120,32 +121,7 @@ public class Sex: Gene
             return
         }
         
-        guard let sex1 = creature.getGene( Sex.self ) as? Sex, let sex2 = other.getGene( Sex.self ) as? Sex else
-        {
-            return
-        }
-        
-        guard sex1.isActive, sex2.isActive else
-        {
-            return
-        }
-        
-        if creature.isBaby || other.isBaby
-        {
-            return
-        }
-        
-        if creature.energy < self.settings.sex.energyNeeded || other.energy < self.settings.sex.energyNeeded
-        {
-            return
-        }
-        
-        if creature.energy < self.settings.sex.energyCost || other.energy < self.settings.sex.energyCost
-        {
-            return
-        }
-        
-        if let lastUsed = self.lastUsed, lastUsed + Double( self.settings.sex.recoveryTime ) > scene.elapsedTime
+        if ReproductionHelper.canMate( creature: creature, with: other ) == false
         {
             return
         }
@@ -155,7 +131,7 @@ public class Sex: Gene
             return
         }
         
-        if sex1.isFemale && sex2.isMale
+        if self.isFemale
         {
             self.lastUsed    = scene.elapsedTime
             creature.energy -= self.settings.sex.energyCost
