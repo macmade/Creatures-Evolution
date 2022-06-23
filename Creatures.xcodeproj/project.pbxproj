@@ -565,22 +565,11 @@
 		05252EA12854E9030090B385 /* Genes */ = {
 			isa = PBXGroup;
 			children = (
-				05252EB22854E9640090B385 /* Cannibal.swift */,
-				05A334BB2863863800905208 /* Combat.swift */,
 				05252EA42854E9180090B385 /* Gene.swift */,
-				05252EAC2854E94B0090B385 /* Herbivore.swift */,
-				05252F00285591E90090B385 /* MeatSense.swift */,
-				05252EB62854E96F0090B385 /* Mitosis.swift */,
-				05252EBE2854E9A10090B385 /* PlantSense.swift */,
-				05252EB02854E95D0090B385 /* Predator.swift */,
-				05252EBC2854E9900090B385 /* PredatorSense.swift */,
-				05394A372860009C0077D90C /* PreySense.swift */,
-				05252EAE2854E9540090B385 /* Scavenger.swift */,
-				05252EB82854E9740090B385 /* Sex.swift */,
-				05252F02285592B90090B385 /* SexSense.swift */,
-				05394A3928607C1B0077D90C /* Speed.swift */,
-				05252EB42854E9690090B385 /* Vampire.swift */,
-				05252EBA2854E9830090B385 /* VampireSense.swift */,
+				05EDA99D286548CC00F18B77 /* Reproduction */,
+				05EDA99C286548BF00F18B77 /* Abilities */,
+				05EDA99B286548BA00F18B77 /* Senses */,
+				05EDA99A286548B500F18B77 /* Diet */,
 			);
 			path = Genes;
 			sourceTree = "<group>";
@@ -836,6 +825,49 @@
 				05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */,
 			);
 			path = "Welcome Window";
+			sourceTree = "<group>";
+		};
+		05EDA99A286548B500F18B77 /* Diet */ = {
+			isa = PBXGroup;
+			children = (
+				05252EB22854E9640090B385 /* Cannibal.swift */,
+				05252EAC2854E94B0090B385 /* Herbivore.swift */,
+				05252EB02854E95D0090B385 /* Predator.swift */,
+				05252EAE2854E9540090B385 /* Scavenger.swift */,
+				05252EB42854E9690090B385 /* Vampire.swift */,
+			);
+			path = Diet;
+			sourceTree = "<group>";
+		};
+		05EDA99B286548BA00F18B77 /* Senses */ = {
+			isa = PBXGroup;
+			children = (
+				05252F00285591E90090B385 /* MeatSense.swift */,
+				05252EBE2854E9A10090B385 /* PlantSense.swift */,
+				05252EBC2854E9900090B385 /* PredatorSense.swift */,
+				05394A372860009C0077D90C /* PreySense.swift */,
+				05252F02285592B90090B385 /* SexSense.swift */,
+				05252EBA2854E9830090B385 /* VampireSense.swift */,
+			);
+			path = Senses;
+			sourceTree = "<group>";
+		};
+		05EDA99C286548BF00F18B77 /* Abilities */ = {
+			isa = PBXGroup;
+			children = (
+				05A334BB2863863800905208 /* Combat.swift */,
+				05394A3928607C1B0077D90C /* Speed.swift */,
+			);
+			path = Abilities;
+			sourceTree = "<group>";
+		};
+		05EDA99D286548CC00F18B77 /* Reproduction */ = {
+			isa = PBXGroup;
+			children = (
+				05252EB62854E96F0090B385 /* Mitosis.swift */,
+				05252EB82854E9740090B385 /* Sex.swift */,
+			);
+			path = Reproduction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
