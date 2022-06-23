@@ -102,6 +102,18 @@
                                     <action selector="saveDocumentAs:" target="-1" id="mDf-zr-I0C"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" hidden="YES" id="caI-5k-2FP"/>
+                            <menuItem title="Page Setup…" hidden="YES" keyEquivalent="P" id="9Q3-X9-svO">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                <connections>
+                                    <action selector="runPageLayout:" target="-1" id="6g3-di-mdw"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Print…" hidden="YES" keyEquivalent="p" id="UlW-G7-9VQ">
+                                <connections>
+                                    <action selector="print:" target="-1" id="ik7-t9-yd0"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="QWg-5v-rpS"/>
                             <menuItem title="Reset" keyEquivalent="r" id="KaW-ft-85H">
                                 <connections>
@@ -670,7 +682,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="Creatures Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="Creatures Help" hidden="YES" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
                                 </connections>
