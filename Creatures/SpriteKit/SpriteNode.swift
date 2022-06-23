@@ -96,7 +96,7 @@ public class SpriteNode: SKSpriteNode
         if flag
         {
             let highlight         = SKShapeNode( circleOfRadius: radius )
-            highlight.fillColor   = NSColor.systemRed.withAlphaComponent( 0.5 )
+            highlight.fillColor   = NSColor.systemPink.withAlphaComponent( 0.5 )
             highlight.strokeColor = NSColor.white
             highlight.zPosition   = 0
             self.highlight        = highlight

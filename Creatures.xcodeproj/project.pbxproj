@@ -146,6 +146,8 @@
 		05B8A3642861F2F3007870B3 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35D2861F2F3007870B3 /* CreditViewController.swift */; };
 		05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35E2861F2F3007870B3 /* CreditsWindowController.xib */; };
 		05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A3602861F2F3007870B3 /* CreditViewController.xib */; };
+		05EDA91F2863D7BA00F18B77 /* SettingsImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */; };
+		05EDA9212863D7CD00F18B77 /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -337,6 +339,8 @@
 		05B8A35D2861F2F3007870B3 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		05B8A35F2861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditsWindowController.xib; sourceTree = "<group>"; };
 		05B8A3612861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditViewController.xib; sourceTree = "<group>"; };
+		05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsImageViewController.swift; sourceTree = "<group>"; };
+		05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsImageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -787,6 +791,8 @@
 				05A3347E2863243300905208 /* SettingsBoolCheckboxViewController.xib */,
 				05A334AE286346A400905208 /* SettingsBoolSwitchViewController.xib */,
 				05A3347C2863240300905208 /* SettingsBoolViewController.swift */,
+				05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */,
+				05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */,
 				05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */,
 				05A334B6286348A100905208 /* SettingsIntMenuViewController.swift */,
 				05A334B8286348A900905208 /* SettingsIntMenuViewController.xib */,
@@ -879,6 +885,7 @@
 				05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */,
 				05394A09285F6E460077D90C /* StatsViewController.xib in Resources */,
 				05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */,
+				05EDA9212863D7CD00F18B77 /* SettingsImageViewController.xib in Resources */,
 				05252F092855E1F40090B385 /* SettingsWindowController.xib in Resources */,
 				05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */,
 				05A334812863243D00905208 /* SettingsSliderViewController.xib in Resources */,
@@ -1029,6 +1036,7 @@
 				05394A5928608D950077D90C /* EventLog.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
+				05EDA91F2863D7BA00F18B77 /* SettingsImageViewController.swift in Sources */,
 				05252F7C285837AD0090B385 /* CreaturesSettings.swift in Sources */,
 				05394A382860009C0077D90C /* PreySense.swift in Sources */,
 				05252F71285819A60090B385 /* PlantsSettingsViewController.swift in Sources */,

@@ -29,6 +29,7 @@ public class WorldSettingsViewController: SettingsViewController
     @objc private dynamic var preview: NSImage?
     
     private var environmentObserver: NSKeyValueObservation?
+    private var previewController  = SettingsImageViewController( image: nil, title: "Preview" )
     
     public init( settings: Settings )
     {
@@ -63,6 +64,8 @@ public class WorldSettingsViewController: SettingsViewController
                 SettingsBoolViewController(    title: "Show creatures names:", settings: self.settings, key: \.world.showCreaturesNames, style: .asSwitch ),
             ]
         )
+        
+        self.addController( self.previewController )
     }
     
     public override func updateSettings( settings: Settings )
@@ -88,5 +91,7 @@ public class WorldSettingsViewController: SettingsViewController
         {
             self.preview = NSImage( named: Constants.backgroundImages[ index ] )
         }
+        
+        self.previewController.image = preview
     }
 }

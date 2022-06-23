@@ -41,7 +41,7 @@ import Cocoa
     }
     
     private var enabledKey:   WritableKeyPath< Settings, Bool >?
-    private var controllers = [ SettingsValueViewController ]()
+    private var controllers = [ NSViewController ]()
     
     @IBOutlet private var contentView: NSStackView!
     
@@ -93,10 +93,10 @@ import Cocoa
             self.isEnabled = self.settings[ keyPath: enabledKey ]
         }
         
-        self.controllers.forEach { $0.updateSettings( settings ) }
+        self.controllers.forEach { ( $0 as? SettingsValueViewController )?.updateSettings( settings ) }
     }
     
-    public func addBox( title: String, controllers: [ SettingsValueViewController ] )
+    public func addBox( title: String, controllers: [ NSViewController ] )
     {
         let box   = NSBox()
         box.title = title
@@ -116,5 +116,13 @@ import Cocoa
         box.contentView?.addFillingSubview( stack, insets: NSEdgeInsets( top: 20, left: 20, bottom: 20, right: 20 ), removeAllExisting: true )
         
         self.controllers.append( contentsOf: controllers )
+    }
+    
+    public func addController( _ controller: NSViewController )
+    {
+        self.contentView.addView( controller.view, in: .top )
+        self.contentView.addConstraint( NSLayoutConstraint( item: controller.view, attribute: .left,  relatedBy: .equal, toItem: self.contentView, attribute: .left,  multiplier: 1, constant: 0 ) )
+        self.contentView.addConstraint( NSLayoutConstraint( item: controller.view, attribute: .right, relatedBy: .equal, toItem: self.contentView, attribute: .right, multiplier: 1, constant: 0 ) )
+        self.controllers.append( controller )
     }
 }
