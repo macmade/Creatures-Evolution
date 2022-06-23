@@ -46,23 +46,28 @@ public class StatsViewController: NSViewController
         
         self.creatureBornObserver = NotificationCenter.default.addObserver( forName: Constants.creatureBornNotification, object: nil, queue: nil )
         {
-            _ in self.update()
+            [ weak self ] _ in self?.update()
         }
         
         self.creatureDieObserver = NotificationCenter.default.addObserver( forName: Constants.creatureDieNotification, object: nil, queue: nil )
         {
-            _ in self.dead += 1
+            [ weak self ] _ in self?.update()
         }
         
         self.timer = Timer.scheduledTimer( withTimeInterval: 1, repeats: true )
         {
-            _ in self.update()
+            [ weak self ] _ in self?.update()
         }
     }
     
     required init?( coder: NSCoder )
     {
         nil
+    }
+    
+    deinit
+    {
+        self.timer?.invalidate()
     }
     
     @objc public dynamic var scene: Scene?
