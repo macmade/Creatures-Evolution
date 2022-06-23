@@ -271,9 +271,13 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             
             let emit   = SKAction.run { [ weak self ] in self?.addChild( emitter ) }
             let wait   = SKAction.wait( forDuration: 2 )
-            let remove = SKAction.run { [ weak self ] in self?.removeChildren( in: [ emitter ] ) }
             
-            self.run( SKAction.sequence( [ emit, wait, remove ] ) )
+            self.run( SKAction.sequence( [ emit, wait ] ) )
+            {
+                emitter.targetNode = nil
+                
+                emitter.removeFromParent()
+            }
         }
     }
 }
