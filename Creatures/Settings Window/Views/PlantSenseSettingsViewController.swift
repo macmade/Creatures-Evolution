@@ -55,5 +55,17 @@ public class PlantSenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.plantSense.canRegress ),
             ]
         )
+        
+        self.addBox(
+            title: "Distance",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Default distance:",        settings: self.settings, key: \.plantSense.defaultDistance,       minValue:  1, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum distance:",        settings: self.settings, key: \.plantSense.minimumDistance,       minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum distance:",        settings: self.settings, key: \.plantSense.maximumDistance,       minValue: 20, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.plantSense.minimumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.plantSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
+            ]
+        )
     }
 }

@@ -55,5 +55,17 @@ public class VampireSenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.vampireSense.canRegress ),
             ]
         )
+        
+        self.addBox(
+            title: "Distance",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Default distance:",        settings: self.settings, key: \.vampireSense.defaultDistance,       minValue:  1, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum distance:",        settings: self.settings, key: \.vampireSense.minimumDistance,       minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum distance:",        settings: self.settings, key: \.vampireSense.maximumDistance,       minValue: 20, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.vampireSense.minimumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.vampireSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
+            ]
+        )
     }
 }

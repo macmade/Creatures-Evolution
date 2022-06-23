@@ -72,7 +72,7 @@ public class SexSettingsViewController: SettingsViewController
             [
                 SettingsIntSliderViewController( title: "Reproduction chance:",    settings: self.settings, key: \.sex.chance,              minValue: 0, maxValue: 100 ),
                 SettingsIntSliderViewController( title: "Mutation chance:",        settings: self.settings, key: \.sex.mutationChance,      minValue: 0, maxValue: 100 ),
-                SettingsIntSliderViewController( title: "Max number of children:", settings: self.settings, key: \.sex.maxNumberOfChildren, minValue: 1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Max number of children:", settings: self.settings, key: \.sex.maxNumberOfChildren, minValue: 1, maxValue:  10 ),
             ]
         )
     }

@@ -62,7 +62,7 @@ public class PlantsSettingsViewController: SettingsViewController
             [
                 SettingsIntSliderViewController( title: "Initial amount:", settings: self.settings, key: \.plants.initialAmount, minValue: 0, maxValue: 100 ),
                 SettingsIntSliderViewController( title: "Renew amount:",   settings: self.settings, key: \.plants.renewAmount,   minValue: 0, maxValue: 100 ),
-                SettingsIntSliderViewController( title: "Renew interval:", settings: self.settings, key: \.plants.renewInterval, minValue: 5, maxValue: 60 ),
+                SettingsIntSliderViewController( title: "Renew interval:", settings: self.settings, key: \.plants.renewInterval, minValue: 5, maxValue:  60 ),
             ]
         )
         
@@ -81,7 +81,7 @@ public class PlantsSettingsViewController: SettingsViewController
             [
                 SettingsIntSliderViewController( title: "Decay after:",              settings: self.settings, key: \.plants.decayAfter,      minValue:   1, maxValue: 60 ),
                 SettingsIntSliderViewController( title: "Decay after (randomness):", settings: self.settings, key: \.plants.decayAfterRange, minValue:   0, maxValue: 60 ),
-                SettingsIntSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.plants.decayEnergy,     minValue: -10, maxValue: 0 ),
+                SettingsIntSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.plants.decayEnergy,     minValue: -10, maxValue:  0 ),
             ]
         )
     }

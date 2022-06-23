@@ -55,5 +55,17 @@ public class PredatorSenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.predatorSense.canRegress ),
             ]
         )
+        
+        self.addBox(
+            title: "Distance",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Default distance:",        settings: self.settings, key: \.predatorSense.defaultDistance,       minValue:  1, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum distance:",        settings: self.settings, key: \.predatorSense.minimumDistance,       minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum distance:",        settings: self.settings, key: \.predatorSense.maximumDistance,       minValue: 20, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.predatorSense.minimumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.predatorSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
+            ]
+        )
     }
 }

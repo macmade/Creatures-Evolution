@@ -71,7 +71,7 @@ public class MeatSettingsViewController: SettingsViewController
             [
                 SettingsIntSliderViewController( title: "Decay after:",              settings: self.settings, key: \.meat.decayAfter,      minValue:   1, maxValue: 60 ),
                 SettingsIntSliderViewController( title: "Decay after (randomness):", settings: self.settings, key: \.meat.decayAfterRange, minValue:   0, maxValue: 60 ),
-                SettingsIntSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.meat.decayEnergy,     minValue: -10, maxValue: 0 ),
+                SettingsIntSliderViewController( title: "Decayed energy:",           settings: self.settings, key: \.meat.decayEnergy,     minValue: -10, maxValue:  0 ),
             ]
         )
     }

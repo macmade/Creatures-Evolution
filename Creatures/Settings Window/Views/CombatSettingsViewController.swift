@@ -61,10 +61,10 @@ public class CombatSettingsViewController: SettingsViewController
             controllers:
             [
                 SettingsDoubleSliderViewController( title: "Default multiplier:",      settings: self.settings, key: \.combat.defaultMultiplier,     minValue: 0.1, maxValue: 10 ),
-                SettingsDoubleSliderViewController( title: "Minimum multiplier:",      settings: self.settings, key: \.combat.minimumMultiplier,     minValue: 0.1, maxValue: 1 ),
+                SettingsDoubleSliderViewController( title: "Minimum multiplier:",      settings: self.settings, key: \.combat.minimumMultiplier,     minValue: 0.1, maxValue:  1 ),
                 SettingsDoubleSliderViewController( title: "Maximum multiplier:",      settings: self.settings, key: \.combat.maximumMultiplier,     minValue: 2.0, maxValue: 10 ),
-                SettingsDoubleSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.combat.minimumMutationChange, minValue: 0.1, maxValue: 1 ),
-                SettingsDoubleSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.combat.maximumMutationChange, minValue: 0.1, maxValue: 1 ),
+                SettingsDoubleSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.combat.minimumMutationChange, minValue: 0.1, maxValue:  1 ),
+                SettingsDoubleSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.combat.maximumMutationChange, minValue: 0.1, maxValue:  1 ),
             ]
         )
         
