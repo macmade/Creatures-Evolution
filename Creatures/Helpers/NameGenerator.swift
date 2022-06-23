@@ -31,7 +31,7 @@ public class NameGenerator
         private static let voyels:     [ Character ] = [ "a", "e", "i", "o", "u", "y" ]
         private static let consonants: [ Character ] = [ "b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z" ]
         
-        public var character:       Character
+        public  var character:      Character
         private var next:           [ Character ]
         private var nextVoyels:     [ Character ]
         private var nextConsonants: [ Character ]
@@ -46,7 +46,7 @@ public class NameGenerator
         
         public func add( next: Character )
         {
-            if next != self.character && next.isASCII
+            if next != self.character
             {
                 self.next.append( next )
                 
@@ -109,8 +109,9 @@ public class NameGenerator
     
     public static let shared = NameGenerator()
     
-    private var letters: [ Letter ] = []
-    private var starts:  [ String ] = []
+    private var letters: [ Letter ]    = []
+    private var starts:  Set< String > = []
+    private var ends:    Set< String > = []
     
     private init()
     {
@@ -129,7 +130,8 @@ public class NameGenerator
         {
             if $0.count >= 2
             {
-                self.starts.append( String( $0[ $0.startIndex ..< $0.index( $0.startIndex, offsetBy: 2 ) ] ) )
+                self.starts.insert( String( $0[ $0.startIndex ..< $0.index( $0.startIndex, offsetBy: 2 ) ] ) )
+                self.ends.insert(   String( $0[ $0.index( $0.endIndex, offsetBy: -2 ) ..< $0.endIndex ] ) )
             }
             
             let characters = Array( $0 ).filter
@@ -200,6 +202,21 @@ public class NameGenerator
         var consonantCount = 0
         var letter:          Letter?
         
+        if length == 0
+        {
+            return ""
+        }
+        
+        if length == 1
+        {
+            if let character = self.letters.randomElement()?.character
+            {
+                return String( character )
+            }
+            
+            return ""
+        }
+        
         if name.count == 2,
            let first   = name.first,
            let last    = name.last,
@@ -230,8 +247,6 @@ public class NameGenerator
                 return name.capitalized
             }
             
-            name.append( letter.character )
-            
             if Letter.isVoyel( character: letter.character )
             {
                 voyelCount    += 1
@@ -241,6 +256,38 @@ public class NameGenerator
             {
                 voyelCount      = 0
                 consonantCount += 1
+            }
+            
+            name.append( letter.character )
+            
+            if name.count == length - 2
+            {
+                while true
+                {
+                    if let end   = self.ends.randomElement(),
+                       let first = end.first,
+                       let last  = end.last
+                    {
+                        if Letter.isVoyel( character: first ) && Letter.isVoyel( character: last ) && voyelCount != 0
+                        {
+                            continue
+                        }
+                        else if Letter.isVoyel( character: first ) && voyelCount == 2
+                        {
+                            continue
+                        }
+                        else if Letter.isConsonant( character: first ) && Letter.isConsonant( character: last ) && consonantCount != 0
+                        {
+                            continue
+                        }
+                        else if Letter.isConsonant( character: first ) && consonantCount == 2
+                        {
+                            continue
+                        }
+                        
+                        return name.appending( end ).capitalized
+                    }
+                }
             }
             
             var nextCharacter: Character
