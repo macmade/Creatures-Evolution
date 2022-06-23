@@ -25,12 +25,10 @@
 import Cocoa
 import SpriteKit
 
-@objc public class Food: SpriteNode, Updatable
+@objc public class Food: SpriteNode
 {
     @objc public                dynamic var energy:   Int
     @objc public private( set ) dynamic var settings: Settings
-    @objc public private( set ) dynamic var born:     TimeInterval = -1
-    @objc public private( set ) dynamic var age:      TimeInterval = -1
     
     private var peremptionTime: TimeInterval?
     private var removalTime:    TimeInterval?
@@ -115,17 +113,9 @@ import SpriteKit
         self.highlight( flag, radius: 20 )
     }
     
-    public func update( elapsedTime: TimeInterval )
+    public override func update( elapsedTime: TimeInterval )
     {
-        if self.born < 0
-        {
-            self.born = elapsedTime
-            self.age  = 0
-        }
-        else
-        {
-            self.age = elapsedTime - born
-        }
+        super.update( elapsedTime: elapsedTime )
         
         if let peremptionTime = self.peremptionTime
         {
@@ -160,6 +150,18 @@ import SpriteKit
         else if self.canDisappear
         {
             self.removalTime = elapsedTime + Double( self.disappearAfter ) + Double.random( in: 0 ... Double( self.disappearAfterRange ) )
+        }
+    }
+    
+    public override func shutDown()
+    {
+        super.shutDown()
+        
+        if let emitter = self.emitter
+        {
+            emitter.targetNode = nil
+            
+            emitter.removeFromParent()
         }
     }
 }

@@ -109,6 +109,11 @@ public class MainWindowController: NSWindowController
     
     private func start( settings: Settings )
     {
+        if let scene = self.scene
+        {
+            scene.shutDown()
+        }
+        
         EventLog.shared.clear()
         
         try? settings.save()

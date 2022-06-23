@@ -32,7 +32,37 @@ public class SpriteNode: SKSpriteNode
     public private( set ) var isBeingRemoved = false
     public private( set ) var isHighlighted  = false
     
-    private var highlight: SKShapeNode?
+    @objc public private( set ) dynamic var born: TimeInterval = -1
+    @objc public private( set ) dynamic var age:  TimeInterval = -1
+    
+    private var initialized = false
+    private var highlight:    SKShapeNode?
+    
+    public func initialize()
+    {}
+    
+    public func update( elapsedTime: TimeInterval )
+    {
+        if initialized == false
+        {
+            self.initialized = true
+            
+            self.initialize()
+        }
+        
+        if self.born < 0
+        {
+            self.born = elapsedTime
+            self.age  = 0
+        }
+        else
+        {
+            self.age = elapsedTime - born
+        }
+    }
+    
+    public func shutDown()
+    {}
     
     public func flash( _ flash: Bool, alpha: Double = 0.25, duration: Double = 0.5 )
     {

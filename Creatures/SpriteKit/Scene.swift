@@ -179,7 +179,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         
         self.children.forEach
         {
-            ( $0 as? Updatable )?.update( elapsedTime: self.elapsedTime )
+            ( $0 as? SpriteNode )?.update( elapsedTime: self.elapsedTime )
             
             if let gene = self.highlightedGene, let creature = $0 as? Creature, creature.hasActiveGene( gene )
             {
@@ -221,6 +221,14 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             {
                 creature.collide( with: other )
             }
+        }
+    }
+    
+    public func shutDown()
+    {
+        self.children.forEach
+        {
+            ( $0 as? SpriteNode )?.shutDown()
         }
     }
     

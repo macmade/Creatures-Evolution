@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class Creature: SpriteNode, Updatable
+public class Creature: SpriteNode
 {
     public  static let growActionKey = "Grow"
     public  static let moveActionKey = "Move"
@@ -33,8 +33,6 @@ public class Creature: SpriteNode, Updatable
     
           public private( set ) dynamic var genes:         [ Gene ]
     @objc public private( set ) dynamic var settings:      Settings
-    @objc public private( set ) dynamic var born:          TimeInterval = -1
-    @objc public private( set ) dynamic var age:           TimeInterval = -1
     @objc public                dynamic var childrenCount: Int          = 0
     
     private var nextEnergyDecrease: TimeInterval?
@@ -73,7 +71,6 @@ public class Creature: SpriteNode, Updatable
     
     private var parents:         [ Weak< Creature > ]?
     private var customNameLabel: LabelNode?
-    private var initialized    = false
     
     public convenience init( energy: Int, settings: Settings )
     {
@@ -177,17 +174,19 @@ public class Creature: SpriteNode, Updatable
         return self.genes.first { $0.isKind( of: kind ) }
     }
     
-    public func update( elapsedTime: TimeInterval )
+    public override func initialize()
     {
-        if self.initialized == false
+        super.initialize()
+        
+        if self.isBaby
         {
-            self.initialized = true
-            
-            if self.isBaby
-            {
-                self.run( SKAction.scale( to: NSSize( width: 20, height: 20 ), duration: 0 ) )
-            }
+            self.run( SKAction.scale( to: NSSize( width: 20, height: 20 ), duration: 0 ) )
         }
+    }
+    
+    public override func update( elapsedTime: TimeInterval )
+    {
+        super.update( elapsedTime: elapsedTime )
         
         if self.settings.world.showCreaturesNames
         {
@@ -196,16 +195,6 @@ public class Creature: SpriteNode, Updatable
         else if self.isHighlighted == false
         {
             self.hideCustomName()
-        }
-        
-        if self.born < 0
-        {
-            self.born = elapsedTime
-            self.age  = 0
-        }
-        else
-        {
-            self.age = elapsedTime - born
         }
         
         if self.isBeingRemoved

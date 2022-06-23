@@ -69,7 +69,6 @@
 		05252EBD2854E9900090B385 /* PredatorSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBC2854E9900090B385 /* PredatorSense.swift */; };
 		05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EBE2854E9A10090B385 /* PlantSense.swift */; };
 		05252EC12854EA400090B385 /* Creature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC02854EA400090B385 /* Creature.swift */; };
-		05252EC32854EA590090B385 /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC22854EA590090B385 /* Updatable.swift */; };
 		05252EC72854F4220090B385 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252EC62854F4220090B385 /* Settings.swift */; };
 		05252ECB285521B20090B385 /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ECA285521B20090B385 /* SpriteNode.swift */; };
 		05252ED1285580190090B385 /* EvolutionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252ED0285580190090B385 /* EvolutionHelper.swift */; };
@@ -264,7 +263,6 @@
 		05252EBC2854E9900090B385 /* PredatorSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredatorSense.swift; sourceTree = "<group>"; };
 		05252EBE2854E9A10090B385 /* PlantSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantSense.swift; sourceTree = "<group>"; };
 		05252EC02854EA400090B385 /* Creature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creature.swift; sourceTree = "<group>"; };
-		05252EC22854EA590090B385 /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		05252EC62854F4220090B385 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		05252ECA285521B20090B385 /* SpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteNode.swift; sourceTree = "<group>"; };
 		05252ED0285580190090B385 /* EvolutionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionHelper.swift; sourceTree = "<group>"; };
@@ -710,7 +708,6 @@
 				053949E2285B97280077D90C /* LabelNode.swift */,
 				05252E9F2854E38B0090B385 /* Scene.swift */,
 				05252ECA285521B20090B385 /* SpriteNode.swift */,
-				05252EC22854EA590090B385 /* Updatable.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -1023,7 +1020,6 @@
 				0510208C285AA13A00F11184 /* Constants.swift in Sources */,
 				05252EAB2854E9310090B385 /* Meat.swift in Sources */,
 				05394A51286086B90077D90C /* Preferences.swift in Sources */,
-				05252EC32854EA590090B385 /* Updatable.swift in Sources */,
 				051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */,
 				05252EA92854E9290090B385 /* Plant.swift in Sources */,
 				05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */,
