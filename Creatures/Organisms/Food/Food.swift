@@ -98,6 +98,13 @@ import SpriteKit
     
     public override func remove()
     {
+        if let emitter = self.emitter
+        {
+            emitter.targetNode = nil
+            
+            emitter.removeFromParent()
+        }
+        
         self.willChangeValue( for: \.isAlive )
         super.remove()
         self.didChangeValue( for: \.isAlive )

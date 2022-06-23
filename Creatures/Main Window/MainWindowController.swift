@@ -115,9 +115,7 @@ public class MainWindowController: NSWindowController
         }
         
         EventLog.shared.clear()
-        
         try? settings.save()
-        
         self.detailViewController?.view.removeFromSuperview()
         
         self.detailViewController = nil
