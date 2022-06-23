@@ -174,22 +174,22 @@ import Cocoa
     {
         if menuItem.action == #selector( reset( _: ) )
         {
-            return self.mainWindowController != nil
+            return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
         }
         
         if menuItem.action == #selector( togglePause( _: ) )
         {
-            return self.mainWindowController != nil
+            return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
         }
         
         if menuItem.action == #selector( toggleCreaturesNames( _: ) )
         {
-            return self.mainWindowController != nil
+            return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
         }
         
         if menuItem.action == #selector( viewEventLog( _: ) )
         {
-            return self.mainWindowController != nil
+            return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
         }
         
         return true
