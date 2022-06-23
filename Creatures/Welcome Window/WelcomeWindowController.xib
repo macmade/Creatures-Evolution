@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="WelcomeWindowController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="window" destination="QvC-M9-y7g" id="yX1-v7-zcH"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Welcome" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="600" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
+            <value key="minSize" type="size" width="600" height="270"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="486"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <visualEffectView blendingMode="behindWindow" material="HUDWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="YTX-st-VyU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="486"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QkI-bc-iEX">
+                                <rect key="frame" x="110" y="109" width="381" height="47"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Welcome to Creatures" id="v5V-C3-wp2">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BVn-EZ-pRd">
+                                <rect key="frame" x="150" y="156" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Ggv-gR-LWV"/>
+                                    <constraint firstAttribute="height" constant="300" id="gTe-Ex-sYp"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="x03-GG-SI0"/>
+                            </imageView>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="1Qo-pa-W49">
+                                <rect key="frame" x="0.0" y="66" width="600" height="5"/>
+                            </box>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="cee-GM-EDD">
+                                <rect key="frame" x="113" y="0.0" width="374" height="68"/>
+                                <subviews>
+                                    <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SVI-7X-AmB">
+                                        <rect key="frame" x="14" y="14" width="169" height="40"/>
+                                        <buttonCell key="cell" type="push" title="Customize Settings" bezelStyle="rounded" image="gear" catalog="system" imagePosition="leading" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J3d-06-e68">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="customizeSettings:" target="-2" id="GlG-oh-0ir"/>
+                                        </connections>
+                                    </button>
+                                    <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TRG-oo-BkB">
+                                        <rect key="frame" x="191" y="14" width="169" height="40"/>
+                                        <buttonCell key="cell" type="push" title="Start Simulation" bezelStyle="rounded" image="play.fill" catalog="system" imagePosition="leading" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8fQ-Nr-V15">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="start:" target="-2" id="iIO-bV-Jes"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="SVI-7X-AmB" firstAttribute="leading" secondItem="cee-GM-EDD" secondAttribute="leading" constant="20" symbolic="YES" id="2tH-Zj-zK9"/>
+                                    <constraint firstItem="SVI-7X-AmB" firstAttribute="width" secondItem="TRG-oo-BkB" secondAttribute="width" id="EYl-JW-T35"/>
+                                    <constraint firstAttribute="bottom" secondItem="TRG-oo-BkB" secondAttribute="bottom" constant="20" symbolic="YES" id="I2P-Mi-UCm"/>
+                                    <constraint firstAttribute="bottom" secondItem="SVI-7X-AmB" secondAttribute="bottom" constant="20" symbolic="YES" id="QJY-kh-B59"/>
+                                    <constraint firstItem="TRG-oo-BkB" firstAttribute="top" secondItem="cee-GM-EDD" secondAttribute="top" constant="20" symbolic="YES" id="VL5-xh-rWt"/>
+                                    <constraint firstItem="TRG-oo-BkB" firstAttribute="leading" secondItem="SVI-7X-AmB" secondAttribute="trailing" constant="20" id="WTs-lq-NjL"/>
+                                    <constraint firstItem="SVI-7X-AmB" firstAttribute="top" secondItem="cee-GM-EDD" secondAttribute="top" constant="20" symbolic="YES" id="ogs-6R-gXt"/>
+                                    <constraint firstAttribute="trailing" secondItem="TRG-oo-BkB" secondAttribute="trailing" constant="20" symbolic="YES" id="xfq-yC-SiB"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="QkI-bc-iEX" firstAttribute="centerX" secondItem="YTX-st-VyU" secondAttribute="centerX" id="1Wi-Lp-bCn"/>
+                            <constraint firstItem="QkI-bc-iEX" firstAttribute="top" secondItem="BVn-EZ-pRd" secondAttribute="bottom" id="3VA-JJ-sUa"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BVn-EZ-pRd" secondAttribute="trailing" constant="20" symbolic="YES" id="ClS-je-L5o"/>
+                            <constraint firstItem="1Qo-pa-W49" firstAttribute="top" secondItem="QkI-bc-iEX" secondAttribute="bottom" constant="40" id="FdJ-Qw-L33"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cee-GM-EDD" secondAttribute="trailing" id="MAB-jm-Gud"/>
+                            <constraint firstAttribute="bottom" secondItem="cee-GM-EDD" secondAttribute="bottom" id="ORM-gZ-gmA"/>
+                            <constraint firstAttribute="trailing" secondItem="1Qo-pa-W49" secondAttribute="trailing" id="PP6-1Q-wHu"/>
+                            <constraint firstItem="BVn-EZ-pRd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YTX-st-VyU" secondAttribute="leading" constant="20" symbolic="YES" id="U42-Sf-yf7"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QkI-bc-iEX" secondAttribute="trailing" constant="20" symbolic="YES" id="Ubd-yW-0sf"/>
+                            <constraint firstItem="1Qo-pa-W49" firstAttribute="leading" secondItem="YTX-st-VyU" secondAttribute="leading" id="WU2-lh-PWp"/>
+                            <constraint firstItem="cee-GM-EDD" firstAttribute="centerX" secondItem="YTX-st-VyU" secondAttribute="centerX" id="emh-NN-39n"/>
+                            <constraint firstItem="BVn-EZ-pRd" firstAttribute="top" secondItem="YTX-st-VyU" secondAttribute="top" constant="30" id="fPS-0v-e0J"/>
+                            <constraint firstItem="cee-GM-EDD" firstAttribute="top" secondItem="1Qo-pa-W49" secondAttribute="bottom" id="ffn-xp-g0Y"/>
+                            <constraint firstItem="QkI-bc-iEX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YTX-st-VyU" secondAttribute="leading" constant="20" symbolic="YES" id="jjh-n3-5Mo"/>
+                            <constraint firstItem="cee-GM-EDD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YTX-st-VyU" secondAttribute="leading" id="osV-Ym-3xN"/>
+                            <constraint firstItem="BVn-EZ-pRd" firstAttribute="centerX" secondItem="YTX-st-VyU" secondAttribute="centerX" id="xrx-9l-698"/>
+                        </constraints>
+                    </visualEffectView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YTX-st-VyU" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="FmU-Fs-kUn"/>
+                    <constraint firstAttribute="trailing" secondItem="YTX-st-VyU" secondAttribute="trailing" id="NFX-hT-OrO"/>
+                    <constraint firstAttribute="bottom" secondItem="YTX-st-VyU" secondAttribute="bottom" id="al2-Ca-JxB"/>
+                    <constraint firstItem="YTX-st-VyU" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="qLj-bI-WMy"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="139" y="65"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="NSApplicationIcon" width="32" height="32"/>
+        <image name="gear" catalog="system" width="17" height="17"/>
+        <image name="play.fill" catalog="system" width="12" height="13"/>
+    </resources>
+</document>

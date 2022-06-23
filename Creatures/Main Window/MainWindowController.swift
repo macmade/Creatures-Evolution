@@ -67,6 +67,11 @@ public class MainWindowController: NSWindowController
     
     @IBAction func show( _ sender: Any? )
     {
+        self.show( customizeSettings: true )
+    }
+    
+    public func show( customizeSettings: Bool )
+    {
         let settingsController              = SettingsWindowController( settings: self.settings )
         settingsController.showCancelButton = self.scene != nil
         
@@ -79,6 +84,14 @@ public class MainWindowController: NSWindowController
         
         window.center()
         window.makeKeyAndOrderFront( nil )
+        
+        if customizeSettings == false
+        {
+            self.start( settings: settingsController.settings )
+            
+            return
+        }
+        
         window.beginSheet( settingsWindow )
         {
             response in
@@ -90,43 +103,48 @@ public class MainWindowController: NSWindowController
                 return
             }
             
-            EventLog.shared.clear()
-            
-            try? settingsController.settings.save()
-            
-            self.detailViewController?.view.removeFromSuperview()
-            
-            self.detailViewController = nil
-            
-            let view              = SKView( frame: self.contentView.bounds )
-            let scene             = Scene( size: view.bounds.size, settings: settingsController.settings )
-            self.view             = view
-            self.scene            = scene
-            self.settings         = settingsController.settings
-            self.gameOverObserver = scene.observe( \.isGameOver )
-            {
-                [ weak self ] _, _ in guard let self = self else { return }
-                
-                self.isPaused = true
-                
-                self.hideDetails( nil )
-            }
-            
-            let stats                = StatsViewController()
-            stats.scene              = scene
-            self.statsViewController = stats
-            
-            self.statsView.addFillingSubview( stats.view, removeAllExisting: true )
-            self.contentView.addFillingSubview( view, removeAllExisting: true )
-            view.presentScene( scene )
-            
-            self.isPaused = false
-            
-            view.showsFPS       = Preferences.shared.showsFPS
-            view.showsDrawCount = Preferences.shared.showsDrawCount
-            view.showsNodeCount = Preferences.shared.showsNodeCount
-            view.showsQuadCount = Preferences.shared.showsQuadCount
+            self.start( settings: settingsController.settings )
         }
+    }
+    
+    private func start( settings: Settings )
+    {
+        EventLog.shared.clear()
+        
+        try? settings.save()
+        
+        self.detailViewController?.view.removeFromSuperview()
+        
+        self.detailViewController = nil
+        
+        let view              = SKView( frame: self.contentView.bounds )
+        let scene             = Scene( size: view.bounds.size, settings: settings )
+        self.view             = view
+        self.scene            = scene
+        self.settings         = settings
+        self.gameOverObserver = scene.observe( \.isGameOver )
+        {
+            [ weak self ] _, _ in guard let self = self else { return }
+            
+            self.isPaused = true
+            
+            self.hideDetails( nil )
+        }
+        
+        let stats                = StatsViewController()
+        stats.scene              = scene
+        self.statsViewController = stats
+        
+        self.statsView.addFillingSubview( stats.view, removeAllExisting: true )
+        self.contentView.addFillingSubview( view, removeAllExisting: true )
+        view.presentScene( scene )
+        
+        self.isPaused = false
+        
+        view.showsFPS       = Preferences.shared.showsFPS
+        view.showsDrawCount = Preferences.shared.showsDrawCount
+        view.showsNodeCount = Preferences.shared.showsNodeCount
+        view.showsQuadCount = Preferences.shared.showsQuadCount
     }
     
     @IBAction public func reset( _ sender: Any? )

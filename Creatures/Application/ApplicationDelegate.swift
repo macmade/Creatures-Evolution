@@ -26,13 +26,14 @@ import Cocoa
 
 @main public class ApplicationDelegate: NSObject, NSApplicationDelegate
 {
+    @objc public private( set ) dynamic var welcomeWindowController = WelcomeWindowController()
     @objc public private( set ) dynamic var aboutWindowController   = AboutWindowController()
     @objc public private( set ) dynamic var creditsWindowController = CreditsWindowController()
     @objc public private( set ) dynamic var mainWindowController    = MainWindowController()
     
     public func applicationDidFinishLaunching( _ notification: Notification )
     {
-        self.mainWindowController.show( nil )
+        self.showWelcomeWindow( nil )
     }
     
     public func applicationWillTerminate( _ notification: Notification )
@@ -48,6 +49,17 @@ import Cocoa
     public func applicationShouldTerminateAfterLastWindowClosed( _ sender: NSApplication ) -> Bool
     {
         true
+    }
+    
+    @IBAction public func showWelcomeWindow( _ sender: Any? )
+    {
+        if self.welcomeWindowController.window?.isVisible == false
+        {
+            self.welcomeWindowController.window?.layoutIfNeeded()
+            self.welcomeWindowController.window?.center()
+        }
+        
+        self.welcomeWindowController.window?.makeKeyAndOrderFront( sender )
     }
     
     @IBAction public func showAboutWindow( _ sender: Any? )
