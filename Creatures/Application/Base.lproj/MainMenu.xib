@@ -105,13 +105,13 @@
                             <menuItem isSeparatorItem="YES" id="QWg-5v-rpS"/>
                             <menuItem title="Reset" keyEquivalent="r" id="KaW-ft-85H">
                                 <connections>
-                                    <action selector="reset:" target="-1" id="hwj-MU-fvJ"/>
+                                    <action selector="reset:" target="Voe-Tx-rLC" id="iRq-bU-o3f"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Toggle Pause" keyEquivalent=" " id="oGK-Np-YgI">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="togglePause:" target="-1" id="Piw-vN-SSg"/>
+                                    <action selector="togglePause:" target="Voe-Tx-rLC" id="ZvO-kF-Tur"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -630,12 +630,12 @@
                             <menuItem isSeparatorItem="YES" id="FU7-FV-XbO"/>
                             <menuItem title="Toggle Creatures Names" keyEquivalent="N" id="AxF-2l-ghM">
                                 <connections>
-                                    <action selector="toggleCreaturesNames:" target="-1" id="qjS-at-7IN"/>
+                                    <action selector="toggleCreaturesNames:" target="Voe-Tx-rLC" id="v9P-C4-QQs"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="View Event Log..." keyEquivalent="l" id="MtZ-FE-Jg7">
                                 <connections>
-                                    <action selector="viewEventLog:" target="-1" id="Gxl-Os-NTn"/>
+                                    <action selector="viewEventLog:" target="Voe-Tx-rLC" id="yPn-bV-g3c"/>
                                 </connections>
                             </menuItem>
                         </items>

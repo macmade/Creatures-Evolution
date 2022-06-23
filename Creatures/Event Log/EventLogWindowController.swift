@@ -45,51 +45,62 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
         
         self.eventsController.sortDescriptors = [ NSSortDescriptor( key: "time", ascending: false ) ]
         
-        if let delegate = NSApp.delegate as? ApplicationDelegate
+        guard let delegate             = NSApp.delegate as? ApplicationDelegate,
+              let mainWindowController = delegate.mainWindowController
+        else
         {
-            self.pauseObserver = delegate.mainWindowController.observe( \.isPaused )
-            {
-                [ weak self ] _, _ in self?.isPaused = delegate.mainWindowController.isPaused
-            }
-            
-            self.isPaused = delegate.mainWindowController.isPaused
+            return
         }
+        
+        self.pauseObserver = mainWindowController.observe( \.isPaused )
+        {
+            [ weak self ] _, _ in self?.isPaused = mainWindowController.isPaused
+        }
+        
+        self.isPaused = mainWindowController.isPaused
     }
     
     @IBAction @objc public func showNode( _ event: Event )
     {
-        guard let delegate = NSApp.delegate as? ApplicationDelegate, let node = event.node as? SpriteNode else
+        guard let node                 = event.node     as? SpriteNode,
+              let delegate             = NSApp.delegate as? ApplicationDelegate,
+              let mainWindowController = delegate.mainWindowController
+        else
         {
             NSSound.beep()
             
             return
         }
         
-        delegate.mainWindowController.showDetails( node: node )
+        mainWindowController.showDetails( node: node )
     }
     
     @IBAction @objc public func pause( _ sender: Any? )
     {
-        guard let delegate = NSApp.delegate as? ApplicationDelegate else
+        guard let delegate             = NSApp.delegate as? ApplicationDelegate,
+              let mainWindowController = delegate.mainWindowController
+        else
         {
             NSSound.beep()
             
             return
         }
         
-        delegate.pause( nil )
+        mainWindowController.pause( nil )
     }
     
     @IBAction @objc public func resume( _ sender: Any? )
     {
-        guard let delegate = NSApp.delegate as? ApplicationDelegate else
+        guard let delegate             = NSApp.delegate as? ApplicationDelegate,
+              let mainWindowController = delegate.mainWindowController
+        else
         {
             NSSound.beep()
             
             return
         }
         
-        delegate.resume( nil )
+        mainWindowController.resume( nil )
     }
     
     @IBAction @objc public func clear( _ sender: Any? )

@@ -45,7 +45,8 @@ public class WelcomeWindowController: NSWindowController
             return
         }
         
-        delegate.mainWindowController.show( customizeSettings: false )
+        delegate.showMainWindow( customizeSettings: false )
+        self.window?.performClose( sender )
     }
     
     @IBAction private func customizeSettings( _ sender: Any? )
@@ -57,6 +58,7 @@ public class WelcomeWindowController: NSWindowController
             return
         }
         
-        delegate.mainWindowController.show( customizeSettings: true )
+        delegate.showMainWindow( customizeSettings: true )
+        self.window?.performClose( sender )
     }
 }

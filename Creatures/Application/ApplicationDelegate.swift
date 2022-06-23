@@ -24,12 +24,12 @@
 
 import Cocoa
 
-@main public class ApplicationDelegate: NSObject, NSApplicationDelegate
+@main public class ApplicationDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate
 {
     @objc public private( set ) dynamic var welcomeWindowController = WelcomeWindowController()
     @objc public private( set ) dynamic var aboutWindowController   = AboutWindowController()
     @objc public private( set ) dynamic var creditsWindowController = CreditsWindowController()
-    @objc public private( set ) dynamic var mainWindowController    = MainWindowController()
+    @objc public private( set ) dynamic var mainWindowController:     MainWindowController?
     
     public func applicationDidFinishLaunching( _ notification: Notification )
     {
@@ -38,7 +38,7 @@ import Cocoa
     
     public func applicationWillTerminate( _ notification: Notification )
     {
-        try? self.mainWindowController.settings?.save()
+        try? self.mainWindowController?.settings?.save()
     }
     
     public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
@@ -58,6 +58,8 @@ import Cocoa
             self.welcomeWindowController.window?.layoutIfNeeded()
             self.welcomeWindowController.window?.center()
         }
+        
+        self.welcomeWindowController.window?.delegate = self
         
         self.welcomeWindowController.window?.makeKeyAndOrderFront( sender )
     }
@@ -84,53 +86,112 @@ import Cocoa
         self.creditsWindowController.window?.makeKeyAndOrderFront( sender )
     }
     
+    @IBAction public func showMainWindow( customizeSettings: Bool )
+    {
+        if self.mainWindowController == nil
+        {
+            self.mainWindowController = MainWindowController()
+        }
+        
+        if self.mainWindowController?.window?.isVisible == false
+        {
+            self.mainWindowController?.window?.layoutIfNeeded()
+            self.mainWindowController?.window?.center()
+        }
+            
+        self.mainWindowController?.window?.delegate = self
+        
+        self.mainWindowController?.show( customizeSettings: customizeSettings )
+    }
+    
     @IBAction public func reset( _ sender: Any? )
     {
-        self.mainWindowController.reset( sender )
+        guard let mainWindowController = self.mainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        mainWindowController.reset( sender )
     }
     
     @IBAction public func togglePause( _ sender: Any? )
     {
-        self.mainWindowController.togglePause( sender )
-    }
-    
-    @IBAction public func pause( _ sender: Any? )
-    {
-        self.mainWindowController.pause( sender )
-    }
-    
-    @IBAction public func resume( _ sender: Any? )
-    {
-        self.mainWindowController.resume( sender )
-    }
-    
-    @IBAction public func toggleFPS( _ sender: Any? )
-    {
-        self.mainWindowController.toggleFPS( sender )
-    }
-    
-    @IBAction public func toggleDrawCount( _ sender: Any? )
-    {
-        self.mainWindowController.toggleDrawCount( sender )
-    }
-    
-    @IBAction public func toggleNodeCount( _ sender: Any? )
-    {
-        self.mainWindowController.toggleNodeCount( sender )
-    }
-    
-    @IBAction public func toggleQuadCount( _ sender: Any? )
-    {
-        self.mainWindowController.toggleQuadCount( sender )
+        guard let mainWindowController = self.mainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        mainWindowController.togglePause( sender )
     }
     
     @IBAction public func viewEventLog( _ sender: Any? )
     {
-        self.mainWindowController.viewEventLog( sender )
+        guard let mainWindowController = self.mainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        mainWindowController.viewEventLog( sender )
     }
     
     @IBAction public func toggleCreaturesNames( _ sender: Any? )
     {
-        self.mainWindowController.toggleCreaturesNames( sender )
+        guard let mainWindowController = self.mainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        mainWindowController.toggleCreaturesNames( sender )
+    }
+    
+    public func windowWillClose( _ notification: Notification )
+    {
+        guard let window = notification.object as? NSWindow else
+        {
+            return
+        }
+        
+        if window == self.mainWindowController?.window
+        {
+            NSApp.terminate( nil )
+        }
+        
+        if window == self.welcomeWindowController.window && self.mainWindowController == nil
+        {
+            NSApp.terminate( nil )
+        }
+    }
+    
+    @objc func validateMenuItem( _ menuItem: NSMenuItem ) -> Bool
+    {
+        if menuItem.action == #selector( reset( _: ) )
+        {
+            return self.mainWindowController != nil
+        }
+        
+        if menuItem.action == #selector( togglePause( _: ) )
+        {
+            return self.mainWindowController != nil
+        }
+        
+        if menuItem.action == #selector( toggleCreaturesNames( _: ) )
+        {
+            return self.mainWindowController != nil
+        }
+        
+        if menuItem.action == #selector( viewEventLog( _: ) )
+        {
+            return self.mainWindowController != nil
+        }
+        
+        return true
     }
 }
