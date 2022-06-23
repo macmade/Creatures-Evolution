@@ -149,6 +149,7 @@
 		05EDA9212863D7CD00F18B77 /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */; };
 		05EDA9242863DD0900F18B77 /* WelcomeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */; };
 		05EDA9262863DD2000F18B77 /* WelcomeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */; };
+		05EDA94E2864C52300F18B77 /* WelcomeTipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA94D2864C52300F18B77 /* WelcomeTipItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -343,6 +344,7 @@
 		05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsImageViewController.xib; sourceTree = "<group>"; };
 		05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWindowController.swift; sourceTree = "<group>"; };
 		05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWindowController.xib; sourceTree = "<group>"; };
+		05EDA94D2864C52300F18B77 /* WelcomeTipItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTipItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -820,6 +822,7 @@
 		05EDA9222863DCF300F18B77 /* Welcome Window */ = {
 			isa = PBXGroup;
 			children = (
+				05EDA94D2864C52300F18B77 /* WelcomeTipItem.swift */,
 				05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */,
 				05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */,
 			);
@@ -1001,6 +1004,7 @@
 				053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */,
 				05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */,
 				053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */,
+				05EDA94E2864C52300F18B77 /* WelcomeTipItem.swift in Sources */,
 				053949FA285EBA9B0077D90C /* FlippedView.swift in Sources */,
 				05394A34285FAB600077D90C /* CreatureStatusItem.swift in Sources */,
 				05102072285A192800F11184 /* PredatorSettingsViewController.swift in Sources */,

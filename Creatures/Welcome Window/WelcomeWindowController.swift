@@ -24,8 +24,12 @@
 
 import Cocoa
 
-public class WelcomeWindowController: NSWindowController
+public class WelcomeWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource
 {
+    @objc private dynamic var tips: [ WelcomeTipItem ] = []
+    
+    @IBOutlet private var tipsController: NSArrayController!
+    
     public override var windowNibName: NSNib.Name?
     {
         "WelcomeWindowController"
@@ -34,6 +38,13 @@ public class WelcomeWindowController: NSWindowController
     public override func windowDidLoad()
     {
         super.windowDidLoad()
+        
+        self.tips =
+        [
+            WelcomeTipItem( title: "View Details",  text: "Get detailed informations and edit creatures by clicking on them.",       symbol: "eye" ),
+            WelcomeTipItem( title: "Customization", text: "Most parameters of the simulation can be customized in the settings.",    symbol: "slider.horizontal.3" ),
+            WelcomeTipItem( title: "Save Settings", text: "Settings can be saved an restored at any time from the settings window.", symbol: "arrow.down.doc.fill" ),
+        ]
     }
     
     @IBAction private func start( _ sender: Any? )
@@ -60,5 +71,10 @@ public class WelcomeWindowController: NSWindowController
         
         delegate.showMainWindow( customizeSettings: true )
         self.window?.performClose( sender )
+    }
+    
+    public func tableView( _ tableView: NSTableView, shouldSelectRow row: Int ) -> Bool
+    {
+        false
     }
 }
