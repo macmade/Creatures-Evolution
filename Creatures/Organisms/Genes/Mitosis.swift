@@ -110,6 +110,6 @@ public class Mitosis: Gene
         
         creature.childrenCount += 1
         
-        scene.emit( effect: "Heart", for: creature )
+        creature.emit( effect: "Heart", duration: 2 )
     }
 }

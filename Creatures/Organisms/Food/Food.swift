@@ -32,7 +32,6 @@ import SpriteKit
     
     private var peremptionTime: TimeInterval?
     private var removalTime:    TimeInterval?
-    private var emitter:        SKEmitterNode?
     
     @objc public dynamic var isAlive: Bool
     {
@@ -98,13 +97,6 @@ import SpriteKit
     
     public override func remove()
     {
-        if let emitter = self.emitter
-        {
-            emitter.targetNode = nil
-            
-            emitter.removeFromParent()
-        }
-        
         self.willChangeValue( for: \.isAlive )
         super.remove()
         self.didChangeValue( for: \.isAlive )
@@ -126,20 +118,15 @@ import SpriteKit
         
         if let peremptionTime = self.peremptionTime
         {
-            if peremptionTime <= elapsedTime && self.emitter == nil
+            if peremptionTime <= elapsedTime && self.hasEmitter == false
             {
                 self.energy = self.decayEnergy
                 
-                if let emitter = SKEmitterNode( fileNamed: "Rot.sks" )
-                {
-                    self.colorBlendFactor = 0
-                    self.color            = NSColor.black
-                    emitter.targetNode    = self
-                    self.emitter          = emitter
-                    
-                    self.addChild( emitter )
-                    self.run( SKAction.colorize( withColorBlendFactor: 0.5, duration: 1 ) )
-                }
+                self.colorBlendFactor = 0
+                self.color            = NSColor.black
+                
+                self.run( SKAction.colorize( withColorBlendFactor: 0.5, duration: 1 ) )
+                self.emit( effect: "Rot" )
             }
         }
         else if self.canDecay
@@ -163,12 +150,5 @@ import SpriteKit
     public override func shutDown()
     {
         super.shutDown()
-        
-        if let emitter = self.emitter
-        {
-            emitter.targetNode = nil
-            
-            emitter.removeFromParent()
-        }
     }
 }

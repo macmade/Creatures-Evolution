@@ -277,7 +277,7 @@ public class Creature: SpriteNode
         let move       = SKAction.group( [ moveX, moveY ] )
         let completion = SKAction.run
         {
-            self.move()
+            [ weak self ] in self?.move()
         }
         
         self.run( SKAction.sequence( [ move, completion ] ), withKey: Creature.moveActionKey )
@@ -448,7 +448,7 @@ public class Creature: SpriteNode
         
         let size       = grow ? NSSize( width: 40, height: 40 ) : NSSize( width: 20, height: 20 )
         let scale      = SKAction.scale( to: size, duration: 1 )
-        let completion = SKAction.run { self.updateCustomName() }
+        let completion = SKAction.run { [ weak self ] in self?.updateCustomName() }
         let sequence   = grow ? [ completion, scale ] : [ scale, completion ]
         
         self.run( SKAction.sequence( sequence ), withKey: Creature.growActionKey )

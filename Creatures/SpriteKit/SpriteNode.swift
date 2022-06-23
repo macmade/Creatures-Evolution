@@ -37,6 +37,12 @@ public class SpriteNode: SKSpriteNode
     
     private var initialized = false
     private var highlight:    SKShapeNode?
+    private var emitter:      SKEmitterNode?
+    
+    public var hasEmitter: Bool
+    {
+        self.emitter != nil
+    }
     
     public func initialize()
     {}
@@ -62,7 +68,51 @@ public class SpriteNode: SKSpriteNode
     }
     
     public func shutDown()
-    {}
+    {
+        if let emitter = self.emitter
+        {
+            emitter.targetNode = nil
+            
+            emitter.removeFromParent()
+        }
+        
+        self.removeAllActions()
+    }
+    
+    public func emit( effect: String, duration: Double = -1 )
+    {
+        if let emitter = self.emitter
+        {
+            emitter.targetNode = nil
+            
+            emitter.removeFromParent()
+        }
+        
+        if let emitter = SKEmitterNode( fileNamed: effect )
+        {
+            emitter.targetNode = self
+            emitter.zPosition  = CGFloat.infinity
+            
+            if duration <= 0
+            {
+                self.addChild( emitter )
+                
+                self.emitter = emitter
+            }
+            else
+            {
+                let emit = SKAction.run { [ weak self ] in self?.addChild( emitter ) }
+                let wait = SKAction.wait( forDuration: 2 )
+                
+                self.run( SKAction.sequence( [ emit, wait ] ) )
+                {
+                    emitter.targetNode = nil
+                    
+                    emitter.removeFromParent()
+                }
+            }
+        }
+    }
     
     public func flash( _ flash: Bool, alpha: Double = 0.25, duration: Double = 0.5 )
     {
@@ -95,7 +145,7 @@ public class SpriteNode: SKSpriteNode
         
         self.run( SKAction.group( actions ) )
         {
-            self.removeFromParent()
+            [ weak self ] in self?.removeFromParent()
         }
     }
     

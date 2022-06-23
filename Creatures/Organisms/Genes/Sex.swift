@@ -192,8 +192,8 @@ public class Sex: Gene
                 other.childrenCount    += 1
             }
             
-            scene.emit( effect: "Heart", for: creature )
-            scene.emit( effect: "Heart", for: other )
+            creature.emit( effect: "Heart", duration: 2 )
+            other.emit(    effect: "Heart", duration: 2 )
         }
     }
     

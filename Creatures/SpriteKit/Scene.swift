@@ -132,7 +132,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             creature.removeAction( forKey: Creature.moveActionKey )
             creature.run( SKAction.move( to: location, duration: 0 ) )
             {
-                creature.move()
+                [ weak creature ] in creature?.move()
             }
         }
     }
@@ -267,25 +267,5 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     public func randomPoint() -> NSPoint
     {
         NSPoint( x: Double.random( in: 0 ..< self.frame.size.width ), y: Double.random( in: 0 ..< self.frame.size.height ) )
-    }
-    
-    public func emit( effect: String, for node: SKNode )
-    {
-        if let emitter = SKEmitterNode( fileNamed: effect )
-        {
-            emitter.position   = node.position
-            emitter.targetNode = node
-            emitter.zPosition  = CGFloat.infinity
-            
-            let emit   = SKAction.run { [ weak self ] in self?.addChild( emitter ) }
-            let wait   = SKAction.wait( forDuration: 2 )
-            
-            self.run( SKAction.sequence( [ emit, wait ] ) )
-            {
-                emitter.targetNode = nil
-                
-                emitter.removeFromParent()
-            }
-        }
     }
 }
