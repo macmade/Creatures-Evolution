@@ -29,6 +29,8 @@ public class StatsViewController: NSViewController
     @objc public dynamic var alive = 0
     @objc public dynamic var dead  = 0
     
+    @objc public private( set ) dynamic var scene: Scene
+    
     private var creatureDieObserver:               Any?
     private var creatureBornObserver:              Any?
     private var timer:                             Timer?
@@ -40,9 +42,11 @@ public class StatsViewController: NSViewController
     @IBOutlet private var creatureReproductionStatusView: NSView?
     @IBOutlet private var creatureReproductionGraphView:  CreatureStatusGraphView?
     
-    public override init( nibName: NSNib.Name?, bundle: Bundle? )
+    public init( scene: Scene )
     {
-        super.init( nibName: nibName, bundle: bundle )
+        self.scene = scene
+        
+        super.init( nibName: nil, bundle: nil )
         
         self.creatureBornObserver = NotificationCenter.default.addObserver( forName: Constants.creatureBornNotification, object: nil, queue: nil )
         {
@@ -70,14 +74,6 @@ public class StatsViewController: NSViewController
         self.timer?.invalidate()
     }
     
-    @objc public dynamic var scene: Scene?
-    {
-        didSet
-        {
-            self.update()
-        }
-    }
-    
     public override var nibName: NSNib.Name?
     {
         "StatsViewController"
@@ -91,7 +87,9 @@ public class StatsViewController: NSViewController
     
     public func update()
     {
-        guard let scene = self.scene, let mainWindowController = self.view.window?.windowController as? MainWindowController else
+        guard let delegate             = NSApp.delegate as? ApplicationDelegate,
+              let mainWindowController = delegate.mainWindowController
+        else
         {
             return
         }

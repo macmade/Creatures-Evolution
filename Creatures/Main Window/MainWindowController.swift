@@ -136,15 +136,15 @@ public class MainWindowController: NSWindowController
             self.hideDetails( nil )
         }
         
-        let stats                = StatsViewController()
-        stats.scene              = scene
+        view.presentScene( scene )
+        
+        self.isPaused = false
+        
+        let stats                = StatsViewController( scene: scene )
         self.statsViewController = stats
         
         self.statsView.addFillingSubview( stats.view, removeAllExisting: true )
         self.contentView.addFillingSubview( view, removeAllExisting: true )
-        view.presentScene( scene )
-        
-        self.isPaused = false
         
         view.showsFPS       = Preferences.shared.showsFPS
         view.showsDrawCount = Preferences.shared.showsDrawCount
