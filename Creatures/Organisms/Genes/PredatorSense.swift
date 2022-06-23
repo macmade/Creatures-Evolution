@@ -54,6 +54,17 @@ public class PredatorSense: Gene
     
     public override func chooseDestination( creature: Creature ) -> Destination?
     {
+        let predicate: ( Creature ) -> Bool =
+        {
+            $0.hasActiveGene( Predator.self ) && PredationHelper.canBeEaten( creature: creature, by: $0 )
+        }
+        
+        if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: 100, predicate: predicate )
+        {
+            // TODO
+            print( nearest )
+        }
+        
         return nil
     }
 }

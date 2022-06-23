@@ -61,7 +61,7 @@ public class PlantSense: Gene
         
         if let nearest: Plant = DistanceHelper.nearestObject( creature: creature, maxDistance: 100 )
         {
-            return Destination( point: nearest.position, priority: creature.energy == 0 ? DestinationPriority.high : DestinationPriority.normal )
+            return Destination( point: nearest.position, priority: creature.energy == 0 ? .high : .normal )
         }
         
         return nil

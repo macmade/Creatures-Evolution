@@ -61,6 +61,8 @@ public class DistanceHelper
     
     public class func nearestObject< T: SKNode >( creature: Creature, maxDistance: Double, predicate: ( ( T ) -> Bool )? = nil ) -> T?
     {
-        self.nearbyObjects( creature: creature, maxDistance: maxDistance, predicate: predicate ).first?.node
+        let nearby: [ ( distance: Double, node: T ) ] = self.nearbyObjects( creature: creature, maxDistance: maxDistance, predicate: predicate )
+        
+        return nearby.first?.node
     }
 }

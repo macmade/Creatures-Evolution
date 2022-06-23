@@ -242,7 +242,7 @@ public class Creature: SpriteNode
                 return
             }
             
-            if geneDestination == nil || d.priority == DestinationPriority.high
+            if geneDestination == nil || d.priority == .high
             {
                 geneDestination = d
             }
