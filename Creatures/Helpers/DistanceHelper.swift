@@ -65,4 +65,12 @@ public class DistanceHelper
         
         return nearby.first?.node
     }
+    
+    public class func opposite( of p1: NSPoint, from p2: NSPoint ) -> NSPoint
+    {
+        let dx = p1.x - p2.x
+        let dy = p1.y - p2.y
+        
+        return NSPoint( x: p2.x - dx, y: p2.y - dy )
+    }
 }

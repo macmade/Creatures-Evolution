@@ -61,8 +61,7 @@ public class PredatorSense: Gene
         
         if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: 100, predicate: predicate )
         {
-            // TODO
-            print( nearest )
+            return Destination( point: DistanceHelper.opposite( of: nearest.position, from: creature.position ), priority: .high )
         }
         
         return nil
