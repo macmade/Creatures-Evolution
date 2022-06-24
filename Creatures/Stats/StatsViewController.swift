@@ -26,8 +26,9 @@ import Cocoa
 
 public class StatsViewController: NSViewController
 {
-    @objc public dynamic var alive = 0
-    @objc public dynamic var dead  = 0
+    @objc public dynamic var alive       = 0
+    @objc public dynamic var dead        = 0
+    @objc public dynamic var generations = 0
     
     @objc public private( set ) dynamic var scene: Scene
     
@@ -94,8 +95,14 @@ public class StatsViewController: NSViewController
             return
         }
         
-        let creatures = scene.children.compactMap { $0 as? Creature }.filter { $0.isAlive }
-        self.alive    = creatures.count
+        let creatures   = scene.children.compactMap { $0 as? Creature }
+        let generations = creatures.reduce( 0 ) { $1.generation > $0 ? $1.generation : $0 }
+        self.alive      = creatures.filter { $0.isAlive }.count
+        
+        if generations > self.generations
+        {
+            self.generations = generations
+        }
         
         if mainWindowController.isPaused
         {
