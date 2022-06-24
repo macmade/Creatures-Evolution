@@ -66,7 +66,12 @@ public class PlantSense: IntValueGene
             return nil
         }
         
-        if let nearest: Plant = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ) )
+        let predicate: ( Plant ) -> Bool =
+        {
+            creature.settings.plantSense.canDetectDecayed ? $0.isDecayed == false : true
+        }
+        
+        if let nearest: Plant = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ), predicate: predicate )
         {
             return Destination( point: nearest.position, priority: creature.energy == 0 ? .high : .normal )
         }

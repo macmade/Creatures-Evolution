@@ -36,4 +36,5 @@ public class MeatSenseSettings: NSObject, Codable
     @objc public dynamic var maximumDistance       = 300
     @objc public dynamic var minimumMutationChange = 1
     @objc public dynamic var maximumMutationChange = 10
+    @objc public dynamic var canDetectDecayed      = true
 }

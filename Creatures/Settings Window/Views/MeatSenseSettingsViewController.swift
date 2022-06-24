@@ -68,5 +68,13 @@ public class MeatSenseSettingsViewController: SettingsViewController
                 SettingsIntSliderViewController( title: "Maximum mutation change:",       settings: self.settings, key: \.meatSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
             ]
         )
+        
+        self.addBox(
+            title: "Other",
+            controllers:
+            [
+                SettingsBoolViewController( title: "Detects and avoids decayed meat", settings: self.settings, key: \.meatSense.canDetectDecayed, style: .asCheckbox )
+            ]
+        )
     }
 }

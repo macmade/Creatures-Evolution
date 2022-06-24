@@ -68,5 +68,13 @@ public class PlantSenseSettingsViewController: SettingsViewController
                 SettingsIntSliderViewController( title: "Maximum mutation change:",       settings: self.settings, key: \.plantSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
             ]
         )
+        
+        self.addBox(
+            title: "Other",
+            controllers:
+            [
+                SettingsBoolViewController( title: "Detects and avoids decayed plants", settings: self.settings, key: \.plantSense.canDetectDecayed, style: .asCheckbox )
+            ]
+        )
     }
 }
