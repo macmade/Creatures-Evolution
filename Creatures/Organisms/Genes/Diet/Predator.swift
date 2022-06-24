@@ -75,17 +75,16 @@ public class Predator: DietGene
         
         if success
         {
-            if other.energy > 0
+            let energy       = other.energy <= 0 ? 1 : Int.random( in: 1 ... other.energy )
+            creature.energy += energy
+            other.energy    -= energy
+            self.meals      += 1
+            
+            if other.isAlive
             {
-                let energy = Int.random( in: 0 ..< other.energy )
-                
-                creature.energy += energy
-                other.energy    -= energy
+                other.die( dropFood: true )
             }
             
-            self.meals += 1
-            
-            other.die( dropFood: true )
             EventLog.shared.killed( creature: other, by: creature )
         }
     }
