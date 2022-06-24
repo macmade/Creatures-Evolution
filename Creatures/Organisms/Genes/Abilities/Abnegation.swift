@@ -58,4 +58,36 @@ public class Abnegation: IntValueGene
     {
         Abnegation( active: self.isActive, settings: self.settings, value: self.value )
     }
+    
+    public override func onCollision( creature: Creature, node: SKNode )
+    {
+        guard let other = node as? Creature, other.energy == 0 else
+        {
+            return
+        }
+        
+        if creature.settings.abnegation.requiresSameClass
+        {
+            let diet1 = creature.genes.compactMap { $0 as? DietGene }.filter { $0.isActive }.first
+            let diet2 = other.genes.compactMap    { $0 as? DietGene }.filter { $0.isActive }.first
+            
+            if let diet1 = diet1, let diet2 = diet2
+            {
+                if type( of: diet1 ) != type( of: diet2 )
+                {
+                    return
+                }
+            }
+        }
+        
+        let energy = min( creature.energy, self.value )
+        
+        if energy > 0
+        {
+            creature.energy -= energy
+            other.energy    += energy
+            
+            EventLog.shared.energyTransfer( amount: energy, from: creature, to: other )
+        }
+    }
 }

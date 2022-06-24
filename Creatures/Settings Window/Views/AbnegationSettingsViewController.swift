@@ -45,7 +45,7 @@ public class AbnegationSettingsViewController: SettingsViewController
     {
         super.viewDidLoad()
         
-        self.helpText = "Creatures evolving this gene will be able to give energy to other creatures with a low energy state.\nGiving creature may die in the process if it gives too much energy."
+        self.helpText = "Creatures evolving this gene will be able to give energy to other creatures with a low energy state."
         
         self.addBox(
             title: "General",

@@ -101,28 +101,43 @@ public class EventLog: NSObject
     
     public func died( creature: Creature )
     {
-        if let scene = creature.scene as? Scene
+        guard let scene = creature.scene as? Scene else
         {
-            self.add( event: Event( message: "Died: out of energy", time: scene.elapsedTime, node: creature ) )
+            return
         }
+        
+        self.add( event: Event( message: "Died: out of energy", time: scene.elapsedTime, node: creature ) )
     }
     
     public func born( creature: Creature, from parents: [ Creature ] )
     {
-        if let scene = creature.scene as? Scene
+        guard let scene = creature.scene as? Scene else
         {
-            if parents.count == 1
-            {
-                self.add( event: Event( message: "Born: birth by mitosis from \( self.name( of: parents[ 0 ] ) )", time: scene.elapsedTime, node: creature ) )
-            }
-            else if parents.count == 2
-            {
-                self.add( event: Event( message: "Born: birth by sexual reproduction from \( self.name( of: parents[ 0 ] ) ) and \( self.name( of: parents[ 1 ] ) )", time: scene.elapsedTime, node: creature ) )
-            }
-            else
-            {
-                self.add( event: Event( message: "Born: unknown reason", time: scene.elapsedTime, node: creature ) )
-            }
+            return
         }
+        
+        if parents.count == 1
+        {
+            self.add( event: Event( message: "Born: birth by mitosis from \( self.name( of: parents[ 0 ] ) )", time: scene.elapsedTime, node: creature ) )
+        }
+        else if parents.count == 2
+        {
+            self.add( event: Event( message: "Born: birth by sexual reproduction from \( self.name( of: parents[ 0 ] ) ) and \( self.name( of: parents[ 1 ] ) )", time: scene.elapsedTime, node: creature ) )
+        }
+        else
+        {
+            self.add( event: Event( message: "Born: unknown reason", time: scene.elapsedTime, node: creature ) )
+        }
+    }
+    
+    public func energyTransfer( amount: Int, from giver: Creature, to receiver: Creature )
+    {
+        guard let scene = giver.scene as? Scene else
+        {
+            return
+        }
+        
+        EventLog.shared.add( event: Event( message: "Gived \( amount ) energy to \( self.name( of: receiver ) )", time: scene.elapsedTime, node: giver ) )
+        EventLog.shared.add( event: Event( message: "Received \( amount ) energy from \( self.name( of: giver ) )", time: scene.elapsedTime, node: receiver ) )
     }
 }
