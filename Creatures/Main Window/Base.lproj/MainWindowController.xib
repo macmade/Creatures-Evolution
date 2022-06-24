@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -69,10 +70,10 @@
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <customView appearanceType="darkAqua" translatesAutoresizingMaskIntoConstraints="NO" id="zgk-Sc-1bJ" customClass="BackgroundView" customModule="Creatures" customModuleProvider="target">
-                        <rect key="frame" x="150" y="348" width="900" height="304"/>
+                        <rect key="frame" x="150" y="334" width="900" height="332"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LZ7-CE-Qg7">
-                                <rect key="frame" x="68" y="107" width="764" height="177"/>
+                                <rect key="frame" x="68" y="135" width="764" height="177"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Game Over" id="3Oh-yj-vwb">
                                     <font key="font" metaFont="systemBold" size="150"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -80,7 +81,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LWW-zt-YN2">
-                                <rect key="frame" x="243" y="80" width="415" height="47"/>
+                                <rect key="frame" x="243" y="108" width="415" height="47"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="All creatures have died..." id="9Gf-u5-MdP">
                                     <font key="font" metaFont="system" size="40"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -88,11 +89,12 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="orv-qb-p3A">
-                                <rect key="frame" x="403" y="13" width="94" height="32"/>
-                                <buttonCell key="cell" type="push" title="Restart" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0gM-i6-VxG">
+                                <rect key="frame" x="404" y="34" width="92" height="40"/>
+                                <buttonCell key="cell" type="push" title="Restart" bezelStyle="rounded" image="NSRefreshTemplate" imagePosition="leading" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0gM-i6-VxG">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <color key="bezelColor" name="AccentColor"/>
                                 <connections>
                                     <action selector="reset:" target="-2" id="XkC-Ha-ZlP"/>
                                 </connections>
@@ -110,7 +112,7 @@
                             <constraint firstItem="orv-qb-p3A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zgk-Sc-1bJ" secondAttribute="leading" constant="20" symbolic="YES" id="Xv1-eE-lPe"/>
                             <constraint firstItem="orv-qb-p3A" firstAttribute="top" secondItem="LWW-zt-YN2" secondAttribute="bottom" constant="40" id="cDb-t3-rit"/>
                             <constraint firstItem="LWW-zt-YN2" firstAttribute="centerX" secondItem="LZ7-CE-Qg7" secondAttribute="centerX" id="k1T-FZ-t6g"/>
-                            <constraint firstAttribute="bottom" secondItem="orv-qb-p3A" secondAttribute="bottom" constant="20" symbolic="YES" id="mHJ-rn-c7m"/>
+                            <constraint firstAttribute="bottom" secondItem="orv-qb-p3A" secondAttribute="bottom" constant="40" id="mHJ-rn-c7m"/>
                             <constraint firstItem="LZ7-CE-Qg7" firstAttribute="top" secondItem="zgk-Sc-1bJ" secondAttribute="top" constant="20" symbolic="YES" id="szk-Uj-hzB"/>
                             <constraint firstItem="orv-qb-p3A" firstAttribute="centerX" secondItem="zgk-Sc-1bJ" secondAttribute="centerX" id="zBu-qI-oyN"/>
                         </constraints>
@@ -294,5 +296,8 @@
         <image name="pause.fill" catalog="system" width="11" height="13"/>
         <image name="play.fill" catalog="system" width="12" height="13"/>
         <image name="tag.slash" catalog="system" width="17" height="17"/>
+        <namedColor name="AccentColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
