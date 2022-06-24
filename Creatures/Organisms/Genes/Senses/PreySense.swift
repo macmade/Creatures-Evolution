@@ -73,7 +73,7 @@ public class PreySense: IntValueGene
         
         if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ), predicate: predicate )
         {
-            return Destination( point: nearest.position, priority: .normal )
+            return Destination( point: nearest.position, priority: creature.energy == 0 ? .high : .normal )
         }
         
         return nil

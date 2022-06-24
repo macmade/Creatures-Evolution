@@ -223,49 +223,10 @@ public class Creature: SpriteNode
     
     public func move()
     {
-        guard let scene = self.scene else
-        {
-            return
-        }
-        
-        var geneDestination: Destination?
-        
-        self.genes.forEach
-        {
-            guard $0.isActive else
-            {
-                return
-            }
-            
-            guard let d = $0.chooseDestination( creature: self ) else
-            {
-                return
-            }
-            
-            if geneDestination == nil || d.priority == .high
-            {
-                geneDestination = d
-            }
-        }
-        
-        var destination: ( point: NSPoint, distance: Double )!
-        
-        if let d = geneDestination
-        {
-            destination = ( point: d.point, distance: d.point.distance( with: self.position ) )
-        }
-        else
-        {
-            destination = self.chooseDestination()
-            
-            while scene.frame.contains( destination.point ) == false
-            {
-                destination = self.chooseDestination()
-            }
-        }
-        
-        let duration   = 0.025 * Double( destination.distance )
-        var multiplier = 1.0
+        let destination = self.chooseDestination() ?? self.randomDestination()
+        let distance    = destination.point.distance( with: self.position )
+        let duration    = 0.025 * Double( distance )
+        var multiplier  = 1.0
         
         if let speed = self.getGene( Speed.self ) as? Speed, speed.isActive
         {
@@ -283,15 +244,50 @@ public class Creature: SpriteNode
         self.run( SKAction.sequence( [ move, completion ] ), withKey: Creature.moveActionKey )
     }
     
-    public func chooseDestination() -> ( point: NSPoint, distance: Double )
+    private func chooseDestination() -> Destination?
     {
-        let distance  = Int.random( in: 10 ... 100 )
-        let distanceX = distance - Int.random( in: 0 ... distance )
-        let distanceY = distance - distanceX
-        let positionX = self.position.x + Double( Bool.random() ? distanceX : -distanceX )
-        let positionY = self.position.y + Double( Bool.random() ? distanceY : -distanceY )
+        let destinations: [ Destination ] = self.genes.compactMap
+        {
+            guard $0.isActive else
+            {
+                return nil
+            }
+            
+            return $0.chooseDestination( creature: self )
+        }
         
-        return ( point: NSPoint( x: positionX, y: positionY ), distance: Double( distance ) )
+        let high   = destinations.filter { $0.priority == .high }
+        let normal = destinations.filter { $0.priority == .normal }
+        
+        if high.isEmpty
+        {
+            return normal.randomElement()
+        }
+        
+        return high.randomElement()
+    }
+    
+    private func randomDestination() -> Destination
+    {
+        guard let scene = self.scene else
+        {
+            return Destination( point: self.position, priority: .normal )
+        }
+        
+        var point = NSPoint( x: Double.infinity, y: Double.infinity )
+        
+        while scene.frame.contains( point ) == false
+        {
+            let distance  = Int.random( in: 10 ... 100 )
+            let distanceX = distance - Int.random( in: 0 ... distance )
+            let distanceY = distance - distanceX
+            let positionX = self.position.x + Double( Bool.random() ? distanceX : -distanceX )
+            let positionY = self.position.y + Double( Bool.random() ? distanceY : -distanceY )
+            
+            point = NSPoint( x: positionX, y: positionY )
+        }
+        
+        return Destination( point: point, priority: .normal )
     }
     
     public func collide( with node: SKNode )
