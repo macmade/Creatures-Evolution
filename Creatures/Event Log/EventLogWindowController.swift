@@ -63,6 +63,8 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
         }
         
         self.isPaused = mainWindowController.isPaused
+        
+        self.focusSearchField()
     }
     
     @IBAction @objc public func showNode( _ event: Event )
@@ -121,6 +123,11 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     }
     
     @IBAction public func performFindPanelAction( _ sender: Any? )
+    {
+        self.focusSearchField()
+    }
+    
+    public func focusSearchField()
     {
         self.window?.makeFirstResponder( self.searchField )
     }

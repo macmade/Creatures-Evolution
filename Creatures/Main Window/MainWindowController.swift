@@ -385,6 +385,7 @@ public class MainWindowController: NSWindowController
         }
         
         self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )
+        self.eventLogWindowController?.focusSearchField()
     }
     
     @IBAction public func showSettingsMenu( _ sender: Any? )
