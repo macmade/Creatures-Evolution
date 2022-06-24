@@ -160,6 +160,9 @@
 		05EDA9A92865564100F18B77 /* DefenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9A82865564100F18B77 /* DefenseSettingsViewController.swift */; };
 		05EDA9AB286556EC00F18B77 /* Defense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9AA286556EC00F18B77 /* Defense.swift */; };
 		05EDA9BC2865E7CD00F18B77 /* Skull.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9BB2865E7CD00F18B77 /* Skull.sks */; };
+		05EDA9BE2865F67100F18B77 /* AbnegationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9BD2865F67100F18B77 /* AbnegationSettings.swift */; };
+		05EDA9C02865F6C300F18B77 /* AbnegationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9BF2865F6C300F18B77 /* AbnegationSettingsViewController.swift */; };
+		05EDA9C22865F9B900F18B77 /* Abnegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9C12865F9B900F18B77 /* Abnegation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -365,6 +368,9 @@
 		05EDA9A82865564100F18B77 /* DefenseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefenseSettingsViewController.swift; sourceTree = "<group>"; };
 		05EDA9AA286556EC00F18B77 /* Defense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defense.swift; sourceTree = "<group>"; };
 		05EDA9BB2865E7CD00F18B77 /* Skull.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Skull.sks; sourceTree = "<group>"; };
+		05EDA9BD2865F67100F18B77 /* AbnegationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnegationSettings.swift; sourceTree = "<group>"; };
+		05EDA9BF2865F6C300F18B77 /* AbnegationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnegationSettingsViewController.swift; sourceTree = "<group>"; };
+		05EDA9C12865F9B900F18B77 /* Abnegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abnegation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -614,6 +620,7 @@
 		05252F0A2855E1FC0090B385 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				05EDA9BD2865F67100F18B77 /* AbnegationSettings.swift */,
 				05A334BD2863877600905208 /* AttackSettings.swift */,
 				0510207A285A85F500F11184 /* CannibalSettings.swift */,
 				05252F7A285837AD0090B385 /* CreaturesSettings.swift */,
@@ -733,6 +740,7 @@
 		05394A02285F6CA10077D90C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				05EDA9BF2865F6C300F18B77 /* AbnegationSettingsViewController.swift */,
 				05A334BF2863886B00905208 /* AttackSettingsViewController.swift */,
 				05102079285A85F500F11184 /* CannibalSettingsViewController.swift */,
 				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
@@ -875,6 +883,7 @@
 		05EDA99C286548BF00F18B77 /* Abilities */ = {
 			isa = PBXGroup;
 			children = (
+				05EDA9C12865F9B900F18B77 /* Abnegation.swift */,
 				05A334BB2863863800905208 /* Attack.swift */,
 				05EDA9AA286556EC00F18B77 /* Defense.swift */,
 				05394A3928607C1B0077D90C /* Speed.swift */,
@@ -1023,6 +1032,7 @@
 				0510206D285A192800F11184 /* ScavengerSettingsViewController.swift in Sources */,
 				05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */,
 				05EDA9A7286555D700F18B77 /* DefenseSettings.swift in Sources */,
+				05EDA9BE2865F67100F18B77 /* AbnegationSettings.swift in Sources */,
 				05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */,
 				053949F8285EB8830077D90C /* DraggableView.swift in Sources */,
 				05EDA969286531B800F18B77 /* PredationHelper.swift in Sources */,
@@ -1036,6 +1046,7 @@
 				05102080285A88F800F11184 /* PreySenseSettingsViewController.swift in Sources */,
 				05B8A3642861F2F3007870B3 /* CreditViewController.swift in Sources */,
 				05EDA9A92865564100F18B77 /* DefenseSettingsViewController.swift in Sources */,
+				05EDA9C02865F6C300F18B77 /* AbnegationSettingsViewController.swift in Sources */,
 				05252EC12854EA400090B385 /* Creature.swift in Sources */,
 				05A334C02863886B00905208 /* AttackSettingsViewController.swift in Sources */,
 				05394A32285FA5E00077D90C /* CreatureStatusGraphView.swift in Sources */,
@@ -1105,6 +1116,7 @@
 				05102039285A165900F11184 /* VampireSettings.swift in Sources */,
 				05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */,
 				05B8A3632861F2F3007870B3 /* CreditsWindowController.swift in Sources */,
+				05EDA9C22865F9B900F18B77 /* Abnegation.swift in Sources */,
 				05EDA9AB286556EC00F18B77 /* Defense.swift in Sources */,
 				05252ECB285521B20090B385 /* SpriteNode.swift in Sources */,
 				05102095285ABD1000F11184 /* Destination.swift in Sources */,

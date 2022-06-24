@@ -49,6 +49,11 @@ public class EvolutionHelper
             genes.append( Defense( active: settings.defense.isActive, settings: settings ) )
         }
         
+        if settings.abnegation.isEnabled
+        {
+            genes.append( Abnegation( active: settings.abnegation.isActive, settings: settings ) )
+        }
+        
         if settings.mitosis.isEnabled
         {
             genes.append( Mitosis( active: settings.mitosis.isActive, settings: settings ) )
