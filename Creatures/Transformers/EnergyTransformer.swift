@@ -24,7 +24,7 @@
 
 import Foundation
 
-@objc( CreatureEnergyTransformer ) public class CreatureEnergyTransformer: ValueTransformer
+@objc( EnergyTransformer ) public class EnergyTransformer: ValueTransformer
 {
     public override class func transformedValueClass() -> AnyClass
     {

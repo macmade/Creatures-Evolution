@@ -326,9 +326,9 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="-2" name="value" keyPath="self.node.energy" id="yCW-tO-bxa">
+                                        <binding destination="-2" name="value" keyPath="self.node.energy" id="AZf-sN-atO">
                                             <dictionary key="options">
-                                                <string key="NSValueTransformerName">CreatureEnergyTransformer</string>
+                                                <string key="NSValueTransformerName">EnergyTransformer</string>
                                             </dictionary>
                                         </binding>
                                     </connections>

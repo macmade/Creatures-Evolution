@@ -27,8 +27,9 @@ import SpriteKit
 
 @objc public class Food: SpriteNode
 {
-    @objc public                dynamic var energy:   Int
-    @objc public private( set ) dynamic var settings: Settings
+    @objc public                dynamic var energy:     Int
+    @objc public private( set ) dynamic var settings:   Settings
+    @objc public private( set ) dynamic var isDecayed = false
     
     private var peremptionTime: TimeInterval?
     private var removalTime:    TimeInterval?
@@ -118,9 +119,10 @@ import SpriteKit
         
         if let peremptionTime = self.peremptionTime
         {
-            if peremptionTime <= elapsedTime && self.hasEmitter == false
+            if peremptionTime <= elapsedTime && self.isDecayed == false
             {
-                self.energy = self.decayEnergy
+                self.isDecayed = true
+                self.energy    = self.decayEnergy
                 
                 self.colorBlendFactor = 0
                 self.color            = NSColor.black

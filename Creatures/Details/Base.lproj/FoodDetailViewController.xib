@@ -48,10 +48,10 @@
                     </constraints>
                 </box>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KB9-dd-be2">
-                    <rect key="frame" x="20" y="105" width="195" height="40"/>
+                    <rect key="frame" x="20" y="81" width="195" height="64"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Le-sq-4I5">
-                            <rect key="frame" x="0.0" y="24" width="195" height="16"/>
+                            <rect key="frame" x="0.0" y="48" width="195" height="16"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f8j-Ky-kEj">
                                     <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
@@ -92,6 +92,48 @@
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>
                         </stackView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="da8-o6-H5I">
+                            <rect key="frame" x="0.0" y="24" width="195" height="16"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ASp-PJ-UHu">
+                                    <rect key="frame" x="-2" y="0.0" width="155" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Fresh:" id="e2h-26-yYY">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZlS-Ur-q5T">
+                                    <rect key="frame" x="157" y="0.0" width="40" height="16"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="Tc2-fL-cOP">
+                                        <font key="font" metaFont="systemBold"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="-2" name="value" keyPath="self.node.isDecayed" id="3mf-op-gQ5">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NegateBooleanTransformer</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="ASp-PJ-UHu" secondAttribute="bottom" id="LhU-yF-w76"/>
+                                <constraint firstItem="ZlS-Ur-q5T" firstAttribute="centerY" secondItem="da8-o6-H5I" secondAttribute="centerY" id="Lsa-rO-O34"/>
+                                <constraint firstItem="ASp-PJ-UHu" firstAttribute="centerY" secondItem="da8-o6-H5I" secondAttribute="centerY" id="MYH-H7-DSh"/>
+                                <constraint firstItem="ASp-PJ-UHu" firstAttribute="top" secondItem="da8-o6-H5I" secondAttribute="top" id="dSA-tf-DMf"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f14-Sl-55O">
                             <rect key="frame" x="0.0" y="0.0" width="195" height="16"/>
                             <subviews>
@@ -111,6 +153,14 @@
                                     </buttonCell>
                                     <connections>
                                         <action selector="decreaseEnergy:" target="-2" id="nOd-lt-cNo"/>
+                                        <binding destination="-2" name="hidden2" keyPath="self.node.isDecayed" previousBinding="Oda-95-d9J" id="Hzp-Wh-1aj">
+                                            <dictionary key="options">
+                                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                <integer key="NSNullPlaceholder" value="-1"/>
+                                            </dictionary>
+                                        </binding>
                                         <binding destination="-2" name="hidden" keyPath="self.node.isAlive" id="Oda-95-d9J">
                                             <dictionary key="options">
                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
@@ -126,6 +176,14 @@
                                     </buttonCell>
                                     <connections>
                                         <action selector="increaseEnergy:" target="-2" id="vHq-65-luv"/>
+                                        <binding destination="-2" name="hidden2" keyPath="self.node.isDecayed" previousBinding="s2I-Vo-qgB" id="dNK-Lt-Vmb">
+                                            <dictionary key="options">
+                                                <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                <integer key="NSNullPlaceholder" value="-1"/>
+                                            </dictionary>
+                                        </binding>
                                         <binding destination="-2" name="hidden" keyPath="self.node.isAlive" id="s2I-Vo-qgB">
                                             <dictionary key="options">
                                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
@@ -141,9 +199,9 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="-2" name="value" keyPath="self.node.energy" id="rX2-y5-reB">
+                                        <binding destination="-2" name="value" keyPath="self.node.energy" id="uvT-3l-gai">
                                             <dictionary key="options">
-                                                <string key="NSValueTransformerName">FoodEnergyTransformer</string>
+                                                <string key="NSValueTransformerName">EnergyTransformer</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -178,8 +236,10 @@
                     <visibilityPriorities>
                         <integer value="1000"/>
                         <integer value="1000"/>
+                        <integer value="1000"/>
                     </visibilityPriorities>
                     <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                     </customSpacing>

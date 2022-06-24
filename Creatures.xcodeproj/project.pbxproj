@@ -36,7 +36,7 @@
 		05102095285ABD1000F11184 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102094285ABD1000F11184 /* Destination.swift */; };
 		051020B3285B54D800F11184 /* BooleanTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B2285B54D800F11184 /* BooleanTransformer.swift */; };
 		051020B5285B558F00F11184 /* NegateBooleanTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */; };
-		051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */; };
+		051020BB285B6B8400F11184 /* EnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020BA285B6B8400F11184 /* EnergyTransformer.swift */; };
 		051020BD285B6BF100F11184 /* StatusTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020BC285B6BF100F11184 /* StatusTransformer.swift */; };
 		051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020CA285B6DDB00F11184 /* WorldSettings.swift */; };
 		051020D0285B6E6600F11184 /* WorldSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051020CF285B6E6500F11184 /* WorldSettingsViewController.swift */; };
@@ -98,7 +98,6 @@
 		053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */; };
 		053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053949ED285CD0420077D90C /* FoodDetailViewController.xib */; };
 		053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F0285CD22B0077D90C /* DetailViewController.swift */; };
-		053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */; };
 		053949F8285EB8830077D90C /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F7285EB8830077D90C /* DraggableView.swift */; };
 		053949FA285EBA9B0077D90C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F9285EBA9B0077D90C /* FlippedView.swift */; };
 		05394A07285F6DDC0077D90C /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A06285F6DDC0077D90C /* StatsViewController.swift */; };
@@ -192,7 +191,7 @@
 		05102094285ABD1000F11184 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		051020B2285B54D800F11184 /* BooleanTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanTransformer.swift; sourceTree = "<group>"; };
 		051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegateBooleanTransformer.swift; sourceTree = "<group>"; };
-		051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureEnergyTransformer.swift; sourceTree = "<group>"; };
+		051020BA285B6B8400F11184 /* EnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyTransformer.swift; sourceTree = "<group>"; };
 		051020BC285B6BF100F11184 /* StatusTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTransformer.swift; sourceTree = "<group>"; };
 		051020CA285B6DDB00F11184 /* WorldSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldSettings.swift; sourceTree = "<group>"; };
 		051020CF285B6E6500F11184 /* WorldSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorldSettingsViewController.swift; sourceTree = "<group>"; };
@@ -303,7 +302,6 @@
 		053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		053949EE285CD0420077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FoodDetailViewController.xib; sourceTree = "<group>"; };
 		053949F0285CD22B0077D90C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodEnergyTransformer.swift; sourceTree = "<group>"; };
 		053949F7285EB8830077D90C /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		053949F9285EBA9B0077D90C /* FlippedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
 		05394A06285F6DDC0077D90C /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -398,8 +396,7 @@
 			children = (
 				051020B2285B54D800F11184 /* BooleanTransformer.swift */,
 				051020DF285B79AF00F11184 /* ClassTransformer.swift */,
-				051020BA285B6B8400F11184 /* CreatureEnergyTransformer.swift */,
-				053949F2285CD7320077D90C /* FoodEnergyTransformer.swift */,
+				051020BA285B6B8400F11184 /* EnergyTransformer.swift */,
 				05102101285B8EF400F11184 /* NameTransformer.swift */,
 				051020B4285B558F00F11184 /* NegateBooleanTransformer.swift */,
 				051020BC285B6BF100F11184 /* StatusTransformer.swift */,
@@ -1068,7 +1065,6 @@
 				05394A742860DC370077D90C /* NameGenerator.swift in Sources */,
 				05394A0B285F761E0077D90C /* TimeTransformer.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
-				053949F3285CD7320077D90C /* FoodEnergyTransformer.swift in Sources */,
 				05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */,
 				05EDA96D286536FD00F18B77 /* DistanceHelper.swift in Sources */,
 				053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */,
@@ -1092,7 +1088,7 @@
 				0510208C285AA13A00F11184 /* Constants.swift in Sources */,
 				05252EAB2854E9310090B385 /* Meat.swift in Sources */,
 				05394A51286086B90077D90C /* Preferences.swift in Sources */,
-				051020BB285B6B8400F11184 /* CreatureEnergyTransformer.swift in Sources */,
+				051020BB285B6B8400F11184 /* EnergyTransformer.swift in Sources */,
 				05EDA96B2865325C00F18B77 /* ReproductionHelper.swift in Sources */,
 				05252EA92854E9290090B385 /* Plant.swift in Sources */,
 				05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */,
