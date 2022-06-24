@@ -27,8 +27,43 @@ import SpriteKit
 
 public class DistanceHelper
 {
+    private static var cache: [ Int : [ Int : Double ] ] = [ : ]
+    
     private init()
     {}
+    
+    public class func clearCache()
+    {
+        self.cache.removeAll()
+    }
+    
+    public class func distance( of node1: SKNode, with node2: SKNode ) -> Double
+    {
+        let p1 = Unmanaged.passUnretained( node1 ).toOpaque().hashValue
+        let p2 = Unmanaged.passUnretained( node1 ).toOpaque().hashValue
+        
+        if self.cache[ p1 ] == nil
+        {
+            self.cache[ p1 ] = [ : ]
+        }
+        
+        if self.cache[ p2 ] == nil
+        {
+            self.cache[ p2 ] = [ : ]
+        }
+        
+        if let cached = self.cache[ p1 ]?[ p2 ]
+        {
+            return cached
+        }
+        
+        let distance = node1.position.distance( with: node2.position )
+        
+        self.cache[ p1 ]?[ p2 ] = distance
+        self.cache[ p2 ]?[ p1 ] = distance
+        
+        return distance
+    }
     
     public class func nearbyObjects< T: SKNode >( creature: Creature, maxDistance: Double, predicate: ( ( T ) -> Bool )? = nil ) -> [ ( distance: Double, node: T ) ]
     {
@@ -48,7 +83,7 @@ public class DistanceHelper
         }
         .reduce( into: [ ( distance: Double, node: T ) ]() )
         {
-            $0.append( ( creature.position.distance( with: $1.position ), $1 ) )
+            $0.append( ( self.distance( of: creature, with: $1 ), $1 ) )
         }
         .filter
         {

@@ -212,6 +212,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         super.update( currentTime )
         self.checkPerformance( currentTime )
+        DistanceHelper.clearCache()
         
         if let lastUpdateTime = self.lastUpdateTime
         {
