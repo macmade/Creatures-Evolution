@@ -25,54 +25,47 @@
 import Cocoa
 import SpriteKit
 
-public class Herbivore: DietGene
+public class Digestion: DoubleValueGene
 {
     public override var canRegress: Bool
     {
-        self.settings.herbivore.canRegress
+        self.settings.digestion.canRegress
     }
     
     public override var activates: [ String ]
     {
-        self.settings.herbivore.activates
+        self.settings.digestion.activates
     }
     
     public override var deactivates: [ String ]
     {
-        self.settings.herbivore.deactivates
+        self.settings.digestion.deactivates
     }
     
     public override var name: String
     {
-        "Herbivore"
+        "Digestion"
     }
     
     public override var icon: NSImage?
     {
-        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
+        NSImage( systemSymbolName: "mouth.fill", accessibilityDescription: nil )
     }
+    
+    public override var defaultValue:          Double { self.settings.digestion.defaultMultiplier }
+    public override var defaultValueRange:     Double { self.settings.digestion.defaultMultiplierRange }
+    public override var minimumValue:          Double { self.settings.digestion.minimumMultiplier }
+    public override var maximumValue:          Double { self.settings.digestion.maximumMultiplier }
+    public override var minimumMutationChange: Double { self.settings.digestion.minimumMutationChange }
+    public override var maximumMutationChange: Double { self.settings.digestion.maximumMutationChange }
     
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
-        Herbivore( active: self.isActive, settings: self.settings )
+        Digestion( active: self.isActive, settings: self.settings, value: self.value )
     }
     
-    public override func onCollision( creature: Creature, node: SKNode )
+    public override func onFoodConsumption( creature: Creature, energy: Int ) -> Int
     {
-        if let plant = node as? Plant, plant.isBeingRemoved == false
-        {
-            if let sense: PlantSense = creature.getGene(), sense.isActive
-            {
-                if plant.isDecayed && creature.settings.plantSense.canDetectDecayed
-                {
-                    return
-                }
-            }
-            
-            creature.eat( energy: plant.energy )
-            plant.remove()
-            
-            self.meals += 1
-        }
+        return energy > 0 ? Int( round( Double( energy ) * self.value ) ) : energy
     }
 }

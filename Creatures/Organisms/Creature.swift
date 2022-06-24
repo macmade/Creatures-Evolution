@@ -322,6 +322,14 @@ public class Creature: SpriteNode
         }
     }
     
+    public func eat( energy: Int )
+    {
+        self.energy += self.genes.filter { $0.isActive }.reduce( energy )
+        {
+            $1.onFoodConsumption( creature: self, energy: $0 )
+        }
+    }
+    
     private func energyChanged()
     {
         if self.isBeingRemoved

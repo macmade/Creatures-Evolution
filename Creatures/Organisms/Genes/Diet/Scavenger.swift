@@ -69,10 +69,10 @@ public class Scavenger: DietGene
                 }
             }
             
+            creature.eat( energy: meat.energy )
             meat.remove()
             
-            creature.energy += meat.energy
-            self.meals      += 1
+            self.meals += 1
         }
     }
 }

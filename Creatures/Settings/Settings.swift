@@ -34,6 +34,7 @@ public class Settings: NSObject, Codable
     @objc public dynamic var attack         = AttackSettings()
     @objc public dynamic var defense        = DefenseSettings()
     @objc public dynamic var abnegation     = AbnegationSettings()
+    @objc public dynamic var digestion      = DigestionSettings()
     @objc public dynamic var mitosis        = MitosisSettings()
     @objc public dynamic var sex            = SexSettings()
     @objc public dynamic var herbivore      = HerbivoreSettings()

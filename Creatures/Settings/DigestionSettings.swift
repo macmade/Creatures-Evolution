@@ -23,56 +23,18 @@
  ******************************************************************************/
 
 import Cocoa
-import SpriteKit
 
-public class Herbivore: DietGene
+public class DigestionSettings: NSObject, Codable
 {
-    public override var canRegress: Bool
-    {
-        self.settings.herbivore.canRegress
-    }
-    
-    public override var activates: [ String ]
-    {
-        self.settings.herbivore.activates
-    }
-    
-    public override var deactivates: [ String ]
-    {
-        self.settings.herbivore.deactivates
-    }
-    
-    public override var name: String
-    {
-        "Herbivore"
-    }
-    
-    public override var icon: NSImage?
-    {
-        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
-    }
-    
-    public override func copy( with zone: NSZone? = nil ) -> Any
-    {
-        Herbivore( active: self.isActive, settings: self.settings )
-    }
-    
-    public override func onCollision( creature: Creature, node: SKNode )
-    {
-        if let plant = node as? Plant, plant.isBeingRemoved == false
-        {
-            if let sense: PlantSense = creature.getGene(), sense.isActive
-            {
-                if plant.isDecayed && creature.settings.plantSense.canDetectDecayed
-                {
-                    return
-                }
-            }
-            
-            creature.eat( energy: plant.energy )
-            plant.remove()
-            
-            self.meals += 1
-        }
-    }
+    @objc public dynamic var isEnabled              = true
+    @objc public dynamic var isActive               = false
+    @objc public dynamic var canRegress             = true
+    @objc public dynamic var activates              = [ String ]()
+    @objc public dynamic var deactivates            = [ String ]()
+    @objc public dynamic var defaultMultiplier      = 1.0
+    @objc public dynamic var defaultMultiplierRange = 0.5
+    @objc public dynamic var minimumMultiplier      = 0.1
+    @objc public dynamic var maximumMultiplier      = 5.0
+    @objc public dynamic var minimumMutationChange  = 0.2
+    @objc public dynamic var maximumMutationChange  = 0.5
 }

@@ -80,6 +80,10 @@ public class GeneInfo: NSObject
             {
                 Defense( active: $0.isActive, settings: $0.settings )
             },
+            GeneInfo( settings: settings, isEnabledKey: \.digestion.isEnabled, isActiveKey: \.digestion.isActive )
+            {
+                Digestion( active: $0.isActive, settings: $0.settings )
+            },
             GeneInfo( settings: settings, isEnabledKey: \.speed.isEnabled, isActiveKey: \.speed.isActive )
             {
                 Speed( active: $0.isActive, settings: $0.settings )
