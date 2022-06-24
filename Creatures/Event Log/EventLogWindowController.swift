@@ -31,6 +31,7 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     @objc private dynamic var isPaused = false
     
     @IBOutlet private var eventsController: NSArrayController!
+    @IBOutlet private var searchField:      NSSearchField!
     
     private var pauseObserver: NSKeyValueObservation?
     
@@ -106,5 +107,10 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     @IBAction @objc public func clear( _ sender: Any? )
     {
         self.log.clear()
+    }
+    
+    @IBAction public func performFindPanelAction( _ sender: Any? )
+    {
+        self.window?.makeFirstResponder( self.searchField )
     }
 }

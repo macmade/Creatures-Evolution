@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="EventLogWindowController" customModule="Creatures" customModuleProvider="target">
             <connections>
                 <outlet property="eventsController" destination="jS5-5d-Wcc" id="9yz-zU-eoa"/>
+                <outlet property="searchField" destination="rZC-C6-H6g" id="PjQ-Fs-Ktb"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="eqb-fW-IRi"/>
             </connections>
         </customObject>
@@ -70,6 +71,7 @@
                                                                         <string key="NSSelectorName">showNode:</string>
                                                                     </dictionary>
                                                                 </binding>
+                                                                <binding destination="gFr-tH-DZ7" name="image" keyPath="objectValue.image" id="1R5-ND-D2Y"/>
                                                                 <binding destination="gFr-tH-DZ7" name="enabled" keyPath="objectValue.image" id="2Gq-KR-WOP">
                                                                     <dictionary key="options">
                                                                         <string key="NSValueTransformerName">NSIsNotNil</string>
@@ -80,7 +82,6 @@
                                                                         <string key="NSValueTransformerName">NSIsNil</string>
                                                                     </dictionary>
                                                                 </binding>
-                                                                <binding destination="gFr-tH-DZ7" name="image" keyPath="objectValue.image" id="1R5-ND-D2Y"/>
                                                                 <binding destination="-2" name="target" keyPath="self" previousBinding="I5Q-8x-kPw" id="AYM-p1-97j">
                                                                     <dictionary key="options">
                                                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
@@ -155,7 +156,7 @@
                                                 </tableCellView>
                                             </prototypeCellViews>
                                         </tableColumn>
-                                        <tableColumn width="516" minWidth="40" maxWidth="1000" id="czI-dh-vfo">
+                                        <tableColumn width="494" minWidth="40" maxWidth="1000" id="czI-dh-vfo">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Event">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -169,11 +170,11 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView id="qnp-Io-hC0">
-                                                    <rect key="frame" x="236" y="0.0" width="497" height="25"/>
+                                                    <rect key="frame" x="236" y="0.0" width="495" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Qwc-Pi-fFy">
-                                                            <rect key="frame" x="-2" y="6" width="501" height="14"/>
+                                                            <rect key="frame" x="-2" y="6" width="499" height="14"/>
                                                             <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="VcW-lt-9sO">
                                                                 <font key="font" metaFont="smallSystem"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>

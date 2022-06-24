@@ -175,7 +175,14 @@ public class EvolutionHelper
             
             if wasActive == false && isActive
             {
-                event = "Gene was evolved: \( gene.name )"
+                if let details = details
+                {
+                    event = "Gene was evolved: \( gene.name ) (\( details ))"
+                }
+                else
+                {
+                    event = "Gene was evolved: \( gene.name )"
+                }
             }
             else if wasActive && isActive == false
             {
