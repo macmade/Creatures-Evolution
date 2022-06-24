@@ -356,6 +356,19 @@ public class Creature: SpriteNode
     
     public func die( dropFood: Bool )
     {
+        if let scene = self.scene, let emitter = SKEmitterNode( fileNamed: "Skull" )
+        {
+            emitter.position  = self.position
+            emitter.zPosition = CGFloat.infinity
+            let emit          = SKAction.run { scene.addChild( emitter ) }
+            let wait          = SKAction.wait( forDuration: 2 )
+            
+            self.run( SKAction.sequence( [ emit, wait ] ) )
+            {
+                emitter.removeFromParent()
+            }
+        }
+        
         self.removeAction( forKey: Creature.moveActionKey )
         
         if dropFood && self.settings.meat.isEnabled

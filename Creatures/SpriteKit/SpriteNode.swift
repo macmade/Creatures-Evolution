@@ -102,7 +102,7 @@ public class SpriteNode: SKSpriteNode
             else
             {
                 let emit = SKAction.run { [ weak self ] in self?.addChild( emitter ) }
-                let wait = SKAction.wait( forDuration: 2 )
+                let wait = SKAction.wait( forDuration: duration )
                 
                 self.run( SKAction.sequence( [ emit, wait ] ) )
                 {
