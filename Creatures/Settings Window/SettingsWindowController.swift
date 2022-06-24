@@ -60,18 +60,18 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                 title: "Food",
                 children:
                 [
-                    SettingsItem( title: "Plants",    symbol: "takeoutbag.and.cup.and.straw.fill", controller: PlantsSettingsViewController(    settings: self.settings ) ),
                     SettingsItem( title: "Meat",      symbol: "takeoutbag.and.cup.and.straw.fill", controller: MeatSettingsViewController(      settings: self.settings ) ),
+                    SettingsItem( title: "Plants",    symbol: "takeoutbag.and.cup.and.straw.fill", controller: PlantsSettingsViewController(    settings: self.settings ) ),
                 ]
             ),
             SettingsSection(
                 title: "Abilities",
                 children:
                 [
-                    SettingsItem( title: "Speed",      symbol: "hare.fill",         controller: SpeedSettingsViewController(      settings: self.settings ) ),
+                    SettingsItem( title: "Abnegation", symbol: "person.fill.xmark", controller: AbnegationSettingsViewController( settings: self.settings ) ),
                     SettingsItem( title: "Attack",     symbol: "SwordsTemplate",    controller: AttackSettingsViewController(     settings: self.settings ) ),
                     SettingsItem( title: "Defense",    symbol: "shield.fill",       controller: DefenseSettingsViewController(    settings: self.settings ) ),
-                    SettingsItem( title: "Abnegation", symbol: "person.fill.xmark", controller: AbnegationSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Speed",      symbol: "hare.fill",         controller: SpeedSettingsViewController(      settings: self.settings ) ),
                 ]
             ),
             SettingsSection(
@@ -86,22 +86,22 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                 title: "Diet",
                 children:
                 [
-                    SettingsItem( title: "Herbivore", symbol: "fork.knife.circle.fill", controller: HerbivoreSettingsViewController( settings: self.settings ) ),
-                    SettingsItem( title: "Scavenger", symbol: "fork.knife.circle.fill", controller: ScavengerSettingsViewController( settings: self.settings ) ),
-                    SettingsItem( title: "Predator",  symbol: "fork.knife.circle.fill", controller: PredatorSettingsViewController(  settings: self.settings ) ),
-                    SettingsItem( title: "Vampire",   symbol: "fork.knife.circle.fill", controller: VampireSettingsViewController(   settings: self.settings ) ),
                     SettingsItem( title: "Cannibal",  symbol: "fork.knife.circle.fill", controller: CannibalSettingsViewController(  settings: self.settings ) ),
+                    SettingsItem( title: "Herbivore", symbol: "fork.knife.circle.fill", controller: HerbivoreSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Predator",  symbol: "fork.knife.circle.fill", controller: PredatorSettingsViewController(  settings: self.settings ) ),
+                    SettingsItem( title: "Scavenger", symbol: "fork.knife.circle.fill", controller: ScavengerSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Vampire",   symbol: "fork.knife.circle.fill", controller: VampireSettingsViewController(   settings: self.settings ) ),
                 ]
             ),
             SettingsSection(
                 title: "Senses",
                 children:
                 [
-                    SettingsItem( title: "Plant Sense",    symbol: "sensor.tag.radiowaves.forward.fill", controller: PlantSenseSettingsViewController(    settings: self.settings ) ),
                     SettingsItem( title: "Meat Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: MeatSenseSettingsViewController(     settings: self.settings ) ),
+                    SettingsItem( title: "Plant Sense",    symbol: "sensor.tag.radiowaves.forward.fill", controller: PlantSenseSettingsViewController(    settings: self.settings ) ),
+                    SettingsItem( title: "Predator Sense", symbol: "sensor.tag.radiowaves.forward.fill", controller: PredatorSenseSettingsViewController( settings: self.settings ) ),
                     SettingsItem( title: "Prey Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: PreySenseSettingsViewController(     settings: self.settings ) ),
                     SettingsItem( title: "Sex Sense",      symbol: "sensor.tag.radiowaves.forward.fill", controller: SexSenseSettingsViewController(      settings: self.settings ) ),
-                    SettingsItem( title: "Predator Sense", symbol: "sensor.tag.radiowaves.forward.fill", controller: PredatorSenseSettingsViewController( settings: self.settings ) ),
                     SettingsItem( title: "Vampire Sense",  symbol: "sensor.tag.radiowaves.forward.fill", controller: VampireSenseSettingsViewController(  settings: self.settings ) ),
                 ]
             ),
