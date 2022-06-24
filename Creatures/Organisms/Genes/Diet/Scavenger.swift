@@ -56,6 +56,14 @@ public class Scavenger: DietGene
     {
         if let meat = node as? Meat, meat.isBeingRemoved == false
         {
+            if let sense: MeatSense = creature.getGene(), sense.isActive
+            {
+                if meat.isDecayed && creature.settings.meatSense.canDetectDecayed
+                {
+                    return
+                }
+            }
+            
             meat.remove()
             
             creature.energy += meat.energy

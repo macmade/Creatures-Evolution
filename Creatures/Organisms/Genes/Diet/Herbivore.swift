@@ -56,6 +56,14 @@ public class Herbivore: DietGene
     {
         if let plant = node as? Plant, plant.isBeingRemoved == false
         {
+            if let sense: PlantSense = creature.getGene(), sense.isActive
+            {
+                if plant.isDecayed && creature.settings.plantSense.canDetectDecayed
+                {
+                    return
+                }
+            }
+            
             plant.remove()
             
             creature.energy += plant.energy
