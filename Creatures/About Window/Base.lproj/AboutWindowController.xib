@@ -18,14 +18,14 @@
             <rect key="contentRect" x="196" y="240" width="395" height="296"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
             <view key="contentView" wantsLayer="YES" id="T4x-mz-gMy">
-                <rect key="frame" x="0.0" y="0.0" width="398" height="296"/>
+                <rect key="frame" x="0.0" y="0.0" width="418" height="286"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <visualEffectView blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="tWk-b6-KRX">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="296"/>
+                        <rect key="frame" x="0.0" y="0.0" width="418" height="286"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SJu-he-JRp">
-                                <rect key="frame" x="20" y="20" width="256" height="256"/>
+                                <rect key="frame" x="20" y="10" width="256" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="256" id="24B-mT-kfU"/>
                                     <constraint firstAttribute="width" constant="256" id="kCo-Wa-zLi"/>
@@ -33,7 +33,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="NSApplicationIcon" id="Z5B-kQ-fAT"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycC-0S-w8G">
-                                <rect key="frame" x="282" y="209" width="98" height="47"/>
+                                <rect key="frame" x="282" y="179" width="98" height="47"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="7CV-1n-FTP">
                                     <font key="font" metaFont="system" size="40"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </textField>
                             <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwr-ua-mxd">
-                                <rect key="frame" x="282" y="175" width="56" height="26"/>
+                                <rect key="frame" x="282" y="145" width="56" height="26"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="YbI-4B-6Jh">
                                     <font key="font" textStyle="title1" name=".SFNS-Regular"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -55,7 +55,7 @@
                                 </connections>
                             </textField>
                             <textField wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aj8-C2-kJm">
-                                <rect key="frame" x="282" y="66" width="37" height="16"/>
+                                <rect key="frame" x="282" y="76" width="37" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="kZk-GE-xGX">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -66,7 +66,7 @@
                                 </connections>
                             </textField>
                             <button wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YkP-UV-2Sg">
-                                <rect key="frame" x="284" y="39" width="55" height="19"/>
+                                <rect key="frame" x="284" y="49" width="55" height="19"/>
                                 <buttonCell key="cell" type="roundRect" title="Credits" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TPJ-mq-0DO">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="cellTitle"/>
@@ -78,18 +78,18 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="wwr-ua-mxd" firstAttribute="leading" secondItem="ycC-0S-w8G" secondAttribute="leading" id="4JQ-h6-bM4"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YkP-UV-2Sg" secondAttribute="trailing" constant="20" symbolic="YES" id="4PB-cV-Cep"/>
-                            <constraint firstItem="YkP-UV-2Sg" firstAttribute="bottom" secondItem="SJu-he-JRp" secondAttribute="bottom" constant="-20" id="HL4-Cp-yEv"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YkP-UV-2Sg" secondAttribute="trailing" constant="40" id="4PB-cV-Cep"/>
+                            <constraint firstItem="YkP-UV-2Sg" firstAttribute="bottom" secondItem="SJu-he-JRp" secondAttribute="bottom" constant="-40" id="HL4-Cp-yEv"/>
                             <constraint firstItem="YkP-UV-2Sg" firstAttribute="leading" secondItem="aj8-C2-kJm" secondAttribute="leading" id="Jp4-0T-qYa"/>
                             <constraint firstItem="SJu-he-JRp" firstAttribute="top" secondItem="tWk-b6-KRX" secondAttribute="top" constant="20" symbolic="YES" id="LIf-05-k0U"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ycC-0S-w8G" secondAttribute="trailing" constant="20" symbolic="YES" id="Mzm-xG-rph"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ycC-0S-w8G" secondAttribute="trailing" constant="40" id="Mzm-xG-rph"/>
                             <constraint firstItem="ycC-0S-w8G" firstAttribute="leading" secondItem="SJu-he-JRp" secondAttribute="trailing" constant="8" symbolic="YES" id="WtE-il-dtT"/>
-                            <constraint firstItem="ycC-0S-w8G" firstAttribute="top" secondItem="SJu-he-JRp" secondAttribute="top" constant="20" id="Y1J-Nd-hB8"/>
+                            <constraint firstItem="ycC-0S-w8G" firstAttribute="top" secondItem="SJu-he-JRp" secondAttribute="top" constant="40" id="Y1J-Nd-hB8"/>
                             <constraint firstItem="SJu-he-JRp" firstAttribute="leading" secondItem="tWk-b6-KRX" secondAttribute="leading" constant="20" symbolic="YES" id="bde-Yn-L2h"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wwr-ua-mxd" secondAttribute="trailing" constant="20" symbolic="YES" id="ib8-Bq-Z8h"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aj8-C2-kJm" secondAttribute="trailing" constant="20" symbolic="YES" id="n2i-xo-wvy"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wwr-ua-mxd" secondAttribute="trailing" constant="40" id="ib8-Bq-Z8h"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aj8-C2-kJm" secondAttribute="trailing" constant="40" id="n2i-xo-wvy"/>
                             <constraint firstItem="YkP-UV-2Sg" firstAttribute="top" secondItem="aj8-C2-kJm" secondAttribute="bottom" constant="8" symbolic="YES" id="plL-ap-eEu"/>
-                            <constraint firstAttribute="bottom" secondItem="SJu-he-JRp" secondAttribute="bottom" constant="20" symbolic="YES" id="qet-fE-u60"/>
+                            <constraint firstAttribute="bottom" secondItem="SJu-he-JRp" secondAttribute="bottom" constant="10" id="qet-fE-u60"/>
                             <constraint firstItem="aj8-C2-kJm" firstAttribute="leading" secondItem="wwr-ua-mxd" secondAttribute="leading" id="u3p-PW-4tj"/>
                             <constraint firstItem="wwr-ua-mxd" firstAttribute="top" secondItem="ycC-0S-w8G" secondAttribute="bottom" constant="8" symbolic="YES" id="vQX-VB-Vuu"/>
                         </constraints>
