@@ -39,15 +39,12 @@ public class DistanceHelper
         
         return scene.children.compactMap
         {
-            $0 as? T
-        }
-        .filter
-        {
-            $0 != creature
-        }
-        .filter
-        {
-            predicate?( $0 ) ?? true
+            guard let other = $0 as? T, creature != other, predicate?( other ) ?? true else
+            {
+                return nil
+            }
+            
+            return other
         }
         .reduce( into: [ ( distance: Double, node: T ) ]() )
         {
