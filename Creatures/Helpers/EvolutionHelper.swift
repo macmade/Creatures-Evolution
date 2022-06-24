@@ -32,91 +32,13 @@ public class EvolutionHelper
     
     public class func defaultGenes( settings: Settings ) -> [ Gene ]
     {
-        var genes: [ Gene ] = []
-        
-        if settings.speed.isEnabled
+        let genes: [ Gene ] = GeneInfo.allGenes( settings: settings ).filter
         {
-            genes.append( Speed( active: settings.speed.isActive, settings: settings ) )
+            $0.isEnabled
         }
-        
-        if settings.attack.isEnabled
+        .map
         {
-            genes.append( Attack( active: settings.attack.isActive, settings: settings ) )
-        }
-        
-        if settings.defense.isEnabled
-        {
-            genes.append( Defense( active: settings.defense.isActive, settings: settings ) )
-        }
-        
-        if settings.abnegation.isEnabled
-        {
-            genes.append( Abnegation( active: settings.abnegation.isActive, settings: settings ) )
-        }
-        
-        if settings.mitosis.isEnabled
-        {
-            genes.append( Mitosis( active: settings.mitosis.isActive, settings: settings ) )
-        }
-        
-        if settings.sex.isEnabled
-        {
-            genes.append( Sex( active: settings.sex.isActive, settings: settings ) )
-        }
-        
-        if settings.herbivore.isEnabled
-        {
-            genes.append( Herbivore( active: settings.herbivore.isActive, settings: settings ) )
-        }
-        
-        if settings.scavenger.isEnabled
-        {
-            genes.append( Scavenger( active: settings.scavenger.isActive, settings: settings ) )
-        }
-        
-        if settings.predator.isEnabled
-        {
-            genes.append( Predator( active: settings.predator.isActive, settings: settings ) )
-        }
-        
-        if settings.vampire.isEnabled
-        {
-            genes.append( Vampire( active: settings.vampire.isActive, settings: settings ) )
-        }
-        
-        if settings.cannibal.isEnabled
-        {
-            genes.append( Cannibal( active: settings.cannibal.isActive, settings: settings ) )
-        }
-        
-        if settings.plantSense.isEnabled
-        {
-            genes.append( PlantSense( active: settings.plantSense.isActive, settings: settings ) )
-        }
-        
-        if settings.meatSense.isEnabled
-        {
-            genes.append( MeatSense( active: settings.meatSense.isActive, settings: settings ) )
-        }
-        
-        if settings.preySense.isEnabled
-        {
-            genes.append( PreySense( active: settings.preySense.isActive, settings: settings ) )
-        }
-        
-        if settings.sexSense.isEnabled
-        {
-            genes.append( SexSense( active: settings.sexSense.isActive, settings: settings ) )
-        }
-        
-        if settings.predatorSense.isEnabled
-        {
-            genes.append( PredatorSense( active: settings.predatorSense.isActive, settings: settings ) )
-        }
-        
-        if settings.vampireSense.isEnabled
-        {
-            genes.append( VampireSense( active: settings.vampireSense.isActive, settings: settings ) )
+            $0.createInstance()
         }
         
         genes.shuffled().forEach

@@ -167,6 +167,7 @@
 		05EDA9C72866116700F18B77 /* SettingsGeneActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9C52866116700F18B77 /* SettingsGeneActivationViewController.xib */; };
 		05EDA9C92866144900F18B77 /* SettingsSeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9C82866144900F18B77 /* SettingsSeparatorViewController.swift */; };
 		05EDA9CC2866145300F18B77 /* SettingsSeparatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9CA2866145300F18B77 /* SettingsSeparatorViewController.xib */; };
+		05EDA9CE2866179600F18B77 /* GeneInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9CD2866179600F18B77 /* GeneInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -379,6 +380,7 @@
 		05EDA9C62866116700F18B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsGeneActivationViewController.xib; sourceTree = "<group>"; };
 		05EDA9C82866144900F18B77 /* SettingsSeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorViewController.swift; sourceTree = "<group>"; };
 		05EDA9CB2866145300F18B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsSeparatorViewController.xib; sourceTree = "<group>"; };
+		05EDA9CD2866179600F18B77 /* GeneInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -725,11 +727,12 @@
 			children = (
 				0510208B285AA13A00F11184 /* Constants.swift */,
 				05102094285ABD1000F11184 /* Destination.swift */,
+				05EDA96C286536FD00F18B77 /* DistanceHelper.swift */,
 				05252ED0285580190090B385 /* EvolutionHelper.swift */,
+				05EDA9CD2866179600F18B77 /* GeneInfo.swift */,
 				05394A732860DC370077D90C /* NameGenerator.swift */,
 				05EDA968286531B800F18B77 /* PredationHelper.swift */,
 				05EDA96A2865325B00F18B77 /* ReproductionHelper.swift */,
-				05EDA96C286536FD00F18B77 /* DistanceHelper.swift */,
 				05252F04285599DD0090B385 /* Weak.swift */,
 			);
 			path = Helpers;
@@ -1039,6 +1042,7 @@
 				053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */,
 				05252F5F2858011B0090B385 /* MitosisSettings.swift in Sources */,
 				05394A1E285F7D100077D90C /* CreatureStatusChartViewItem.swift in Sources */,
+				05EDA9CE2866179600F18B77 /* GeneInfo.swift in Sources */,
 				05394A20285F81370077D90C /* BadgeView.swift in Sources */,
 				0510207B285A85F500F11184 /* CannibalSettingsViewController.swift in Sources */,
 				05252F72285819A60090B385 /* PlantsSettings.swift in Sources */,
