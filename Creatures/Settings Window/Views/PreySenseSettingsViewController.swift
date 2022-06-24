@@ -53,6 +53,9 @@ public class PreySenseSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.preySense.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.preySense.canRegress ),
+                SettingsSeparatorViewController(),
+                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.preySense.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.preySense.deactivates ),
             ]
         )
         

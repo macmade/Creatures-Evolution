@@ -53,6 +53,9 @@ public class ScavengerSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.scavenger.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.scavenger.canRegress ),
+                SettingsSeparatorViewController(),
+                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.scavenger.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.scavenger.deactivates ),
             ]
         )
     }

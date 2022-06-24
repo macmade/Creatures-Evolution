@@ -29,6 +29,7 @@ public class SexSettings: NSObject, Codable
     @objc public dynamic var isEnabled           = true
     @objc public dynamic var isActive            = false
     @objc public dynamic var canRegress          = false
+    @objc public dynamic var activates           = [ String ]()
     @objc public dynamic var deactivates         = [ "Mitosis" ]
     @objc public dynamic var energyNeeded        = 2
     @objc public dynamic var energyCost          = 1

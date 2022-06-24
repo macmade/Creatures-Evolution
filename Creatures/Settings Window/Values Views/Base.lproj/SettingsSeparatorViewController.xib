@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SettingsSeparatorViewController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="c22-O7-iKe" id="mLz-6F-0cc"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="236" height="1"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ejL-gF-aut">
+                    <rect key="frame" x="0.0" y="-2" width="236" height="5"/>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ejL-gF-aut" secondAttribute="bottom" id="2nK-r0-MQO"/>
+                <constraint firstItem="ejL-gF-aut" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="70K-sk-67i"/>
+                <constraint firstAttribute="trailing" secondItem="ejL-gF-aut" secondAttribute="trailing" id="thk-Yx-1jy"/>
+                <constraint firstItem="ejL-gF-aut" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="wAI-Ge-bfP"/>
+            </constraints>
+            <point key="canvasLocation" x="17" y="135"/>
+        </customView>
+    </objects>
+</document>

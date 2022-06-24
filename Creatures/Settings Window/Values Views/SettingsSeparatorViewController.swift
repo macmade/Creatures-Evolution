@@ -24,22 +24,28 @@
 
 import Cocoa
 
-public class AttackSettings: NSObject, Codable
+public class SettingsSeparatorViewController: NSViewController, SettingsValueViewController
 {
-    @objc public dynamic var isEnabled              = true
-    @objc public dynamic var isActive               = false
-    @objc public dynamic var canRegress             = true
-    @objc public dynamic var activates              = [ String ]()
-    @objc public dynamic var deactivates            = [ String ]()
-    @objc public dynamic var defaultMultiplier      = 1.0
-    @objc public dynamic var defaultMultiplierRange = 0.5
-    @objc public dynamic var minimumMultiplier      = 0.1
-    @objc public dynamic var maximumMultiplier      = 5.0
-    @objc public dynamic var minimumMutationChange  = 0.2
-    @objc public dynamic var maximumMutationChange  = 0.5
-    @objc public dynamic var chanceIfSmaller        = 30
-    @objc public dynamic var chanceIfSameSize       = 60
-    @objc public dynamic var chanceIfBigger         = 90
-    @objc public dynamic var energyCostSuccess      = 0
-    @objc public dynamic var energyCostFailure      = 0
+    public init()
+    {
+        super.init( nibName: nil, bundle: nil )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
+    
+    public override var nibName: NSNib.Name?
+    {
+        "SettingsSeparatorViewController"
+    }
+    
+    public override func viewDidLoad()
+    {
+        super.viewDidLoad()
+    }
+    
+    public func updateSettings( _ settings: Settings )
+    {}
 }

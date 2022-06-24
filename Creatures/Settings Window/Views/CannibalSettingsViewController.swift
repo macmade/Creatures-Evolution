@@ -53,6 +53,9 @@ public class CannibalSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.cannibal.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.cannibal.canRegress ),
+                SettingsSeparatorViewController(),
+                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.cannibal.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.cannibal.deactivates ),
             ]
         )
         

@@ -53,6 +53,9 @@ public class MitosisSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.mitosis.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.mitosis.canRegress ),
+                SettingsSeparatorViewController(),
+                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.mitosis.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.mitosis.deactivates ),
             ]
         )
         

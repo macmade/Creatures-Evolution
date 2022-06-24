@@ -53,6 +53,9 @@ public class PlantSenseSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.plantSense.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.plantSense.canRegress ),
+                SettingsSeparatorViewController(),
+                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.plantSense.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.plantSense.deactivates ),
             ]
         )
         

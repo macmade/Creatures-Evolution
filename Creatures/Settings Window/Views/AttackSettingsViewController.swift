@@ -53,6 +53,9 @@ public class AttackSettingsViewController: SettingsViewController
             [
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.attack.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.attack.canRegress ),
+                SettingsSeparatorViewController(),
+                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.attack.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.attack.deactivates ),
             ]
         )
         

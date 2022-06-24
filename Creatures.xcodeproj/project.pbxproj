@@ -163,6 +163,10 @@
 		05EDA9BE2865F67100F18B77 /* AbnegationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9BD2865F67100F18B77 /* AbnegationSettings.swift */; };
 		05EDA9C02865F6C300F18B77 /* AbnegationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9BF2865F6C300F18B77 /* AbnegationSettingsViewController.swift */; };
 		05EDA9C22865F9B900F18B77 /* Abnegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9C12865F9B900F18B77 /* Abnegation.swift */; };
+		05EDA9C42866115700F18B77 /* SettingsGeneActivationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9C32866115700F18B77 /* SettingsGeneActivationViewController.swift */; };
+		05EDA9C72866116700F18B77 /* SettingsGeneActivationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9C52866116700F18B77 /* SettingsGeneActivationViewController.xib */; };
+		05EDA9C92866144900F18B77 /* SettingsSeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9C82866144900F18B77 /* SettingsSeparatorViewController.swift */; };
+		05EDA9CC2866145300F18B77 /* SettingsSeparatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9CA2866145300F18B77 /* SettingsSeparatorViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -371,6 +375,10 @@
 		05EDA9BD2865F67100F18B77 /* AbnegationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnegationSettings.swift; sourceTree = "<group>"; };
 		05EDA9BF2865F6C300F18B77 /* AbnegationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnegationSettingsViewController.swift; sourceTree = "<group>"; };
 		05EDA9C12865F9B900F18B77 /* Abnegation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Abnegation.swift; sourceTree = "<group>"; };
+		05EDA9C32866115700F18B77 /* SettingsGeneActivationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneActivationViewController.swift; sourceTree = "<group>"; };
+		05EDA9C62866116700F18B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsGeneActivationViewController.xib; sourceTree = "<group>"; };
+		05EDA9C82866144900F18B77 /* SettingsSeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorViewController.swift; sourceTree = "<group>"; };
+		05EDA9CB2866145300F18B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsSeparatorViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -821,12 +829,16 @@
 				05A3347E2863243300905208 /* SettingsBoolCheckboxViewController.xib */,
 				05A334AE286346A400905208 /* SettingsBoolSwitchViewController.xib */,
 				05A3347C2863240300905208 /* SettingsBoolViewController.swift */,
+				05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */,
+				05EDA9C32866115700F18B77 /* SettingsGeneActivationViewController.swift */,
+				05EDA9C52866116700F18B77 /* SettingsGeneActivationViewController.xib */,
 				05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */,
 				05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */,
-				05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */,
 				05A334B6286348A100905208 /* SettingsIntMenuViewController.swift */,
 				05A334B8286348A900905208 /* SettingsIntMenuViewController.xib */,
 				05A334742862B9D500905208 /* SettingsIntSliderViewController.swift */,
+				05EDA9C82866144900F18B77 /* SettingsSeparatorViewController.swift */,
+				05EDA9CA2866145300F18B77 /* SettingsSeparatorViewController.xib */,
 				05A334832863243D00905208 /* SettingsSliderViewController.xib */,
 				05A334782862BA7F00905208 /* SettingsValueViewController.swift */,
 			);
@@ -966,6 +978,7 @@
 				05A334BA286348A900905208 /* SettingsIntMenuViewController.xib in Resources */,
 				051A33412861F9B3001B605D /* License-Creatures.txt in Resources */,
 				05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */,
+				05EDA9C72866116700F18B77 /* SettingsGeneActivationViewController.xib in Resources */,
 				05394A782860DD700077D90C /* names-female.txt in Resources */,
 				05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */,
 				05394A09285F6E460077D90C /* StatsViewController.xib in Resources */,
@@ -977,6 +990,7 @@
 				05A334812863243D00905208 /* SettingsSliderViewController.xib in Resources */,
 				05EDA9262863DD2000F18B77 /* WelcomeWindowController.xib in Resources */,
 				05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */,
+				05EDA9CC2866145300F18B77 /* SettingsSeparatorViewController.xib in Resources */,
 				05A3346B2862620900905208 /* Heart.sks in Resources */,
 				053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */,
 				05252E5A2854DFE80090B385 /* MainWindowController.xib in Resources */,
@@ -1117,6 +1131,7 @@
 				05252EAD2854E94B0090B385 /* Herbivore.swift in Sources */,
 				05B8A3632861F2F3007870B3 /* CreditsWindowController.swift in Sources */,
 				05EDA9C22865F9B900F18B77 /* Abnegation.swift in Sources */,
+				05EDA9C42866115700F18B77 /* SettingsGeneActivationViewController.swift in Sources */,
 				05EDA9AB286556EC00F18B77 /* Defense.swift in Sources */,
 				05252ECB285521B20090B385 /* SpriteNode.swift in Sources */,
 				05102095285ABD1000F11184 /* Destination.swift in Sources */,
@@ -1143,6 +1158,7 @@
 				05252F0E2855EAE80090B385 /* SettingsItem.swift in Sources */,
 				05EDA9A128654A3400F18B77 /* ValueGene.swift in Sources */,
 				05252F522857FBEC0090B385 /* MitosisSettingsViewController.swift in Sources */,
+				05EDA9C92866144900F18B77 /* SettingsSeparatorViewController.swift in Sources */,
 				05EDA99F2865491000F18B77 /* DietGene.swift in Sources */,
 				05394A30285F83470077D90C /* TableRowView.swift in Sources */,
 			);
@@ -1269,6 +1285,22 @@
 				05B8A3612861F2F3007870B3 /* Base */,
 			);
 			name = CreditViewController.xib;
+			sourceTree = "<group>";
+		};
+		05EDA9C52866116700F18B77 /* SettingsGeneActivationViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05EDA9C62866116700F18B77 /* Base */,
+			);
+			name = SettingsGeneActivationViewController.xib;
+			sourceTree = "<group>";
+		};
+		05EDA9CA2866145300F18B77 /* SettingsSeparatorViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05EDA9CB2866145300F18B77 /* Base */,
+			);
+			name = SettingsSeparatorViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

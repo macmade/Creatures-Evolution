@@ -29,6 +29,7 @@ public class AbnegationSettings: NSObject, Codable
     @objc public dynamic var isEnabled         = true
     @objc public dynamic var isActive          = false
     @objc public dynamic var canRegress        = true
+    @objc public dynamic var activates         = [ String ]()
     @objc public dynamic var deactivates       = [ String ]()
     @objc public dynamic var requiresSameClass = true
 }

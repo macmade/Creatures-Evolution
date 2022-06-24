@@ -51,8 +51,11 @@ public class VampireSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.vampire.isActive ),
-                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.vampire.canRegress ),
+                SettingsBoolViewController(           title: "Activate gene at start", settings: self.settings, key: \.vampire.isActive ),
+                SettingsBoolViewController(           title: "Allow gene to regress",  settings: self.settings, key: \.vampire.canRegress ),
+                SettingsSeparatorViewController(),
+                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.vampire.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.vampire.deactivates ),
             ]
         )
     }

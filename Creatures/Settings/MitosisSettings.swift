@@ -29,6 +29,7 @@ public class MitosisSettings: NSObject, Codable
     @objc public dynamic var isEnabled      = true
     @objc public dynamic var isActive       = true
     @objc public dynamic var canRegress     = false
+    @objc public dynamic var activates      = [ String ]()
     @objc public dynamic var deactivates    = [ "Sex" ]
     @objc public dynamic var energyNeeded   = 2
     @objc public dynamic var energyCost     = 1
