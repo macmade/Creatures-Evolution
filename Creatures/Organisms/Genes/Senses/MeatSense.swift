@@ -32,6 +32,11 @@ public class MeatSense: IntValueGene
         self.settings.meatSense.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.meatSense.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.meatSense.deactivates

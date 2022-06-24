@@ -32,6 +32,11 @@ public class Mitosis: Gene
         self.settings.mitosis.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.mitosis.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.mitosis.deactivates

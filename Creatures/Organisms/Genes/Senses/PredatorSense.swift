@@ -32,6 +32,11 @@ public class PredatorSense: IntValueGene
         self.settings.predatorSense.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.predatorSense.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.predatorSense.deactivates

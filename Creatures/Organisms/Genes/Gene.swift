@@ -35,6 +35,11 @@ public class Gene: NSObject, NSCopying
         false
     }
     
+    @objc public var activates: [ String ]
+    {
+        []
+    }
+    
     @objc public var deactivates: [ String ]
     {
         []

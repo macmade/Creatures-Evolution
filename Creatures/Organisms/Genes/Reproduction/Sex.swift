@@ -32,6 +32,11 @@ public class Sex: Gene
         self.settings.sex.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.sex.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.sex.deactivates

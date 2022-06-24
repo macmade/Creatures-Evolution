@@ -32,6 +32,11 @@ public class Vampire: DietGene
         self.settings.vampire.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.vampire.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.vampire.deactivates

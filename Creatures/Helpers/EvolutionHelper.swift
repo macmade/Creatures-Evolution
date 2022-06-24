@@ -41,6 +41,14 @@ public class EvolutionHelper
             $0.createInstance()
         }
         
+        genes.forEach
+        {
+            if $0.isActive
+            {
+                self.activateRequiredGenes( gene: $0, in: genes )
+            }
+        }
+        
         genes.shuffled().forEach
         {
             if $0.isActive
@@ -50,6 +58,25 @@ public class EvolutionHelper
         }
         
         return genes
+    }
+    
+    public class func activateRequiredGenes( gene: Gene, in genes: [ Gene ] )
+    {
+        gene.activates.forEach
+        {
+            name in genes.forEach
+            {
+                guard let cls = NSStringFromClass( type( of: $0 ) ).components( separatedBy: "." ).last else
+                {
+                    return
+                }
+                
+                if cls == name
+                {
+                    $0.isActive = true
+                }
+            }
+        }
     }
     
     public class func deactivateConflictingGenes( gene: Gene, in genes: [ Gene ] )
@@ -97,6 +124,7 @@ public class EvolutionHelper
             
             if isActive
             {
+                self.activateRequiredGenes(      gene: gene, in: copy )
                 self.deactivateConflictingGenes( gene: gene, in: copy )
             }
             
@@ -139,6 +167,14 @@ public class EvolutionHelper
         let genes = zip( parent1.genes, parent2.genes ).map
         {
             Bool.random() ? $0.0 : $0.1
+        }
+        
+        genes.shuffled().forEach
+        {
+            if $0.isActive
+            {
+                self.activateRequiredGenes( gene: $0, in: genes )
+            }
         }
         
         genes.shuffled().forEach

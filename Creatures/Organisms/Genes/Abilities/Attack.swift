@@ -32,6 +32,11 @@ public class Attack: DoubleValueGene
         self.settings.attack.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.attack.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.attack.deactivates

@@ -32,6 +32,11 @@ public class Scavenger: DietGene
         self.settings.scavenger.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.scavenger.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.scavenger.deactivates

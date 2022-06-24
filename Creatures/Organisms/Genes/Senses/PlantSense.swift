@@ -32,6 +32,11 @@ public class PlantSense: IntValueGene
         self.settings.plantSense.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.plantSense.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.plantSense.deactivates

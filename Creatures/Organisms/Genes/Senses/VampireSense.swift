@@ -32,6 +32,11 @@ public class VampireSense: IntValueGene
         self.settings.vampireSense.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.vampireSense.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.vampireSense.deactivates

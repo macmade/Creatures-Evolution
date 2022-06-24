@@ -32,6 +32,11 @@ public class Herbivore: DietGene
         self.settings.herbivore.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.herbivore.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.herbivore.deactivates

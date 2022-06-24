@@ -32,6 +32,11 @@ public class Defense: DoubleValueGene
         self.settings.defense.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.defense.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.defense.deactivates

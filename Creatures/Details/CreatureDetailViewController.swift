@@ -189,6 +189,7 @@ public class CreatureDetailViewController: DetailViewController, NSTableViewDele
             
             gene.isActive = true
             
+            EvolutionHelper.activateRequiredGenes( gene: gene, in: creature.genes )
             EvolutionHelper.deactivateConflictingGenes( gene: gene, in: creature.genes )
             
             self.willChangeValue( for: \.node )

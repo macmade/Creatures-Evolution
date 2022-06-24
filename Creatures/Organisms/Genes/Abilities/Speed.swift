@@ -37,6 +37,11 @@ public class Speed: DoubleValueGene
         self.settings.speed.deactivates
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.speed.activates
+    }
+    
     public override var name: String
     {
         "Speed"

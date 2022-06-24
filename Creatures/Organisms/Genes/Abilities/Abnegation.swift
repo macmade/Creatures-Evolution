@@ -32,6 +32,11 @@ public class Abnegation: IntValueGene
         self.settings.abnegation.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.abnegation.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.abnegation.deactivates

@@ -32,6 +32,11 @@ public class Predator: DietGene
         self.settings.predator.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.predator.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.predator.deactivates

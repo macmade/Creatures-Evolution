@@ -32,6 +32,11 @@ public class Cannibal: Gene
         self.settings.cannibal.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.cannibal.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.cannibal.deactivates

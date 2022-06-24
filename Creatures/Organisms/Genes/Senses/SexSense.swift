@@ -32,6 +32,11 @@ public class SexSense: IntValueGene
         self.settings.sexSense.canRegress
     }
     
+    public override var activates: [ String ]
+    {
+        self.settings.sexSense.activates
+    }
+    
     public override var deactivates: [ String ]
     {
         self.settings.sexSense.deactivates
