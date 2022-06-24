@@ -44,7 +44,7 @@ public class Attack: DoubleValueGene
     
     public override var icon: NSImage?
     {
-        NSImage( systemSymbolName: "shield.fill", accessibilityDescription: nil )
+        NSImage( named: "SwordsTemplate" )
     }
     
     public override var defaultValue:          Double { self.settings.attack.defaultMultiplier }
