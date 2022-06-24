@@ -42,7 +42,7 @@ public class ReproductionHelper
             return false
         }
         
-        guard let sex1 = creature.getGene( Sex.self ) as? Sex, let sex2 = other.getGene( Sex.self ) as? Sex else
+        guard let sex1: Sex = creature.getGene(), let sex2: Sex = other.getGene() else
         {
             return false
         }

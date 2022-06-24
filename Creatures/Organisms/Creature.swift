@@ -174,6 +174,11 @@ public class Creature: SpriteNode
         return self.genes.first { $0.isKind( of: kind ) }
     }
     
+    public func getGene< T: Gene >() -> T?
+    {
+        return self.getGene( T.self ) as? T
+    }
+    
     public override func initialize()
     {
         super.initialize()

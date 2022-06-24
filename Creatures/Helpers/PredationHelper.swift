@@ -105,7 +105,7 @@ public class PredationHelper
             return success
         }
         
-        if let attack = creature.getGene( Attack.self ) as? Attack, let defense = target.getGene( Defense.self ) as? Defense
+        if let attack: Attack = creature.getGene(), let defense: Defense = target.getGene()
         {
             if attack.isActive && defense.isActive
             {
@@ -125,11 +125,11 @@ public class PredationHelper
                 return updateCombatEnergy( false, creature, target )
             }
         }
-        else if let attack = creature.getGene( Attack.self ) as? Attack, attack.isActive
+        else if let attack: Attack = creature.getGene(), attack.isActive
         {
             return updateCombatEnergy( true, creature, target )
         }
-        else if let defense = creature.getGene( Defense.self ) as? Defense, defense.isActive
+        else if let defense: Defense = creature.getGene(), defense.isActive
         {
             return updateCombatEnergy( false, creature, target )
         }
