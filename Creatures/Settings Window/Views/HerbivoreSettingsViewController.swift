@@ -54,8 +54,8 @@ public class HerbivoreSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.herbivore.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.herbivore.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.herbivore.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.herbivore.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: Herbivore.self, settings: self.settings, key: \.herbivore.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: Herbivore.self, settings: self.settings, key: \.herbivore.deactivates ),
             ]
         )
     }

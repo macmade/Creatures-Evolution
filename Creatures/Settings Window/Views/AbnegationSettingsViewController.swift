@@ -54,8 +54,8 @@ public class AbnegationSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.abnegation.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.abnegation.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.abnegation.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.abnegation.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: Abnegation.self, settings: self.settings, key: \.abnegation.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: Abnegation.self, settings: self.settings, key: \.abnegation.deactivates ),
             ]
         )
         

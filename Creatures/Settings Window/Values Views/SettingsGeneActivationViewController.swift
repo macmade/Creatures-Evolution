@@ -28,17 +28,24 @@ public class SettingsGeneActivationViewController: NSViewController, SettingsVal
 {
     @objc private dynamic var settings: Settings
     
-    private var key: WritableKeyPath< Settings, [ String ] >
+    private var gene: AnyClass
+    private var key:  WritableKeyPath< Settings, [ String ] >
     
     public override var description: String
     {
+        let info  = GeneInfo.allGenes( settings: self.settings )
         let value = self.settings[ keyPath: self.key ]
+        let names = value.compactMap
+        {
+            name in info.first { String( describing: $0.geneClass ) == name }?.name
+        }
         
-        return value.isEmpty ? "--" : value.joined( separator: ", " )
+        return names.isEmpty ? "--" : names.joined( separator: ", " )
     }
     
-    public init( title: String, settings: Settings, key: WritableKeyPath< Settings, [ String ] > )
+    public init( title: String, gene: AnyClass, settings: Settings, key: WritableKeyPath< Settings, [ String ] > )
     {
+        self.gene     = gene
         self.settings = settings
         self.key      = key
         
@@ -64,9 +71,36 @@ public class SettingsGeneActivationViewController: NSViewController, SettingsVal
     
     public func updateSettings( _ settings: Settings )
     {
+        self.willChangeValue( for:\.description )
+        
         self.settings = settings
+        
+        self.didChangeValue( for:\.description )
     }
     
     @IBAction private func choose( _ sender: Any? )
-    {}
+    {
+        let controller = SettingsGeneSelectionWindowController( gene: self.gene, settings: self.settings, values: self.settings[ keyPath: self.key ] )
+        
+        guard let sheet = controller.window, let window = self.view.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        window.beginSheet( sheet )
+        {
+            if $0 != .OK
+            {
+                return
+            }
+            
+            self.willChangeValue( for:\.description )
+            
+            self.settings[ keyPath: self.key ] = controller.values
+            
+            self.didChangeValue( for:\.description )
+        }
+    }
 }

@@ -168,6 +168,8 @@
 		05EDA9C92866144900F18B77 /* SettingsSeparatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9C82866144900F18B77 /* SettingsSeparatorViewController.swift */; };
 		05EDA9CC2866145300F18B77 /* SettingsSeparatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9CA2866145300F18B77 /* SettingsSeparatorViewController.xib */; };
 		05EDA9CE2866179600F18B77 /* GeneInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9CD2866179600F18B77 /* GeneInfo.swift */; };
+		05EDA9D028661EC400F18B77 /* SettingsGeneSelectionWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9CF28661EC400F18B77 /* SettingsGeneSelectionWindowController.swift */; };
+		05EDA9D328661ED300F18B77 /* SettingsGeneSelectionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9D128661ED300F18B77 /* SettingsGeneSelectionWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -381,6 +383,8 @@
 		05EDA9C82866144900F18B77 /* SettingsSeparatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSeparatorViewController.swift; sourceTree = "<group>"; };
 		05EDA9CB2866145300F18B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsSeparatorViewController.xib; sourceTree = "<group>"; };
 		05EDA9CD2866179600F18B77 /* GeneInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneInfo.swift; sourceTree = "<group>"; };
+		05EDA9CF28661EC400F18B77 /* SettingsGeneSelectionWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneSelectionWindowController.swift; sourceTree = "<group>"; };
+		05EDA9D228661ED300F18B77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsGeneSelectionWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -835,6 +839,8 @@
 				05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */,
 				05EDA9C32866115700F18B77 /* SettingsGeneActivationViewController.swift */,
 				05EDA9C52866116700F18B77 /* SettingsGeneActivationViewController.xib */,
+				05EDA9CF28661EC400F18B77 /* SettingsGeneSelectionWindowController.swift */,
+				05EDA9D128661ED300F18B77 /* SettingsGeneSelectionWindowController.xib */,
 				05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */,
 				05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */,
 				05A334B6286348A100905208 /* SettingsIntMenuViewController.swift */,
@@ -979,6 +985,7 @@
 				05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */,
 				053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */,
 				05A334BA286348A900905208 /* SettingsIntMenuViewController.xib in Resources */,
+				05EDA9D328661ED300F18B77 /* SettingsGeneSelectionWindowController.xib in Resources */,
 				051A33412861F9B3001B605D /* License-Creatures.txt in Resources */,
 				05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */,
 				05EDA9C72866116700F18B77 /* SettingsGeneActivationViewController.xib in Resources */,
@@ -1091,6 +1098,7 @@
 				05252F74285819A60090B385 /* MeatSettings.swift in Sources */,
 				0510206C285A192800F11184 /* PlantSenseSettings.swift in Sources */,
 				05A334C228638D9000905208 /* SettingsSection.swift in Sources */,
+				05EDA9D028661EC400F18B77 /* SettingsGeneSelectionWindowController.swift in Sources */,
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
 				0510206B285A192800F11184 /* PredatorSettings.swift in Sources */,
 				051A33442862075A001B605D /* Bundle.swift in Sources */,
@@ -1305,6 +1313,14 @@
 				05EDA9CB2866145300F18B77 /* Base */,
 			);
 			name = SettingsSeparatorViewController.xib;
+			sourceTree = "<group>";
+		};
+		05EDA9D128661ED300F18B77 /* SettingsGeneSelectionWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05EDA9D228661ED300F18B77 /* Base */,
+			);
+			name = SettingsGeneSelectionWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

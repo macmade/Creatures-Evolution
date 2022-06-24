@@ -54,8 +54,8 @@ public class DefenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.defense.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.defense.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.defense.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.defense.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: Defense.self, settings: self.settings, key: \.defense.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: Defense.self, settings: self.settings, key: \.defense.deactivates ),
             ]
         )
         

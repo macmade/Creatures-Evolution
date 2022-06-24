@@ -54,8 +54,8 @@ public class SpeedSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.speed.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.speed.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.speed.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.speed.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: Speed.self, settings: self.settings, key: \.speed.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: Speed.self, settings: self.settings, key: \.speed.deactivates ),
             ]
         )
         

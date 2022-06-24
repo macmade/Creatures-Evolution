@@ -54,8 +54,8 @@ public class VampireSenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.vampireSense.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.vampireSense.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.vampireSense.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.vampireSense.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: VampireSense.self, settings: self.settings, key: \.vampireSense.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: VampireSense.self, settings: self.settings, key: \.vampireSense.deactivates ),
             ]
         )
         

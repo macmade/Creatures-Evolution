@@ -54,8 +54,8 @@ public class PredatorSenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.predatorSense.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.predatorSense.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.predatorSense.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.predatorSense.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: PredatorSense.self, settings: self.settings, key: \.predatorSense.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: PredatorSense.self, settings: self.settings, key: \.predatorSense.deactivates ),
             ]
         )
         

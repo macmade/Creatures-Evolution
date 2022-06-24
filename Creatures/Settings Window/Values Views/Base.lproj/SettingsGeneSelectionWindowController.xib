@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SettingsGeneSelectionWindowController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="stackView" destination="PeV-rF-8Pq" id="mdE-Mz-XEN"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="fek-SX-tg8"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Select Genes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="400" height="200"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
+            <value key="minSize" type="size" width="400" height="200"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E0c-fv-2lk">
+                        <rect key="frame" x="18" y="149" width="159" height="31"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Select Genes:" id="fdK-jh-bEz">
+                            <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="6Wt-g2-yHW">
+                        <rect key="frame" x="12" y="138" width="376" height="5"/>
+                    </box>
+                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-rF-8Pq">
+                        <rect key="frame" x="20" y="69" width="360" height="63"/>
+                    </stackView>
+                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="JOz-y9-cZN">
+                        <rect key="frame" x="12" y="58" width="376" height="5"/>
+                    </box>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o1x-2M-0QS">
+                        <rect key="frame" x="240" y="13" width="76" height="32"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U7q-KP-bMT">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancel:" target="-2" id="Shm-L2-Tjo"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XmU-ve-eeP">
+                        <rect key="frame" x="314" y="13" width="73" height="32"/>
+                        <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U6m-te-3Eo">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="select:" target="-2" id="Fgd-0I-wfU"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PeV-rF-8Pq" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="0AS-t0-Zzz"/>
+                    <constraint firstItem="o1x-2M-0QS" firstAttribute="top" secondItem="JOz-y9-cZN" secondAttribute="bottom" constant="20" symbolic="YES" id="2bX-xe-6SE"/>
+                    <constraint firstItem="6Wt-g2-yHW" firstAttribute="top" secondItem="E0c-fv-2lk" secondAttribute="bottom" constant="8" symbolic="YES" id="3FN-7s-rpg"/>
+                    <constraint firstAttribute="bottom" secondItem="XmU-ve-eeP" secondAttribute="bottom" constant="20" symbolic="YES" id="7DQ-gQ-bU3"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="E0c-fv-2lk" secondAttribute="trailing" constant="20" symbolic="YES" id="B8z-gd-ctr"/>
+                    <constraint firstItem="JOz-y9-cZN" firstAttribute="top" secondItem="PeV-rF-8Pq" secondAttribute="bottom" constant="8" symbolic="YES" id="DwQ-IE-bz3"/>
+                    <constraint firstItem="PeV-rF-8Pq" firstAttribute="top" secondItem="6Wt-g2-yHW" secondAttribute="bottom" constant="8" symbolic="YES" id="Iu0-vi-Cgx"/>
+                    <constraint firstAttribute="trailing" secondItem="6Wt-g2-yHW" secondAttribute="trailing" constant="12" symbolic="YES" id="PQC-yU-vbI"/>
+                    <constraint firstItem="E0c-fv-2lk" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="YmJ-mg-51h"/>
+                    <constraint firstItem="6Wt-g2-yHW" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" symbolic="YES" id="eAa-T7-k8a"/>
+                    <constraint firstItem="o1x-2M-0QS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="etN-bM-Y1R"/>
+                    <constraint firstItem="XmU-ve-eeP" firstAttribute="leading" secondItem="o1x-2M-0QS" secondAttribute="trailing" constant="12" symbolic="YES" id="hWg-c5-TGW"/>
+                    <constraint firstAttribute="trailing" secondItem="JOz-y9-cZN" secondAttribute="trailing" constant="12" symbolic="YES" id="jEy-X9-k8m"/>
+                    <constraint firstAttribute="bottom" secondItem="o1x-2M-0QS" secondAttribute="bottom" constant="20" symbolic="YES" id="kMP-SC-7cS"/>
+                    <constraint firstAttribute="trailing" secondItem="XmU-ve-eeP" secondAttribute="trailing" constant="20" symbolic="YES" id="nKq-ls-IgF"/>
+                    <constraint firstItem="JOz-y9-cZN" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" symbolic="YES" id="ogq-eP-OZA"/>
+                    <constraint firstItem="E0c-fv-2lk" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="p5H-UC-0QC"/>
+                    <constraint firstAttribute="trailing" secondItem="PeV-rF-8Pq" secondAttribute="trailing" constant="20" symbolic="YES" id="r2e-DF-9Ks"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="139" y="125"/>
+        </window>
+    </objects>
+</document>

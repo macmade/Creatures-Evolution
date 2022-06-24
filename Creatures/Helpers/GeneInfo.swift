@@ -27,6 +27,7 @@ import Foundation
 public class GeneInfo: NSObject
 {
     @objc public private( set ) dynamic var name:      String
+    @objc public private( set ) dynamic var geneClass: AnyClass
     @objc public private( set ) dynamic var settings:  Settings
     
     public var isEnabled: Bool { self.settings[ keyPath: self.isEnabledKey ] }
@@ -113,6 +114,7 @@ public class GeneInfo: NSObject
     private init( settings: Settings, isEnabledKey: KeyPath< Settings, Bool >, isActiveKey: KeyPath< Settings, Bool >, create: @escaping ( GeneInfo ) -> Gene )
     {
         self.name         = ""
+        self.geneClass    = NSObject.self
         self.settings     = settings
         self.isEnabledKey = isEnabledKey
         self.isActiveKey  = isActiveKey
@@ -120,7 +122,9 @@ public class GeneInfo: NSObject
         
         super.init()
         
-        self.name = self.createInstance().name
+        let instance   = self.createInstance()
+        self.name      = instance.name
+        self.geneClass = type( of: instance )
     }
     
     public func createInstance() -> Gene

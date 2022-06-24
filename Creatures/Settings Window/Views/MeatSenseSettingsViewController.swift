@@ -54,8 +54,8 @@ public class MeatSenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.meatSense.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.meatSense.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.meatSense.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.meatSense.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: MeatSense.self, settings: self.settings, key: \.meatSense.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: MeatSense.self, settings: self.settings, key: \.meatSense.deactivates ),
             ]
         )
         

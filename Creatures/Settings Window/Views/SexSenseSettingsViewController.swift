@@ -54,8 +54,8 @@ public class SexSenseSettingsViewController: SettingsViewController
                 SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.sexSense.isActive ),
                 SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.sexSense.canRegress ),
                 SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   settings: self.settings, key: \.sexSense.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", settings: self.settings, key: \.sexSense.deactivates ),
+                SettingsGeneActivationViewController( title: "Activates:",   gene: SexSense.self, settings: self.settings, key: \.sexSense.activates ),
+                SettingsGeneActivationViewController( title: "Deactivates:", gene: SexSense.self, settings: self.settings, key: \.sexSense.deactivates ),
             ]
         )
         
