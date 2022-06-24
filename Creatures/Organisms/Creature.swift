@@ -251,14 +251,9 @@ public class Creature: SpriteNode
     
     private func chooseDestination() -> Destination?
     {
-        let destinations: [ Destination ] = self.genes.compactMap
+        let destinations: [ Destination ] = self.genes.filter{ $0.isActive }.compactMap
         {
-            guard $0.isActive else
-            {
-                return nil
-            }
-            
-            return $0.chooseDestination( creature: self )
+            $0.chooseDestination( creature: self )
         }
         
         let high   = destinations.filter { $0.priority == .high }
