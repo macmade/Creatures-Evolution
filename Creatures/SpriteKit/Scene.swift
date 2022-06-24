@@ -33,6 +33,9 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     
     private var lastUpdateTime:         TimeInterval?
     private var lastFoodGenerationTime: TimeInterval?
+    private var lastFPSCheck:           TimeInterval?
+    private var frames                = 0
+    private var ignoreBadPerformance  = false
     
     public var highlightedGene: AnyClass?
     {
@@ -152,9 +155,62 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         }
     }
     
+    private func checkPerformance( _ currentTime: TimeInterval )
+    {
+        self.frames += 1
+        
+        if self.lastFPSCheck == nil
+        {
+            self.lastFPSCheck = currentTime
+        }
+        
+        if let lastFPSCheck = self.lastFPSCheck, currentTime - lastFPSCheck >= 5
+        {
+            let fps           = Double( self.frames ) / ( currentTime - lastFPSCheck )
+            self.lastFPSCheck = nil
+            self.frames       = 0
+            
+            if fps < 20 && self.ignoreBadPerformance == false
+            {
+                self.performanceWarning( fps: Int( fps ) )
+            }
+        }
+    }
+    
+    private func performanceWarning( fps: Int )
+    {
+        guard let window = self.view?.window, let controller = window.windowController as? MainWindowController else
+        {
+            return
+        }
+        
+        self.isPaused = true
+        
+        let alert             = NSAlert()
+        alert.messageText     = "Low Performance Warning"
+        alert.informativeText = "The game appears to perform poorly, rendering about \( fps ) frames per second.\n\nIt has been paused to prevent performance issues on your computer."
+        
+        alert.addButton( withTitle: "Change Settings" )
+        alert.addButton( withTitle: "Ignore and Continue" )
+                
+        alert.beginSheetModal( for: window )
+        {
+            if $0 == .alertFirstButtonReturn
+            {
+                controller.reset( nil )
+            }
+            else
+            {
+                self.isPaused             = false
+                self.ignoreBadPerformance = true
+            }
+        }
+    }
+    
     public override func update( _ currentTime: TimeInterval )
     {
         super.update( currentTime )
+        self.checkPerformance( currentTime )
         
         if let lastUpdateTime = self.lastUpdateTime
         {
