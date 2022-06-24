@@ -43,6 +43,10 @@ public class DistanceHelper
         }
         .filter
         {
+            $0 != creature
+        }
+        .filter
+        {
             predicate?( $0 ) ?? true
         }
         .reduce( into: [ ( distance: Double, node: T ) ]() )
