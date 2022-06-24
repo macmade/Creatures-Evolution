@@ -50,14 +50,16 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
         [
             SettingsSection(
                 title: "General",
+                sort:  false,
                 children:
                 [
-                    SettingsItem( title: "World",     symbol: "globe.europe.africa.fill",          controller: WorldSettingsViewController(     settings: self.settings ) ),
-                    SettingsItem( title: "Creatures", symbol: "allergens",                         controller: CreaturesSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "World",     symbol: "globe.europe.africa.fill", controller: WorldSettingsViewController(     settings: self.settings ) ),
+                    SettingsItem( title: "Creatures", symbol: "allergens",                controller: CreaturesSettingsViewController( settings: self.settings ) ),
                 ]
             ),
             SettingsSection(
                 title: "Food",
+                sort:  true,
                 children:
                 [
                     SettingsItem( title: "Meat",      symbol: "takeoutbag.and.cup.and.straw.fill", controller: MeatSettingsViewController(      settings: self.settings ) ),
@@ -66,6 +68,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
             ),
             SettingsSection(
                 title: "Abilities",
+                sort:  true,
                 children:
                 [
                     SettingsItem( title: "Abnegation", symbol: "person.fill.xmark", controller: AbnegationSettingsViewController( settings: self.settings ) ),
@@ -76,6 +79,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
             ),
             SettingsSection(
                 title: "Reproduction",
+                sort:  true,
                 children:
                 [
                     SettingsItem( title: "Mitosis", symbol: "heart.fill", controller: MitosisSettingsViewController( settings: self.settings ) ),
@@ -84,6 +88,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
             ),
             SettingsSection(
                 title: "Diet",
+                sort:  true,
                 children:
                 [
                     SettingsItem( title: "Cannibal",  symbol: "fork.knife.circle.fill", controller: CannibalSettingsViewController(  settings: self.settings ) ),
@@ -95,6 +100,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
             ),
             SettingsSection(
                 title: "Senses",
+                sort:  true,
                 children:
                 [
                     SettingsItem( title: "Meat Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: MeatSenseSettingsViewController(     settings: self.settings ) ),

@@ -41,6 +41,6 @@ public class SettingsItem: SettingsSection
         self.icon       = icon
         self.controller = controller
         
-        super.init( title: title )
+        super.init( title: title, sort: false )
     }
 }

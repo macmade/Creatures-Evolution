@@ -29,9 +29,17 @@ public class SettingsSection: NSObject
     @objc public dynamic var title:    String
     @objc public dynamic var children: [ SettingsItem ]
     
-    public init( title: String, children: [ SettingsItem ] = [] )
+    public init( title: String, sort: Bool, children: [ SettingsItem ] = [] )
     {
         self.title    = title
         self.children = children
+        
+        if sort
+        {
+            self.children.sort
+            {
+                $0.title < $1.title
+            }
+        }
     }
 }
