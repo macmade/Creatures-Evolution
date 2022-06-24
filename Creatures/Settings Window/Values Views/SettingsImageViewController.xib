@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsImageViewController" customModule="Creatures" customModuleProvider="target">
             <connections>
+                <outlet property="imageView" destination="cpQ-tG-2d6" id="Fvl-5L-xME"/>
                 <outlet property="view" destination="c22-O7-iKe" id="MiV-te-O1c"/>
             </connections>
         </customObject>
@@ -29,9 +30,6 @@
                                         <constraint firstAttribute="width" constant="300" id="k9T-VN-1Rm"/>
                                     </constraints>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="NSApplicationIcon" id="fZX-mr-gA4"/>
-                                    <connections>
-                                        <binding destination="-2" name="value" keyPath="self.image" id="DUJ-a9-qDa"/>
-                                    </connections>
                                 </imageView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U8o-2u-otk">
                                     <rect key="frame" x="133" y="0.0" width="33" height="14"/>

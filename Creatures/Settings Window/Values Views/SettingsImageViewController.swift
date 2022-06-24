@@ -26,7 +26,9 @@ import Cocoa
 
 public class SettingsImageViewController: NSViewController
 {
-    @objc public dynamic var image: NSImage?
+    @objc private dynamic var image: NSImage?
+    
+    @IBOutlet private var imageView: NSImageView!
     
     public init( image: NSImage?, title: String? )
     {
@@ -43,5 +45,28 @@ public class SettingsImageViewController: NSViewController
     public override func viewDidLoad()
     {
         super.viewDidLoad()
+    }
+    
+    public func setImage( _ image: NSImage?, animated: Bool )
+    {
+        let _ = self.view
+        
+        self.image = image
+        
+        guard animated else
+        {
+            self.imageView.image = image
+            
+            return
+        }
+        
+        let transition            = CATransition()
+        transition.duration       = 1
+        transition.type           = .fade
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        
+        self.imageView.layer?.add( transition, forKey: nil )
+        
+        self.imageView.image = image
     }
 }

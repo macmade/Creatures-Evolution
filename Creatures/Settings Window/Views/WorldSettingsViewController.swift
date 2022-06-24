@@ -26,9 +26,9 @@ import Cocoa
 
 public class WorldSettingsViewController: SettingsViewController
 {
-    @objc private dynamic var preview: NSImage?
-    
     private var environmentObserver: NSKeyValueObservation?
+    private var randomPreviewTimer:  Timer?
+    private var randomPreviewIndex = 0
     private var previewController  = SettingsImageViewController( image: nil, title: "Preview" )
     
     public init( settings: Settings )
@@ -39,6 +39,11 @@ public class WorldSettingsViewController: SettingsViewController
     required init?( coder: NSCoder )
     {
         nil
+    }
+    
+    deinit
+    {
+        self.randomPreviewTimer?.invalidate()
     }
     
     public override func restoreDefaults()
@@ -76,6 +81,8 @@ public class WorldSettingsViewController: SettingsViewController
     
     private func updatePreview()
     {
+        self.randomPreviewTimer?.invalidate()
+        
         self.environmentObserver = self.settings.observe( \.world.environment )
         {
             [ weak self ] _, _ in self?.updatePreview()
@@ -85,13 +92,26 @@ public class WorldSettingsViewController: SettingsViewController
         
         if index < 0 || index >= Constants.backgroundImages.count
         {
-            self.preview = nil
+            self.previewController.setImage( NSImage( named: Constants.backgroundImages[ 0 ] ), animated: true )
+            
+            self.randomPreviewIndex = 0
+            self.randomPreviewTimer = Timer.scheduledTimer( withTimeInterval: 2, repeats: true )
+            {
+                [ weak self ] _ in guard let self = self else { return }
+                
+                self.randomPreviewIndex += 1
+                
+                if self.randomPreviewIndex >= Constants.backgroundImages.count
+                {
+                    self.randomPreviewIndex = 0
+                }
+                
+                self.previewController.setImage( NSImage( named: Constants.backgroundImages[ self.randomPreviewIndex ] ), animated: true )
+            }
         }
         else
         {
-            self.preview = NSImage( named: Constants.backgroundImages[ index ] )
+            self.previewController.setImage( NSImage( named: Constants.backgroundImages[ index ] ), animated: false )
         }
-        
-        self.previewController.image = preview
     }
 }
