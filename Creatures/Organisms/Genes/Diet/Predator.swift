@@ -64,7 +64,11 @@ public class Predator: DietGene
             return
         }
         
-        if PredationHelper.attack( creature: creature, target: other )
+        let success = PredationHelper.attack( creature: creature, target: other )
+        
+        EventLog.shared.attack( attacker: creature, target: other, success: success )
+        
+        if success
         {
             if other.energy > 0
             {

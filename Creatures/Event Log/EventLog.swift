@@ -61,20 +61,41 @@ public class EventLog: NSObject
     
     public func killed( creature: Creature, by killer: Creature? )
     {
-        if let scene = creature.scene as? Scene
+        guard let scene = creature.scene as? Scene else
         {
-            if let predator = killer, predator.hasActiveGene( Predator.self )
-            {
-                self.add( event: Event( message: "Died: killed by predator \( self.name( of: predator ) )", time: scene.elapsedTime, node: creature ) )
-            }
-            else if let vampire = killer, vampire.hasActiveGene( Vampire.self )
-            {
-                self.add( event: Event( message: "Died: killed by vampire \( self.name( of: vampire ) )", time: scene.elapsedTime, node: creature ) )
-            }
-            else
-            {
-                self.add( event: Event( message: "Died: killed by a greater will", time: scene.elapsedTime, node: creature ) )
-            }
+            return
+        }
+        
+        if let predator = killer, predator.hasActiveGene( Predator.self )
+        {
+            self.add( event: Event( message: "Died: killed by predator \( self.name( of: predator ) )", time: scene.elapsedTime, node: creature ) )
+        }
+        else if let vampire = killer, vampire.hasActiveGene( Vampire.self )
+        {
+            self.add( event: Event( message: "Died: killed by vampire \( self.name( of: vampire ) )", time: scene.elapsedTime, node: creature ) )
+        }
+        else
+        {
+            self.add( event: Event( message: "Died: killed by a greater will", time: scene.elapsedTime, node: creature ) )
+        }
+    }
+    
+    public func attack( attacker: Creature, target: Creature, success: Bool )
+    {
+        guard let scene = attacker.scene as? Scene else
+        {
+            return
+        }
+        
+        if success
+        {
+            self.add( event: Event( message: "\( self.name( of: attacker ) ) successfully attacked \( self.name( of: target ) )", time: scene.elapsedTime, node: attacker ) )
+            self.add( event: Event( message: "\( self.name( of: target ) ) failed to defend against \( self.name( of: attacker ) )", time: scene.elapsedTime, node: target ) )
+        }
+        else
+        {
+            self.add( event: Event( message: "\( self.name( of: attacker ) ) failed to attack \( self.name( of: target ) )", time: scene.elapsedTime, node: attacker ) )
+            self.add( event: Event( message: "\( self.name( of: target ) ) successfully defended against \( self.name( of: attacker ) )", time: scene.elapsedTime, node: target ) )
         }
     }
     
