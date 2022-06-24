@@ -236,6 +236,8 @@ public class MainWindowController: NSWindowController
         {
             detail.node.highlight( false )
             detail.view.removeFromSuperview()
+            
+            self.detailViewController = nil
         }
     }
     

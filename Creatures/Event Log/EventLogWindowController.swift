@@ -73,7 +73,14 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
             return
         }
         
-        mainWindowController.showDetails( node: node )
+        if mainWindowController.detailViewController?.node == node
+        {
+            mainWindowController.hideDetails( nil )
+        }
+        else
+        {
+            mainWindowController.showDetails( node: node )
+        }
     }
     
     @IBAction @objc public func pause( _ sender: Any? )

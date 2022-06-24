@@ -175,7 +175,7 @@ public class EvolutionHelper
             
             if wasActive == false && isActive
             {
-                if let details = details
+                if let details = details, gene is DietGene == false
                 {
                     event = "Gene was evolved: \( gene.name ) (\( details ))"
                 }
