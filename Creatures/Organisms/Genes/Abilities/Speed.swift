@@ -48,6 +48,7 @@ public class Speed: DoubleValueGene
     }
     
     public override var defaultValue:          Double { self.settings.speed.defaultMultiplier }
+    public override var defaultValueRange:     Double { self.settings.speed.defaultMultiplierRange }
     public override var minimumValue:          Double { self.settings.speed.minimumMultiplier }
     public override var maximumValue:          Double { self.settings.speed.maximumMultiplier }
     public override var minimumMutationChange: Double { self.settings.speed.minimumMutationChange }

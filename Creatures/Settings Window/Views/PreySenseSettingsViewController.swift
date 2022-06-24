@@ -60,11 +60,12 @@ public class PreySenseSettingsViewController: SettingsViewController
             title: "Distance",
             controllers:
             [
-                SettingsIntSliderViewController( title: "Default distance:",        settings: self.settings, key: \.preySense.defaultDistance,       minValue:  1, maxValue: 300 ),
-                SettingsIntSliderViewController( title: "Minimum distance:",        settings: self.settings, key: \.preySense.minimumDistance,       minValue:  1, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Maximum distance:",        settings: self.settings, key: \.preySense.maximumDistance,       minValue: 20, maxValue: 300 ),
-                SettingsIntSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.preySense.minimumMutationChange, minValue:  1, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.preySense.maximumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Default distance:",              settings: self.settings, key: \.preySense.defaultDistance,       minValue:  1, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Default distance (randomness):", settings: self.settings, key: \.preySense.defaultDistanceRange,  minValue:  0, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum distance:",              settings: self.settings, key: \.preySense.minimumDistance,       minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum distance:",              settings: self.settings, key: \.preySense.maximumDistance,       minValue: 20, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum mutation change:",       settings: self.settings, key: \.preySense.minimumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum mutation change:",       settings: self.settings, key: \.preySense.maximumMutationChange, minValue:  1, maxValue: 10 ),
             ]
         )
     }

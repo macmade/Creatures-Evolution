@@ -48,6 +48,7 @@ public class Defense: DoubleValueGene
     }
     
     public override var defaultValue:          Double { self.settings.defense.defaultMultiplier }
+    public override var defaultValueRange:     Double { self.settings.defense.defaultMultiplierRange }
     public override var minimumValue:          Double { self.settings.defense.minimumMultiplier }
     public override var maximumValue:          Double { self.settings.defense.maximumMultiplier }
     public override var minimumMutationChange: Double { self.settings.defense.minimumMutationChange }

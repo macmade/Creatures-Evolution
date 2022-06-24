@@ -48,6 +48,7 @@ public class Attack: DoubleValueGene
     }
     
     public override var defaultValue:          Double { self.settings.attack.defaultMultiplier }
+    public override var defaultValueRange:     Double { self.settings.attack.defaultMultiplierRange }
     public override var minimumValue:          Double { self.settings.attack.minimumMultiplier }
     public override var maximumValue:          Double { self.settings.attack.maximumMultiplier }
     public override var minimumMutationChange: Double { self.settings.attack.minimumMutationChange }

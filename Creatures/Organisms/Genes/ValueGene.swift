@@ -35,6 +35,7 @@ public class ValueGene< T: Numeric & Comparable >: Gene
     public var value: T = 0
     
     public var defaultValue:          T { 0 }
+    public var defaultValueRange:     T { 0 }
     public var minimumValue:          T { 0 }
     public var maximumValue:          T { 0 }
     public var minimumMutationChange: T { 0 }
@@ -45,7 +46,7 @@ public class ValueGene< T: Numeric & Comparable >: Gene
     {
         super.init( active: active, settings: settings )
         
-        self.value = self.defaultValue
+        self.value = self.defaultValue + self.random( in: 0 ... self.defaultValueRange )
     }
     
     public init( active: Bool, settings: Settings, value: T )

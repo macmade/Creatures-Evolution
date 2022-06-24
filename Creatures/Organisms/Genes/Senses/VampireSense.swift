@@ -48,6 +48,7 @@ public class VampireSense: IntValueGene
     }
     
     public override var defaultValue:          Int { self.settings.vampireSense.defaultDistance }
+    public override var defaultValueRange:     Int { self.settings.vampireSense.defaultDistanceRange }
     public override var minimumValue:          Int { self.settings.vampireSense.minimumDistance }
     public override var maximumValue:          Int { self.settings.vampireSense.maximumDistance }
     public override var minimumMutationChange: Int { self.settings.vampireSense.minimumMutationChange }

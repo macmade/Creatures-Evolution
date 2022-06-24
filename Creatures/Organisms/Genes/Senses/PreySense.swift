@@ -48,6 +48,7 @@ public class PreySense: IntValueGene
     }
     
     public override var defaultValue:          Int { self.settings.preySense.defaultDistance }
+    public override var defaultValueRange:     Int { self.settings.preySense.defaultDistanceRange }
     public override var minimumValue:          Int { self.settings.preySense.minimumDistance }
     public override var maximumValue:          Int { self.settings.preySense.maximumDistance }
     public override var minimumMutationChange: Int { self.settings.preySense.minimumMutationChange }

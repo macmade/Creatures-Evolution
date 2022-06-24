@@ -48,6 +48,7 @@ public class PredatorSense: IntValueGene
     }
     
     public override var defaultValue:          Int { self.settings.predatorSense.defaultDistance }
+    public override var defaultValueRange:     Int { self.settings.predatorSense.defaultDistanceRange }
     public override var minimumValue:          Int { self.settings.predatorSense.minimumDistance }
     public override var maximumValue:          Int { self.settings.predatorSense.maximumDistance }
     public override var minimumMutationChange: Int { self.settings.predatorSense.minimumMutationChange }

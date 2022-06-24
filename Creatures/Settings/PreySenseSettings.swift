@@ -31,6 +31,7 @@ public class PreySenseSettings: NSObject, Codable
     @objc public dynamic var canRegress            = true
     @objc public dynamic var deactivates           = [ String ]()
     @objc public dynamic var defaultDistance       = 50
+    @objc public dynamic var defaultDistanceRange  = 20
     @objc public dynamic var minimumDistance       = 1
     @objc public dynamic var maximumDistance       = 300
     @objc public dynamic var minimumMutationChange = 1

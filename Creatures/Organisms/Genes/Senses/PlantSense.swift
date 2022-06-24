@@ -48,6 +48,7 @@ public class PlantSense: IntValueGene
     }
     
     public override var defaultValue:          Int { self.settings.plantSense.defaultDistance }
+    public override var defaultValueRange:     Int { self.settings.plantSense.defaultDistanceRange }
     public override var minimumValue:          Int { self.settings.plantSense.minimumDistance }
     public override var maximumValue:          Int { self.settings.plantSense.maximumDistance }
     public override var minimumMutationChange: Int { self.settings.plantSense.minimumMutationChange }

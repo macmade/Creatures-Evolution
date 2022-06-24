@@ -60,11 +60,12 @@ public class AttackSettingsViewController: SettingsViewController
             title: "Attack Multiplier",
             controllers:
             [
-                SettingsDoubleSliderViewController( title: "Default multiplier:",      settings: self.settings, key: \.attack.defaultMultiplier,     minValue: 0.1, maxValue: 10 ),
-                SettingsDoubleSliderViewController( title: "Minimum multiplier:",      settings: self.settings, key: \.attack.minimumMultiplier,     minValue: 0.1, maxValue:  1 ),
-                SettingsDoubleSliderViewController( title: "Maximum multiplier:",      settings: self.settings, key: \.attack.maximumMultiplier,     minValue: 2.0, maxValue: 10 ),
-                SettingsDoubleSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.attack.minimumMutationChange, minValue: 0.1, maxValue:  1 ),
-                SettingsDoubleSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.attack.maximumMutationChange, minValue: 0.1, maxValue:  1 ),
+                SettingsDoubleSliderViewController( title: "Default multiplier:",              settings: self.settings, key: \.attack.defaultMultiplier,      minValue: 0.1, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Default multiplier (randomness):", settings: self.settings, key: \.attack.defaultMultiplierRange, minValue:   0, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Minimum multiplier:",              settings: self.settings, key: \.attack.minimumMultiplier,      minValue: 0.1, maxValue:  1 ),
+                SettingsDoubleSliderViewController( title: "Maximum multiplier:",              settings: self.settings, key: \.attack.maximumMultiplier,      minValue: 2.0, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Minimum mutation change:",         settings: self.settings, key: \.attack.minimumMutationChange,  minValue: 0.1, maxValue:  1 ),
+                SettingsDoubleSliderViewController( title: "Maximum mutation change:",         settings: self.settings, key: \.attack.maximumMutationChange,  minValue: 0.1, maxValue:  1 ),
             ]
         )
         

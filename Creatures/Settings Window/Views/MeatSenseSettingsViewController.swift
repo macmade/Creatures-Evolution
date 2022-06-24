@@ -60,11 +60,12 @@ public class MeatSenseSettingsViewController: SettingsViewController
             title: "Distance",
             controllers:
             [
-                SettingsIntSliderViewController( title: "Default distance:",        settings: self.settings, key: \.meatSense.defaultDistance,       minValue:  1, maxValue: 300 ),
-                SettingsIntSliderViewController( title: "Minimum distance:",        settings: self.settings, key: \.meatSense.minimumDistance,       minValue:  1, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Maximum distance:",        settings: self.settings, key: \.meatSense.maximumDistance,       minValue: 20, maxValue: 300 ),
-                SettingsIntSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.meatSense.minimumMutationChange, minValue:  1, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.meatSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Default distance:",              settings: self.settings, key: \.meatSense.defaultDistance,       minValue:  1, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Default distance (randomness):", settings: self.settings, key: \.meatSense.defaultDistanceRange,  minValue:  0, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum distance:",              settings: self.settings, key: \.meatSense.minimumDistance,       minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum distance:",              settings: self.settings, key: \.meatSense.maximumDistance,       minValue: 20, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum mutation change:",       settings: self.settings, key: \.meatSense.minimumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum mutation change:",       settings: self.settings, key: \.meatSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
             ]
         )
     }

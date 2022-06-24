@@ -60,11 +60,12 @@ public class SexSenseSettingsViewController: SettingsViewController
             title: "Distance",
             controllers:
             [
-                SettingsIntSliderViewController( title: "Default distance:",        settings: self.settings, key: \.sexSense.defaultDistance,       minValue:  1, maxValue: 300 ),
-                SettingsIntSliderViewController( title: "Minimum distance:",        settings: self.settings, key: \.sexSense.minimumDistance,       minValue:  1, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Maximum distance:",        settings: self.settings, key: \.sexSense.maximumDistance,       minValue: 20, maxValue: 300 ),
-                SettingsIntSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.sexSense.minimumMutationChange, minValue:  1, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.sexSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Default distance:",              settings: self.settings, key: \.sexSense.defaultDistance,       minValue:  1, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Default distance (randomness):", settings: self.settings, key: \.sexSense.defaultDistanceRange,  minValue:  0, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum distance:",              settings: self.settings, key: \.sexSense.minimumDistance,       minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum distance:",              settings: self.settings, key: \.sexSense.maximumDistance,       minValue: 20, maxValue: 300 ),
+                SettingsIntSliderViewController( title: "Minimum mutation change:",       settings: self.settings, key: \.sexSense.minimumMutationChange, minValue:  1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum mutation change:",       settings: self.settings, key: \.sexSense.maximumMutationChange, minValue:  1, maxValue: 10 ),
             ]
         )
     }

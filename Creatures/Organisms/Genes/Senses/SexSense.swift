@@ -48,6 +48,7 @@ public class SexSense: IntValueGene
     }
     
     public override var defaultValue:          Int { self.settings.sexSense.defaultDistance }
+    public override var defaultValueRange:     Int { self.settings.sexSense.defaultDistanceRange }
     public override var minimumValue:          Int { self.settings.sexSense.minimumDistance }
     public override var maximumValue:          Int { self.settings.sexSense.maximumDistance }
     public override var minimumMutationChange: Int { self.settings.sexSense.minimumMutationChange }

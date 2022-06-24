@@ -26,13 +26,14 @@ import Cocoa
 
 public class SpeedSettings: NSObject, Codable
 {
-    @objc public dynamic var isEnabled             = true
-    @objc public dynamic var isActive              = false
-    @objc public dynamic var canRegress            = true
-    @objc public dynamic var deactivates           = [ String ]()
-    @objc public dynamic var defaultMultiplier     = 1.0
-    @objc public dynamic var minimumMultiplier     = 0.1
-    @objc public dynamic var maximumMultiplier     = 5.0
-    @objc public dynamic var minimumMutationChange = 0.2
-    @objc public dynamic var maximumMutationChange = 0.5
+    @objc public dynamic var isEnabled              = true
+    @objc public dynamic var isActive               = false
+    @objc public dynamic var canRegress             = true
+    @objc public dynamic var deactivates            = [ String ]()
+    @objc public dynamic var defaultMultiplier      = 1.0
+    @objc public dynamic var defaultMultiplierRange = 0.5
+    @objc public dynamic var minimumMultiplier      = 0.1
+    @objc public dynamic var maximumMultiplier      = 5.0
+    @objc public dynamic var minimumMutationChange  = 0.2
+    @objc public dynamic var maximumMutationChange  = 0.5
 }

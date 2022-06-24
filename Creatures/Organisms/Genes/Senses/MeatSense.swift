@@ -48,6 +48,7 @@ public class MeatSense: IntValueGene
     }
     
     public override var defaultValue:          Int { self.settings.meatSense.defaultDistance }
+    public override var defaultValueRange:     Int { self.settings.meatSense.defaultDistanceRange }
     public override var minimumValue:          Int { self.settings.meatSense.minimumDistance }
     public override var maximumValue:          Int { self.settings.meatSense.maximumDistance }
     public override var minimumMutationChange: Int { self.settings.meatSense.minimumMutationChange }

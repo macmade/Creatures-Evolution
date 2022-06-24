@@ -60,11 +60,12 @@ public class SpeedSettingsViewController: SettingsViewController
             title: "Speed Multiplier",
             controllers:
             [
-                SettingsDoubleSliderViewController( title: "Default multiplier:",      settings: self.settings, key: \.speed.defaultMultiplier,     minValue: 0.1, maxValue: 10 ),
-                SettingsDoubleSliderViewController( title: "Minimum multiplier:",      settings: self.settings, key: \.speed.minimumMultiplier,     minValue: 0.1, maxValue:  1 ),
-                SettingsDoubleSliderViewController( title: "Maximum multiplier:",      settings: self.settings, key: \.speed.maximumMultiplier,     minValue: 2.0, maxValue: 10 ),
-                SettingsDoubleSliderViewController( title: "Minimum mutation change:", settings: self.settings, key: \.speed.minimumMutationChange, minValue: 0.1, maxValue:  1 ),
-                SettingsDoubleSliderViewController( title: "Maximum mutation change:", settings: self.settings, key: \.speed.maximumMutationChange, minValue: 0.1, maxValue:  1 ),
+                SettingsDoubleSliderViewController( title: "Default multiplier:",              settings: self.settings, key: \.speed.defaultMultiplier,      minValue: 0.1, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Default multiplier (randomness):", settings: self.settings, key: \.speed.defaultMultiplierRange, minValue:   0, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Minimum multiplier:",              settings: self.settings, key: \.speed.minimumMultiplier,      minValue: 0.1, maxValue:  1 ),
+                SettingsDoubleSliderViewController( title: "Maximum multiplier:",              settings: self.settings, key: \.speed.maximumMultiplier,      minValue: 2.0, maxValue: 10 ),
+                SettingsDoubleSliderViewController( title: "Minimum mutation change:",         settings: self.settings, key: \.speed.minimumMutationChange,  minValue: 0.1, maxValue:  1 ),
+                SettingsDoubleSliderViewController( title: "Maximum mutation change:",         settings: self.settings, key: \.speed.maximumMutationChange,  minValue: 0.1, maxValue:  1 ),
             ]
         )
     }
