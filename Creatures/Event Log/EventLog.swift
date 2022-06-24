@@ -31,8 +31,13 @@ public class EventLog: NSObject
     
     @objc public private( set ) dynamic var events: [ Event ] = []
     
+    private var index = 0
+    
     public func add( event: Event )
     {
+        event.index = self.index
+        self.index += 1
+        
         self.events.append( event )
         
         self.events = self.events.suffix( 1000 )

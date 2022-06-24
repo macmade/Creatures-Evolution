@@ -32,6 +32,7 @@ public class Event: NSObject
     @objc public private( set ) dynamic weak var node:     SKNode?
     @objc public private( set ) dynamic      var image:    NSImage?
     @objc public private( set ) dynamic      var nodeName: String?
+    @objc public                dynamic      var index   = 0
     
     private let uid = UUID()
     

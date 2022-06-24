@@ -44,7 +44,11 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     {
         super.windowDidLoad()
         
-        self.eventsController.sortDescriptors = [ NSSortDescriptor( key: "time", ascending: false ) ]
+        self.eventsController.sortDescriptors =
+        [
+            NSSortDescriptor( key: "time",  ascending: false ),
+            NSSortDescriptor( key: "index", ascending: false )
+        ]
         
         guard let delegate             = NSApp.delegate as? ApplicationDelegate,
               let mainWindowController = delegate.mainWindowController
