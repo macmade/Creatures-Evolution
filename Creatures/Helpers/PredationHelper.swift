@@ -37,7 +37,7 @@ public class PredationHelper
             return false
         }
         
-        if creature.hasActiveGene( Predator.self ) == false && prey.hasActiveGene( Vampire.self ) == false
+        if creature.hasActiveGene( Predator.self ) == false && creature.hasActiveGene( Vampire.self ) == false
         {
             return false
         }
