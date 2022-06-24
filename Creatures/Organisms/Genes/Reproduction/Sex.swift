@@ -154,10 +154,11 @@ public class Sex: Gene
             
             for _ in 0 ..< self.settings.sex.maxNumberOfChildren
             {
-                let genes     = EvolutionHelper.genes( from: creature, and: other )
-                let mutation  = EvolutionHelper.mutate( genes: genes, mutationChance: self.settings.sex.mutationChance )
-                let copy      = Creature( energy: 1, genes: mutation.genes, parents: [ creature ], settings: self.settings )
-                copy.position = creature.position
+                let genes       = EvolutionHelper.genes( from: creature, and: other )
+                let mutation    = EvolutionHelper.mutate( genes: genes, mutationChance: self.settings.sex.mutationChance )
+                let copy        = Creature( energy: 1, genes: mutation.genes, parents: [ creature ], settings: self.settings )
+                copy.position   = creature.position
+                copy.generation = max( creature.generation, other.generation ) + 1
                 
                 creature.scene?.addChild( copy )
                 copy.move()

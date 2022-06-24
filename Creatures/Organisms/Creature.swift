@@ -33,7 +33,8 @@ public class Creature: SpriteNode
     
           public private( set ) dynamic var genes:         [ Gene ]
     @objc public private( set ) dynamic var settings:      Settings
-    @objc public                dynamic var childrenCount: Int          = 0
+    @objc public                dynamic var childrenCount: Int = 0
+    @objc public                dynamic var generation:    Int = 0
     
     private var nextEnergyDecrease: TimeInterval?
     
