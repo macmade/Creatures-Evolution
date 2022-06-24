@@ -61,7 +61,7 @@ public class PreySense: IntValueGene
     
     public override func chooseDestination( creature: Creature ) -> Destination?
     {
-        if creature.hasActiveGene( Predator.self ) && creature.hasActiveGene( Vampire.self ) == false
+        if creature.hasActiveGene( Predator.self ) == false && creature.hasActiveGene( Vampire.self ) == false
         {
             return nil
         }
