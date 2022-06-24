@@ -69,4 +69,52 @@ public class PredationHelper
     {
         self.canEat( creature: attacker, prey: creature )
     }
+    
+    public class func attack( creature: Creature, target: Creature ) -> Bool
+    {
+        if creature.isBeingRemoved || target.isBeingRemoved
+        {
+            return false
+        }
+        
+        if let combat1 = creature.getGene( Combat.self ) as? Combat, let combat2 = target.getGene( Combat.self ) as? Combat
+        {
+            if combat1.isActive && combat2.isActive == false
+            {
+                return true
+            }
+            
+            if combat1.isActive == false && combat2.isActive
+            {
+                return false
+            }
+            
+            if combat1.isActive && combat2.isActive
+            {
+                if combat1.value == combat2.value
+                {
+                    return Bool.random()
+                }
+                
+                return combat1.value > combat2.value
+            }
+        }
+        
+        let chance: Int =
+        {
+            if creature.isSmallerThan( creature: target )
+            {
+                return creature.settings.combat.chanceIfSmaller
+            }
+            else if creature.isBiggerThan( creature: target )
+            {
+                return creature.settings.combat.chanceIfBigger
+            }
+            
+            return creature.settings.combat.chanceIfSameSize
+        }()
+        
+        return Int.random( in: 0 ... 100 ) <= chance
+    }
+    
 }

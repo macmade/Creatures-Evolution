@@ -380,53 +380,6 @@ public class Creature: SpriteNode
         NotificationCenter.default.post( name: Constants.creatureDieNotification, object: self )
     }
     
-    public func fight( other: Creature ) -> Bool
-    {
-        if self.isBeingRemoved
-        {
-            return false
-        }
-        
-        if let combat1 = self.getGene( Combat.self ) as? Combat, let combat2 = other.getGene( Combat.self ) as? Combat
-        {
-            if combat1.isActive && combat2.isActive == false
-            {
-                return true
-            }
-            
-            if combat1.isActive == false && combat2.isActive
-            {
-                return false
-            }
-            
-            if combat1.isActive && combat2.isActive
-            {
-                if combat1.value == combat2.value
-                {
-                    return Bool.random()
-                }
-                
-                return combat1.value > combat2.value
-            }
-        }
-        
-        let chance: Int =
-        {
-            if self.isSmallerThan( creature: other )
-            {
-                return self.settings.combat.chanceIfSmaller
-            }
-            else if self.isBiggerThan( creature: other )
-            {
-                return self.settings.combat.chanceIfBigger
-            }
-            
-            return self.settings.combat.chanceIfSameSize
-        }()
-        
-        return Int.random( in: 0 ... 100 ) <= chance
-    }
-    
     private func grow( _ grow: Bool )
     {
         if self.isBeingRemoved

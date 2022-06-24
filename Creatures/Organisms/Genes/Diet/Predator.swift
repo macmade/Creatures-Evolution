@@ -64,7 +64,7 @@ public class Predator: DietGene
             return
         }
         
-        if creature.fight( other: other )
+        if PredationHelper.attack( creature: creature, target: other )
         {
             if other.energy > 0
             {
