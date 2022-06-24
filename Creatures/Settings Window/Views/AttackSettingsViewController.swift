@@ -78,5 +78,14 @@ public class AttackSettingsViewController: SettingsViewController
                 SettingsIntSliderViewController( title: "Attacker chance if bigger:",    settings: self.settings, key: \.attack.chanceIfBigger,   minValue: 0, maxValue: 100 ),
             ]
         )
+        
+        self.addBox(
+            title: "Energy",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Cost for successfull attack:", settings: self.settings, key: \.attack.energyCostSuccess, minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Cost for failed attack:",      settings: self.settings, key: \.attack.energyCostFailure, minValue: 0, maxValue: 10 ),
+            ]
+        )
     }
 }

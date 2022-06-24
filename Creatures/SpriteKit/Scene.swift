@@ -56,6 +56,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         didSet
         {
             self.lastUpdateTime = nil
+            self.lastFPSCheck   = nil
         }
     }
     

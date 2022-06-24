@@ -77,9 +77,32 @@ public class PredationHelper
     
     public class func attack( creature: Creature, target: Creature ) -> Bool
     {
+        guard let settings = ( creature.scene as? Scene )?.settings else
+        {
+            return false
+        }
+        
         if creature.isBeingRemoved || target.isBeingRemoved
         {
             return false
+        }
+        
+        let updateCombatEnergy: ( Bool, Creature, Creature ) -> Bool =
+        {
+            success, attacker, defenser in
+            
+            if success
+            {
+                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? settings.attack.energyCostSuccess  : 0
+                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? settings.defense.energyCostFailure : 0
+            }
+            else
+            {
+                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? settings.attack.energyCostFailure  : 0
+                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? settings.defense.energyCostSuccess : 0
+            }
+            
+            return success
         }
         
         if let attack = creature.getGene( Attack.self ) as? Attack, let defense = target.getGene( Defense.self ) as? Defense
@@ -88,27 +111,27 @@ public class PredationHelper
             {
                 if attack.value == defense.value
                 {
-                    return Bool.random()
+                    return updateCombatEnergy( Bool.random(), creature, target )
                 }
                 
-                return attack.value > defense.value
+                return updateCombatEnergy( attack.value > defense.value, creature, target )
             }
             else if attack.isActive
             {
-                return true
+                return updateCombatEnergy( true, creature, target )
             }
             else if defense.isActive
             {
-                return false
+                return updateCombatEnergy( false, creature, target )
             }
         }
         else if let attack = creature.getGene( Attack.self ) as? Attack, attack.isActive
         {
-            return true
+            return updateCombatEnergy( true, creature, target )
         }
         else if let defense = creature.getGene( Defense.self ) as? Defense, defense.isActive
         {
-            return false
+            return updateCombatEnergy( false, creature, target )
         }
         
         let chance: Int =

@@ -39,4 +39,6 @@ public class DefenseSettings: NSObject, Codable
     @objc public dynamic var chanceIfSmaller        = 30
     @objc public dynamic var chanceIfSameSize       = 60
     @objc public dynamic var chanceIfBigger         = 90
+    @objc public dynamic var energyCostSuccess      = 0
+    @objc public dynamic var energyCostFailure      = 0
 }
