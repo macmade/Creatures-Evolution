@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class Vampire: Gene
+public class Vampire: DietGene
 {
     public override var canRegress: Bool
     {
@@ -45,22 +45,6 @@ public class Vampire: Gene
     public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
-    }
-    
-    public override var details: String?
-    {
-        if self.meals == 1
-        {
-            return "\( self.meals ) meal"
-        }
-        
-        return "\( self.meals ) meals"
-    }
-    
-    private dynamic var meals = 0
-    {
-        willSet { self.willChangeValue( for: \.details ) }
-        didSet  { self.didChangeValue(  for: \.details ) }
     }
     
     public override func copy( with zone: NSZone? = nil ) -> Any

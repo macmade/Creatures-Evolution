@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class Speed: Gene
+public class Speed: DoubleValueGene
 {
     public override var canRegress: Bool
     {
@@ -42,100 +42,19 @@ public class Speed: Gene
         "Speed"
     }
     
-    public override var details: String?
-    {
-        String( format: "%.02f", self.multiplier )
-    }
-    
     public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "hare.fill", accessibilityDescription: nil )
     }
     
-    public override var canIncreaseOrDecreaseValue: Bool
-    {
-        true
-    }
-    
-    public private( set ) var multiplier: Double
-    
-    public override init( active: Bool, settings: Settings )
-    {
-        self.multiplier = settings.speed.defaultMultiplier
-        
-        super.init( active: active, settings: settings )
-    }
+    public override var defaultValue:          Double { self.settings.speed.defaultMultiplier }
+    public override var minimumValue:          Double { self.settings.speed.minimumMultiplier }
+    public override var maximumValue:          Double { self.settings.speed.maximumMultiplier }
+    public override var minimumMutationChange: Double { self.settings.speed.minimumMutationChange }
+    public override var maximumMutationChange: Double { self.settings.speed.maximumMutationChange }
     
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
-        let copy        = Speed( active: self.isActive, settings: self.settings )
-        copy.multiplier = self.multiplier
-        
-        return copy
-    }
-    
-    public override func mutate() -> Bool
-    {
-        if self.isActive == false
-        {
-            self.isActive = true
-            
-            return true
-        }
-        
-        if self.canRegress && Bool.random()
-        {
-            self.isActive = false
-            
-            return true
-        }
-        
-        if self.settings.speed.minimumMutationChange > self.settings.speed.maximumMultiplier
-        {
-            return false
-        }
-        
-        let change = Double.random( in: self.settings.speed.minimumMutationChange ... self.settings.speed.maximumMutationChange )
-        
-        if Bool.random()
-        {
-            self.multiplier += change
-        }
-        else
-        {
-            self.multiplier -= change
-        }
-        
-        if self.multiplier < self.settings.speed.minimumMultiplier
-        {
-            self.multiplier = self.settings.speed.minimumMultiplier
-        }
-        
-        if self.multiplier > self.settings.speed.maximumMultiplier
-        {
-            self.multiplier = self.settings.speed.maximumMultiplier
-        }
-        
-        return true
-    }
-    
-    public override func increaseValue()
-    {
-        self.willChangeValue( for: \.details )
-        
-        let multiplier  = self.multiplier + 0.1
-        self.multiplier = multiplier > self.settings.speed.maximumMultiplier ? self.settings.speed.maximumMultiplier : multiplier
-        
-        self.didChangeValue( for: \.details )
-    }
-    
-    public override func decreaseValue()
-    {
-        self.willChangeValue( for: \.details )
-        
-        let multiplier  = self.multiplier - 0.1
-        self.multiplier = multiplier < self.settings.speed.minimumMultiplier ? self.settings.speed.minimumMultiplier : multiplier
-        
-        self.didChangeValue( for: \.details )
+        Speed( active: self.isActive, settings: self.settings, value: self.value )
     }
 }

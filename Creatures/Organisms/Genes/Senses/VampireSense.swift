@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class VampireSense: Gene
+public class VampireSense: IntValueGene
 {
     public override var canRegress: Bool
     {
@@ -47,9 +47,15 @@ public class VampireSense: Gene
         NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
     }
     
+    public override var defaultValue:          Int { self.settings.vampireSense.defaultDistance }
+    public override var minimumValue:          Int { self.settings.vampireSense.minimumDistance }
+    public override var maximumValue:          Int { self.settings.vampireSense.maximumDistance }
+    public override var minimumMutationChange: Int { self.settings.vampireSense.minimumMutationChange }
+    public override var maximumMutationChange: Int { self.settings.vampireSense.maximumMutationChange }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
-        VampireSense( active: self.isActive, settings: self.settings )
+        VampireSense( active: self.isActive, settings: self.settings, value: self.value )
     }
     
     public override func chooseDestination( creature: Creature ) -> Destination?
@@ -59,7 +65,7 @@ public class VampireSense: Gene
             $0.hasActiveGene( Vampire.self ) && PredationHelper.canBeEaten( creature: creature, by: $0 )
         }
         
-        if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: 100, predicate: predicate )
+        if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ), predicate: predicate )
         {
             return Destination( point: DistanceHelper.opposite( of: nearest.position, from: creature.position ), priority: .high )
         }

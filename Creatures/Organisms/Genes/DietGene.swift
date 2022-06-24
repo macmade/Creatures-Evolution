@@ -25,41 +25,21 @@
 import Cocoa
 import SpriteKit
 
-public class Scavenger: DietGene
+public class DietGene: Gene
 {
-    public override var canRegress: Bool
+    public override var details: String?
     {
-        self.settings.scavenger.canRegress
-    }
-    
-    public override var deactivates: [ String ]
-    {
-        self.settings.scavenger.deactivates
-    }
-    
-    public override var name: String
-    {
-        "Scavenger"
-    }
-    
-    public override var icon: NSImage?
-    {
-        NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
-    }
-    
-    public override func copy( with zone: NSZone? = nil ) -> Any
-    {
-        Scavenger( active: self.isActive, settings: self.settings )
-    }
-    
-    public override func onCollision( creature: Creature, node: SKNode )
-    {
-        if let meat = node as? Meat, meat.isBeingRemoved == false
+        if self.meals == 1
         {
-            meat.remove()
-            
-            creature.energy += meat.energy
-            self.meals      += 1
+            return "\( self.meals ) meal"
         }
+        
+        return "\( self.meals ) meals"
+    }
+    
+    public dynamic var meals = 0
+    {
+        willSet { self.willChangeValue( for: \.details ) }
+        didSet  { self.didChangeValue(  for: \.details ) }
     }
 }

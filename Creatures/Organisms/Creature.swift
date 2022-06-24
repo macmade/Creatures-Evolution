@@ -269,7 +269,7 @@ public class Creature: SpriteNode
         
         if let speed = self.getGene( Speed.self ) as? Speed, speed.isActive
         {
-            multiplier = speed.multiplier
+            multiplier = speed.value
         }
         
         let moveX      = SKAction.moveTo( x: destination.point.x, duration: duration / multiplier )
@@ -401,12 +401,12 @@ public class Creature: SpriteNode
             
             if combat1.isActive && combat2.isActive
             {
-                if combat1.multiplier == combat2.multiplier
+                if combat1.value == combat2.value
                 {
                     return Bool.random()
                 }
                 
-                return combat1.multiplier > combat2.multiplier
+                return combat1.value > combat2.value
             }
         }
         

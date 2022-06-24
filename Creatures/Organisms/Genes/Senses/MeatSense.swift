@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class MeatSense: Gene
+public class MeatSense: IntValueGene
 {
     public override var canRegress: Bool
     {
@@ -47,9 +47,15 @@ public class MeatSense: Gene
         NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
     }
     
+    public override var defaultValue:          Int { self.settings.meatSense.defaultDistance }
+    public override var minimumValue:          Int { self.settings.meatSense.minimumDistance }
+    public override var maximumValue:          Int { self.settings.meatSense.maximumDistance }
+    public override var minimumMutationChange: Int { self.settings.meatSense.minimumMutationChange }
+    public override var maximumMutationChange: Int { self.settings.meatSense.maximumMutationChange }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
-        MeatSense( active: self.isActive, settings: self.settings )
+        MeatSense( active: self.isActive, settings: self.settings, value: self.value )
     }
     
     public override func chooseDestination( creature: Creature ) -> Destination?
@@ -59,7 +65,7 @@ public class MeatSense: Gene
             return nil
         }
         
-        if let nearest: Meat = DistanceHelper.nearestObject( creature: creature, maxDistance: 100 )
+        if let nearest: Meat = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ) )
         {
             return Destination( point: nearest.position, priority: creature.energy == 0 ? .high : .normal )
         }

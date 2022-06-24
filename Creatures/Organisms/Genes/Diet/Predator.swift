@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class Predator: Gene
+public class Predator: DietGene
 {
     public override var canRegress: Bool
     {
@@ -45,22 +45,6 @@ public class Predator: Gene
     public override var icon: NSImage?
     {
         NSImage( systemSymbolName: "fork.knife", accessibilityDescription: nil )
-    }
-    
-    public override var details: String?
-    {
-        if self.kills == 1
-        {
-            return "\( self.kills ) kill"
-        }
-        
-        return "\( self.kills ) kills"
-    }
-    
-    private dynamic var kills = 0
-    {
-        willSet { self.willChangeValue( for: \.details ) }
-        didSet  { self.didChangeValue(  for: \.details ) }
     }
     
     public override func copy( with zone: NSZone? = nil ) -> Any
@@ -90,7 +74,7 @@ public class Predator: Gene
                 other.energy    -= energy
             }
             
-            self.kills += 1
+            self.meals += 1
             
             other.die( dropFood: true )
             EventLog.shared.killed( creature: other, by: creature )

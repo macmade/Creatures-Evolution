@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class SexSense: Gene
+public class SexSense: IntValueGene
 {
     public override var canRegress: Bool
     {
@@ -47,9 +47,15 @@ public class SexSense: Gene
         NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
     }
     
+    public override var defaultValue:          Int { self.settings.sexSense.defaultDistance }
+    public override var minimumValue:          Int { self.settings.sexSense.minimumDistance }
+    public override var maximumValue:          Int { self.settings.sexSense.maximumDistance }
+    public override var minimumMutationChange: Int { self.settings.sexSense.minimumMutationChange }
+    public override var maximumMutationChange: Int { self.settings.sexSense.maximumMutationChange }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
-        SexSense( active: self.isActive, settings: self.settings )
+        SexSense( active: self.isActive, settings: self.settings, value: self.value )
     }
     
     public override func chooseDestination( creature: Creature ) -> Destination?
@@ -64,7 +70,7 @@ public class SexSense: Gene
             ReproductionHelper.canMate( creature: creature, with: $0 )
         }
         
-        if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: 100, predicate: predicate )
+        if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ), predicate: predicate )
         {
             return Destination( point: nearest.position, priority: .normal )
         }

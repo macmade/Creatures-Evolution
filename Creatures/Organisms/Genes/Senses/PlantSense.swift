@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class PlantSense: Gene
+public class PlantSense: IntValueGene
 {
     public override var canRegress: Bool
     {
@@ -47,9 +47,15 @@ public class PlantSense: Gene
         NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
     }
     
+    public override var defaultValue:          Int { self.settings.plantSense.defaultDistance }
+    public override var minimumValue:          Int { self.settings.plantSense.minimumDistance }
+    public override var maximumValue:          Int { self.settings.plantSense.maximumDistance }
+    public override var minimumMutationChange: Int { self.settings.plantSense.minimumMutationChange }
+    public override var maximumMutationChange: Int { self.settings.plantSense.maximumMutationChange }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
-        PlantSense( active: self.isActive, settings: self.settings )
+        PlantSense( active: self.isActive, settings: self.settings, value: self.value )
     }
     
     public override func chooseDestination( creature: Creature ) -> Destination?
@@ -59,7 +65,7 @@ public class PlantSense: Gene
             return nil
         }
         
-        if let nearest: Plant = DistanceHelper.nearestObject( creature: creature, maxDistance: 100 )
+        if let nearest: Plant = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ) )
         {
             return Destination( point: nearest.position, priority: creature.energy == 0 ? .high : .normal )
         }

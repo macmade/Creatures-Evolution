@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class PreySense: Gene
+public class PreySense: IntValueGene
 {
     public override var canRegress: Bool
     {
@@ -47,9 +47,15 @@ public class PreySense: Gene
         NSImage( systemSymbolName: "sensor.tag.radiowaves.forward.fill", accessibilityDescription: nil )
     }
     
+    public override var defaultValue:          Int { self.settings.preySense.defaultDistance }
+    public override var minimumValue:          Int { self.settings.preySense.minimumDistance }
+    public override var maximumValue:          Int { self.settings.preySense.maximumDistance }
+    public override var minimumMutationChange: Int { self.settings.preySense.minimumMutationChange }
+    public override var maximumMutationChange: Int { self.settings.preySense.maximumMutationChange }
+    
     public override func copy( with zone: NSZone? = nil ) -> Any
     {
-        PreySense( active: self.isActive, settings: self.settings )
+        PreySense( active: self.isActive, settings: self.settings, value: self.value )
     }
     
     public override func chooseDestination( creature: Creature ) -> Destination?
@@ -64,7 +70,7 @@ public class PreySense: Gene
             PredationHelper.canEat( creature: creature, prey: $0 )
         }
         
-        if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: 100, predicate: predicate )
+        if let nearest: Creature = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ), predicate: predicate )
         {
             return Destination( point: nearest.position, priority: .normal )
         }
