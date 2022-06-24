@@ -62,7 +62,7 @@ public class MitosisSettingsViewController: SettingsViewController
             [
                 SettingsIntSliderViewController( title: "Energy needed:", settings: self.settings, key: \.mitosis.energyNeeded, minValue: 0, maxValue: 10 ),
                 SettingsIntSliderViewController( title: "Energy cost:",   settings: self.settings, key: \.mitosis.energyCost,   minValue: 0, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Recovery time:", settings: self.settings, key: \.mitosis.recoveryTime, minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Recovery time:", settings: self.settings, key: \.mitosis.recoveryTime, minValue: 1, maxValue: 10 ),
             ]
         )
         

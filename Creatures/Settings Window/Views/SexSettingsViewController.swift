@@ -62,7 +62,7 @@ public class SexSettingsViewController: SettingsViewController
             [
                 SettingsIntSliderViewController( title: "Energy needed:", settings: self.settings, key: \.sex.energyNeeded, minValue: 0, maxValue: 10 ),
                 SettingsIntSliderViewController( title: "Energy cost:",   settings: self.settings, key: \.sex.energyCost,   minValue: 0, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Recovery time:", settings: self.settings, key: \.sex.recoveryTime, minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Recovery time:", settings: self.settings, key: \.sex.recoveryTime, minValue: 1, maxValue: 10 ),
             ]
         )
         
