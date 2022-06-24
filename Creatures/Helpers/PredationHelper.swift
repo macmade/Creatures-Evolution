@@ -77,44 +77,49 @@ public class PredationHelper
             return false
         }
         
-        if let combat1 = creature.getGene( Combat.self ) as? Combat, let combat2 = target.getGene( Combat.self ) as? Combat
+        if let attack = creature.getGene( Attack.self ) as? Attack, let defense = target.getGene( Defense.self ) as? Defense
         {
-            if combat1.isActive && combat2.isActive == false
+            if attack.isActive && defense.isActive
             {
-                return true
-            }
-            
-            if combat1.isActive == false && combat2.isActive
-            {
-                return false
-            }
-            
-            if combat1.isActive && combat2.isActive
-            {
-                if combat1.value == combat2.value
+                if attack.value == defense.value
                 {
                     return Bool.random()
                 }
                 
-                return combat1.value > combat2.value
+                return attack.value > defense.value
             }
+            else if attack.isActive
+            {
+                return true
+            }
+            else if defense.isActive
+            {
+                return false
+            }
+        }
+        else if let attack = creature.getGene( Attack.self ) as? Attack, attack.isActive
+        {
+            return true
+        }
+        else if let defense = creature.getGene( Defense.self ) as? Defense, defense.isActive
+        {
+            return false
         }
         
         let chance: Int =
         {
             if creature.isSmallerThan( creature: target )
             {
-                return creature.settings.combat.chanceIfSmaller
+                return creature.settings.attack.chanceIfSmaller
             }
             else if creature.isBiggerThan( creature: target )
             {
-                return creature.settings.combat.chanceIfBigger
+                return creature.settings.attack.chanceIfBigger
             }
             
-            return creature.settings.combat.chanceIfSameSize
+            return creature.settings.attack.chanceIfSameSize
         }()
         
         return Int.random( in: 0 ... 100 ) <= chance
     }
-    
 }

@@ -68,8 +68,9 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                 title: "Abilities",
                 children:
                 [
-                    SettingsItem( title: "Speed", symbol: "hare.fill",    controller: SpeedSettingsViewController(  settings: self.settings ) ),
-                    SettingsItem( title: "Combat", symbol: "shield.fill", controller: CombatSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Speed",   symbol: "hare.fill",   controller: SpeedSettingsViewController(   settings: self.settings ) ),
+                    SettingsItem( title: "Attack",  symbol: "shield.fill", controller: AttackSettingsViewController(  settings: self.settings ) ),
+                    SettingsItem( title: "Defense", symbol: "shield.fill", controller: DefenseSettingsViewController( settings: self.settings ) ),
                 ]
             ),
             SettingsSection(

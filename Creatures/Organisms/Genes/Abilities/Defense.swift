@@ -23,19 +23,38 @@
  ******************************************************************************/
 
 import Cocoa
+import SpriteKit
 
-public class CombatSettings: NSObject, Codable
+public class Defense: DoubleValueGene
 {
-    @objc public dynamic var isEnabled              = true
-    @objc public dynamic var isActive               = false
-    @objc public dynamic var canRegress             = true
-    @objc public dynamic var deactivates            = [ String ]()
-    @objc public dynamic var defaultMultiplier      = 1.0
-    @objc public dynamic var minimumMultiplier      = 0.1
-    @objc public dynamic var maximumMultiplier      = 5.0
-    @objc public dynamic var minimumMutationChange  = 0.2
-    @objc public dynamic var maximumMutationChange  = 0.5
-    @objc public dynamic var chanceIfSmaller        = 30
-    @objc public dynamic var chanceIfSameSize       = 60
-    @objc public dynamic var chanceIfBigger         = 90
+    public override var canRegress: Bool
+    {
+        self.settings.defense.canRegress
+    }
+    
+    public override var deactivates: [ String ]
+    {
+        self.settings.defense.deactivates
+    }
+    
+    public override var name: String
+    {
+        "Defense"
+    }
+    
+    public override var icon: NSImage?
+    {
+        NSImage( systemSymbolName: "shield.fill", accessibilityDescription: nil )
+    }
+    
+    public override var defaultValue:          Double { self.settings.defense.defaultMultiplier }
+    public override var minimumValue:          Double { self.settings.defense.minimumMultiplier }
+    public override var maximumValue:          Double { self.settings.defense.maximumMultiplier }
+    public override var minimumMutationChange: Double { self.settings.defense.minimumMutationChange }
+    public override var maximumMutationChange: Double { self.settings.defense.maximumMutationChange }
+    
+    public override func copy( with zone: NSZone? = nil ) -> Any
+    {
+        Defense( active: self.isActive, settings: self.settings, value: self.value )
+    }
 }

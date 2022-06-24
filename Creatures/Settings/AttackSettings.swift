@@ -23,38 +23,19 @@
  ******************************************************************************/
 
 import Cocoa
-import SpriteKit
 
-public class Combat: DoubleValueGene
+public class AttackSettings: NSObject, Codable
 {
-    public override var canRegress: Bool
-    {
-        self.settings.combat.canRegress
-    }
-    
-    public override var deactivates: [ String ]
-    {
-        self.settings.combat.deactivates
-    }
-    
-    public override var name: String
-    {
-        "Combat"
-    }
-    
-    public override var icon: NSImage?
-    {
-        NSImage( systemSymbolName: "shield.fill", accessibilityDescription: nil )
-    }
-    
-    public override var defaultValue:          Double { self.settings.combat.defaultMultiplier }
-    public override var minimumValue:          Double { self.settings.combat.minimumMultiplier }
-    public override var maximumValue:          Double { self.settings.combat.maximumMultiplier }
-    public override var minimumMutationChange: Double { self.settings.combat.minimumMutationChange }
-    public override var maximumMutationChange: Double { self.settings.combat.maximumMutationChange }
-    
-    public override func copy( with zone: NSZone? = nil ) -> Any
-    {
-        Combat( active: self.isActive, settings: self.settings, value: self.value )
-    }
+    @objc public dynamic var isEnabled              = true
+    @objc public dynamic var isActive               = false
+    @objc public dynamic var canRegress             = true
+    @objc public dynamic var deactivates            = [ String ]()
+    @objc public dynamic var defaultMultiplier      = 1.0
+    @objc public dynamic var minimumMultiplier      = 0.1
+    @objc public dynamic var maximumMultiplier      = 5.0
+    @objc public dynamic var minimumMutationChange  = 0.2
+    @objc public dynamic var maximumMutationChange  = 0.5
+    @objc public dynamic var chanceIfSmaller        = 30
+    @objc public dynamic var chanceIfSameSize       = 60
+    @objc public dynamic var chanceIfBigger         = 90
 }
