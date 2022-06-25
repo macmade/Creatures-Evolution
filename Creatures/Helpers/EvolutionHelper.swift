@@ -109,7 +109,12 @@ public class EvolutionHelper
         
         var event: String?
         
-        for gene in copy.shuffled()
+        let mutable = copy.filter
+        {
+            self.canMute( gene: $0, genes: copy )
+        }
+        
+        for gene in mutable.shuffled()
         {
             let wasActive       = gene.isActive
             let previousDetails = gene.details
@@ -186,5 +191,18 @@ public class EvolutionHelper
         }
         
         return genes
+    }
+    
+    public class func canMute( gene: Gene, genes: [ Gene ] ) -> Bool
+    {
+        for other in genes
+        {
+            if gene.requires.contains( String( describing: type( of: other ) ) ) && other.isActive == false
+            {
+                return false
+            }
+        }
+        
+        return true
     }
 }
