@@ -96,6 +96,11 @@ public class Mitosis: Gene
             return
         }
         
+        if scene.children.compactMap( { $0 as? Creature } ).count >= scene.settings.creatures.maxNumber
+        {
+            return
+        }
+        
         self.lastUsed    = scene.elapsedTime
         creature.energy -= self.settings.mitosis.energyCost
         

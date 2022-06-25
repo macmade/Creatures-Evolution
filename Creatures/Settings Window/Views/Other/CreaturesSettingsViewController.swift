@@ -49,7 +49,8 @@ public class CreaturesSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsIntSliderViewController( title: "Initial amount:",        settings: self.settings, key: \.creatures.initialAmount,       minValue: 1, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Initial amount:",        settings: self.settings, key: \.creatures.initialAmount,       minValue:   1, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Maximum number:",        settings: self.settings, key: \.creatures.maxNumber,           minValue: 100, maxValue: 1000 ),
                 SettingsBoolViewController(      title: "Generate random names:", settings: self.settings, key: \.creatures.generateRandomNames, style: .asSwitch ),
             ]
         )

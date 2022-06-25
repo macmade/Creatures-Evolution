@@ -27,6 +27,7 @@ import Cocoa
 public class CreaturesSettings: NSObject, Codable
 {
     @objc public dynamic var initialAmount               = 5
+    @objc public dynamic var maxNumber                   = 500
     @objc public dynamic var generateRandomNames         = true
     @objc public dynamic var initialEnergy               = 1
     @objc public dynamic var energyNeededToGrow          = 2

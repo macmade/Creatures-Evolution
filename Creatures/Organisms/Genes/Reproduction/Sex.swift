@@ -141,6 +141,14 @@ public class Sex: Gene
             return
         }
         
+        let count     = scene.children.compactMap( { $0 as? Creature } ).count
+        let available = scene.settings.creatures.maxNumber - count
+        
+        if available <= 0
+        {
+            return
+        }
+        
         if self.isFemale
         {
             self.lastUsed    = scene.elapsedTime
@@ -157,7 +165,9 @@ public class Sex: Gene
                 other.isBaby = true
             }
             
-            for _ in 0 ..< self.settings.sex.maxNumberOfChildren
+            let children = min( Int.random( in: 1 ... self.settings.sex.maxNumberOfChildren ), available )
+            
+            for _ in 0 ..< children
             {
                 let genes       = EvolutionHelper.genes( from: creature, and: other )
                 let mutation    = EvolutionHelper.mutate( genes: genes, mutationChance: self.settings.sex.mutationChance )
