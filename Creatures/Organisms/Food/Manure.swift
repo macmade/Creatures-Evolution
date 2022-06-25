@@ -25,11 +25,11 @@
 import Cocoa
 import SpriteKit
 
-public class FoodDetailViewController: DetailViewController
+public class Manure: Food
 {
-    public init( food: Food )
+    public init( energy: Int, settings: Settings )
     {
-        super.init( node: food )
+        super.init( energy: energy, settings: settings, texture: "Manure", size: NSSize( width: 20, height: 20 ) )
     }
     
     public required init?( coder: NSCoder )
@@ -37,45 +37,23 @@ public class FoodDetailViewController: DetailViewController
         nil
     }
     
-    public override var nibName: NSNib.Name?
+    public override var canDisappear: Bool
     {
-        "FoodDetailViewController"
+        self.settings.manure.canDisappear
     }
     
-    public override func update()
+    public override var disappearAfter: Int
     {
-        super.update()
-        
-        if let _ = self.node as? Plant
-        {
-            self.title = "Plant"
-        }
-        else if let _ = self.node as? Meat
-        {
-            self.title = "Meat"
-        }
-        else if let _ = self.node as? Manure
-        {
-            self.title = "Manure"
-        }
-        else
-        {
-            self.title = "Food"
-        }
+        self.settings.manure.disappearAfter
     }
     
-    @IBAction public func increaseEnergy( _ sender: Any? )
+    public override var disappearAfterRange: Int
     {
-        ( self.node as? Food )?.energy += 1
+        self.settings.manure.disappearAfterRange
     }
     
-    @IBAction public func decreaseEnergy( _ sender: Any? )
+    public override func initialize()
     {
-        ( self.node as? Food )?.energy -= 1
-    }
-    
-    @IBAction public func kill( _ sender: Any? )
-    {
-        ( self.node as? Food )?.remove()
+        self.emit( effect: "Fly" )
     }
 }

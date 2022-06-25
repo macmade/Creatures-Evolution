@@ -77,12 +77,12 @@ import SpriteKit
         0
     }
     
-    public init( energy: Int, settings: Settings, texture: String )
+    public init( energy: Int, settings: Settings, texture: String, size: NSSize = NSSize( width: 30, height: 30 ) )
     {
         self.energy   = energy
         self.settings = settings
         
-        super.init( texture: ImageTexture.texture( named: texture ), color: NSColor.clear, size: NSSize( width: 30, height: 30 ) )
+        super.init( texture: ImageTexture.texture( named: texture ), color: NSColor.clear, size: size )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
@@ -101,16 +101,6 @@ import SpriteKit
         self.willChangeValue( for: \.isAlive )
         super.remove()
         self.didChangeValue( for: \.isAlive )
-    }
-    
-    public override func toggleHighlight()
-    {
-        self.toggleHighlight( radius: 20 )
-    }
-    
-    public override func highlight( _ flag: Bool )
-    {
-        self.highlight( flag, radius: 20 )
     }
     
     public override func update( elapsedTime: TimeInterval )

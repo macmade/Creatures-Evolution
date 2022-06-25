@@ -132,6 +132,8 @@
 		056D66352866959B0036E30F /* Excretion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66342866959B0036E30F /* Excretion.swift */; };
 		056D6637286697E80036E30F /* ManureSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6636286697E80036E30F /* ManureSettings.swift */; };
 		056D6639286698440036E30F /* ManureSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6638286698440036E30F /* ManureSettingsViewController.swift */; };
+		056D663B2866999B0036E30F /* Manure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D663A2866999B0036E30F /* Manure.swift */; };
+		056D663D2866A0350036E30F /* Fly.sks in Resources */ = {isa = PBXBuildFile; fileRef = 056D663C2866A0350036E30F /* Fly.sks */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -356,6 +358,8 @@
 		056D66342866959B0036E30F /* Excretion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excretion.swift; sourceTree = "<group>"; };
 		056D6636286697E80036E30F /* ManureSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSettings.swift; sourceTree = "<group>"; };
 		056D6638286698440036E30F /* ManureSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSettingsViewController.swift; sourceTree = "<group>"; };
+		056D663A2866999B0036E30F /* Manure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manure.swift; sourceTree = "<group>"; };
+		056D663C2866A0350036E30F /* Fly.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fly.sks; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -633,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				05252EA62854E9210090B385 /* Food.swift */,
+				056D663A2866999B0036E30F /* Manure.swift */,
 				05252EAA2854E9310090B385 /* Meat.swift */,
 				05252EA82854E9290090B385 /* Plant.swift */,
 			);
@@ -848,6 +853,7 @@
 		05A334422862410600905208 /* Effects */ = {
 			isa = PBXGroup;
 			children = (
+				056D663C2866A0350036E30F /* Fly.sks */,
 				05A3346A2862620900905208 /* Heart.sks */,
 				05A334472862470F00905208 /* Rot.sks */,
 				05EDA9BB2865E7CD00F18B77 /* Skull.sks */,
@@ -1024,6 +1030,7 @@
 				05EDA9212863D7CD00F18B77 /* SettingsImageViewController.xib in Resources */,
 				05252F092855E1F40090B385 /* SettingsWindowController.xib in Resources */,
 				05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */,
+				056D663D2866A0350036E30F /* Fly.sks in Resources */,
 				05A334812863243D00905208 /* SettingsSliderViewController.xib in Resources */,
 				05EDA9262863DD2000F18B77 /* WelcomeWindowController.xib in Resources */,
 				05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */,
@@ -1165,6 +1172,7 @@
 				051020BB285B6B8400F11184 /* EnergyTransformer.swift in Sources */,
 				05EDA96B2865325C00F18B77 /* ReproductionHelper.swift in Sources */,
 				05252EA92854E9290090B385 /* Plant.swift in Sources */,
+				056D663B2866999B0036E30F /* Manure.swift in Sources */,
 				05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */,
 				05394A3C28607C700077D90C /* SpeedSettings.swift in Sources */,
 				0510208E285AAE2300F11184 /* CreatureDetailViewController.swift in Sources */,

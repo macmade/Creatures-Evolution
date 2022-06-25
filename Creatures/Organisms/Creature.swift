@@ -500,16 +500,6 @@ public class Creature: SpriteNode
         self.customNameLabel = nil
     }
     
-    public override func toggleHighlight()
-    {
-        self.toggleHighlight( radius: 25 )
-    }
-    
-    public override func highlight( _ flag: Bool )
-    {
-        self.highlight( flag, radius: 25 )
-    }
-    
     public override func highlight( _ flag: Bool, radius: Double )
     {
         super.highlight( flag, radius: radius )

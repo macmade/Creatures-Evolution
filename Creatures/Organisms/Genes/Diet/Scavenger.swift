@@ -74,5 +74,12 @@ public class Scavenger: DietGene
             
             self.meals += 1
         }
+        else if let manure = node as? Manure, manure.isBeingRemoved == false, self.settings.scavenger.canEatManure
+        {
+            creature.eat( energy: manure.energy )
+            manure.remove()
+            
+            self.meals += 1
+        }
     }
 }

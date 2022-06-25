@@ -161,7 +161,9 @@ public class SpriteNode: SKSpriteNode
     
     public func highlight( _ flag: Bool )
     {
-        self.highlight( flag, radius: max( self.size.width, self.size.height ) )
+        let size = max( self.size.width / self.xScale, self.size.height / self.yScale )
+        
+        self.highlight( flag, radius: ( size / 2.0 ) + 5 )
     }
     
     public func highlight( _ flag: Bool, radius: Double )

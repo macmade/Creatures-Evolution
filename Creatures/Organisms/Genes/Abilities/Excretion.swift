@@ -59,6 +59,16 @@ public class Excretion: Gene
     
     public override func onFoodConsumption( creature: Creature, energy: Int ) -> Int
     {
+        if self.settings.manure.isEnabled, energy < 0, let scene = creature.scene
+        {
+            let manure      = Manure( energy: abs( energy ), settings: self.settings )
+            manure.position = creature.position
+            manure.alpha    = 0
+            
+            scene.addChild( manure )
+            manure.run( SKAction.fadeIn( withDuration: 1 ) )
+        }
+        
         return energy < 0 ? 0 : energy
     }
 }
