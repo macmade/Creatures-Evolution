@@ -213,7 +213,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             self.lastFPSCheck = nil
             self.frames       = 0
             
-            if fps < 15 && self.ignoreBadPerformance == false
+            if fps < 10 && self.ignoreBadPerformance == false
             {
                 self.performanceWarning( fps: Int( fps ) )
             }
