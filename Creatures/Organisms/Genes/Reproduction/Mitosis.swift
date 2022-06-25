@@ -42,6 +42,11 @@ public class Mitosis: Gene
         self.settings.mitosis.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.mitosis.requires
+    }
+    
     public override var name: String
     {
         "Mitosis"

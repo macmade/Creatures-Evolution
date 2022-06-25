@@ -42,6 +42,11 @@ public class Speed: DoubleValueGene
         self.settings.speed.activates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.speed.requires
+    }
+    
     public override var name: String
     {
         "Speed"

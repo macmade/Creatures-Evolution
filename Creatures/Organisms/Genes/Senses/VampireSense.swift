@@ -42,6 +42,11 @@ public class VampireSense: IntValueGene
         self.settings.vampireSense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.vampireSense.requires
+    }
+    
     public override var name: String
     {
         "Vampire Sense"

@@ -42,6 +42,11 @@ public class PredatorSense: IntValueGene
         self.settings.predatorSense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.predatorSense.requires
+    }
+    
     public override var name: String
     {
         "Predator Sense"

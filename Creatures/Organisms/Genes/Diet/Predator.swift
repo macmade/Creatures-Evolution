@@ -42,6 +42,11 @@ public class Predator: DietGene
         self.settings.predator.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.predator.requires
+    }
+    
     public override var name: String
     {
         "Predator"

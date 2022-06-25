@@ -42,6 +42,11 @@ public class ManureSense: IntValueGene
         self.settings.manureSense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.manureSense.requires
+    }
+    
     public override var name: String
     {
         "Manure Sense"

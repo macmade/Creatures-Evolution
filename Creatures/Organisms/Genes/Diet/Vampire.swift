@@ -42,6 +42,11 @@ public class Vampire: DietGene
         self.settings.vampire.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.vampire.requires
+    }
+    
     public override var name: String
     {
         "Vampire"

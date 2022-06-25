@@ -42,6 +42,11 @@ public class Abnegation: IntValueGene
         self.settings.abnegation.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.abnegation.requires
+    }
+    
     public override var name: String
     {
         "Abnegation"

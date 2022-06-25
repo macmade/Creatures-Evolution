@@ -42,6 +42,11 @@ public class Herbivore: DietGene
         self.settings.herbivore.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.herbivore.requires
+    }
+    
     public override var name: String
     {
         "Herbivore"

@@ -42,6 +42,11 @@ public class Excretion: Gene
         self.settings.excretion.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.excretion.requires
+    }
+    
     public override var name: String
     {
         "Excretion"

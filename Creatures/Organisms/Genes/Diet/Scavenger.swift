@@ -42,6 +42,11 @@ public class Scavenger: DietGene
         self.settings.scavenger.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.scavenger.requires
+    }
+    
     public override var name: String
     {
         "Scavenger"

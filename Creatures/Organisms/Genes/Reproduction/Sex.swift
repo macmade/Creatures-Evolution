@@ -42,6 +42,11 @@ public class Sex: Gene
         self.settings.sex.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.sex.requires
+    }
+    
     public override var name: String
     {
         "Sex"

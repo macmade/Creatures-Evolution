@@ -42,6 +42,11 @@ public class Defense: DoubleValueGene
         self.settings.defense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.defense.requires
+    }
+    
     public override var name: String
     {
         "Defense"

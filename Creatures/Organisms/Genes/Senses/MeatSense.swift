@@ -42,6 +42,11 @@ public class MeatSense: IntValueGene
         self.settings.meatSense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.meatSense.requires
+    }
+    
     public override var name: String
     {
         "Meat Sense"

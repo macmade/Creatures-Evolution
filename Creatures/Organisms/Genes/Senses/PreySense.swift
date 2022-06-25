@@ -42,6 +42,11 @@ public class PreySense: IntValueGene
         self.settings.preySense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.preySense.requires
+    }
+    
     public override var name: String
     {
         "Prey Sense"

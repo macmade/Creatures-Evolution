@@ -94,7 +94,7 @@ public class Creature: SpriteNode
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
         physicsBody.isDynamic          = true
-        physicsBody.categoryBitMask    = Constants.organismPhysicsCategory
+        physicsBody.categoryBitMask    = Constants.creaturePhysicsCategory
         physicsBody.contactTestBitMask = physicsBody.collisionBitMask
         
         self.physicsBody  = physicsBody

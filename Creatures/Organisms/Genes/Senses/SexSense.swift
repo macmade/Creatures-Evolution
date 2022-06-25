@@ -42,6 +42,11 @@ public class SexSense: IntValueGene
         self.settings.sexSense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.sexSense.requires
+    }
+    
     public override var name: String
     {
         "Sex Sense"

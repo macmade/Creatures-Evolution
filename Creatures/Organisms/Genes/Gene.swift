@@ -45,6 +45,11 @@ public class Gene: NSObject, NSCopying
         []
     }
     
+    @objc public var requires: [ String ]
+    {
+        []
+    }
+    
     @objc public var name: String
     {
         ""

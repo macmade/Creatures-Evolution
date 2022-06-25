@@ -42,6 +42,11 @@ public class PlantSense: IntValueGene
         self.settings.plantSense.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.plantSense.requires
+    }
+    
     public override var name: String
     {
         "Plant Sense"

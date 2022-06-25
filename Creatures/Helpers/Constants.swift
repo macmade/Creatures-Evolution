@@ -27,7 +27,7 @@ import Foundation
 public class Constants
 {
     public static let foodPhysicsCategory:     UInt32 = 1 << 0
-    public static let organismPhysicsCategory: UInt32 = 1 << 1
+    public static let creaturePhysicsCategory: UInt32 = 1 << 1
     
     public static let creatureDieNotification  = Notification.Name( "Creature.Die" )
     public static let creatureBornNotification = Notification.Name( "Creature.Born" )

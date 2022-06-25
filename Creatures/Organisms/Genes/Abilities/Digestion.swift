@@ -42,6 +42,11 @@ public class Digestion: DoubleValueGene
         self.settings.digestion.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.digestion.requires
+    }
+    
     public override var name: String
     {
         "Digestion"

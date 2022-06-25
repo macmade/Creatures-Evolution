@@ -42,6 +42,11 @@ public class Attack: DoubleValueGene
         self.settings.attack.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.attack.requires
+    }
+    
     public override var name: String
     {
         "Attack"

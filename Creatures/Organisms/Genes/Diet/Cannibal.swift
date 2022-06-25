@@ -42,6 +42,11 @@ public class Cannibal: Gene
         self.settings.cannibal.deactivates
     }
     
+    public override var requires: [ String ]
+    {
+        self.settings.cannibal.requires
+    }
+    
     public override var name: String
     {
         "Cannibal"
