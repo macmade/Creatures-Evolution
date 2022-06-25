@@ -84,6 +84,10 @@ public class GeneInfo: NSObject
             {
                 Digestion( active: $0.isActive, settings: $0.settings )
             },
+            GeneInfo( settings: settings, isEnabledKey: \.excretion.isEnabled, isActiveKey: \.excretion.isActive )
+            {
+                Excretion( active: $0.isActive, settings: $0.settings )
+            },
             GeneInfo( settings: settings, isEnabledKey: \.speed.isEnabled, isActiveKey: \.speed.isActive )
             {
                 Speed( active: $0.isActive, settings: $0.settings )

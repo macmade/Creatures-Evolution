@@ -75,6 +75,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                     SettingsItem( title: "Attack",     symbol: "SwordsTemplate",    controller: AttackSettingsViewController(     settings: self.settings ) ),
                     SettingsItem( title: "Defense",    symbol: "shield.fill",       controller: DefenseSettingsViewController(    settings: self.settings ) ),
                     SettingsItem( title: "Digestion",  symbol: "mouth.fill",        controller: DigestionSettingsViewController(  settings: self.settings ) ),
+                    SettingsItem( title: "Excretion",  symbol: "trash.fill",        controller: ExcretionSettingsViewController(  settings: self.settings ) ),
                     SettingsItem( title: "Speed",      symbol: "hare.fill",         controller: SpeedSettingsViewController(      settings: self.settings ) ),
                 ]
             ),

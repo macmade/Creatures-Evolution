@@ -127,6 +127,9 @@
 		056D6618286653A80036E30F /* DigestionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6617286653A80036E30F /* DigestionSettings.swift */; };
 		056D661A286654800036E30F /* DigestionSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6619286654800036E30F /* DigestionSettingsViewController.swift */; };
 		056D662F28668FB70036E30F /* ImageTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D662E28668FB70036E30F /* ImageTexture.swift */; };
+		056D6631286694A90036E30F /* ExcretionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6630286694A90036E30F /* ExcretionSettings.swift */; };
+		056D6633286694F30036E30F /* ExcretionSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6632286694F30036E30F /* ExcretionSettingsViewController.swift */; };
+		056D66352866959B0036E30F /* Excretion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66342866959B0036E30F /* Excretion.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -346,6 +349,9 @@
 		056D6617286653A80036E30F /* DigestionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestionSettings.swift; sourceTree = "<group>"; };
 		056D6619286654800036E30F /* DigestionSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestionSettingsViewController.swift; sourceTree = "<group>"; };
 		056D662E28668FB70036E30F /* ImageTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTexture.swift; sourceTree = "<group>"; };
+		056D6630286694A90036E30F /* ExcretionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcretionSettings.swift; sourceTree = "<group>"; };
+		056D6632286694F30036E30F /* ExcretionSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcretionSettingsViewController.swift; sourceTree = "<group>"; };
+		056D66342866959B0036E30F /* Excretion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excretion.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -648,6 +654,7 @@
 				05252F7A285837AD0090B385 /* CreaturesSettings.swift */,
 				05EDA9A6286555D700F18B77 /* DefenseSettings.swift */,
 				056D6617286653A80036E30F /* DigestionSettings.swift */,
+				056D6630286694A90036E30F /* ExcretionSettings.swift */,
 				05102061285A192800F11184 /* HerbivoreSettings.swift */,
 				0510205A285A192800F11184 /* MeatSenseSettings.swift */,
 				05252F70285819A60090B385 /* MeatSettings.swift */,
@@ -771,6 +778,7 @@
 				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
 				05EDA9A82865564100F18B77 /* DefenseSettingsViewController.swift */,
 				056D6619286654800036E30F /* DigestionSettingsViewController.swift */,
+				056D6632286694F30036E30F /* ExcretionSettingsViewController.swift */,
 				05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */,
 				0510205E285A192800F11184 /* MeatSenseSettingsViewController.swift */,
 				05252F6F285819A60090B385 /* MeatSettingsViewController.swift */,
@@ -919,6 +927,7 @@
 				05A334BB2863863800905208 /* Attack.swift */,
 				05EDA9AA286556EC00F18B77 /* Defense.swift */,
 				056D6615286652F30036E30F /* Digestion.swift */,
+				056D66342866959B0036E30F /* Excretion.swift */,
 				05394A3928607C1B0077D90C /* Speed.swift */,
 			);
 			path = Abilities;
@@ -1100,9 +1109,11 @@
 				053949E3285B97280077D90C /* LabelNode.swift in Sources */,
 				05102073285A192800F11184 /* HerbivoreSettingsViewController.swift in Sources */,
 				05A334BE2863877600905208 /* AttackSettings.swift in Sources */,
+				056D6631286694A90036E30F /* ExcretionSettings.swift in Sources */,
 				05394A5628608C240077D90C /* SpeedSettingsViewController.swift in Sources */,
 				05EDA9A528654FEE00F18B77 /* IntValueGene.swift in Sources */,
 				05394A07285F6DDC0077D90C /* StatsViewController.swift in Sources */,
+				056D66352866959B0036E30F /* Excretion.swift in Sources */,
 				05EDA9A328654F8A00F18B77 /* DoubleValueGene.swift in Sources */,
 				05252F73285819A60090B385 /* MeatSettingsViewController.swift in Sources */,
 				05B8A3622861F2F3007870B3 /* Credit.swift in Sources */,
@@ -1117,6 +1128,7 @@
 				051A33442862075A001B605D /* Bundle.swift in Sources */,
 				051020E0285B79AF00F11184 /* ClassTransformer.swift in Sources */,
 				05394A742860DC370077D90C /* NameGenerator.swift in Sources */,
+				056D6633286694F30036E30F /* ExcretionSettingsViewController.swift in Sources */,
 				05394A0B285F761E0077D90C /* TimeTransformer.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */,
