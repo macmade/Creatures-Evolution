@@ -59,6 +59,11 @@ public class CreatureDetailViewController: DetailViewController, NSTableViewDele
     {
         super.viewDidLoad()
         self.update()
+        
+        self.genesController.sortDescriptors =
+        [
+            NSSortDescriptor( key: "name", ascending: true )
+        ]
     }
     
     public func tableView( _ tableView: NSTableView, rowViewForRow row: Int ) -> NSTableRowView?
