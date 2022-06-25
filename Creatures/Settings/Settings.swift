@@ -30,6 +30,7 @@ public class Settings: NSObject, Codable
     @objc public dynamic var creatures      = CreaturesSettings()
     @objc public dynamic var plants         = PlantsSettings()
     @objc public dynamic var meat           = MeatSettings()
+    @objc public dynamic var manure         = ManureSettings()
     @objc public dynamic var speed          = SpeedSettings()
     @objc public dynamic var attack         = AttackSettings()
     @objc public dynamic var defense        = DefenseSettings()

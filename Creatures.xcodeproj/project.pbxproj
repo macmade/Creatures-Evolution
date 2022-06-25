@@ -130,6 +130,8 @@
 		056D6631286694A90036E30F /* ExcretionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6630286694A90036E30F /* ExcretionSettings.swift */; };
 		056D6633286694F30036E30F /* ExcretionSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6632286694F30036E30F /* ExcretionSettingsViewController.swift */; };
 		056D66352866959B0036E30F /* Excretion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66342866959B0036E30F /* Excretion.swift */; };
+		056D6637286697E80036E30F /* ManureSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6636286697E80036E30F /* ManureSettings.swift */; };
+		056D6639286698440036E30F /* ManureSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6638286698440036E30F /* ManureSettingsViewController.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -352,6 +354,8 @@
 		056D6630286694A90036E30F /* ExcretionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcretionSettings.swift; sourceTree = "<group>"; };
 		056D6632286694F30036E30F /* ExcretionSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcretionSettingsViewController.swift; sourceTree = "<group>"; };
 		056D66342866959B0036E30F /* Excretion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excretion.swift; sourceTree = "<group>"; };
+		056D6636286697E80036E30F /* ManureSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSettings.swift; sourceTree = "<group>"; };
+		056D6638286698440036E30F /* ManureSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSettingsViewController.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -656,6 +660,7 @@
 				056D6617286653A80036E30F /* DigestionSettings.swift */,
 				056D6630286694A90036E30F /* ExcretionSettings.swift */,
 				05102061285A192800F11184 /* HerbivoreSettings.swift */,
+				056D6636286697E80036E30F /* ManureSettings.swift */,
 				0510205A285A192800F11184 /* MeatSenseSettings.swift */,
 				05252F70285819A60090B385 /* MeatSettings.swift */,
 				05252F5E2858011B0090B385 /* MitosisSettings.swift */,
@@ -780,6 +785,7 @@
 				056D6619286654800036E30F /* DigestionSettingsViewController.swift */,
 				056D6632286694F30036E30F /* ExcretionSettingsViewController.swift */,
 				05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */,
+				056D6638286698440036E30F /* ManureSettingsViewController.swift */,
 				0510205E285A192800F11184 /* MeatSenseSettingsViewController.swift */,
 				05252F6F285819A60090B385 /* MeatSettingsViewController.swift */,
 				05252F512857FBEC0090B385 /* MitosisSettingsViewController.swift */,
@@ -1078,6 +1084,7 @@
 				0510206E285A192800F11184 /* MeatSenseSettingsViewController.swift in Sources */,
 				0510206D285A192800F11184 /* ScavengerSettingsViewController.swift in Sources */,
 				05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */,
+				056D6637286697E80036E30F /* ManureSettings.swift in Sources */,
 				05EDA9A7286555D700F18B77 /* DefenseSettings.swift in Sources */,
 				05EDA9BE2865F67100F18B77 /* AbnegationSettings.swift in Sources */,
 				05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */,
@@ -1138,6 +1145,7 @@
 				053949FA285EBA9B0077D90C /* FlippedView.swift in Sources */,
 				05394A34285FAB600077D90C /* CreatureStatusItem.swift in Sources */,
 				05102072285A192800F11184 /* PredatorSettingsViewController.swift in Sources */,
+				056D6639286698440036E30F /* ManureSettingsViewController.swift in Sources */,
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
 				051020B5285B558F00F11184 /* NegateBooleanTransformer.swift in Sources */,
 				05252EB72854E96F0090B385 /* Mitosis.swift in Sources */,

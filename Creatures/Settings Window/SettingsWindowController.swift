@@ -59,11 +59,12 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
             ),
             SettingsSection(
                 title: "Food",
-                sort:  true,
+                sort:  false,
                 children:
                 [
-                    SettingsItem( title: "Meat",      symbol: "takeoutbag.and.cup.and.straw.fill", controller: MeatSettingsViewController(      settings: self.settings ) ),
-                    SettingsItem( title: "Plants",    symbol: "takeoutbag.and.cup.and.straw.fill", controller: PlantsSettingsViewController(    settings: self.settings ) ),
+                    SettingsItem( title: "Plants", symbol: "takeoutbag.and.cup.and.straw.fill", controller: PlantsSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Meat",   symbol: "takeoutbag.and.cup.and.straw.fill", controller: MeatSettingsViewController(   settings: self.settings ) ),
+                    SettingsItem( title: "Manure", symbol: "takeoutbag.and.cup.and.straw.fill", controller: ManureSettingsViewController( settings: self.settings ) ),
                 ]
             ),
             SettingsSection(

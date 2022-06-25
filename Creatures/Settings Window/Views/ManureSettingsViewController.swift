@@ -24,11 +24,11 @@
 
 import Cocoa
 
-public class ScavengerSettingsViewController: SettingsViewController
+public class ManureSettingsViewController: SettingsViewController
 {
     public init( settings: Settings )
     {
-        super.init( title: "Scavenger", settings: settings, enabled: \.scavenger.isEnabled )
+        super.init( title: "Manure", settings: settings, enabled: \.manure.isEnabled )
     }
     
     required init?( coder: NSCoder )
@@ -38,32 +38,39 @@ public class ScavengerSettingsViewController: SettingsViewController
     
     public override func restoreDefaults()
     {
-        self.settings.scavenger = ScavengerSettings()
+        self.settings.manure = ManureSettings()
     }
     
     public override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        self.helpText = "Creatures evolving this gene will use meat dropped by dead creatures as food source."
+        self.helpText = "If enabled, creatures having evolved the digestion gene will drop manure when ingesting spoiled food."
         
         self.addBox(
             title: "General",
             controllers:
             [
-                SettingsBoolViewController( title: "Activate gene at start", settings: self.settings, key: \.scavenger.isActive ),
-                SettingsBoolViewController( title: "Allow gene to regress",  settings: self.settings, key: \.scavenger.canRegress ),
-                SettingsSeparatorViewController(),
-                SettingsGeneActivationViewController( title: "Activates:",   gene: Scavenger.self, settings: self.settings, key: \.scavenger.activates ),
-                SettingsGeneActivationViewController( title: "Deactivates:", gene: Scavenger.self, settings: self.settings, key: \.scavenger.deactivates ),
+                SettingsBoolViewController( title: "Manure can disappear",    settings: self.settings, key: \.manure.canDisappear ),
+                SettingsBoolViewController( title: "Manure can become plant", settings: self.settings, key: \.manure.canBecomePlant ),
             ]
         )
         
         self.addBox(
-            title: "Other",
+            title: "Lifetime",
             controllers:
             [
-                SettingsBoolViewController( title: "Can eat manure", settings: self.settings, key: \.scavenger.canEatManure ),
+                SettingsIntSliderViewController( title: "Disappear after:",              settings: self.settings, key: \.manure.disappearAfter,      minValue: 1, maxValue: 60 ),
+                SettingsIntSliderViewController( title: "Disappear after (randomness):", settings: self.settings, key: \.manure.disappearAfterRange, minValue: 0, maxValue: 60 ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Plant",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Become plant after:",              settings: self.settings, key: \.manure.becomePlantAfter,      minValue: 1, maxValue: 60 ),
+                SettingsIntSliderViewController( title: "Become plant after (randomness):", settings: self.settings, key: \.manure.becomePlantAfterRange, minValue: 0, maxValue: 60 ),
             ]
         )
     }

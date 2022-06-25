@@ -31,4 +31,5 @@ public class ScavengerSettings: NSObject, Codable
     @objc public dynamic var canRegress   = false
     @objc public dynamic var activates    = [ String ]()
     @objc public dynamic var deactivates  = [ "Herbivore", "Predator", "Vampire" ]
+    @objc public dynamic var canEatManure = true
 }
