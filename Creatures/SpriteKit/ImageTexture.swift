@@ -25,49 +25,35 @@
 import Cocoa
 import SpriteKit
 
-public class Event: NSObject
+public class ImageTexture: SKTexture
 {
-    @objc public private( set ) dynamic      var message:  String
-    @objc public private( set ) dynamic      var time:     TimeInterval
-    @objc public private( set ) dynamic weak var node:     SKNode?
-    @objc public private( set ) dynamic      var image:    NSImage?
-    @objc public private( set ) dynamic      var nodeName: String?
-    @objc public                dynamic      var index   = 0
+    private static var cache = [ String : ImageTexture ]()
     
-    private let uid = UUID()
+    @objc public private( set ) dynamic var name:  String = ""
+    @objc public private( set ) dynamic var image: NSImage?
     
-    public init( message: String, time: TimeInterval, node: SKNode? )
+    public class func texture( named name: String ) -> ImageTexture
     {
-        self.message  = message
-        self.time     = time
-        self.node     = node
-        
-        if let creature = node as? Creature, let name = creature.customName, name.isEmpty == false
+        if let texture = self.cache[ name ]
         {
-            self.nodeName = name
-        }
-        else if let name = node?.name, name.isEmpty == false
-        {
-            self.nodeName = name
-        }
-        else
-        {
-            self.nodeName = "<unknown>"
+            return texture
         }
         
-        if let sprite = node as? SKSpriteNode, let texture = sprite.texture as? ImageTexture
-        {
-            self.image = texture.image
-        }
+        let texture        = ImageTexture( imageNamed: name )
+        texture.name       = name
+        texture.image      = NSImage( named: name )
+        self.cache[ name ] = texture
+        
+        return texture
     }
     
-    public override func isEqual( to object: Any? ) -> Bool
+    private override init()
     {
-        guard let event = object as? Event else
-        {
-            return false
-        }
-        
-        return self.uid == event.uid
+        super.init()
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
     }
 }

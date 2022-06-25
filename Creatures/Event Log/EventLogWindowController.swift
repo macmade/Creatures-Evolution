@@ -29,11 +29,18 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
 {
     @objc private dynamic var log      = EventLog.shared
     @objc private dynamic var isPaused = false
+    @objc private dynamic var events   = [ Event ]()
     
     @IBOutlet private var eventsController: NSArrayController!
     @IBOutlet private var searchField:      NSSearchField!
     
     private var pauseObserver: NSKeyValueObservation?
+    private var updateTimer:   Timer?
+    
+    deinit
+    {
+        self.updateTimer?.invalidate()
+    }
     
     public override var windowNibName: NSNib.Name?
     {
@@ -57,6 +64,11 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
             return
         }
         
+        self.updateTimer = Timer.scheduledTimer( withTimeInterval: 1, repeats: true )
+        {
+            [ weak self ] _ in self?.update()
+        }
+        
         self.pauseObserver = mainWindowController.observe( \.isPaused )
         {
             [ weak self ] _, _ in self?.isPaused = mainWindowController.isPaused
@@ -65,6 +77,11 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
         self.isPaused = mainWindowController.isPaused
         
         self.focusSearchField()
+    }
+    
+    private func update()
+    {
+        self.events = self.log.events
     }
     
     @IBAction @objc public func showNode( _ event: Event )

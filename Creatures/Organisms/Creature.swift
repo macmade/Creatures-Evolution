@@ -429,23 +429,23 @@ public class Creature: SpriteNode
     {
         if self.hasActiveGene( Vampire.self )
         {
-            self.texture = SKTexture( imageNamed: "Vampire" )
+            self.texture = ImageTexture.texture( named: "Vampire" )
         }
         else if self.hasActiveGene( Predator.self )
         {
-            self.texture = SKTexture( imageNamed: "Predator" )
+            self.texture = ImageTexture.texture( named: "Predator" )
         }
         else if self.hasActiveGene( Scavenger.self )
         {
-            self.texture = SKTexture( imageNamed: "Scavenger" )
+            self.texture = ImageTexture.texture( named: "Scavenger" )
         }
         else if self.hasActiveGene( Herbivore.self )
         {
-            self.texture = SKTexture( imageNamed: "Herbivore" )
+            self.texture = ImageTexture.texture( named: "Herbivore" )
         }
         else
         {
-            self.texture = SKTexture( imageNamed: "Basic" )
+            self.texture = ImageTexture.texture( named: "Basic" )
         }
     }
     

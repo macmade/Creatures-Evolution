@@ -82,7 +82,7 @@ import SpriteKit
         self.energy   = energy
         self.settings = settings
         
-        super.init( texture: SKTexture( imageNamed: texture ), color: NSColor.clear, size: NSSize( width: 30, height: 30 ) )
+        super.init( texture: ImageTexture.texture( named: texture ), color: NSColor.clear, size: NSSize( width: 30, height: 30 ) )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false

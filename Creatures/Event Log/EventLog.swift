@@ -29,7 +29,7 @@ public class EventLog: NSObject
 {
     public static let shared = EventLog()
     
-    @objc public private( set ) dynamic var events: [ Event ] = []
+    public private( set ) var events: [ Event ] = []
     
     private var index = 0
     
@@ -45,9 +45,7 @@ public class EventLog: NSObject
     
     public func clear()
     {
-        self.willChangeValue( for: \.events )
         self.events.removeAll()
-        self.didChangeValue( for: \.events )
     }
     
     private func name( of creature: Creature ) -> String

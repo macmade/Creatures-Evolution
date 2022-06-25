@@ -50,9 +50,9 @@ public class DetailViewController: NSViewController
     
     public func update()
     {
-        if let img = self.node.texture?.cgImage()
+        if let texture = self.node.texture as? ImageTexture
         {
-            self.image = NSImage( cgImage: img, size: NSMakeSize( 1024, 1024 ) )
+            self.image = texture.image
         }
         else
         {

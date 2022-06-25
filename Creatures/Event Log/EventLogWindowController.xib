@@ -301,7 +301,7 @@
         </window>
         <arrayController selectsInsertedObjects="NO" avoidsEmptySelection="NO" clearsFilterPredicateOnInsertion="NO" automaticallyRearrangesObjects="YES" id="jS5-5d-Wcc">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="self.log.events" id="NVM-fh-qM5"/>
+                <binding destination="-2" name="contentArray" keyPath="self.events" id="YNB-gq-R4B"/>
             </connections>
         </arrayController>
     </objects>

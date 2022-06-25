@@ -126,6 +126,7 @@
 		056D6616286652F30036E30F /* Digestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6615286652F30036E30F /* Digestion.swift */; };
 		056D6618286653A80036E30F /* DigestionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6617286653A80036E30F /* DigestionSettings.swift */; };
 		056D661A286654800036E30F /* DigestionSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6619286654800036E30F /* DigestionSettingsViewController.swift */; };
+		056D662F28668FB70036E30F /* ImageTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D662E28668FB70036E30F /* ImageTexture.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -344,6 +345,7 @@
 		056D6615286652F30036E30F /* Digestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digestion.swift; sourceTree = "<group>"; };
 		056D6617286653A80036E30F /* DigestionSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestionSettings.swift; sourceTree = "<group>"; };
 		056D6619286654800036E30F /* DigestionSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigestionSettingsViewController.swift; sourceTree = "<group>"; };
+		056D662E28668FB70036E30F /* ImageTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTexture.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -755,6 +757,7 @@
 				053949E2285B97280077D90C /* LabelNode.swift */,
 				05252E9F2854E38B0090B385 /* Scene.swift */,
 				05252ECA285521B20090B385 /* SpriteNode.swift */,
+				056D662E28668FB70036E30F /* ImageTexture.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05252F0C2855E2100090B385 /* SettingsWindowController.swift in Sources */,
+				056D662F28668FB70036E30F /* ImageTexture.swift in Sources */,
 				05394A5B28608DC30077D90C /* Event.swift in Sources */,
 				05102074285A192800F11184 /* ScavengerSettings.swift in Sources */,
 				051020CB285B6DDB00F11184 /* WorldSettings.swift in Sources */,

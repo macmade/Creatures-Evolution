@@ -37,9 +37,9 @@ public class EditNameWindowController: NSWindowController
         
         super.init( window: nil )
         
-        if let img = self.creature.texture?.cgImage()
+        if let texture = self.creature.texture as? ImageTexture
         {
-            self.image = NSImage( cgImage: img, size: NSMakeSize( 1024, 1024 ) )
+            self.image = texture.image
         }
     }
     

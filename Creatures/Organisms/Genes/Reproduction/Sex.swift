@@ -96,15 +96,15 @@ public class Sex: Gene
             
             if self.isMale && self.isFemale
             {
-                node.texture = SKTexture( imageNamed: "Sex-MF" )
+                node.texture = ImageTexture.texture( named: "Sex-MF" )
             }
             else if self.isMale
             {
-                node.texture = SKTexture( imageNamed: "Sex-M" )
+                node.texture = ImageTexture.texture( named: "Sex-M" )
             }
             else if self.isFemale
             {
-                node.texture = SKTexture( imageNamed: "Sex-F" )
+                node.texture = ImageTexture.texture( named: "Sex-F" )
             }
             
             node.position = NSPoint( x: -2, y: -21 )
