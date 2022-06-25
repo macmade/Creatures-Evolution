@@ -399,7 +399,7 @@ public class Creature: SpriteNode
             let emit          = SKAction.run { scene.addChild( emitter ) }
             let wait          = SKAction.wait( forDuration: 2 )
             
-            self.run( SKAction.sequence( [ emit, wait ] ) )
+            scene.run( SKAction.sequence( [ emit, wait ] ) )
             {
                 emitter.removeFromParent()
             }
