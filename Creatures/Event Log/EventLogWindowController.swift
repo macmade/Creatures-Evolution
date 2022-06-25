@@ -77,6 +77,7 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
         self.isPaused = mainWindowController.isPaused
         
         self.focusSearchField()
+        self.update()
     }
     
     private func update()
