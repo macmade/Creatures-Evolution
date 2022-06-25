@@ -36,6 +36,39 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     private var lastFPSCheck:           TimeInterval?
     private var frames                = 0
     private var ignoreBadPerformance  = false
+    private var highlightedCreatures  = [ Creature ]()
+    
+    private var mouseOverCreature: Creature?
+    {
+        willSet( value )
+        {
+            if value != self.mouseOverCreature
+            {
+                if let existing = self.mouseOverCreature
+                {
+                    if let mainWindowController = self.view?.window?.windowController as? MainWindowController, mainWindowController.detailViewController?.node == self.mouseOverCreature
+                    {
+                        return
+                    }
+                    
+                    if self.highlightedCreatures.contains( existing )
+                    {
+                        return
+                    }
+                }
+                
+                self.mouseOverCreature?.highlight( false )
+            }
+        }
+        
+        didSet
+        {
+            if oldValue != self.mouseOverCreature
+            {
+                self.mouseOverCreature?.highlight( true )
+            }
+        }
+    }
     
     public var highlightedGene: AnyClass?
     {
@@ -120,7 +153,16 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         {
             if event.modifierFlags.contains( .command )
             {
-                creature.toggleHighlight()
+                if self.highlightedCreatures.contains( creature )
+                {
+                    creature.highlight( false )
+                    self.highlightedCreatures.removeAll { $0 == creature }
+                }
+                else
+                {
+                    creature.highlight( true )
+                    self.highlightedCreatures.append( creature )
+                }
             }
             else
             {
@@ -213,6 +255,29 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         super.update( currentTime )
         self.checkPerformance( currentTime )
         DistanceHelper.clearCache()
+        
+        self.highlightedCreatures.removeAll
+        {
+            $0.isAlive == false
+        }
+        
+        if let view = self.view, let window = view.window, let contentView = window.contentView
+        {
+            let point = contentView.convert( window.mouseLocationOutsideOfEventStream, to: view )
+            
+            if let node = self.nodes( at: point ).first( where: { $0 is Creature } ), let creature = node as? Creature
+            {
+                self.mouseOverCreature = creature
+            }
+            else
+            {
+                self.mouseOverCreature = nil
+            }
+        }
+        else
+        {
+            self.mouseOverCreature = nil
+        }
         
         if let lastUpdateTime = self.lastUpdateTime
         {

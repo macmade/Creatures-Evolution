@@ -499,7 +499,7 @@ public class Creature: SpriteNode
         }
     }
     
-    private func showCustomName()
+    public func showCustomName()
     {
         if let _ = self.customNameLabel
         {
@@ -520,7 +520,7 @@ public class Creature: SpriteNode
         self.updateCustomName()
     }
     
-    private func hideCustomName()
+    public func hideCustomName()
     {
         self.customNameLabel?.removeFromParent()
         
