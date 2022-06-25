@@ -73,7 +73,7 @@ public class MeatSense: IntValueGene
         
         let predicate: ( Meat ) -> Bool =
         {
-            creature.settings.meatSense.canDetectDecayed ? $0.isDecayed == false : true
+            self.settings.meatSense.canDetectDecayed ? $0.isDecayed == false : true
         }
         
         if let nearest: Meat = DistanceHelper.nearestObject( creature: creature, maxDistance: Double( self.value ), predicate: predicate )

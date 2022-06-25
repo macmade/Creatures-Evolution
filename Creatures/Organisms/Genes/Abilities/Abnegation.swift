@@ -71,7 +71,7 @@ public class Abnegation: IntValueGene
             return
         }
         
-        if creature.settings.abnegation.requiresSameClass
+        if self.settings.abnegation.requiresSameClass
         {
             let diet1 = creature.genes.compactMap { $0 as? DietGene }.filter { $0.isActive }.first
             let diet2 = other.genes.compactMap    { $0 as? DietGene }.filter { $0.isActive }.first

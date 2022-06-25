@@ -63,7 +63,7 @@ public class Herbivore: DietGene
         {
             if let sense: PlantSense = creature.getGene(), sense.isActive
             {
-                if plant.isDecayed && creature.settings.plantSense.canDetectDecayed
+                if plant.isDecayed && self.settings.plantSense.canDetectDecayed
                 {
                     return
                 }

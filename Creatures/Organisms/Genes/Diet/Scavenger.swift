@@ -63,7 +63,7 @@ public class Scavenger: DietGene
         {
             if let sense: MeatSense = creature.getGene(), sense.isActive
             {
-                if meat.isDecayed && creature.settings.meatSense.canDetectDecayed
+                if meat.isDecayed && self.settings.meatSense.canDetectDecayed
                 {
                     return
                 }
