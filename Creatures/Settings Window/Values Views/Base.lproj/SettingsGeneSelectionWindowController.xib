@@ -7,7 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsGeneSelectionWindowController" customModule="Creatures" customModuleProvider="target">
             <connections>
-                <outlet property="stackView" destination="PeV-rF-8Pq" id="mdE-Mz-XEN"/>
+                <outlet property="stackView1" destination="YU4-Xb-63j" id="MqG-G2-pTY"/>
+                <outlet property="stackView2" destination="Vqo-xt-Dfu" id="0G1-Cx-zbW"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="fek-SX-tg8"/>
             </connections>
         </customObject>
@@ -16,12 +17,12 @@
         <window title="Select Genes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="400" height="200"/>
+            <rect key="contentRect" x="196" y="240" width="540" height="200"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
-            <value key="minSize" type="size" width="400" height="200"/>
+            <value key="minSize" type="size" width="540" height="200"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="540" height="200"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E0c-fv-2lk">
                         <rect key="frame" x="18" y="149" width="159" height="31"/>
@@ -32,16 +33,39 @@
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="6Wt-g2-yHW">
-                        <rect key="frame" x="12" y="138" width="376" height="5"/>
+                        <rect key="frame" x="12" y="138" width="516" height="5"/>
                     </box>
-                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-rF-8Pq">
-                        <rect key="frame" x="20" y="69" width="360" height="63"/>
+                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PeV-rF-8Pq">
+                        <rect key="frame" x="20" y="69" width="500" height="63"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YU4-Xb-63j">
+                                <rect key="frame" x="0.0" y="0.0" width="246" height="63"/>
+                            </stackView>
+                            <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vqo-xt-Dfu">
+                                <rect key="frame" x="254" y="0.0" width="246" height="63"/>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="YU4-Xb-63j" firstAttribute="top" secondItem="PeV-rF-8Pq" secondAttribute="top" id="Bog-0H-GlB"/>
+                            <constraint firstAttribute="width" constant="500" id="I6v-5C-dPb"/>
+                            <constraint firstItem="Vqo-xt-Dfu" firstAttribute="top" secondItem="PeV-rF-8Pq" secondAttribute="top" id="Lw7-YY-vZH"/>
+                            <constraint firstAttribute="bottom" secondItem="YU4-Xb-63j" secondAttribute="bottom" id="boy-08-JjX"/>
+                            <constraint firstAttribute="bottom" secondItem="Vqo-xt-Dfu" secondAttribute="bottom" id="pii-J5-Y0e"/>
+                        </constraints>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
                     </stackView>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="JOz-y9-cZN">
-                        <rect key="frame" x="12" y="58" width="376" height="5"/>
+                        <rect key="frame" x="12" y="58" width="516" height="5"/>
                     </box>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o1x-2M-0QS">
-                        <rect key="frame" x="240" y="13" width="76" height="32"/>
+                        <rect key="frame" x="380" y="13" width="76" height="32"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U7q-KP-bMT">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -54,7 +78,7 @@ Gw
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XmU-ve-eeP">
-                        <rect key="frame" x="314" y="13" width="73" height="32"/>
+                        <rect key="frame" x="454" y="13" width="73" height="32"/>
                         <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U6m-te-3Eo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -88,7 +112,7 @@ DQ
                     <constraint firstAttribute="trailing" secondItem="PeV-rF-8Pq" secondAttribute="trailing" constant="20" symbolic="YES" id="r2e-DF-9Ks"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="139" y="125"/>
+            <point key="canvasLocation" x="29" y="-26"/>
         </window>
     </objects>
 </document>

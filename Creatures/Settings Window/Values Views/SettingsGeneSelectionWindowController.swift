@@ -26,7 +26,8 @@ import Cocoa
 
 public class SettingsGeneSelectionWindowController: NSWindowController
 {
-    @IBOutlet private var stackView: NSStackView!
+    @IBOutlet private var stackView1: NSStackView!
+    @IBOutlet private var stackView2: NSStackView!
     
     private var geneClass: AnyClass
     private var settings:  Settings
@@ -77,7 +78,22 @@ public class SettingsGeneSelectionWindowController: NSWindowController
             return checkbox
         }
         
-        self.stackView.setViews( checkboxes, in: .leading )
+        var views: [ [ NSView ] ] = [ [], [] ]
+        
+        checkboxes.enumerated().forEach
+        {
+            if $0 % 2 == 0
+            {
+                views[ 0 ].append( $1 )
+            }
+            else
+            {
+                views[ 1 ].append( $1 )
+            }
+        }
+        
+        self.stackView1.setViews( views[ 0 ], in: .leading )
+        self.stackView2.setViews( views[ 1 ], in: .leading )
     }
     
     @objc private func selectGene( _ sender: Any? )
