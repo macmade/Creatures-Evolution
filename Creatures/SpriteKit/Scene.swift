@@ -227,7 +227,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             return
         }
         
-        self.isPaused = true
+        controller.isPaused = true
         
         let alert             = NSAlert()
         alert.messageText     = "Low Performance Warning"
@@ -244,7 +244,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             }
             else
             {
-                self.isPaused             = false
+                controller.isPaused       = false
                 self.ignoreBadPerformance = true
             }
         }
