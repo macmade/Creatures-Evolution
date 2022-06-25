@@ -207,7 +207,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             self.lastFPSCheck = currentTime
         }
         
-        if let lastFPSCheck = self.lastFPSCheck, currentTime - lastFPSCheck >= 1
+        if let lastFPSCheck = self.lastFPSCheck, currentTime - lastFPSCheck >= 5
         {
             let fps           = Double( self.frames ) / ( currentTime - lastFPSCheck )
             self.lastFPSCheck = nil
