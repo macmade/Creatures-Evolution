@@ -645,9 +645,14 @@
                                     <action selector="toggleCreaturesNames:" target="Voe-Tx-rLC" id="v9P-C4-QQs"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="View Event Log..." keyEquivalent="l" id="MtZ-FE-Jg7">
+                            <menuItem title="View Genetic Statistics..." keyEquivalent="I" id="MtZ-FE-Jg7">
                                 <connections>
-                                    <action selector="viewEventLog:" target="Voe-Tx-rLC" id="yPn-bV-g3c"/>
+                                    <action selector="viewGeneticStatistics:" target="Voe-Tx-rLC" id="sXc-oh-w3I"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="View Event Log..." keyEquivalent="L" id="fvT-0r-FXh">
+                                <connections>
+                                    <action selector="viewEventLog:" target="Voe-Tx-rLC" id="meP-au-RYW"/>
                                 </connections>
                             </menuItem>
                         </items>

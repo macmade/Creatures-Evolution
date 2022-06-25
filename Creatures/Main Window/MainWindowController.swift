@@ -27,11 +27,12 @@ import SpriteKit
 
 public class MainWindowController: NSWindowController
 {
-    @objc public private( set ) dynamic var scene:                    Scene?
-    @objc public private( set ) dynamic var detailViewController:     DetailViewController?
-    @objc public private( set ) dynamic var statsViewController:      StatsViewController?
-    @objc public private( set ) dynamic var view:                     SKView?
-    @objc public private( set ) dynamic var settings:                 Settings?
+    @objc public private( set ) dynamic var scene:                      Scene?
+    @objc public private( set ) dynamic var detailViewController:       DetailViewController?
+    @objc public private( set ) dynamic var statsViewController:        StatsViewController?
+    @objc public private( set ) dynamic var geneStatsWindowController = GeneticStatisticsWindowController()
+    @objc public private( set ) dynamic var view:                       SKView?
+    @objc public private( set ) dynamic var settings:                   Settings?
     
     @IBOutlet private var contentView:  NSView!
     @IBOutlet private var statsView:    NSView!
@@ -63,6 +64,7 @@ public class MainWindowController: NSWindowController
     public override func windowDidLoad()
     {
         super.windowDidLoad()
+        self.geneStatsWindowController.window?.center()
     }
     
     @IBAction func show( _ sender: Any? )
@@ -386,6 +388,11 @@ public class MainWindowController: NSWindowController
         
         self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )
         self.eventLogWindowController?.focusSearchField()
+    }
+    
+    @IBAction public func viewGeneticStatistics( _ sender: Any? )
+    {
+        self.geneStatsWindowController.window?.makeKeyAndOrderFront( nil )
     }
     
     @IBAction public func showSettingsMenu( _ sender: Any? )

@@ -140,6 +140,18 @@ import Cocoa
         mainWindowController.viewEventLog( sender )
     }
     
+    @IBAction public func viewGeneticStatistics( _ sender: Any? )
+    {
+        guard let mainWindowController = self.mainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        mainWindowController.viewGeneticStatistics( sender )
+    }
+    
     @IBAction public func toggleCreaturesNames( _ sender: Any? )
     {
         guard let mainWindowController = self.mainWindowController else
@@ -188,6 +200,11 @@ import Cocoa
         }
         
         if menuItem.action == #selector( viewEventLog( _: ) )
+        {
+            return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
+        }
+        
+        if menuItem.action == #selector( viewGeneticStatistics( _: ) )
         {
             return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
         }

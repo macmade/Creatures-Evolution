@@ -99,10 +99,8 @@
 		053949F8285EB8830077D90C /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F7285EB8830077D90C /* DraggableView.swift */; };
 		053949FA285EBA9B0077D90C /* FlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F9285EBA9B0077D90C /* FlippedView.swift */; };
 		05394A07285F6DDC0077D90C /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A06285F6DDC0077D90C /* StatsViewController.swift */; };
-		05394A09285F6E460077D90C /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A08285F6E460077D90C /* StatsViewController.xib */; };
 		05394A0B285F761E0077D90C /* TimeTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A0A285F761E0077D90C /* TimeTransformer.swift */; };
 		05394A19285F7C3A0077D90C /* CreatureStatusChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A17285F7C3A0077D90C /* CreatureStatusChartViewController.swift */; };
-		05394A1A285F7C3A0077D90C /* CreatureStatusChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05394A18285F7C3A0077D90C /* CreatureStatusChartViewController.xib */; };
 		05394A1C285F7CFF0077D90C /* CreatureStatusChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1B285F7CFF0077D90C /* CreatureStatusChartView.swift */; };
 		05394A1E285F7D100077D90C /* CreatureStatusChartViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1D285F7D100077D90C /* CreatureStatusChartViewItem.swift */; };
 		05394A20285F81370077D90C /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05394A1F285F81370077D90C /* BadgeView.swift */; };
@@ -158,6 +156,10 @@
 		05B8A3642861F2F3007870B3 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35D2861F2F3007870B3 /* CreditViewController.swift */; };
 		05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35E2861F2F3007870B3 /* CreditsWindowController.xib */; };
 		05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A3602861F2F3007870B3 /* CreditViewController.xib */; };
+		05D1BAFA2867B5C80039C9AE /* GeneticStatisticsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1BAF92867B5C80039C9AE /* GeneticStatisticsWindowController.swift */; };
+		05D1BAFD2867B5DD0039C9AE /* CreatureStatusChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BAFF2867B5DD0039C9AE /* CreatureStatusChartViewController.xib */; };
+		05D1BB002867B5E30039C9AE /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BB022867B5E30039C9AE /* StatsViewController.xib */; };
+		05D1BB032867B5E80039C9AE /* GeneticStatisticsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BB052867B5E80039C9AE /* GeneticStatisticsWindowController.xib */; };
 		05EDA91F2863D7BA00F18B77 /* SettingsImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */; };
 		05EDA9242863DD0900F18B77 /* WelcomeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */; };
 		05EDA9262863DD2000F18B77 /* WelcomeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */; };
@@ -327,10 +329,8 @@
 		053949F7285EB8830077D90C /* DraggableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		053949F9285EBA9B0077D90C /* FlippedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippedView.swift; sourceTree = "<group>"; };
 		05394A06285F6DDC0077D90C /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
-		05394A08285F6E460077D90C /* StatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsViewController.xib; sourceTree = "<group>"; };
 		05394A0A285F761E0077D90C /* TimeTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTransformer.swift; sourceTree = "<group>"; };
 		05394A17285F7C3A0077D90C /* CreatureStatusChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatureStatusChartViewController.swift; sourceTree = "<group>"; };
-		05394A18285F7C3A0077D90C /* CreatureStatusChartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatureStatusChartViewController.xib; sourceTree = "<group>"; };
 		05394A1B285F7CFF0077D90C /* CreatureStatusChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusChartView.swift; sourceTree = "<group>"; };
 		05394A1D285F7D100077D90C /* CreatureStatusChartViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureStatusChartViewItem.swift; sourceTree = "<group>"; };
 		05394A1F285F81370077D90C /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
@@ -386,6 +386,10 @@
 		05B8A35D2861F2F3007870B3 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		05B8A35F2861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditsWindowController.xib; sourceTree = "<group>"; };
 		05B8A3612861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditViewController.xib; sourceTree = "<group>"; };
+		05D1BAF92867B5C80039C9AE /* GeneticStatisticsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneticStatisticsWindowController.swift; sourceTree = "<group>"; };
+		05D1BAFE2867B5DD0039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreatureStatusChartViewController.xib; sourceTree = "<group>"; };
+		05D1BB012867B5E30039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatsViewController.xib; sourceTree = "<group>"; };
+		05D1BB042867B5E80039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneticStatisticsWindowController.xib; sourceTree = "<group>"; };
 		05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsImageViewController.swift; sourceTree = "<group>"; };
 		05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWindowController.swift; sourceTree = "<group>"; };
 		05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWindowController.xib; sourceTree = "<group>"; };
@@ -775,12 +779,14 @@
 			children = (
 				05394A1B285F7CFF0077D90C /* CreatureStatusChartView.swift */,
 				05394A17285F7C3A0077D90C /* CreatureStatusChartViewController.swift */,
-				05394A18285F7C3A0077D90C /* CreatureStatusChartViewController.xib */,
+				05D1BAFF2867B5DD0039C9AE /* CreatureStatusChartViewController.xib */,
 				05394A1D285F7D100077D90C /* CreatureStatusChartViewItem.swift */,
 				05394A31285FA5E00077D90C /* CreatureStatusGraphView.swift */,
 				05394A33285FAB600077D90C /* CreatureStatusItem.swift */,
 				05394A06285F6DDC0077D90C /* StatsViewController.swift */,
-				05394A08285F6E460077D90C /* StatsViewController.xib */,
+				05D1BB022867B5E30039C9AE /* StatsViewController.xib */,
+				05D1BAF92867B5C80039C9AE /* GeneticStatisticsWindowController.swift */,
+				05D1BB052867B5E80039C9AE /* GeneticStatisticsWindowController.xib */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -1060,7 +1066,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A334492862470F00905208 /* Rot.sks in Resources */,
-				05394A1A285F7C3A0077D90C /* CreatureStatusChartViewController.xib in Resources */,
+				05D1BAFD2867B5DD0039C9AE /* CreatureStatusChartViewController.xib in Resources */,
 				05102093285AAF6700F11184 /* CreatureDetailViewController.xib in Resources */,
 				053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */,
 				05A334BA286348A900905208 /* SettingsIntMenuViewController.xib in Resources */,
@@ -1070,7 +1076,7 @@
 				05EDA9C72866116700F18B77 /* SettingsGeneActivationViewController.xib in Resources */,
 				05394A782860DD700077D90C /* names-female.txt in Resources */,
 				05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */,
-				05394A09285F6E460077D90C /* StatsViewController.xib in Resources */,
+				05D1BB002867B5E30039C9AE /* StatsViewController.xib in Resources */,
 				05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */,
 				05EDA9BC2865E7CD00F18B77 /* Skull.sks in Resources */,
 				056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */,
@@ -1087,6 +1093,7 @@
 				05252E542854DF410090B385 /* MainMenu.xib in Resources */,
 				05394A792860DD700077D90C /* names-male.txt in Resources */,
 				05A334802863243300905208 /* SettingsBoolCheckboxViewController.xib in Resources */,
+				05D1BB032867B5E80039C9AE /* GeneticStatisticsWindowController.xib in Resources */,
 				05252F6C285819710090B385 /* SettingsViewController.xib in Resources */,
 				05B8A35628616034007870B3 /* Assets.xcassets in Resources */,
 				05102107285B902600F11184 /* EditNameWindowController.xib in Resources */,
@@ -1144,6 +1151,7 @@
 				053949F8285EB8830077D90C /* DraggableView.swift in Sources */,
 				05EDA969286531B800F18B77 /* PredationHelper.swift in Sources */,
 				05A334762862B9D500905208 /* SettingsIntSliderViewController.swift in Sources */,
+				05D1BAFA2867B5C80039C9AE /* GeneticStatisticsWindowController.swift in Sources */,
 				05252F5D2857FF3C0090B385 /* SettingsViewController.swift in Sources */,
 				05A334792862BA7F00905208 /* SettingsValueViewController.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
@@ -1389,6 +1397,30 @@
 				05B8A3612861F2F3007870B3 /* Base */,
 			);
 			name = CreditViewController.xib;
+			sourceTree = "<group>";
+		};
+		05D1BAFF2867B5DD0039C9AE /* CreatureStatusChartViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05D1BAFE2867B5DD0039C9AE /* Base */,
+			);
+			name = CreatureStatusChartViewController.xib;
+			sourceTree = "<group>";
+		};
+		05D1BB022867B5E30039C9AE /* StatsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05D1BB012867B5E30039C9AE /* Base */,
+			);
+			name = StatsViewController.xib;
+			sourceTree = "<group>";
+		};
+		05D1BB052867B5E80039C9AE /* GeneticStatisticsWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05D1BB042867B5E80039C9AE /* Base */,
+			);
+			name = GeneticStatisticsWindowController.xib;
 			sourceTree = "<group>";
 		};
 		05EDA9C52866116700F18B77 /* SettingsGeneActivationViewController.xib */ = {
