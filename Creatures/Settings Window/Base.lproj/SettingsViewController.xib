@@ -65,15 +65,15 @@
                             <rect key="frame" x="0.0" y="50" width="650" height="41"/>
                             <subviews>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-6x-a01">
-                                    <rect key="frame" x="630" y="20" width="20" height="26"/>
+                                    <rect key="frame" x="0.0" y="22" width="16" height="22"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="20" id="2eK-i6-ovG"/>
-                                        <constraint firstAttribute="width" constant="20" id="Gmi-e8-mRy"/>
+                                        <constraint firstAttribute="height" constant="16" id="2eK-i6-ovG"/>
+                                        <constraint firstAttribute="width" constant="16" id="Gmi-e8-mRy"/>
                                     </constraints>
-                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="questionmark.circle.fill" catalog="system" id="D1J-Or-az5"/>
+                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="info.circle.fill" catalog="system" id="D1J-Or-az5"/>
                                 </imageView>
                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="DFu-GX-uOc">
-                                    <rect key="frame" x="-2" y="25" width="626" height="16"/>
+                                    <rect key="frame" x="22" y="25" width="630" height="16"/>
                                     <textFieldCell key="cell" selectable="YES" title="Label" id="RQc-lr-Rb6">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -89,13 +89,13 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="ihZ-6x-a01" firstAttribute="centerY" secondItem="DFu-GX-uOc" secondAttribute="centerY" id="5e1-Cm-cNS"/>
+                                <constraint firstAttribute="trailing" secondItem="DFu-GX-uOc" secondAttribute="trailing" id="7z3-Pi-T5L"/>
                                 <constraint firstItem="DFu-GX-uOc" firstAttribute="top" secondItem="EB7-Aa-pQO" secondAttribute="top" id="8AD-CS-CXY"/>
                                 <constraint firstItem="e1L-tq-cm8" firstAttribute="top" secondItem="DFu-GX-uOc" secondAttribute="bottom" constant="12" id="C2V-6F-wzv"/>
+                                <constraint firstItem="DFu-GX-uOc" firstAttribute="leading" secondItem="ihZ-6x-a01" secondAttribute="trailing" constant="8" symbolic="YES" id="TG2-fB-vPt"/>
                                 <constraint firstAttribute="trailing" secondItem="e1L-tq-cm8" secondAttribute="trailing" id="TsD-Hd-0jC"/>
-                                <constraint firstItem="DFu-GX-uOc" firstAttribute="leading" secondItem="EB7-Aa-pQO" secondAttribute="leading" id="UDI-Zh-4C1"/>
-                                <constraint firstAttribute="trailing" secondItem="ihZ-6x-a01" secondAttribute="trailing" id="Wy9-4K-xEs"/>
+                                <constraint firstItem="ihZ-6x-a01" firstAttribute="leading" secondItem="EB7-Aa-pQO" secondAttribute="leading" id="VvA-1J-VxN"/>
                                 <constraint firstItem="e1L-tq-cm8" firstAttribute="leading" secondItem="EB7-Aa-pQO" secondAttribute="leading" id="XlY-8m-w35"/>
-                                <constraint firstItem="ihZ-6x-a01" firstAttribute="leading" secondItem="DFu-GX-uOc" secondAttribute="trailing" constant="8" symbolic="YES" id="gJE-xL-Caf"/>
                                 <constraint firstAttribute="bottom" secondItem="e1L-tq-cm8" secondAttribute="bottom" constant="12" id="tnT-md-YuM"/>
                             </constraints>
                             <connections>
@@ -140,6 +140,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="questionmark.circle.fill" catalog="system" width="15" height="15"/>
+        <image name="info.circle.fill" catalog="system" width="15" height="15"/>
     </resources>
 </document>
