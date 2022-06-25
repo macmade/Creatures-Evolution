@@ -56,7 +56,7 @@ public class StatsViewController: NSViewController
         
         self.creatureDieObserver = NotificationCenter.default.addObserver( forName: Constants.creatureDieNotification, object: nil, queue: nil )
         {
-            [ weak self ] _ in self?.update()
+            [ weak self ] _ in self?.dead += 1
         }
         
         self.timer = Timer.scheduledTimer( withTimeInterval: 1, repeats: true )
