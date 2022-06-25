@@ -92,6 +92,10 @@ public class GeneInfo: NSObject
             {
                 Speed( active: $0.isActive, settings: $0.settings )
             },
+            GeneInfo( settings: settings, isEnabledKey: \.manureSense.isEnabled, isActiveKey: \.manureSense.isActive )
+            {
+                ManureSense( active: $0.isActive, settings: $0.settings )
+            },
             GeneInfo( settings: settings, isEnabledKey: \.meatSense.isEnabled, isActiveKey: \.meatSense.isActive )
             {
                 MeatSense( active: $0.isActive, settings: $0.settings )

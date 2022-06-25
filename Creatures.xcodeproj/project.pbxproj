@@ -134,6 +134,9 @@
 		056D6639286698440036E30F /* ManureSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D6638286698440036E30F /* ManureSettingsViewController.swift */; };
 		056D663B2866999B0036E30F /* Manure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D663A2866999B0036E30F /* Manure.swift */; };
 		056D663D2866A0350036E30F /* Fly.sks in Resources */ = {isa = PBXBuildFile; fileRef = 056D663C2866A0350036E30F /* Fly.sks */; };
+		056D663F2866A5A50036E30F /* ManureSenseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D663E2866A5A50036E30F /* ManureSenseSettings.swift */; };
+		056D66412866A5EC0036E30F /* ManureSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66402866A5EC0036E30F /* ManureSenseSettingsViewController.swift */; };
+		056D66432866A6900036E30F /* ManureSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66422866A6900036E30F /* ManureSense.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -360,6 +363,9 @@
 		056D6638286698440036E30F /* ManureSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSettingsViewController.swift; sourceTree = "<group>"; };
 		056D663A2866999B0036E30F /* Manure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manure.swift; sourceTree = "<group>"; };
 		056D663C2866A0350036E30F /* Fly.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fly.sks; sourceTree = "<group>"; };
+		056D663E2866A5A50036E30F /* ManureSenseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSenseSettings.swift; sourceTree = "<group>"; };
+		056D66402866A5EC0036E30F /* ManureSenseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSenseSettingsViewController.swift; sourceTree = "<group>"; };
+		056D66422866A6900036E30F /* ManureSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSense.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -665,6 +671,7 @@
 				056D6617286653A80036E30F /* DigestionSettings.swift */,
 				056D6630286694A90036E30F /* ExcretionSettings.swift */,
 				05102061285A192800F11184 /* HerbivoreSettings.swift */,
+				056D663E2866A5A50036E30F /* ManureSenseSettings.swift */,
 				056D6636286697E80036E30F /* ManureSettings.swift */,
 				0510205A285A192800F11184 /* MeatSenseSettings.swift */,
 				05252F70285819A60090B385 /* MeatSettings.swift */,
@@ -790,6 +797,7 @@
 				056D6619286654800036E30F /* DigestionSettingsViewController.swift */,
 				056D6632286694F30036E30F /* ExcretionSettingsViewController.swift */,
 				05102063285A192800F11184 /* HerbivoreSettingsViewController.swift */,
+				056D66402866A5EC0036E30F /* ManureSenseSettingsViewController.swift */,
 				056D6638286698440036E30F /* ManureSettingsViewController.swift */,
 				0510205E285A192800F11184 /* MeatSenseSettingsViewController.swift */,
 				05252F6F285819A60090B385 /* MeatSettingsViewController.swift */,
@@ -922,6 +930,7 @@
 		05EDA99B286548BA00F18B77 /* Senses */ = {
 			isa = PBXGroup;
 			children = (
+				056D66422866A6900036E30F /* ManureSense.swift */,
 				05252F00285591E90090B385 /* MeatSense.swift */,
 				05252EBE2854E9A10090B385 /* PlantSense.swift */,
 				05252EBC2854E9900090B385 /* PredatorSense.swift */,
@@ -1092,6 +1101,7 @@
 				0510206D285A192800F11184 /* ScavengerSettingsViewController.swift in Sources */,
 				05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */,
 				056D6637286697E80036E30F /* ManureSettings.swift in Sources */,
+				056D663F2866A5A50036E30F /* ManureSenseSettings.swift in Sources */,
 				05EDA9A7286555D700F18B77 /* DefenseSettings.swift in Sources */,
 				05EDA9BE2865F67100F18B77 /* AbnegationSettings.swift in Sources */,
 				05252EBF2854E9A10090B385 /* PlantSense.swift in Sources */,
@@ -1156,6 +1166,7 @@
 				05252E5C2854E0360090B385 /* AboutWindowController.swift in Sources */,
 				051020B5285B558F00F11184 /* NegateBooleanTransformer.swift in Sources */,
 				05252EB72854E96F0090B385 /* Mitosis.swift in Sources */,
+				056D66412866A5EC0036E30F /* ManureSenseSettingsViewController.swift in Sources */,
 				05252F03285592B90090B385 /* SexSense.swift in Sources */,
 				0510207C285A85F500F11184 /* CannibalSettings.swift in Sources */,
 				05252EB92854E9740090B385 /* Sex.swift in Sources */,
@@ -1212,6 +1223,7 @@
 				05252F01285591E90090B385 /* MeatSense.swift in Sources */,
 				05252F0E2855EAE80090B385 /* SettingsItem.swift in Sources */,
 				05EDA9A128654A3400F18B77 /* ValueGene.swift in Sources */,
+				056D66432866A6900036E30F /* ManureSense.swift in Sources */,
 				05252F522857FBEC0090B385 /* MitosisSettingsViewController.swift in Sources */,
 				056D6616286652F30036E30F /* Digestion.swift in Sources */,
 				05EDA9C92866144900F18B77 /* SettingsSeparatorViewController.swift in Sources */,

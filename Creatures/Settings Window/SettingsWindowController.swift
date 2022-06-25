@@ -106,6 +106,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                 sort:  true,
                 children:
                 [
+                    SettingsItem( title: "Manure Sense",   symbol: "sensor.tag.radiowaves.forward.fill", controller: ManureSenseSettingsViewController(   settings: self.settings ) ),
                     SettingsItem( title: "Meat Sense",     symbol: "sensor.tag.radiowaves.forward.fill", controller: MeatSenseSettingsViewController(     settings: self.settings ) ),
                     SettingsItem( title: "Plant Sense",    symbol: "sensor.tag.radiowaves.forward.fill", controller: PlantSenseSettingsViewController(    settings: self.settings ) ),
                     SettingsItem( title: "Predator Sense", symbol: "sensor.tag.radiowaves.forward.fill", controller: PredatorSenseSettingsViewController( settings: self.settings ) ),

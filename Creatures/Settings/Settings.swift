@@ -45,6 +45,7 @@ public class Settings: NSObject, Codable
     @objc public dynamic var vampire        = VampireSettings()
     @objc public dynamic var cannibal       = CannibalSettings()
     @objc public dynamic var plantSense     = PlantSenseSettings()
+    @objc public dynamic var manureSense    = ManureSenseSettings()
     @objc public dynamic var meatSense      = MeatSenseSettings()
     @objc public dynamic var preySense      = PreySenseSettings()
     @objc public dynamic var sexSense       = SexSenseSettings()
