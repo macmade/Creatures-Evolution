@@ -27,6 +27,8 @@ import SpriteKit
 
 public class Manure: Food
 {
+    private var plantTime: TimeInterval?
+    
     public init( energy: Int, settings: Settings )
     {
         super.init( energy: energy, settings: settings, texture: "Manure", size: NSSize( width: 20, height: 20 ) )
@@ -55,5 +57,31 @@ public class Manure: Food
     public override func initialize()
     {
         self.emit( effect: "Fly" )
+    }
+    
+    public override func update( elapsedTime: TimeInterval )
+    {
+        super.update( elapsedTime: elapsedTime )
+        
+        if let plantTime = self.plantTime, let scene = self.scene
+        {
+            if plantTime <= elapsedTime, self.isAlive
+            {
+                let plant      = Plant( energy: self.energy, settings: self.settings )
+                plant.position = self.position
+                plant.alpha    = 0
+                
+                scene.addChild( plant )
+                plant.run( SKAction.fadeIn( withDuration: 1 ) )
+                
+                self.willChangeValue( for: \.isAlive )
+                self.remove()
+                self.didChangeValue( for: \.isAlive )
+            }
+        }
+        else if self.settings.manure.canBecomePlant
+        {
+            self.plantTime = elapsedTime + Double( self.settings.manure.becomePlantAfter ) + Double.random( in: 0 ... Double( self.settings.manure.becomePlantAfterRange ) )
+        }
     }
 }
