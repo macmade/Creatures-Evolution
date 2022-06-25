@@ -143,10 +143,10 @@ public class Sex: Gene
         
         let children: Int =
         {
-            if scene.settings.creatures.populationLimitStrategy == .preventBirth
+            if CreaturesSettings.PopulationLimitStrategy( rawValue: scene.settings.creatures.populationLimitStrategy ) == .preventBirth
             {
                 let count     = scene.children.compactMap( { $0 as? Creature } ).count
-                let available = scene.settings.creatures.maxNumber - count
+                let available = scene.settings.creatures.populationLimit - count
                 
                 return min( Int.random( in: 1 ... self.settings.sex.maxNumberOfChildren ), available )
             }

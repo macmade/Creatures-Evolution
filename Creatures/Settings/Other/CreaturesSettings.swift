@@ -33,8 +33,8 @@ public class CreaturesSettings: NSObject, Codable
     }
     
     @objc public dynamic var initialAmount               = 5
-    @objc public dynamic var maxNumber                   = 500
-    @objc public dynamic var populationLimitStrategy     = PopulationLimitStrategy.killRandom
+    @objc public dynamic var populationLimit             = 500
+    @objc public dynamic var populationLimitStrategy     = 0
     @objc public dynamic var generateRandomNames         = true
     @objc public dynamic var initialEnergy               = 1
     @objc public dynamic var energyNeededToGrow          = 2

@@ -96,9 +96,9 @@ public class Mitosis: Gene
             return
         }
         
-        if scene.settings.creatures.populationLimitStrategy == .preventBirth
+        if CreaturesSettings.PopulationLimitStrategy( rawValue: scene.settings.creatures.populationLimitStrategy ) == .preventBirth
         {
-            if scene.children.compactMap( { $0 as? Creature } ).count >= scene.settings.creatures.maxNumber
+            if scene.children.compactMap( { $0 as? Creature } ).count >= scene.settings.creatures.populationLimit
             {
                 return
             }

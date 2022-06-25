@@ -49,9 +49,10 @@ public class CreaturesSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsIntSliderViewController( title: "Initial amount:",        settings: self.settings, key: \.creatures.initialAmount,       minValue:   1, maxValue: 100 ),
-                SettingsIntSliderViewController( title: "Maximum number:",        settings: self.settings, key: \.creatures.maxNumber,           minValue: 100, maxValue: 1000 ),
-                SettingsBoolViewController(      title: "Generate random names:", settings: self.settings, key: \.creatures.generateRandomNames, style: .asSwitch ),
+                SettingsIntSliderViewController( title: "Initial amount:",            settings: self.settings, key: \.creatures.initialAmount,   minValue:   1, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Population limit:",          settings: self.settings, key: \.creatures.populationLimit, minValue: 100, maxValue: 1000 ),
+                SettingsIntMenuViewController(   title: "Population limit strategy:", settings: self.settings, key: \.creatures.populationLimitStrategy, values: [ ( "Kill Random Creatures", 0 ), ( "Prevent New Births", 1 ) ] ),
+                SettingsBoolViewController(      title: "Generate random names:",     settings: self.settings, key: \.creatures.generateRandomNames, style: .asSwitch ),
             ]
         )
         

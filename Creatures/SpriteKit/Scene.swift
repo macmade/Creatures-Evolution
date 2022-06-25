@@ -250,11 +250,36 @@ public class Scene: SKScene, SKPhysicsContactDelegate
         }
     }
     
+    private func limitPopulation()
+    {
+        guard CreaturesSettings.PopulationLimitStrategy( rawValue: self.settings.creatures.populationLimitStrategy ) == .killRandom else
+        {
+            return
+        }
+        
+        let creatures = self.children.compactMap { $0 as? Creature }.filter { $0.isAlive }
+        
+        if creatures.count <= self.settings.creatures.populationLimit
+        {
+            return
+        }
+        
+        let count = creatures.count - self.settings.creatures.populationLimit
+        let kill  = creatures.shuffled().prefix( count )
+        
+        kill.forEach
+        {
+            $0.die( dropFood: false )
+            EventLog.shared.killed( creature: $0, by: nil )
+        }
+    }
+    
     public override func update( _ currentTime: TimeInterval )
     {
         super.update( currentTime )
         self.checkPerformance( currentTime )
         DistanceHelper.clearCache()
+        self.limitPopulation()
         
         self.highlightedCreatures.removeAll
         {
