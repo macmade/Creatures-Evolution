@@ -141,10 +141,20 @@ public class Sex: Gene
             return
         }
         
-        let count     = scene.children.compactMap( { $0 as? Creature } ).count
-        let available = scene.settings.creatures.maxNumber - count
+        let children: Int =
+        {
+            if scene.settings.creatures.populationLimitStrategy == .preventBirth
+            {
+                let count     = scene.children.compactMap( { $0 as? Creature } ).count
+                let available = scene.settings.creatures.maxNumber - count
+                
+                return min( Int.random( in: 1 ... self.settings.sex.maxNumberOfChildren ), available )
+            }
+            
+            return Int.random( in: 1 ... self.settings.sex.maxNumberOfChildren )
+        }()
         
-        if available <= 0
+        if children <= 0
         {
             return
         }
@@ -164,8 +174,6 @@ public class Sex: Gene
             {
                 other.isBaby = true
             }
-            
-            let children = min( Int.random( in: 1 ... self.settings.sex.maxNumberOfChildren ), available )
             
             for _ in 0 ..< children
             {
