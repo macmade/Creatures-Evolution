@@ -137,6 +137,7 @@
 		056D663F2866A5A50036E30F /* ManureSenseSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D663E2866A5A50036E30F /* ManureSenseSettings.swift */; };
 		056D66412866A5EC0036E30F /* ManureSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66402866A5EC0036E30F /* ManureSenseSettingsViewController.swift */; };
 		056D66432866A6900036E30F /* ManureSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66422866A6900036E30F /* ManureSense.swift */; };
+		056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056D66462866AD760036E30F /* SettingsImageViewController.xib */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -159,7 +160,6 @@
 		05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35E2861F2F3007870B3 /* CreditsWindowController.xib */; };
 		05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A3602861F2F3007870B3 /* CreditViewController.xib */; };
 		05EDA91F2863D7BA00F18B77 /* SettingsImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */; };
-		05EDA9212863D7CD00F18B77 /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */; };
 		05EDA9242863DD0900F18B77 /* WelcomeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */; };
 		05EDA9262863DD2000F18B77 /* WelcomeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */; };
 		05EDA94E2864C52300F18B77 /* WelcomeTipItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA94D2864C52300F18B77 /* WelcomeTipItem.swift */; };
@@ -366,6 +366,7 @@
 		056D663E2866A5A50036E30F /* ManureSenseSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSenseSettings.swift; sourceTree = "<group>"; };
 		056D66402866A5EC0036E30F /* ManureSenseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSenseSettingsViewController.swift; sourceTree = "<group>"; };
 		056D66422866A6900036E30F /* ManureSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSense.swift; sourceTree = "<group>"; };
+		056D66452866AD760036E30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsImageViewController.xib; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -388,7 +389,6 @@
 		05B8A35F2861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditsWindowController.xib; sourceTree = "<group>"; };
 		05B8A3612861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditViewController.xib; sourceTree = "<group>"; };
 		05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsImageViewController.swift; sourceTree = "<group>"; };
-		05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsImageViewController.xib; sourceTree = "<group>"; };
 		05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWindowController.swift; sourceTree = "<group>"; };
 		05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWindowController.xib; sourceTree = "<group>"; };
 		05EDA94D2864C52300F18B77 /* WelcomeTipItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTipItem.swift; sourceTree = "<group>"; };
@@ -881,7 +881,7 @@
 				05EDA9CF28661EC400F18B77 /* SettingsGeneSelectionWindowController.swift */,
 				05EDA9D128661ED300F18B77 /* SettingsGeneSelectionWindowController.xib */,
 				05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */,
-				05EDA9202863D7CD00F18B77 /* SettingsImageViewController.xib */,
+				056D66462866AD760036E30F /* SettingsImageViewController.xib */,
 				05A334B6286348A100905208 /* SettingsIntMenuViewController.swift */,
 				05A334B8286348A900905208 /* SettingsIntMenuViewController.xib */,
 				05A334742862B9D500905208 /* SettingsIntSliderViewController.swift */,
@@ -1036,7 +1036,7 @@
 				05394A09285F6E460077D90C /* StatsViewController.xib in Resources */,
 				05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */,
 				05EDA9BC2865E7CD00F18B77 /* Skull.sks in Resources */,
-				05EDA9212863D7CD00F18B77 /* SettingsImageViewController.xib in Resources */,
+				056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */,
 				05252F092855E1F40090B385 /* SettingsWindowController.xib in Resources */,
 				05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */,
 				056D663D2866A0350036E30F /* Fly.sks in Resources */,
@@ -1305,6 +1305,14 @@
 				053949EE285CD0420077D90C /* Base */,
 			);
 			name = FoodDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		056D66462866AD760036E30F /* SettingsImageViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				056D66452866AD760036E30F /* Base */,
+			);
+			name = SettingsImageViewController.xib;
 			sourceTree = "<group>";
 		};
 		05A3347E2863243300905208 /* SettingsBoolCheckboxViewController.xib */ = {
