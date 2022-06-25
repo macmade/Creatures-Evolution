@@ -93,8 +93,6 @@
 		05252F7B285837AD0090B385 /* CreaturesSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */; };
 		05252F7C285837AD0090B385 /* CreaturesSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05252F7A285837AD0090B385 /* CreaturesSettings.swift */; };
 		053949E3285B97280077D90C /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949E2285B97280077D90C /* LabelNode.swift */; };
-		053949E5285BA7DC0077D90C /* AddGeneWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949E4285BA7DC0077D90C /* AddGeneWindowController.swift */; };
-		053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053949E6285BA8110077D90C /* AddGeneWindowController.xib */; };
 		053949EC285CCFEA0077D90C /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */; };
 		053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 053949ED285CD0420077D90C /* FoodDetailViewController.xib */; };
 		053949F1285CD22B0077D90C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053949F0285CD22B0077D90C /* DetailViewController.swift */; };
@@ -322,8 +320,6 @@
 		05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaturesSettingsViewController.swift; sourceTree = "<group>"; };
 		05252F7A285837AD0090B385 /* CreaturesSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreaturesSettings.swift; sourceTree = "<group>"; };
 		053949E2285B97280077D90C /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
-		053949E4285BA7DC0077D90C /* AddGeneWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGeneWindowController.swift; sourceTree = "<group>"; };
-		053949E7285BA8110077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddGeneWindowController.xib; sourceTree = "<group>"; };
 		053949EB285CCFEA0077D90C /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		053949EE285CD0420077D90C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FoodDetailViewController.xib; sourceTree = "<group>"; };
 		053949F0285CD22B0077D90C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -737,8 +733,6 @@
 		053949FE285F6B7E0077D90C /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				053949E4285BA7DC0077D90C /* AddGeneWindowController.swift */,
-				053949E6285BA8110077D90C /* AddGeneWindowController.xib */,
 				0510208D285AAE2300F11184 /* CreatureDetailViewController.swift */,
 				05102091285AAF6700F11184 /* CreatureDetailViewController.xib */,
 				053949F0285CD22B0077D90C /* DetailViewController.swift */,
@@ -1053,7 +1047,6 @@
 				05252E5F2854E0510090B385 /* AboutWindowController.xib in Resources */,
 				05EDA9CC2866145300F18B77 /* SettingsSeparatorViewController.xib in Resources */,
 				05A3346B2862620900905208 /* Heart.sks in Resources */,
-				053949E8285BA8110077D90C /* AddGeneWindowController.xib in Resources */,
 				05252E5A2854DFE80090B385 /* MainWindowController.xib in Resources */,
 				051A33422861F9B3001B605D /* License-NameCorpus.txt in Resources */,
 				05252E542854DF410090B385 /* MainMenu.xib in Resources */,
@@ -1218,7 +1211,6 @@
 				05102076285A192800F11184 /* SexSenseSettings.swift in Sources */,
 				05394A3A28607C1B0077D90C /* Speed.swift in Sources */,
 				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
-				053949E5285BA7DC0077D90C /* AddGeneWindowController.swift in Sources */,
 				05394A5928608D950077D90C /* EventLog.swift in Sources */,
 				05252EC72854F4220090B385 /* Settings.swift in Sources */,
 				05252EBB2854E9830090B385 /* VampireSense.swift in Sources */,
@@ -1297,14 +1289,6 @@
 				05252F6A285819710090B385 /* Base */,
 			);
 			name = SettingsViewController.xib;
-			sourceTree = "<group>";
-		};
-		053949E6285BA8110077D90C /* AddGeneWindowController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				053949E7285BA8110077D90C /* Base */,
-			);
-			name = AddGeneWindowController.xib;
 			sourceTree = "<group>";
 		};
 		053949ED285CD0420077D90C /* FoodDetailViewController.xib */ = {

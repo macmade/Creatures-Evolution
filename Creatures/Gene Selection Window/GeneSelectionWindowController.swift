@@ -31,21 +31,19 @@ public class GeneSelectionWindowController: NSWindowController
     
     private var exclude:  AnyClass?
     private var settings: Settings
+    private var style:    Style
     
     public private( set ) var values: [ String ]
     
-    public convenience init( creature: Creature )
+    public enum Style
     {
-        self.init( excluding: nil, settings: creature.settings, values: [] )
+        case checkbox
+        case radio
     }
     
-    public convenience init( settings: Settings, values: [ String ] )
+    public init( excluding: AnyClass?, settings: Settings, values: [ String ], style: Style = .checkbox )
     {
-        self.init( excluding: nil, settings: settings, values: values )
-    }
-    
-    public init( excluding: AnyClass?, settings: Settings, values: [ String ] )
-    {
+        self.style    = style
         self.exclude  = excluding
         self.settings = settings
         self.values   = values
@@ -67,6 +65,8 @@ public class GeneSelectionWindowController: NSWindowController
     {
         super.windowDidLoad()
         
+        self.window?.title = self.style == .checkbox ? "Select Genes:" : "Select Gene:"
+        
         let checkboxes: [ NSView ] = GeneInfo.allGenes( settings: self.settings ).sorted
         {
             $0.name < $1.name
@@ -75,17 +75,28 @@ public class GeneSelectionWindowController: NSWindowController
         {
             $0.geneClass != self.exclude
         }
-        .map
+        .enumerated().map
         {
-            let name                         = String( describing: $0.geneClass )
-            let checkbox                     = NSButton( checkboxWithTitle: $0.name, target: nil, action: nil )
-            checkbox.controlSize             = .small
-            checkbox.cell?.representedObject = $0
-            checkbox.state                   = self.values.contains( name ) ? .on : .off
-            checkbox.target                  = self
-            checkbox.action                  = #selector( selectGene( _: ) )
+            let createControl: ( String ) -> NSButton =
+            {
+                if self.style == .checkbox
+                {
+                    return NSButton( checkboxWithTitle: $0, target: nil, action: nil )
+                }
+                
+                return NSButton( radioButtonWithTitle: $0, target: nil, action: nil )
+            }
             
-            return checkbox
+            let name                        = String( describing: $1.geneClass )
+            let control                     = createControl( $1.name )
+            control.controlSize             = .small
+            control.cell?.representedObject = $1
+            control.tag                     = $0
+            control.state                   = self.values.contains( name ) ? .on : .off
+            control.target                  = self
+            control.action                  = #selector( selectGene( _: ) )
+            
+            return control
         }
         
         var views: [ [ NSView ] ] = [ [], [] ]
@@ -108,16 +119,36 @@ public class GeneSelectionWindowController: NSWindowController
     
     @objc private func selectGene( _ sender: Any? )
     {
-        guard let checkbox = sender as? NSButton, let gene = checkbox.cell?.representedObject as? GeneInfo else
+        guard let control = sender as? NSButton, let gene = control.cell?.representedObject as? GeneInfo else
         {
             NSSound.beep()
             
             return
         }
         
+        if self.style == .radio
+        {
+            [ self.stackView1.views, self.stackView2.views ].flatMap
+            {
+                $0
+            }
+            .compactMap
+            {
+                $0 as? NSButton
+            }
+            .filter
+            {
+                $0 != control
+            }
+            .forEach
+            {
+                $0.state = .off
+            }
+        }
+        
         let name = String( describing: gene.geneClass )
         
-        if checkbox.state == .on
+        if control.state == .on
         {
             self.values.append( name )
         }

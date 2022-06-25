@@ -164,7 +164,7 @@ public class CreatureDetailViewController: DetailViewController, NSTableViewDele
             return
         }
         
-        let controller = AddGeneWindowController( creature: creature )
+        let controller = GeneSelectionWindowController( excluding: nil, settings: creature.settings, values: [], style: .radio )
         
         guard let window = self.view.window, let sheet = controller.window else
         {
@@ -182,7 +182,7 @@ public class CreatureDetailViewController: DetailViewController, NSTableViewDele
                 return
             }
             
-            guard let gene = controller.selectedGene else
+            guard let gene = creature.genes.first( where: { String( describing: type( of: $0 ) ) == controller.values.first } ) else
             {
                 return
             }
