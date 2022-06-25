@@ -96,7 +96,6 @@ public class Creature: SpriteNode
         physicsBody.isDynamic          = true
         physicsBody.categoryBitMask    = Constants.organismPhysicsCategory
         physicsBody.contactTestBitMask = physicsBody.collisionBitMask
-        physicsBody.restitution        = 0.5
         
         self.physicsBody  = physicsBody
         self.energy       = energy
@@ -252,9 +251,18 @@ public class Creature: SpriteNode
     
     private func chooseDestination() -> Destination?
     {
+        guard let scene = self.scene else
+        {
+            return nil
+        }
+        
         let destinations: [ Destination ] = self.genes.filter{ $0.isActive }.compactMap
         {
             $0.chooseDestination( creature: self )
+        }
+        .filter
+        {
+            scene.bounds.contains( $0.point )
         }
         
         let high   = destinations.filter { $0.priority == .high }
@@ -275,26 +283,45 @@ public class Creature: SpriteNode
             return Destination( point: self.position, priority: .normal )
         }
         
-        var point = NSPoint( x: Double.infinity, y: Double.infinity )
-        
-        while scene.frame.contains( point ) == false
+        let points: [ [ NSPoint ] ] = Array( repeating: 10 ... 100, count: 10 ).map
         {
-            let distance  = Int.random( in: 10 ... 100 )
+            let distance  = Int.random( in: $0 )
             let distanceX = distance - Int.random( in: 0 ... distance )
             let distanceY = distance - distanceX
-            let positionX = self.position.x + Double( Bool.random() ? distanceX : -distanceX )
-            let positionY = self.position.y + Double( Bool.random() ? distanceY : -distanceY )
             
-            point = NSPoint( x: positionX, y: positionY )
+            let p1 = NSPoint( x: self.position.x + Double(  distanceX ), y: self.position.y + Double(  distanceY ) )
+            let p2 = NSPoint( x: self.position.x + Double(  distanceX ), y: self.position.y + Double( -distanceY ) )
+            let p3 = NSPoint( x: self.position.x + Double( -distanceX ), y: self.position.y + Double(  distanceY ) )
+            let p4 = NSPoint( x: self.position.x + Double( -distanceX ), y: self.position.y + Double( -distanceY ) )
+            
+            return [ p1, p2, p3, p4 ]
         }
         
-        return Destination( point: point, priority: .normal )
+        let destinations = points.flatMap { $0 }.map
+        {
+            Destination( point: $0, priority: .normal )
+        }
+        
+        if let destination = destinations.shuffled().first( where: { scene.bounds.contains( $0.point ) } )
+        {
+            return destination
+        }
+        
+        return Destination( point: self.position, priority: .normal )
     }
     
     public func collide( with node: SKNode )
     {
         if self.isBeingRemoved
         {
+            return
+        }
+        
+        if node is SKScene
+        {
+            self.removeAction( forKey: Creature.moveActionKey )
+            self.move()
+            
             return
         }
         

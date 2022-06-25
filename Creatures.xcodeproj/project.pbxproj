@@ -136,6 +136,7 @@
 		056D66412866A5EC0036E30F /* ManureSenseSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66402866A5EC0036E30F /* ManureSenseSettingsViewController.swift */; };
 		056D66432866A6900036E30F /* ManureSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66422866A6900036E30F /* ManureSense.swift */; };
 		056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056D66462866AD760036E30F /* SettingsImageViewController.xib */; };
+		056D66492866C7F90036E30F /* SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66482866C7F90036E30F /* SKScene.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -363,6 +364,7 @@
 		056D66402866A5EC0036E30F /* ManureSenseSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSenseSettingsViewController.swift; sourceTree = "<group>"; };
 		056D66422866A6900036E30F /* ManureSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSense.swift; sourceTree = "<group>"; };
 		056D66452866AD760036E30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsImageViewController.xib; sourceTree = "<group>"; };
+		056D66482866C7F90036E30F /* SKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKScene.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -693,9 +695,10 @@
 		05252F7528582D030090B385 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				051A33432862075A001B605D /* Bundle.swift */,
 				05252EEB28558A0B0090B385 /* NSPoint.swift */,
 				05252F532857FCF70090B385 /* NSView.swift */,
-				051A33432862075A001B605D /* Bundle.swift */,
+				056D66482866C7F90036E30F /* SKScene.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1209,6 +1212,7 @@
 				05A3347D2863240300905208 /* SettingsBoolViewController.swift in Sources */,
 				051020D0285B6E6600F11184 /* WorldSettingsViewController.swift in Sources */,
 				05102076285A192800F11184 /* SexSenseSettings.swift in Sources */,
+				056D66492866C7F90036E30F /* SKScene.swift in Sources */,
 				05394A3A28607C1B0077D90C /* Speed.swift in Sources */,
 				05252EEC28558A0B0090B385 /* NSPoint.swift in Sources */,
 				05394A5928608D950077D90C /* EventLog.swift in Sources */,
