@@ -24,21 +24,31 @@
 
 import Cocoa
 
-public class SettingsGeneSelectionWindowController: NSWindowController
+public class GeneSelectionWindowController: NSWindowController
 {
     @IBOutlet private var stackView1: NSStackView!
     @IBOutlet private var stackView2: NSStackView!
     
-    private var geneClass: AnyClass
-    private var settings:  Settings
+    private var exclude:  AnyClass?
+    private var settings: Settings
     
     public private( set ) var values: [ String ]
     
-    public init( gene: AnyClass, settings: Settings, values: [ String ] )
+    public convenience init( creature: Creature )
     {
-        self.geneClass = gene
-        self.settings  = settings
-        self.values    = values
+        self.init( excluding: nil, settings: creature.settings, values: [] )
+    }
+    
+    public convenience init( settings: Settings, values: [ String ] )
+    {
+        self.init( excluding: nil, settings: settings, values: values )
+    }
+    
+    public init( excluding: AnyClass?, settings: Settings, values: [ String ] )
+    {
+        self.exclude  = excluding
+        self.settings = settings
+        self.values   = values
         
         super.init( window: nil )
     }
@@ -50,7 +60,7 @@ public class SettingsGeneSelectionWindowController: NSWindowController
     
     public override var windowNibName: NSNib.Name?
     {
-        "SettingsGeneSelectionWindowController"
+        "GeneSelectionWindowController"
     }
     
     public override func windowDidLoad()
@@ -63,7 +73,7 @@ public class SettingsGeneSelectionWindowController: NSWindowController
         }
         .filter
         {
-            $0.geneClass != self.geneClass
+            $0.geneClass != self.exclude
         }
         .map
         {

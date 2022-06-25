@@ -5,7 +5,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="SettingsGeneSelectionWindowController" customModule="Creatures" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="GeneSelectionWindowController" customModule="Creatures" customModuleProvider="target">
             <connections>
                 <outlet property="stackView1" destination="YU4-Xb-63j" id="MqG-G2-pTY"/>
                 <outlet property="stackView2" destination="Vqo-xt-Dfu" id="0G1-Cx-zbW"/>

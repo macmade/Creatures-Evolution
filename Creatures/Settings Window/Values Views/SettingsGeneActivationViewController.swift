@@ -80,7 +80,7 @@ public class SettingsGeneActivationViewController: NSViewController, SettingsVal
     
     @IBAction private func choose( _ sender: Any? )
     {
-        let controller = SettingsGeneSelectionWindowController( gene: self.gene, settings: self.settings, values: self.settings[ keyPath: self.key ] )
+        let controller = GeneSelectionWindowController( excluding: self.gene, settings: self.settings, values: self.settings[ keyPath: self.key ] )
         
         guard let sheet = controller.window, let window = self.view.window else
         {
