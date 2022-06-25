@@ -161,6 +161,11 @@ public class Sex: Gene
         
         if self.isFemale
         {
+            if let lastUsed = self.lastUsed, lastUsed + Double( self.settings.sex.recoveryTime ) > scene.elapsedTime
+            {
+                return
+            }
+            
             self.lastUsed    = scene.elapsedTime
             creature.energy -= self.settings.sex.energyCost
             other.energy    -= self.settings.sex.energyCost
