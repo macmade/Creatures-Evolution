@@ -160,6 +160,9 @@
 		05D1BAFD2867B5DD0039C9AE /* CreatureStatusChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BAFF2867B5DD0039C9AE /* CreatureStatusChartViewController.xib */; };
 		05D1BB002867B5E30039C9AE /* StatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BB022867B5E30039C9AE /* StatsViewController.xib */; };
 		05D1BB032867B5E80039C9AE /* GeneticStatisticsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BB052867B5E80039C9AE /* GeneticStatisticsWindowController.xib */; };
+		05D1BB072867BEBC0039C9AE /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1BB062867BEBC0039C9AE /* GraphView.swift */; };
+		05D1BB092867C33F0039C9AE /* GeneticStatisticsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1BB082867C33F0039C9AE /* GeneticStatisticsGraphViewController.swift */; };
+		05D1BB0C2867C3550039C9AE /* GeneticStatisticsGraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BB0A2867C3550039C9AE /* GeneticStatisticsGraphViewController.xib */; };
 		05EDA91F2863D7BA00F18B77 /* SettingsImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */; };
 		05EDA9242863DD0900F18B77 /* WelcomeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */; };
 		05EDA9262863DD2000F18B77 /* WelcomeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */; };
@@ -390,6 +393,9 @@
 		05D1BAFE2867B5DD0039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreatureStatusChartViewController.xib; sourceTree = "<group>"; };
 		05D1BB012867B5E30039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StatsViewController.xib; sourceTree = "<group>"; };
 		05D1BB042867B5E80039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneticStatisticsWindowController.xib; sourceTree = "<group>"; };
+		05D1BB062867BEBC0039C9AE /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		05D1BB082867C33F0039C9AE /* GeneticStatisticsGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneticStatisticsGraphViewController.swift; sourceTree = "<group>"; };
+		05D1BB0B2867C3550039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneticStatisticsGraphViewController.xib; sourceTree = "<group>"; };
 		05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsImageViewController.swift; sourceTree = "<group>"; };
 		05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWindowController.swift; sourceTree = "<group>"; };
 		05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWindowController.xib; sourceTree = "<group>"; };
@@ -705,6 +711,7 @@
 		053949FD285F6B750077D90C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				05D1BB062867BEBC0039C9AE /* GraphView.swift */,
 				0510208F285AAF0100F11184 /* BackgroundView.swift */,
 				05394A1F285F81370077D90C /* BadgeView.swift */,
 				053949F7285EB8830077D90C /* DraggableView.swift */,
@@ -783,10 +790,12 @@
 				05394A1D285F7D100077D90C /* CreatureStatusChartViewItem.swift */,
 				05394A31285FA5E00077D90C /* CreatureStatusGraphView.swift */,
 				05394A33285FAB600077D90C /* CreatureStatusItem.swift */,
-				05394A06285F6DDC0077D90C /* StatsViewController.swift */,
-				05D1BB022867B5E30039C9AE /* StatsViewController.xib */,
+				05D1BB082867C33F0039C9AE /* GeneticStatisticsGraphViewController.swift */,
+				05D1BB0A2867C3550039C9AE /* GeneticStatisticsGraphViewController.xib */,
 				05D1BAF92867B5C80039C9AE /* GeneticStatisticsWindowController.swift */,
 				05D1BB052867B5E80039C9AE /* GeneticStatisticsWindowController.xib */,
+				05394A06285F6DDC0077D90C /* StatsViewController.swift */,
+				05D1BB022867B5E30039C9AE /* StatsViewController.xib */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -1077,6 +1086,7 @@
 				05394A782860DD700077D90C /* names-female.txt in Resources */,
 				05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */,
 				05D1BB002867B5E30039C9AE /* StatsViewController.xib in Resources */,
+				05D1BB0C2867C3550039C9AE /* GeneticStatisticsGraphViewController.xib in Resources */,
 				05394A5F2860945F0077D90C /* EventLogWindowController.xib in Resources */,
 				05EDA9BC2865E7CD00F18B77 /* Skull.sks in Resources */,
 				056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */,
@@ -1183,6 +1193,7 @@
 				05394A07285F6DDC0077D90C /* StatsViewController.swift in Sources */,
 				056D66352866959B0036E30F /* Excretion.swift in Sources */,
 				05EDA9A328654F8A00F18B77 /* DoubleValueGene.swift in Sources */,
+				05D1BB092867C33F0039C9AE /* GeneticStatisticsGraphViewController.swift in Sources */,
 				05252F73285819A60090B385 /* MeatSettingsViewController.swift in Sources */,
 				05B8A3622861F2F3007870B3 /* Credit.swift in Sources */,
 				05102090285AAF0100F11184 /* BackgroundView.swift in Sources */,
@@ -1261,6 +1272,7 @@
 				05EDA91F2863D7BA00F18B77 /* SettingsImageViewController.swift in Sources */,
 				05252F7C285837AD0090B385 /* CreaturesSettings.swift in Sources */,
 				05394A382860009C0077D90C /* PreySense.swift in Sources */,
+				05D1BB072867BEBC0039C9AE /* GraphView.swift in Sources */,
 				05252F71285819A60090B385 /* PlantsSettingsViewController.swift in Sources */,
 				0510206A285A192800F11184 /* MeatSenseSettings.swift in Sources */,
 				056D6618286653A80036E30F /* DigestionSettings.swift in Sources */,
@@ -1421,6 +1433,14 @@
 				05D1BB042867B5E80039C9AE /* Base */,
 			);
 			name = GeneticStatisticsWindowController.xib;
+			sourceTree = "<group>";
+		};
+		05D1BB0A2867C3550039C9AE /* GeneticStatisticsGraphViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05D1BB0B2867C3550039C9AE /* Base */,
+			);
+			name = GeneticStatisticsGraphViewController.xib;
 			sourceTree = "<group>";
 		};
 		05EDA9C52866116700F18B77 /* SettingsGeneActivationViewController.xib */ = {

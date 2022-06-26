@@ -140,8 +140,9 @@ public class MainWindowController: NSWindowController
         
         self.isPaused = false
         
-        let stats                = StatsViewController( scene: scene )
-        self.statsViewController = stats
+        let stats                            = StatsViewController( scene: scene )
+        self.statsViewController             = stats
+        self.geneStatsWindowController.scene = scene
         
         self.statsView.addFillingSubview( stats.view, removeAllExisting: true )
         self.contentView.addFillingSubview( view, removeAllExisting: true )

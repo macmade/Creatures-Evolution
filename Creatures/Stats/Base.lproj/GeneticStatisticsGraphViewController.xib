@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="GeneticStatisticsGraphViewController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="graphView" destination="4ss-AK-5LX" id="ODn-4n-pyR"/>
+                <outlet property="valueView" destination="J9b-X2-c62" id="KhS-ox-d8f"/>
+                <outlet property="view" destination="vFf-Wo-Ima" id="x1s-i1-Sny"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="vFf-Wo-Ima">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="c22-O7-iKe">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="71"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nhn-MN-LxD">
+                            <rect key="frame" x="-2" y="55" width="40" height="16"/>
+                            <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" title="Label" id="Lt5-by-JUq">
+                                <font key="font" textStyle="headline" name=".SFNS-Bold"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                            <connections>
+                                <binding destination="-2" name="value" keyPath="self.title" id="KXQ-5K-ili"/>
+                            </connections>
+                        </textField>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="4ss-AK-5LX" customClass="GraphView" customModule="Creatures" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="392" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Nn7-yh-ymi"/>
+                            </constraints>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="J9b-X2-c62" customClass="BackgroundView" customModule="Creatures" customModuleProvider="target">
+                            <rect key="frame" x="400" y="0.0" width="100" height="50"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pxP-u4-Ijb">
+                                    <rect key="frame" x="20" y="13" width="60" height="24"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="Label" id="EIE-rX-3DM">
+                                        <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Dd8-sy-spc"/>
+                                        <font key="font" metaFont="systemBold" size="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <connections>
+                                        <binding destination="-2" name="value" keyPath="self.currentValue" id="UZJ-Wa-aYz"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="5WR-Pk-4cU"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pxP-u4-Ijb" secondAttribute="trailing" id="NdX-80-ypv"/>
+                                <constraint firstItem="pxP-u4-Ijb" firstAttribute="centerX" secondItem="J9b-X2-c62" secondAttribute="centerX" id="Nzp-ii-zpk"/>
+                                <constraint firstItem="pxP-u4-Ijb" firstAttribute="centerY" secondItem="J9b-X2-c62" secondAttribute="centerY" id="XG0-eM-xtB"/>
+                                <constraint firstItem="pxP-u4-Ijb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J9b-X2-c62" secondAttribute="leading" id="bDC-LY-PHl"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="4ss-AK-5LX" secondAttribute="bottom" id="KV4-OV-2Bp"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nhn-MN-LxD" secondAttribute="trailing" id="MLo-f5-1XA"/>
+                        <constraint firstItem="J9b-X2-c62" firstAttribute="bottom" secondItem="4ss-AK-5LX" secondAttribute="bottom" id="O4A-7M-LQ4"/>
+                        <constraint firstAttribute="trailing" secondItem="J9b-X2-c62" secondAttribute="trailing" id="TnY-cS-GYf"/>
+                        <constraint firstItem="4ss-AK-5LX" firstAttribute="top" secondItem="nhn-MN-LxD" secondAttribute="bottom" constant="5" id="cBc-Kk-kVF"/>
+                        <constraint firstItem="J9b-X2-c62" firstAttribute="leading" secondItem="4ss-AK-5LX" secondAttribute="trailing" constant="8" symbolic="YES" id="cht-gR-JLk"/>
+                        <constraint firstItem="nhn-MN-LxD" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="jB1-z1-WAQ"/>
+                        <constraint firstItem="J9b-X2-c62" firstAttribute="top" secondItem="4ss-AK-5LX" secondAttribute="top" id="qKg-dy-IrS"/>
+                        <constraint firstItem="4ss-AK-5LX" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="sVB-D0-2bZ"/>
+                        <constraint firstItem="nhn-MN-LxD" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="tMh-TO-T4W"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="c22-O7-iKe" firstAttribute="top" secondItem="vFf-Wo-Ima" secondAttribute="top" id="FFG-UF-GuU"/>
+                <constraint firstAttribute="bottom" secondItem="c22-O7-iKe" secondAttribute="bottom" id="Msv-uW-6XS"/>
+                <constraint firstAttribute="trailing" secondItem="c22-O7-iKe" secondAttribute="trailing" id="a7a-DF-cL5"/>
+                <constraint firstItem="c22-O7-iKe" firstAttribute="leading" secondItem="vFf-Wo-Ima" secondAttribute="leading" id="elT-17-MSW"/>
+            </constraints>
+            <point key="canvasLocation" x="156" y="-62.5"/>
+        </customView>
+    </objects>
+</document>

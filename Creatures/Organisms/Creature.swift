@@ -48,8 +48,20 @@ public class Creature: SpriteNode
     
     @objc public dynamic var energy = 1
     {
+        willSet( value )
+        {
+            if value > 1000
+            {
+                print( "caca" )
+            }
+        }
+        
         didSet
         {
+            if self.energy > 1000
+            {
+                print( "caca" )
+            }
             self.energyChanged()
         }
     }
@@ -385,8 +397,8 @@ public class Creature: SpriteNode
         
         if self.isBaby && self.energy >= self.settings.creatures.energyNeededToGrow
         {
-            self.isBaby  = false
             self.energy -= self.settings.creatures.growthEnergyCost
+            self.isBaby  = false
         }
     }
     
