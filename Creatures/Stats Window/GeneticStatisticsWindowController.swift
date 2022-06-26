@@ -80,9 +80,13 @@ public class GeneticStatisticsWindowController: NSWindowController
     
     private func clear()
     {
+        let _ = self.window
+        
         self.geneStatisticsController.data = []
         self.data                          = []
         self.valueGeneControllers          = []
+        
+        self.stackView.setViews( [], in: .leading )
     }
     
     private func update()
