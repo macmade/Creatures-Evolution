@@ -24,16 +24,18 @@
 
 import Cocoa
 
-public class GeneticStatisticsData: NSObject
+public class GeneStatisticsData: NSObject
 {
-    @objc public dynamic var name:  String
-    @objc public dynamic var color: NSColor
-    @objc public dynamic var data:  [ Double ]
+    @objc public dynamic var name:    String
+    @objc public dynamic var color:   NSColor
+    @objc public dynamic var data:    [ Double ]
+    @objc public dynamic var display: Bool
     
     public init( name: String, color: NSColor )
     {
-        self.name  = name
-        self.color = color
-        self.data  = []
+        self.name    = name
+        self.color   = color
+        self.data    = []
+        self.display = true
     }
 }

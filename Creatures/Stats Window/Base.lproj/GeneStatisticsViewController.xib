@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="GeneStatisticsViewController" customModule="Creatures" customModuleProvider="target">
+            <connections>
+                <outlet property="graphView" destination="Ix0-8X-aL7" id="GIT-iX-3m3"/>
+                <outlet property="stackView" destination="8vh-d9-0nC" id="epj-Od-dZl"/>
+                <outlet property="view" destination="c22-O7-iKe" id="V7E-n3-wKN"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ix0-8X-aL7" customClass="GeneStatisticsGraphView" customModule="Creatures" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="392" height="150"/>
+                </customView>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vh-d9-0nC">
+                    <rect key="frame" x="400" y="0.0" width="100" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rPy-xe-uFv"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Ix0-8X-aL7" secondAttribute="bottom" id="6s1-Id-ngi"/>
+                <constraint firstItem="Ix0-8X-aL7" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="BrO-7c-XHH"/>
+                <constraint firstItem="Ix0-8X-aL7" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="NUx-Lz-Px0"/>
+                <constraint firstAttribute="trailing" secondItem="8vh-d9-0nC" secondAttribute="trailing" id="ZUK-LS-t6g"/>
+                <constraint firstItem="8vh-d9-0nC" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="gLY-X3-w3c"/>
+                <constraint firstAttribute="bottom" secondItem="8vh-d9-0nC" secondAttribute="bottom" id="huZ-Ws-icd"/>
+                <constraint firstItem="8vh-d9-0nC" firstAttribute="leading" secondItem="Ix0-8X-aL7" secondAttribute="trailing" constant="8" symbolic="YES" id="yaW-aP-0zU"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+    </objects>
+</document>

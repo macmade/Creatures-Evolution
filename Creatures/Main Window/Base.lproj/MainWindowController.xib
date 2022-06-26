@@ -20,7 +20,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="1200" height="900"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1228"/>
             <value key="minSize" type="size" width="1200" height="900"/>
             <value key="maxSize" type="size" width="1200" height="900"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
@@ -153,14 +153,14 @@
         </window>
         <menu id="MFK-Ry-TDC">
             <items>
-                <menuItem title="Pause" image="pause.fill" catalog="system" id="nLd-Nb-SYs">
+                <menuItem title="Pause" image="pause.fill" catalog="system" keyEquivalent=" " id="nLd-Nb-SYs">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="pause:" target="-2" id="6Sz-Z6-sFo"/>
                         <binding destination="-2" name="hidden" keyPath="self.isPaused" id="w2s-GH-ff3"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Resume" image="play.fill" catalog="system" id="yIz-zP-vi8">
+                <menuItem title="Resume" image="play.fill" catalog="system" keyEquivalent=" " id="yIz-zP-vi8">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="resume:" target="-2" id="YAk-q3-S3d"/>
@@ -178,15 +178,13 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="yPB-76-RDa"/>
-                <menuItem title="Show Creature Names" image="NSTouchBarTagIconTemplate" id="G8L-kU-kt4">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Show Creature Names" image="NSTouchBarTagIconTemplate" keyEquivalent="N" id="G8L-kU-kt4">
                     <connections>
                         <action selector="showCreaturesNames:" target="-2" id="yLO-Xi-5vU"/>
                         <binding destination="-2" name="hidden" keyPath="self.settings.world.showCreaturesNames" id="zea-gC-FgF"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Hide Creature Names" image="tag.slash" catalog="system" id="FaV-8Q-lqu">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Hide Creature Names" image="tag.slash" catalog="system" keyEquivalent="N" id="FaV-8Q-lqu">
                     <connections>
                         <action selector="hideCreaturesNames:" target="-2" id="CWW-bd-Scf"/>
                         <binding destination="-2" name="hidden" keyPath="self.settings.world.showCreaturesNames" id="Oai-Ae-y8Y">
@@ -196,8 +194,12 @@
                         </binding>
                     </connections>
                 </menuItem>
-                <menuItem title="View Event Log..." image="macwindow" catalog="system" id="aen-kK-jIR">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="View Genetic Statistics..." image="chart.line.uptrend.xyaxis" catalog="system" keyEquivalent="I" id="Rj7-yN-cZE">
+                    <connections>
+                        <action selector="viewGeneticStatistics:" target="-2" id="aeu-zB-F65"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="View Event Log..." image="macwindow" catalog="system" keyEquivalent="L" id="aen-kK-jIR">
                     <connections>
                         <action selector="viewEventLog:" target="-2" id="yyB-il-XUz"/>
                     </connections>
@@ -291,6 +293,7 @@
         <image name="NSRefreshTemplate" width="14" height="16"/>
         <image name="NSTouchBarTagIconTemplate" width="17" height="17"/>
         <image name="arrow.clockwise" catalog="system" width="14" height="16"/>
+        <image name="chart.line.uptrend.xyaxis" catalog="system" width="17" height="14"/>
         <image name="ladybug" catalog="system" width="18" height="18"/>
         <image name="macwindow" catalog="system" width="18" height="14"/>
         <image name="pause.fill" catalog="system" width="11" height="13"/>
