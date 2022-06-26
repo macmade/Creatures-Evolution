@@ -131,8 +131,8 @@ public class GeneticStatisticsWindowController: NSWindowController
             let i          = index % 2 == 0 ? Double( index ) : Double( index - 1 )
             let n          = Double( enabledGenes.count )
             let hue        = ( 1.0 / n ) * i
-            let saturation = index % 2 == 0 ? 1.0 : 0.5
-            let brightness = index % 2 != 0 ? 1.0 : 0.5
+            let saturation = index % 2 == 0 ? 0.5 : 1.0
+            let brightness = index % 2 == 0 ? 0.5 : 1.0
             
             let color = NSColor( calibratedHue: hue, saturation: saturation, brightness: brightness, alpha: 1 )
             
