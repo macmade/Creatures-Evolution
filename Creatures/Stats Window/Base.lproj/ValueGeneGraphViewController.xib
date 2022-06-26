@@ -69,8 +69,8 @@
                             </constraints>
                         </customView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6UY-8T-See">
-                            <rect key="frame" x="280" y="18" width="47" height="14"/>
-                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="No Data" id="a9r-8N-tzG">
+                            <rect key="frame" x="257" y="18" width="94" height="14"/>
+                            <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Not Enough Data" id="a9r-8N-tzG">
                                 <font key="font" metaFont="smallSystem"/>
                                 <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

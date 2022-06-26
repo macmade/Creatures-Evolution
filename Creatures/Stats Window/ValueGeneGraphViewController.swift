@@ -33,6 +33,8 @@ public class ValueGeneGraphViewController: NSViewController
     @objc public private( set ) dynamic var currentValue = 0.0
     @objc public private( set ) dynamic var isEmpty      = true
     
+    private var data = [ Double ]()
+    
     init( title: String, color: NSColor )
     {
         self.color = color
@@ -65,9 +67,10 @@ public class ValueGeneGraphViewController: NSViewController
         let _ = self.view
         
         self.graphView.addData( data )
+        self.data.append( data )
         
-        self.isEmpty      = false
         self.currentValue = data
+        self.isEmpty      = self.data.count < 2 || Set< Double >( self.data ).count < 2
     }
     
     public func clear()
@@ -76,7 +79,8 @@ public class ValueGeneGraphViewController: NSViewController
         
         self.graphView.clear()
         
-        self.isEmpty      = true
         self.currentValue = 0
+        self.data         = []
+        self.isEmpty      = true
     }
 }

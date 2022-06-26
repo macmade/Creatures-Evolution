@@ -266,7 +266,7 @@
                             <rect key="frame" x="914" y="24" width="18" height="57"/>
                             <subviews>
                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="NZe-JN-3a6">
-                                    <rect key="frame" x="0.0" y="43" width="17" height="20"/>
+                                    <rect key="frame" x="0.0" y="44" width="17" height="17"/>
                                     <buttonCell key="cell" type="square" title="Toggle Creatures Names" bezelStyle="shadowlessSquare" image="tag" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="9kt-Ws-z8Y">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -276,7 +276,7 @@
                                     </connections>
                                 </button>
                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="hoh-DC-ZPe">
-                                    <rect key="frame" x="0.0" y="20.5" width="17" height="16"/>
+                                    <rect key="frame" x="0.0" y="21.5" width="17" height="14"/>
                                     <buttonCell key="cell" type="square" title="View Genetic Statistics" bezelStyle="shadowlessSquare" image="chart.line.uptrend.xyaxis" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Zsq-4V-C38">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
@@ -286,7 +286,7 @@
                                     </connections>
                                 </button>
                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="wp1-Al-16V">
-                                    <rect key="frame" x="0.0" y="-3.5" width="18" height="16"/>
+                                    <rect key="frame" x="0.0" y="-2.5" width="18" height="14"/>
                                     <buttonCell key="cell" type="square" title="View Event Log" bezelStyle="shadowlessSquare" image="macwindow" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="v26-wM-F4u">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
