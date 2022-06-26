@@ -72,6 +72,16 @@ public class GraphView: NSView
         border.stroke()
     }
     
+    public func max( in points: [ Double ] ) -> Double
+    {
+        points.reduce( -Double.infinity ) { Swift.max( $0, $1 ) }
+    }
+    
+    public func min( in points: [ Double ] ) -> Double
+    {
+        points.reduce(  Double.infinity ) { Swift.min( $0, $1 ) }
+    }
+    
     public func draw( points: [ Double ], color: NSColor, in rect: NSRect )
     {
         if points.count < 2
@@ -79,8 +89,8 @@ public class GraphView: NSView
             return
         }
         
-        let max = points.reduce( -Double.infinity ) { Swift.max( $0, $1 ) }
-        let min = points.reduce(  Double.infinity ) { Swift.min( $0, $1 ) }
+        let max = self.max( in: points )
+        let min = self.min( in: points )
         let dx  = rect.size.width / Double( points.count - 1 )
         
         let path       = NSBezierPath()

@@ -24,59 +24,16 @@
 
 import Cocoa
 
-public class GeneticStatisticsGraphViewController: NSViewController
+public class GeneticStatisticsData: NSObject
 {
-    @IBOutlet private var graphView: GraphView!
-    @IBOutlet private var valueView: BackgroundView!
+    @objc public dynamic var name:  String
+    @objc public dynamic var color: NSColor
+    @objc public dynamic var data:  [ Double ]
     
-    @objc public private( set ) dynamic var color:         NSColor
-    @objc public private( set ) dynamic var currentValue = 0.0
-    @objc public private( set ) dynamic var isEmpty      = true
-    
-    init( title: String, color: NSColor )
+    public init( name: String, color: NSColor )
     {
+        self.name  = name
         self.color = color
-        
-        super.init( nibName: nil, bundle: nil )
-        
-        self.title = title
-    }
-    
-    required init?( coder: NSCoder )
-    {
-        nil
-    }
-    
-    public override var nibName: NSNib.Name?
-    {
-        "GeneticStatisticsGraphViewController"
-    }
-    
-    public override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        
-        self.graphView.color           = self.color
-        self.valueView.backgroundColor = self.color
-    }
-    
-    public func addData( _ data: Double )
-    {
-        let _ = self.view
-        
-        self.graphView.addData( data )
-        
-        self.isEmpty      = false
-        self.currentValue = data
-    }
-    
-    public func clear()
-    {
-        let _ = self.view
-        
-        self.graphView.clear()
-        
-        self.isEmpty      = true
-        self.currentValue = 0
+        self.data  = []
     }
 }

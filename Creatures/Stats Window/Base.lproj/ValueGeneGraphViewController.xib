@@ -5,7 +5,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GeneticStatisticsGraphViewController" customModule="Creatures" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="ValueGeneGraphViewController" customModule="Creatures" customModuleProvider="target">
             <connections>
                 <outlet property="graphView" destination="4ss-AK-5LX" id="ODn-4n-pyR"/>
                 <outlet property="valueView" destination="J9b-X2-c62" id="KhS-ox-d8f"/>
