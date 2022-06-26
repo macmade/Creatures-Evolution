@@ -46,7 +46,7 @@ public class GeneStatisticsGraphView: GraphView
     
     public override func draw( _ rect: NSRect )
     {
-        self.fill = false
+        self.style = .line
         
         self.drawBackground( in: rect )
         self.drawBorder( in: rect )

@@ -26,10 +26,18 @@ import Cocoa
 
 public class GraphView: NSView
 {
+    @objc public enum Style: Int
+    {
+        case line
+        case fill
+        case gradient
+        case gradientWithLine
+    }
+    
     private var data: [ Double ] = []
     
     @objc public dynamic var color        = NSColor.clear { didSet { self.needsDisplay = true } }
-    @objc public dynamic var fill         = true          { didSet { self.needsDisplay = true } }
+    @objc public dynamic var style        = Style.fill    { didSet { self.needsDisplay = true } }
     @objc public dynamic var lineWidth    = 1.0           { didSet { self.needsDisplay = true } }
     
     public func addData( _ data: Double )
@@ -84,7 +92,7 @@ public class GraphView: NSView
     
     public func draw( points: [ Double ], color: NSColor, in rect: NSRect )
     {
-        if points.count < 2
+        if points.count < 2 || Set< Double >( points ).count < 2
         {
             return
         }
@@ -115,13 +123,36 @@ public class GraphView: NSView
             i += 1
         }
         
-        if self.fill
+        if self.style == .fill
         {
             path.line( to: NSPoint( x: rect.origin.x + Double( i - 1 ) * dx, y: rect.origin.y ) )
             path.line( to: NSPoint( x: rect.origin.x, y: rect.origin.y ) )
             path.close()
             color.setFill()
             path.fill()
+        }
+        else if self.style == .gradient
+        {
+            path.line( to: NSPoint( x: rect.origin.x + Double( i - 1 ) * dx, y: rect.origin.y ) )
+            path.line( to: NSPoint( x: rect.origin.x, y: rect.origin.y ) )
+            path.close()
+            
+            let gradient = NSGradient( colors: [ color, color.withAlphaComponent( 0 ) ] )
+            
+            gradient?.draw( in: path, angle: -90 )
+        }
+        else if self.style == .gradientWithLine
+        {
+            let fill     = path.copy() as! NSBezierPath
+            let gradient = NSGradient( colors: [ color.withAlphaComponent( 0.5 ), color.withAlphaComponent( 0 ) ] )
+            
+            fill.line( to: NSPoint( x: rect.origin.x + Double( i - 1 ) * dx, y: rect.origin.y ) )
+            fill.line( to: NSPoint( x: rect.origin.x, y: rect.origin.y ) )
+            fill.close()
+            
+            gradient?.draw( in: fill, angle: -90 )
+            color.setStroke()
+            path.stroke()
         }
         else
         {

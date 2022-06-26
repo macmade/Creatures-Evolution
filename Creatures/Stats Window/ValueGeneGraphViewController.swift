@@ -58,6 +58,7 @@ public class ValueGeneGraphViewController: NSViewController
     {
         super.viewDidLoad()
         
+        self.graphView.style           = .gradientWithLine
         self.graphView.color           = self.color
         self.valueView.backgroundColor = self.color
     }
