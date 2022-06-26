@@ -65,8 +65,8 @@ public class GeneStatisticsGraphView: GraphView
             }
             
             var rect         = rect.insetBy( dx: 4, dy: 4 )
-            rect.origin.x   += 25
-            rect.size.width -= 50
+            rect.origin.x   += 30
+            rect.size.width -= 60
             
             self.draw( points: $0.data, color: $0.color, in: rect )
         }
@@ -95,8 +95,8 @@ public class GeneStatisticsGraphView: GraphView
             
             let percent = "\( i * 10 )%" as NSString
             
-            percent.draw( at: NSPoint( x: rect.origin.x, y: y ), withAttributes: attributes )
-            percent.draw( at: NSPoint( x: ( rect.origin.x + rect.self.width ) - 20, y: y ), withAttributes: attributes )
+            percent.draw( at: NSPoint( x: rect.origin.x + 5, y: y ), withAttributes: attributes )
+            percent.draw( at: NSPoint( x: ( rect.origin.x + rect.self.width ) - 25, y: y ), withAttributes: attributes )
         }
     }
 }
