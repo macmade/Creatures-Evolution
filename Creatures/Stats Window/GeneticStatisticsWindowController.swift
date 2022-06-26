@@ -172,7 +172,7 @@ public class GeneticStatisticsWindowController: NSWindowController
                 stack.spacing             = 8
                 stack.detachesHiddenViews = true
                 
-                stack.setViews( [ $0.1, $0.0 ].compactMap { $0 }, in: .leading )
+                stack.setViews( [ $0.0, $0.1 ].compactMap { $0 }, in: .leading )
                 
                 return stack
             }
