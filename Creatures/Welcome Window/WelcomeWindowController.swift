@@ -41,6 +41,7 @@ public class WelcomeWindowController: NSWindowController, NSTableViewDelegate, N
         
         self.tips =
         [
+            WelcomeTipItem( title: "Statistics",    text: "View a complete genetic analysis by using the statistics window.", symbol: "chart.line.uptrend.xyaxis" ),
             WelcomeTipItem( title: "View Details",  text: "Get detailed informations and edit creatures by clicking on them.",       symbol: "eye" ),
             WelcomeTipItem( title: "Customization", text: "Most parameters of the simulation can be customized in the settings.",    symbol: "slider.horizontal.3" ),
             WelcomeTipItem( title: "Save Settings", text: "Settings can be saved an restored at any time from the settings window.", symbol: "arrow.down.doc.fill" ),
