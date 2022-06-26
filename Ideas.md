@@ -6,6 +6,7 @@ To-Dos
   - Recovery time for combat
   - Dedicated combat settings to unclutter attack/defense settings?
   - Combat energy cost also if attack/defense are inactive?
+  - Recovery time also if attack/defense are inactive?
 
 Ideas
 =====
