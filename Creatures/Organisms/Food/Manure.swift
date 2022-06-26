@@ -29,7 +29,7 @@ public class Manure: Food
 {
     private var plantTime: TimeInterval?
     
-    public init( energy: Int, settings: Settings )
+    public init( energy: Double, settings: Settings )
     {
         super.init( energy: energy, settings: settings, texture: "Manure", size: NSSize( width: 20, height: 20 ) )
     }

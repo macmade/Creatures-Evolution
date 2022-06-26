@@ -402,7 +402,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         for _ in 0 ..< amount
         {
-            let creature      = Creature( energy: self.settings.creatures.initialEnergy, settings: self.settings )
+            let creature      = Creature( energy: Double( self.settings.creatures.initialEnergy ), settings: self.settings )
             creature.position = self.randomPoint()
             creature.alpha    = 0
             

@@ -57,12 +57,12 @@ public class ReproductionHelper
             return false
         }
         
-        if creature.energy < scene.settings.sex.energyNeeded || other.energy < scene.settings.sex.energyNeeded
+        if creature.energy < Double( scene.settings.sex.energyNeeded ) || other.energy < Double( scene.settings.sex.energyNeeded )
         {
             return false
         }
         
-        if creature.energy < scene.settings.sex.energyCost || other.energy < scene.settings.sex.energyCost
+        if creature.energy < Double( scene.settings.sex.energyCost ) || other.energy < Double( scene.settings.sex.energyCost )
         {
             return false
         }

@@ -27,7 +27,7 @@ import SpriteKit
 
 public class Plant: Food
 {
-    public init( energy: Int, settings: Settings )
+    public init( energy: Double, settings: Settings )
     {
         super.init( energy: energy, settings: settings, texture: "Plant-\( Int.random( in: 1 ... 5 ) )" )
     }
@@ -37,9 +37,9 @@ public class Plant: Food
         nil
     }
     
-    public override var decayEnergy: Int
+    public override var decayEnergy: Double
     {
-        self.settings.plants.decayEnergy
+        Double( self.settings.plants.decayEnergy )
     }
     
     public override var canDecay: Bool

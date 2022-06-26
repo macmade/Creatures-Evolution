@@ -167,15 +167,15 @@ public class Sex: Gene
             }
             
             self.lastUsed    = scene.elapsedTime
-            creature.energy -= self.settings.sex.energyCost
-            other.energy    -= self.settings.sex.energyCost
+            creature.energy -= Double( self.settings.sex.energyCost )
+            other.energy    -= Double( self.settings.sex.energyCost )
             
-            if creature.energy < self.settings.creatures.energyNeededToGrow
+            if creature.energy < Double( self.settings.creatures.energyNeededToGrow )
             {
                 creature.isBaby = true
             }
             
-            if other.energy < self.settings.creatures.energyNeededToGrow
+            if other.energy < Double( self.settings.creatures.energyNeededToGrow )
             {
                 other.isBaby = true
             }

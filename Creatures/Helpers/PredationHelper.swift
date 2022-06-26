@@ -93,13 +93,13 @@ public class PredationHelper
             
             if success
             {
-                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? settings.attack.energyCostSuccess  : 0
-                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? settings.defense.energyCostFailure : 0
+                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? Double( settings.attack.energyCostSuccess )  : 0
+                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? Double( settings.defense.energyCostFailure ) : 0
             }
             else
             {
-                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? settings.attack.energyCostFailure  : 0
-                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? settings.defense.energyCostSuccess : 0
+                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? Double( settings.attack.energyCostFailure )  : 0
+                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? Double( settings.defense.energyCostSuccess ) : 0
             }
             
             return success

@@ -108,7 +108,7 @@ public class Gene: NSObject, NSCopying
     public func onUpdate( creature: Creature )
     {}
     
-    public func onFoodConsumption( creature: Creature, energy: Int ) -> Int
+    public func onFoodConsumption( creature: Creature, energy: Double ) -> Double
     {
         return energy
     }

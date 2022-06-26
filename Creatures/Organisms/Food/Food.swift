@@ -27,7 +27,7 @@ import SpriteKit
 
 @objc public class Food: SpriteNode
 {
-    @objc public                dynamic var energy:     Int
+    @objc public                dynamic var energy:     Double
     @objc public private( set ) dynamic var settings:   Settings
     @objc public private( set ) dynamic var isDecayed = false
     
@@ -42,7 +42,7 @@ import SpriteKit
         }
     }
     
-    public var decayEnergy: Int
+    public var decayEnergy: Double
     {
         0
     }
@@ -77,7 +77,7 @@ import SpriteKit
         0
     }
     
-    public init( energy: Int, settings: Settings, texture: String, size: NSSize = NSSize( width: 30, height: 30 ) )
+    public init( energy: Double, settings: Settings, texture: String, size: NSSize = NSSize( width: 30, height: 30 ) )
     {
         self.energy   = energy
         self.settings = settings

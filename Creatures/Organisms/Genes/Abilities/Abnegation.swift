@@ -90,7 +90,7 @@ public class Abnegation: IntValueGene
             }
         }
         
-        let energy = min( creature.energy, self.value )
+        let energy = min( creature.energy, Double( self.value ) )
         
         if energy > 0
         {

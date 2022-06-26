@@ -46,7 +46,7 @@ public class Creature: SpriteNode
         }
     }
     
-    @objc public dynamic var energy = 1
+    @objc public dynamic var energy = 1.0
     {
         didSet
         {
@@ -73,17 +73,17 @@ public class Creature: SpriteNode
     private var parents:         [ Weak< Creature > ]?
     private var customNameLabel: LabelNode?
     
-    public convenience init( energy: Int, settings: Settings )
+    public convenience init( energy: Double, settings: Settings )
     {
         self.init( energy: energy, genes: EvolutionHelper.defaultGenes( settings: settings ), settings: settings )
     }
     
-    public convenience init( energy: Int, genes: [ Gene ], settings: Settings )
+    public convenience init( energy: Double, genes: [ Gene ], settings: Settings )
     {
         self.init( energy: energy, genes: genes, parents: nil, settings: settings )
     }
     
-    public init( energy: Int, genes: [ Gene ], parents: [ Creature ]?, settings: Settings )
+    public init( energy: Double, genes: [ Gene ], parents: [ Creature ]?, settings: Settings )
     {
         self.genes    = genes
         self.settings = settings
@@ -212,7 +212,7 @@ public class Creature: SpriteNode
             if nextEnergyDecrease <= elapsedTime
             {
                 self.nextEnergyDecrease = nil
-                self.energy            -= self.settings.creatures.energyDecreaseAmount
+                self.energy            -= Double( self.settings.creatures.energyDecreaseAmount )
             }
         }
         else
@@ -349,7 +349,7 @@ public class Creature: SpriteNode
         }
     }
     
-    public func eat( energy: Int )
+    public func eat( energy: Double )
     {
         self.energy += self.genes.filter { $0.isActive }.reduce( energy )
         {
@@ -383,9 +383,9 @@ public class Creature: SpriteNode
             self.flash( false )
         }
         
-        if self.isBaby && self.energy >= self.settings.creatures.energyNeededToGrow
+        if self.isBaby && self.energy >= Double( self.settings.creatures.energyNeededToGrow )
         {
-            self.energy -= self.settings.creatures.growthEnergyCost
+            self.energy -= Double( self.settings.creatures.growthEnergyCost )
             self.isBaby  = false
         }
     }
@@ -409,7 +409,7 @@ public class Creature: SpriteNode
         
         if dropFood && self.settings.meat.isEnabled
         {
-            let energy    = self.energy > 0 ? self.energy : 1
+            let energy    = self.energy > 0 ? self.energy : 1.0
             let meat      = Meat( energy: energy, settings: self.settings )
             meat.position = self.position
             meat.alpha    = 0

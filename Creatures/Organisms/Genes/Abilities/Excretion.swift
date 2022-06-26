@@ -62,11 +62,11 @@ public class Excretion: Gene
         Excretion( active: self.isActive, settings: self.settings )
     }
     
-    public override func onFoodConsumption( creature: Creature, energy: Int ) -> Int
+    public override func onFoodConsumption( creature: Creature, energy: Double ) -> Double
     {
         if self.settings.manure.isEnabled, energy < 0, let scene = creature.scene
         {
-            let manure      = Manure( energy: abs( energy ), settings: self.settings )
+            let manure      = Manure( energy: energy, settings: self.settings )
             manure.position = creature.position
             manure.alpha    = 0
             

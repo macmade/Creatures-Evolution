@@ -76,12 +76,12 @@ public class Mitosis: Gene
             return
         }
         
-        if creature.energy < self.settings.mitosis.energyNeeded
+        if creature.energy < Double( self.settings.mitosis.energyNeeded )
         {
             return
         }
         
-        if creature.energy < self.settings.mitosis.energyCost
+        if creature.energy < Double( self.settings.mitosis.energyCost )
         {
             return
         }
@@ -105,9 +105,9 @@ public class Mitosis: Gene
         }
         
         self.lastUsed    = scene.elapsedTime
-        creature.energy -= self.settings.mitosis.energyCost
+        creature.energy -= Double( self.settings.mitosis.energyCost )
         
-        if creature.energy < self.settings.creatures.energyNeededToGrow
+        if creature.energy < Double( self.settings.creatures.energyNeededToGrow )
         {
             creature.isBaby = true
         }

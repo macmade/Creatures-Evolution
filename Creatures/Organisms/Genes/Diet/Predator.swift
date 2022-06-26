@@ -80,7 +80,7 @@ public class Predator: DietGene
         
         if success
         {
-            let energy = other.energy <= 0 ? 1 : Int.random( in: 1 ... other.energy )
+            let energy = other.energy <= 0 ? 1 : Double.random( in: 0 ... other.energy )
             
             creature.eat( energy: energy )
             

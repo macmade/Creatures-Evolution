@@ -133,14 +133,16 @@ public class EventLog: NSObject
         }
     }
     
-    public func energyTransfer( amount: Int, from giver: Creature, to receiver: Creature )
+    public func energyTransfer( amount: Double, from giver: Creature, to receiver: Creature )
     {
         guard let scene = giver.scene as? Scene else
         {
             return
         }
         
-        EventLog.shared.add( event: Event( message: "Gived \( amount ) energy to \( self.name( of: receiver ) )", time: scene.elapsedTime, node: giver ) )
-        EventLog.shared.add( event: Event( message: "Received \( amount ) energy from \( self.name( of: giver ) )", time: scene.elapsedTime, node: receiver ) )
+        let e = String( format: "%.02f", amount )
+        
+        EventLog.shared.add( event: Event( message: "Gived \( e ) energy to \( self.name( of: receiver ) )", time: scene.elapsedTime, node: giver ) )
+        EventLog.shared.add( event: Event( message: "Received \( e ) energy from \( self.name( of: giver ) )", time: scene.elapsedTime, node: receiver ) )
     }
 }

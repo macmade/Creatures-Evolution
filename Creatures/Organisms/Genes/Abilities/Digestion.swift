@@ -69,8 +69,8 @@ public class Digestion: DoubleValueGene
         Digestion( active: self.isActive, settings: self.settings, value: self.value )
     }
     
-    public override func onFoodConsumption( creature: Creature, energy: Int ) -> Int
+    public override func onFoodConsumption( creature: Creature, energy: Double ) -> Double
     {
-        return energy > 0 ? Int( round( Double( energy ) * self.value ) ) : energy
+        return energy > 0 ? energy * self.value : energy
     }
 }
