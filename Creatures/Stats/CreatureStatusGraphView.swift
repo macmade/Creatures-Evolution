@@ -76,4 +76,19 @@ public class CreatureStatusGraphView: GraphView
             self.draw( points: data1, color: color, in: rect.insetBy( dx: 4, dy: 4 ) )
         }
     }
+    
+    public override func min( in points: [ Double ] ) -> Double
+    {
+        0
+    }
+    
+    public override func max( in points: [ Double ] ) -> Double
+    {
+        Double( self.data.reduce( 0 ) { $0 > $1.total ? $0 : $1.total } )
+    }
+    
+    public override func canDrawPoints( _ points: [ Double ] ) -> Bool
+    {
+        true
+    }
 }
