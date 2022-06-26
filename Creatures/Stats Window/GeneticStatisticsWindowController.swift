@@ -71,6 +71,11 @@ public class GeneticStatisticsWindowController: NSWindowController
     {
         super.windowDidLoad()
         self.update()
+        
+        if Preferences.shared.firstLaunch
+        {
+            self.window?.center()
+        }
     }
     
     private func clear()
@@ -82,6 +87,8 @@ public class GeneticStatisticsWindowController: NSWindowController
     
     private func update()
     {
+        let _ = self.window
+        
         guard let scene = self.scene, scene.isPaused == false else
         {
             return

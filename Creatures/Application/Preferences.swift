@@ -26,6 +26,7 @@ import Cocoa
 
 public class Preferences: NSObject
 {
+    @objc public dynamic var firstLaunch    = true
     @objc public dynamic var showsFPS       = false
     @objc public dynamic var showsDrawCount = false
     @objc public dynamic var showsNodeCount = false

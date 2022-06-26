@@ -64,7 +64,11 @@ public class MainWindowController: NSWindowController
     public override func windowDidLoad()
     {
         super.windowDidLoad()
-        self.geneStatsWindowController.window?.center()
+        
+        if Preferences.shared.firstLaunch
+        {
+            self.window?.center()
+        }
     }
     
     @IBAction func show( _ sender: Any? )
@@ -84,7 +88,6 @@ public class MainWindowController: NSWindowController
             return
         }
         
-        window.center()
         window.makeKeyAndOrderFront( nil )
         
         if customizeSettings == false
@@ -383,8 +386,6 @@ public class MainWindowController: NSWindowController
         if self.eventLogWindowController == nil
         {
             self.eventLogWindowController = EventLogWindowController()
-            
-            self.eventLogWindowController?.window?.center()
         }
         
         self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )

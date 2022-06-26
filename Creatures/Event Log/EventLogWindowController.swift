@@ -51,6 +51,11 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     {
         super.windowDidLoad()
         
+        if Preferences.shared.firstLaunch
+        {
+            self.window?.center()
+        }
+        
         self.eventsController.sortDescriptors =
         [
             NSSortDescriptor( key: "time",  ascending: false ),

@@ -39,6 +39,8 @@ import Cocoa
     public func applicationWillTerminate( _ notification: Notification )
     {
         try? self.mainWindowController?.settings?.save()
+        
+        Preferences.shared.firstLaunch = false
     }
     
     public func applicationSupportsSecureRestorableState( _ app: NSApplication ) -> Bool
@@ -96,7 +98,6 @@ import Cocoa
         if self.mainWindowController?.window?.isVisible == false
         {
             self.mainWindowController?.window?.layoutIfNeeded()
-            self.mainWindowController?.window?.center()
         }
             
         self.mainWindowController?.window?.delegate = self
