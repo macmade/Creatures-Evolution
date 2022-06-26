@@ -121,7 +121,13 @@ public class GeneticStatisticsWindowController: NSWindowController
                 $0.genes.first { type( of: $0 ) == info.geneClass }
             }
             
-            let color = NSColor( calibratedHue: ( 1.0 / Double( enabledGenes.count ) ) * Double( index ), saturation: 1, brightness: 1, alpha: 1 )
+            let i          = index % 2 == 0 ? Double( index ) : Double( index - 1 )
+            let n          = Double( enabledGenes.count )
+            let hue        = ( 1.0 / n ) * i
+            let saturation = index % 2 == 0 ? 1.0 : 0.5
+            let brightness = index % 2 != 0 ? 1.0 : 0.5
+            
+            let color = NSColor( calibratedHue: hue, saturation: saturation, brightness: brightness, alpha: 1 )
             
             return ( info, color, genes )
         }
