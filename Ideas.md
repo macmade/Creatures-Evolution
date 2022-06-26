@@ -7,6 +7,7 @@ To-Dos
   - Dedicated combat settings to unclutter attack/defense settings?
   - Combat energy cost also if attack/defense are inactive?
   - Recovery time also if attack/defense are inactive?
+  - Settings recovery: parses property list and try to use setValueForKey for each sub-value if decode fails.
 
 Ideas
 =====
