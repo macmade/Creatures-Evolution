@@ -50,6 +50,8 @@ public class GeneStatisticsViewController: NSViewController
     
     private func refresh()
     {
+        let _ = self.view
+        
         let views: [ NSView ] = self.data.map
         {
             let stack                 = NSStackView()

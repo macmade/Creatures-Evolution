@@ -35,14 +35,10 @@ public class GeneticStatisticsWindowController: NSWindowController
         }
     }
     
-    private var geneStatisticsController    = GeneStatisticsViewController()
-    private var averageAbnegationController = ValueGeneGraphViewController( title: "Average Abnegation", color: NSColor.systemPurple )
-    private var averageAttackController     = ValueGeneGraphViewController( title: "Average Attack",     color: NSColor.systemRed )
-    private var averageDefenseController    = ValueGeneGraphViewController( title: "Average Defense",    color: NSColor.systemBlue )
-    private var averageDigestionController  = ValueGeneGraphViewController( title: "Average Digestion",  color: NSColor.systemGreen )
-    private var averageSpeedController      = ValueGeneGraphViewController( title: "Average Speed",      color: NSColor.systemYellow )
-    private var data                        = [ GeneStatisticsData ]()
-    private var updateTimer:                  Timer?
+    private var geneStatisticsController = GeneStatisticsViewController()
+    private var data                     = [ GeneStatisticsData ]()
+    private var valueGeneControllers     = [ ValueGeneGraphViewController ]()
+    private var updateTimer:               Timer?
     
     @IBOutlet private var stackView: NSStackView!
     
@@ -74,34 +70,35 @@ public class GeneticStatisticsWindowController: NSWindowController
     public override func windowDidLoad()
     {
         super.windowDidLoad()
-        
-        let views =
-        [
-            self.geneStatisticsController.view,
-            self.averageAbnegationController.view,
-            self.averageAttackController.view,
-            self.averageDefenseController.view,
-            self.averageDigestionController.view,
-            self.averageSpeedController.view,
-        ]
-        
-        self.stackView.setViews( views, in: .leading )
+        self.update()
     }
     
     private func clear()
     {
-        self.averageAbnegationController.clear()
-        self.averageAttackController.clear()
-        self.averageDefenseController.clear()
-        self.averageDigestionController.clear()
-        self.averageSpeedController.clear()
-        
-        self.data = []
+        self.geneStatisticsController.data = []
+        self.data                          = []
+        self.valueGeneControllers          = []
     }
     
     private func update()
     {
         guard let scene = self.scene, scene.isPaused == false else
+        {
+            return
+        }
+        
+        let remove = [ Mitosis.self, Sex.self, Herbivore.self, Scavenger.self, Predator.self, Vampire.self ]
+        
+        let enabledGenes = GeneInfo.allGenes( settings: scene.settings ).filter
+        {
+            info in info.isEnabled && remove.contains { $0 == info.geneClass } == false
+        }
+        .sorted
+        {
+            $0.name < $1.name
+        }
+        
+        if enabledGenes.count == 0
         {
             return
         }
@@ -115,71 +112,83 @@ public class GeneticStatisticsWindowController: NSWindowController
             $0.isAlive
         }
         
-        let abnegation:    [ Abnegation ]    = self.getGene( in: creatures )
-        let attack:        [ Attack ]        = self.getGene( in: creatures )
-        let defense:       [ Defense ]       = self.getGene( in: creatures )
-        let digestion:     [ Digestion ]     = self.getGene( in: creatures )
-        let speed:         [ Speed ]         = self.getGene( in: creatures )
-        let manureSense:   [ ManureSense ]   = self.getGene( in: creatures )
-        let meatSense:     [ MeatSense ]     = self.getGene( in: creatures )
-        let plantSense:    [ PlantSense ]    = self.getGene( in: creatures )
-        let predatorSense: [ PredatorSense ] = self.getGene( in: creatures )
-        let preySense:     [ PreySense ]     = self.getGene( in: creatures )
-        let sexSense:      [ SexSense ]      = self.getGene( in: creatures )
-        let vampireSense:  [ VampireSense ]  = self.getGene( in: creatures )
+        let genes: [ ( info: GeneInfo, color: NSColor, genes: [ Gene ] ) ] = enabledGenes.enumerated().compactMap
+        {
+            index, info in
+            
+            let genes = creatures.compactMap
+            {
+                $0.genes.first { type( of: $0 ) == info.geneClass }
+            }
+            
+            let color = NSColor( calibratedHue: ( 1.0 / Double( enabledGenes.count ) ) * Double( index ), saturation: 1, brightness: 1, alpha: 1 )
+            
+            return ( info, color, genes )
+        }
         
-        self.addData( self.getAverage( genes: abnegation ), in: self.averageAbnegationController )
-        self.addData( self.getAverage( genes: attack     ), in: self.averageAttackController )
-        self.addData( self.getAverage( genes: defense    ), in: self.averageDefenseController )
-        self.addData( self.getAverage( genes: digestion  ), in: self.averageDigestionController )
-        self.addData( self.getAverage( genes: speed      ), in: self.averageSpeedController )
+        let valueGenes = genes.filter
+        {
+            $0.info.geneClass.isSubclass( of: DoubleValueGene.self ) || $0.info.geneClass.isSubclass( of: IntValueGene.self )
+        }
+        
+        if self.valueGeneControllers.isEmpty
+        {
+            self.valueGeneControllers = valueGenes.map
+            {
+                ValueGeneGraphViewController( title: "Average \( $0.info.name )", color: $0.color.withAlphaComponent( 0.75 ) )
+            }
+        }
+        
+        if self.stackView.views.isEmpty
+        {
+            let even: [ NSView? ] = self.valueGeneControllers.enumerated().filter { $0.offset % 2 == 0 }.map { $1.view }
+            var odd : [ NSView? ] = self.valueGeneControllers.enumerated().filter { $0.offset % 2 != 0 }.map { $1.view }
+            
+            if even.count != odd.count
+            {
+                odd.append( nil )
+            }
+            
+            let pairs             = zip( even, odd ).map { ( $0, $1 ) }
+            var views: [ NSView ] = pairs.map
+            {
+                let stack                 = NSStackView()
+                stack.orientation         = .horizontal
+                stack.distribution        = .fillEqually
+                stack.alignment           = .centerY
+                stack.spacing             = 8
+                stack.detachesHiddenViews = true
+                
+                stack.setViews( [ $0.1, $0.0 ].compactMap { $0 }, in: .leading )
+                
+                return stack
+            }
+            
+            views.insert( self.geneStatisticsController.view, at: 0 )
+            self.stackView.setViews( views, in: .leading )
+        }
+        
+        valueGenes.enumerated().forEach
+        {
+            self.addData( self.getAverage( genes: $1.genes ), in: self.valueGeneControllers[ $0 ] )
+        }
         
         if self.data.isEmpty
         {
-            self.data =
-            [
-                GeneStatisticsData( name: "Abnegation",     color: NSColor.systemPurple ),
-                GeneStatisticsData( name: "Attack",         color: NSColor.systemRed ),
-                GeneStatisticsData( name: "Defense",        color: NSColor.systemBlue ),
-                GeneStatisticsData( name: "Digestion",      color: NSColor.systemGreen ),
-                GeneStatisticsData( name: "Speed",          color: NSColor.systemYellow ),
-                GeneStatisticsData( name: "Manure Sense",   color: NSColor.systemBrown ),
-                GeneStatisticsData( name: "Meat Sense",     color: NSColor.systemGray ),
-                GeneStatisticsData( name: "Plant Sense",    color: NSColor.systemMint ),
-                GeneStatisticsData( name: "Predator Sense", color: NSColor.systemOrange ),
-                GeneStatisticsData( name: "Prey Sense",     color: NSColor.systemCyan ),
-                GeneStatisticsData( name: "Sex Sense",      color: NSColor.systemPink ),
-                GeneStatisticsData( name: "Vampire Sense",  color: NSColor.systemIndigo ),
-            ]
+            self.data = genes.map
+            {
+                GeneStatisticsData( name: $0.info.name, color: $0.color )
+            }
             
             self.geneStatisticsController.data = data
         }
         
-        self.data[  0 ].data.append( self.getPercentOfActiveGenes( in: abnegation ) )
-        self.data[  1 ].data.append( self.getPercentOfActiveGenes( in: attack ) )
-        self.data[  2 ].data.append( self.getPercentOfActiveGenes( in: defense ) )
-        self.data[  3 ].data.append( self.getPercentOfActiveGenes( in: digestion ) )
-        self.data[  4 ].data.append( self.getPercentOfActiveGenes( in: speed ) )
-        self.data[  5 ].data.append( self.getPercentOfActiveGenes( in: manureSense ) )
-        self.data[  6 ].data.append( self.getPercentOfActiveGenes( in: meatSense ) )
-        self.data[  7 ].data.append( self.getPercentOfActiveGenes( in: plantSense ) )
-        self.data[  8 ].data.append( self.getPercentOfActiveGenes( in: predatorSense ) )
-        self.data[  9 ].data.append( self.getPercentOfActiveGenes( in: preySense ) )
-        self.data[ 10 ].data.append( self.getPercentOfActiveGenes( in: sexSense ) )
-        self.data[ 11 ].data.append( self.getPercentOfActiveGenes( in: vampireSense ) )
-        
-        self.data[  0 ].data = self.data[  0 ].data.suffix( 3600 )
-        self.data[  1 ].data = self.data[  1 ].data.suffix( 3600 )
-        self.data[  2 ].data = self.data[  2 ].data.suffix( 3600 )
-        self.data[  3 ].data = self.data[  3 ].data.suffix( 3600 )
-        self.data[  4 ].data = self.data[  4 ].data.suffix( 3600 )
-        self.data[  5 ].data = self.data[  5 ].data.suffix( 3600 )
-        self.data[  6 ].data = self.data[  6 ].data.suffix( 3600 )
-        self.data[  7 ].data = self.data[  7 ].data.suffix( 3600 )
-        self.data[  8 ].data = self.data[  8 ].data.suffix( 3600 )
-        self.data[  9 ].data = self.data[  9 ].data.suffix( 3600 )
-        self.data[ 10 ].data = self.data[ 10 ].data.suffix( 3600 )
-        self.data[ 11 ].data = self.data[ 11 ].data.suffix( 3600 )
+        genes.enumerated().forEach
+        {
+            self.data[ $0 ].data.append( self.getPercentOfActiveGenes( in: $1.genes ) )
+            
+            self.data[ $0 ].data = self.data[ $0 ].data.suffix( 3600 )
+        }
         
         self.geneStatisticsController.refreshDataOnly()
     }
@@ -214,6 +223,20 @@ public class GeneticStatisticsWindowController: NSWindowController
         {
             controller.addData( controller.currentValue )
         }
+    }
+    
+    private func getAverage( genes: [ Gene ] ) -> Double?
+    {
+        if let genes = genes as? [ DoubleValueGene ]
+        {
+            return self.getAverage( genes: genes )
+        }
+        else if let genes = genes as? [ IntValueGene ]
+        {
+            return self.getAverage( genes: genes )
+        }
+        
+        return nil
     }
     
     private func getAverage( genes: [ DoubleValueGene ] ) -> Double?
