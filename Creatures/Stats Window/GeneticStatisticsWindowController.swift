@@ -42,6 +42,8 @@ public class GeneticStatisticsWindowController: NSWindowController
     
     @IBOutlet private var stackView: NSStackView!
     
+    @objc private dynamic var isEmpty = true
+    
     public init()
     {
         super.init( window: nil )
@@ -111,8 +113,12 @@ public class GeneticStatisticsWindowController: NSWindowController
         
         if enabledGenes.count == 0
         {
+            self.isEmpty = true
+            
             return
         }
+        
+        self.isEmpty = false
         
         let creatures = scene.children.compactMap
         {

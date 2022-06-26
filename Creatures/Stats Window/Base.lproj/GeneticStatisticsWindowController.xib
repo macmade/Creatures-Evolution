@@ -16,16 +16,16 @@
         <window title="Genetic Statistics" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="GeneticStatisticsWindowController" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="800" height="600"/>
+            <rect key="contentRect" x="196" y="240" width="800" height="200"/>
             <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1228"/>
-            <value key="minSize" type="size" width="800" height="600"/>
+            <value key="minSize" type="size" width="800" height="200"/>
             <value key="maxSize" type="size" width="800" height="600"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                <rect key="frame" x="0.0" y="0.0" width="800" height="200"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wDU-RQ-66P">
-                        <rect key="frame" x="18" y="539" width="66" height="31"/>
+                        <rect key="frame" x="18" y="139" width="66" height="31"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Cj0-lK-ABB">
                             <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -36,11 +36,26 @@
                         </connections>
                     </textField>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-W1-56i">
-                        <rect key="frame" x="12" y="528" width="776" height="5"/>
+                        <rect key="frame" x="12" y="128" width="776" height="5"/>
                     </box>
                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSv-mY-v0k">
-                        <rect key="frame" x="20" y="20" width="760" height="502"/>
+                        <rect key="frame" x="20" y="20" width="760" height="102"/>
                     </stackView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o16-qi-lDE">
+                        <rect key="frame" x="338" y="63" width="124" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="No data to display..." id="IdZ-fa-bjg">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="self.isEmpty" id="NMU-Au-ZIH">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="uSv-mY-v0k" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="CQ9-vI-dtB"/>
@@ -48,11 +63,15 @@
                     <constraint firstItem="uSv-mY-v0k" firstAttribute="top" secondItem="fQp-W1-56i" secondAttribute="bottom" constant="8" symbolic="YES" id="OCe-zC-UIj"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wDU-RQ-66P" secondAttribute="trailing" constant="20" symbolic="YES" id="PyO-je-FfV"/>
                     <constraint firstItem="wDU-RQ-66P" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="boP-5I-fHL"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="o16-qi-lDE" secondAttribute="trailing" constant="20" symbolic="YES" id="dPu-B8-a8T"/>
                     <constraint firstAttribute="bottom" secondItem="uSv-mY-v0k" secondAttribute="bottom" constant="20" symbolic="YES" id="daV-YY-cz1"/>
                     <constraint firstAttribute="trailing" secondItem="uSv-mY-v0k" secondAttribute="trailing" constant="20" symbolic="YES" id="fwy-fl-QHX"/>
+                    <constraint firstItem="o16-qi-lDE" firstAttribute="centerY" secondItem="uSv-mY-v0k" secondAttribute="centerY" id="lyF-cf-7Mq"/>
+                    <constraint firstItem="o16-qi-lDE" firstAttribute="centerX" secondItem="uSv-mY-v0k" secondAttribute="centerX" id="tw4-3r-1Xf"/>
                     <constraint firstAttribute="trailing" secondItem="fQp-W1-56i" secondAttribute="trailing" constant="12" symbolic="YES" id="un1-XS-KSc"/>
                     <constraint firstItem="fQp-W1-56i" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" symbolic="YES" id="uqg-xd-gRi"/>
                     <constraint firstItem="wDU-RQ-66P" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="30" id="wHB-sq-Nrb"/>
+                    <constraint firstItem="o16-qi-lDE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="xL4-6D-l6g"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="46.5" y="107.5"/>
