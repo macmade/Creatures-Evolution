@@ -90,9 +90,14 @@ public class GraphView: NSView
         points.reduce(  Double.infinity ) { Swift.min( $0, $1 ) }
     }
     
+    public func canDrawPoints( _ points: [ Double ] ) -> Bool
+    {
+        points.count > 1
+    }
+    
     public func draw( points: [ Double ], color: NSColor, in rect: NSRect )
     {
-        if points.count < 2 || Set< Double >( points ).count < 2
+        if self.canDrawPoints( points ) == false
         {
             return
         }

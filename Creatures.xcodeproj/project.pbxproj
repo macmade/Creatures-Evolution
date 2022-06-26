@@ -167,6 +167,7 @@
 		05D1BB152867F1CB0039C9AE /* GeneStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1BB142867F1CB0039C9AE /* GeneStatisticsViewController.swift */; };
 		05D1BB182867F1D90039C9AE /* GeneStatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BB162867F1D90039C9AE /* GeneStatisticsViewController.xib */; };
 		05D1BB1A2867F2750039C9AE /* GeneStatisticsGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1BB192867F2750039C9AE /* GeneStatisticsGraphView.swift */; };
+		05D1BB282868D1580039C9AE /* ValueGeneGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1BB272868D1580039C9AE /* ValueGeneGraphView.swift */; };
 		05EDA91F2863D7BA00F18B77 /* SettingsImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */; };
 		05EDA9242863DD0900F18B77 /* WelcomeWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */; };
 		05EDA9262863DD2000F18B77 /* WelcomeWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */; };
@@ -405,6 +406,7 @@
 		05D1BB172867F1D90039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneStatisticsViewController.xib; sourceTree = "<group>"; };
 		05D1BB192867F2750039C9AE /* GeneStatisticsGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneStatisticsGraphView.swift; sourceTree = "<group>"; };
 		05D1BB242868C38E0039C9AE /* Ideas.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Ideas.md; sourceTree = "<group>"; };
+		05D1BB272868D1580039C9AE /* ValueGeneGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueGeneGraphView.swift; sourceTree = "<group>"; };
 		05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsImageViewController.swift; sourceTree = "<group>"; };
 		05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWindowController.swift; sourceTree = "<group>"; };
 		05EDA9252863DD2000F18B77 /* WelcomeWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWindowController.xib; sourceTree = "<group>"; };
@@ -974,6 +976,7 @@
 				05D1BAF92867B5C80039C9AE /* GeneticStatisticsWindowController.swift */,
 				05D1BB052867B5E80039C9AE /* GeneticStatisticsWindowController.xib */,
 				05D1BB082867C33F0039C9AE /* ValueGeneGraphViewController.swift */,
+				05D1BB272868D1580039C9AE /* ValueGeneGraphView.swift */,
 				05D1BB0A2867C3550039C9AE /* ValueGeneGraphViewController.xib */,
 			);
 			path = "Stats Window";
@@ -1268,6 +1271,7 @@
 				0510208E285AAE2300F11184 /* CreatureDetailViewController.swift in Sources */,
 				05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */,
 				05D1BB112867EE0C0039C9AE /* GeneStatisticsData.swift in Sources */,
+				05D1BB282868D1580039C9AE /* ValueGeneGraphView.swift in Sources */,
 				05102078285A192800F11184 /* VampireSenseSettingsViewController.swift in Sources */,
 				05252EB12854E95D0090B385 /* Predator.swift in Sources */,
 				05252EB32854E9640090B385 /* Cannibal.swift in Sources */,

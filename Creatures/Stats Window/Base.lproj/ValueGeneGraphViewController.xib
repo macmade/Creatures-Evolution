@@ -62,7 +62,7 @@
                                 <binding destination="-2" name="value" keyPath="self.title" id="KXQ-5K-ili"/>
                             </connections>
                         </textField>
-                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="4ss-AK-5LX" customClass="GraphView" customModule="Creatures" customModuleProvider="target">
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="4ss-AK-5LX" customClass="ValueGeneGraphView" customModule="Creatures" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="607" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Nn7-yh-ymi"/>
