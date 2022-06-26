@@ -31,8 +31,7 @@ public class GeneticStatisticsGraphViewController: NSViewController
     
     @objc public private( set ) dynamic var color:         NSColor
     @objc public private( set ) dynamic var currentValue = 0.0
-    @objc public                dynamic var maximumValue = 0.0 { didSet { self.graphView.maximumValue = self.maximumValue } }
-    @objc public                dynamic var minimumValue = 0.0 { didSet { self.graphView.minimumValue = self.minimumValue } }
+    @objc public private( set ) dynamic var isEmpty      = true
     
     init( title: String, color: NSColor )
     {
@@ -67,6 +66,7 @@ public class GeneticStatisticsGraphViewController: NSViewController
         
         self.graphView.addData( data )
         
+        self.isEmpty      = false
         self.currentValue = data
     }
     
@@ -76,8 +76,7 @@ public class GeneticStatisticsGraphViewController: NSViewController
         
         self.graphView.clear()
         
+        self.isEmpty      = true
         self.currentValue = 0
-        self.maximumValue = 0
-        self.minimumValue = 0
     }
 }

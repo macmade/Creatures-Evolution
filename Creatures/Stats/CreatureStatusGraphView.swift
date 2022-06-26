@@ -38,7 +38,6 @@ public class CreatureStatusGraphView: GraphView
         self.data.append( data )
         
         self.data         = Array( self.data.suffix( 3600 ) )
-        self.maximumValue = self.data.reduce( 0.0 ) { max( $0, Double( $1.total ) ) }
         self.needsDisplay = true
     }
     

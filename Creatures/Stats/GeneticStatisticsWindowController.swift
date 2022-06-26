@@ -108,23 +108,23 @@ public class GeneticStatisticsWindowController: NSWindowController
         let digestion:  [ Digestion ]  = self.getGene()
         let speed:      [ Speed ]      = self.getGene()
         
-        self.averageAbnegationController.maximumValue = max( self.averageAbnegationController.maximumValue, abnegation.reduce( 0.0 ) { max( $0, Double( $1.value ) ) } )
-        self.averageAttackController.maximumValue     = Double( attack.first?.maximumValue     ?? 0 )
-        self.averageDefenseController.maximumValue    = Double( defense.first?.maximumValue    ?? 0 )
-        self.averageDigestionController.maximumValue  = Double( digestion.first?.maximumValue  ?? 0 )
-        self.averageSpeedController.maximumValue      = Double( speed.first?.maximumValue      ?? 0 )
-        
-        self.averageAbnegationController.minimumValue = Double( abnegation.first?.minimumValue ?? 0 )
-        self.averageAttackController.minimumValue     = Double( attack.first?.minimumValue     ?? 0 )
-        self.averageDefenseController.minimumValue    = Double( defense.first?.minimumValue    ?? 0 )
-        self.averageDigestionController.minimumValue  = Double( digestion.first?.minimumValue  ?? 0 )
-        self.averageSpeedController.minimumValue      = Double( speed.first?.minimumValue      ?? 0 )
-        
-        self.averageAbnegationController.addData( self.getAverage( genes: abnegation ) )
-        self.averageAttackController.addData(     self.getAverage( genes: attack ) )
-        self.averageDefenseController.addData(    self.getAverage( genes: defense ) )
-        self.averageDigestionController.addData(  self.getAverage( genes: digestion ) )
-        self.averageSpeedController.addData(      self.getAverage( genes: speed ) )
+        self.addData( self.getAverage( genes: abnegation ), in: self.averageAbnegationController )
+        self.addData( self.getAverage( genes: attack     ), in: self.averageAttackController )
+        self.addData( self.getAverage( genes: defense    ), in: self.averageDefenseController )
+        self.addData( self.getAverage( genes: digestion  ), in: self.averageDigestionController )
+        self.addData( self.getAverage( genes: speed      ), in: self.averageSpeedController )
+    }
+    
+    private func addData( _ data: Double?, in controller: GeneticStatisticsGraphViewController )
+    {
+        if let data = data
+        {
+            controller.addData( data )
+        }
+        else
+        {
+            controller.addData( controller.currentValue )
+        }
     }
     
     private func getGene< T: Gene >() -> [ T ]
@@ -146,23 +146,27 @@ public class GeneticStatisticsWindowController: NSWindowController
         {
             $0.genes.first { $0 is T } as? T
         }
+        .filter
+        {
+            $0.isActive
+        }
     }
     
-    private func getAverage( genes: [ DoubleValueGene ] ) -> Double
+    private func getAverage( genes: [ DoubleValueGene ] ) -> Double?
     {
         if genes.count == 0
         {
-            return 0
+            return nil
         }
         
         return genes.reduce( 0.0 ) { $0 + $1.value } / Double( genes.count )
     }
     
-    private func getAverage( genes: [ IntValueGene ] ) -> Double
+    private func getAverage( genes: [ IntValueGene ] ) -> Double?
     {
         if genes.count == 0
         {
-            return 0
+            return nil
         }
         
         return genes.reduce( 0.0 ) { $0 + Double( $1.value ) } / Double( genes.count )

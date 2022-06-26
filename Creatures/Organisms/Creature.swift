@@ -48,20 +48,8 @@ public class Creature: SpriteNode
     
     @objc public dynamic var energy = 1
     {
-        willSet( value )
-        {
-            if value > 1000
-            {
-                print( "caca" )
-            }
-        }
-        
         didSet
         {
-            if self.energy > 1000
-            {
-                print( "caca" )
-            }
             self.energyChanged()
         }
     }

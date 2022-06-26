@@ -28,8 +28,6 @@ public class GraphView: NSView
 {
     private var data: [ Double ] = []
     
-    @objc public dynamic var maximumValue = 0.0           { didSet { self.needsDisplay = true } }
-    @objc public dynamic var minimumValue = 0.0           { didSet { self.needsDisplay = true } }
     @objc public dynamic var color        = NSColor.clear { didSet { self.needsDisplay = true } }
     @objc public dynamic var fill         = true          { didSet { self.needsDisplay = true } }
     @objc public dynamic var lineWidth    = 1.0           { didSet { self.needsDisplay = true } }
@@ -53,12 +51,6 @@ public class GraphView: NSView
     {
         self.drawBackground( in: rect )
         self.drawBorder( in: rect )
-        
-        if self.data.count < 2
-        {
-            return
-        }
-        
         self.draw( points: self.data, color: self.color, in: rect.insetBy( dx: 4, dy: 4 ) )
     }
     
@@ -82,13 +74,13 @@ public class GraphView: NSView
     
     public func draw( points: [ Double ], color: NSColor, in rect: NSRect )
     {
-        if points.count == 0
+        if points.count < 2
         {
             return
         }
         
-        let max = self.maximumValue
-        let min = self.minimumValue
+        let max = points.reduce( -Double.infinity ) { Swift.max( $0, $1 ) }
+        let min = points.reduce(  Double.infinity ) { Swift.min( $0, $1 ) }
         let dx  = rect.size.width / Double( points.count - 1 )
         
         let path       = NSBezierPath()
