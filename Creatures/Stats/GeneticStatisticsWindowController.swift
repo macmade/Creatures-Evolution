@@ -121,7 +121,7 @@ public class GeneticStatisticsWindowController: NSWindowController
         {
             controller.addData( data )
         }
-        else
+        else if controller.isEmpty == false
         {
             controller.addData( controller.currentValue )
         }
