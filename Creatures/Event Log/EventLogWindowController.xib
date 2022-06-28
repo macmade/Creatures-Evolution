@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="eventsController" destination="jS5-5d-Wcc" id="9yz-zU-eoa"/>
                 <outlet property="searchField" destination="rZC-C6-H6g" id="PjQ-Fs-Ktb"/>
+                <outlet property="stackView" destination="r61-bk-yoR" id="EWT-g5-mii"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="eqb-fW-IRi"/>
             </connections>
         </customObject>
@@ -39,13 +40,13 @@
                         <rect key="frame" x="12" y="328" width="776" height="5"/>
                     </box>
                     <scrollView autoresizesSubviews="NO" autohidesScrollers="YES" horizontalLineScroll="25" horizontalPageScroll="10" verticalLineScroll="25" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QN4-rh-pgo">
-                        <rect key="frame" x="20" y="69" width="760" height="253"/>
+                        <rect key="frame" x="20" y="77" width="760" height="245"/>
                         <clipView key="contentView" autoresizesSubviews="NO" id="9Tw-xv-659">
-                            <rect key="frame" x="1" y="1" width="758" height="251"/>
+                            <rect key="frame" x="1" y="1" width="758" height="243"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView autoresizesSubviews="NO" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="25" rowSizeStyle="automatic" headerView="F90-bV-VCo" viewBased="YES" id="pvR-OZ-rZt">
-                                    <rect key="frame" x="0.0" y="0.0" width="758" height="223"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="758" height="215"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="10" height="0.0"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -234,6 +235,9 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
+                    <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r61-bk-yoR">
+                        <rect key="frame" x="20" y="69" width="760" height="0.0"/>
+                    </stackView>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="scn-YY-UP8">
                         <rect key="frame" x="12" y="58" width="776" height="5"/>
                     </box>
@@ -293,6 +297,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="nCK-WB-WS0" secondAttribute="trailing" constant="20" symbolic="YES" id="0YC-Sl-Uxm"/>
                     <constraint firstItem="Fg4-t4-5lI" firstAttribute="width" secondItem="tZe-uF-MWF" secondAttribute="width" id="6fN-qd-08U"/>
+                    <constraint firstItem="scn-YY-UP8" firstAttribute="top" secondItem="r61-bk-yoR" secondAttribute="bottom" constant="8" symbolic="YES" id="7GN-Gj-mJR"/>
                     <constraint firstItem="dgc-tn-1g2" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="Byl-DD-a4P"/>
                     <constraint firstItem="dgc-tn-1g2" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="30" id="CVD-hu-YjD"/>
                     <constraint firstItem="XFM-gY-DOi" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="12" symbolic="YES" id="DSW-zu-uVC"/>
@@ -306,9 +311,11 @@
                     <constraint firstItem="nCK-WB-WS0" firstAttribute="top" secondItem="scn-YY-UP8" secondAttribute="bottom" constant="20" symbolic="YES" id="SHl-KC-bqS"/>
                     <constraint firstItem="rZC-C6-H6g" firstAttribute="centerY" secondItem="tZe-uF-MWF" secondAttribute="centerY" id="UWj-IP-DRn"/>
                     <constraint firstItem="nCK-WB-WS0" firstAttribute="leading" secondItem="tZe-uF-MWF" secondAttribute="trailing" constant="12" symbolic="YES" id="YvR-KW-etY"/>
-                    <constraint firstItem="scn-YY-UP8" firstAttribute="top" secondItem="QN4-rh-pgo" secondAttribute="bottom" constant="8" symbolic="YES" id="eK2-yU-Goh"/>
+                    <constraint firstItem="r61-bk-yoR" firstAttribute="top" secondItem="QN4-rh-pgo" secondAttribute="bottom" constant="8" symbolic="YES" id="azc-nW-3dn"/>
                     <constraint firstItem="Fg4-t4-5lI" firstAttribute="height" secondItem="tZe-uF-MWF" secondAttribute="height" id="gO3-Dg-Abw"/>
+                    <constraint firstItem="r61-bk-yoR" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="gmf-ZY-Mit"/>
                     <constraint firstItem="tZe-uF-MWF" firstAttribute="centerY" secondItem="nCK-WB-WS0" secondAttribute="centerY" id="kLr-k2-rgh"/>
+                    <constraint firstAttribute="trailing" secondItem="r61-bk-yoR" secondAttribute="trailing" constant="20" symbolic="YES" id="san-ae-kG4"/>
                     <constraint firstAttribute="trailing" secondItem="QN4-rh-pgo" secondAttribute="trailing" constant="20" symbolic="YES" id="uyh-MP-Fop"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dgc-tn-1g2" secondAttribute="trailing" constant="20" symbolic="YES" id="vEc-Jy-B6R"/>
                     <constraint firstItem="QN4-rh-pgo" firstAttribute="top" secondItem="XFM-gY-DOi" secondAttribute="bottom" constant="8" symbolic="YES" id="wnE-G1-N5b"/>

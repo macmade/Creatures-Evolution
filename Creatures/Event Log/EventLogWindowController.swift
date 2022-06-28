@@ -30,12 +30,26 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     @objc private dynamic var log      = EventLog.shared
     @objc private dynamic var isPaused = false
     @objc private dynamic var events   = [ Event ]()
+    @objc private dynamic var settings:  Settings
     
     @IBOutlet private var eventsController: NSArrayController!
     @IBOutlet private var searchField:      NSSearchField!
+    @IBOutlet private var stackView:        NSStackView!
     
     private var pauseObserver: NSKeyValueObservation?
     private var updateTimer:   Timer?
+    
+    public init( settings: Settings )
+    {
+        self.settings = settings
+        
+        super.init( window: nil )
+    }
+    
+    required init?( coder: NSCoder )
+    {
+        nil
+    }
     
     deinit
     {
@@ -85,6 +99,66 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
         
         self.focusSearchField()
         self.update()
+        
+        let keyPaths: [ ( String, WritableKeyPath< Settings, Bool > )? ] =
+        [
+            ( "Mutations",        \.eventLog.logMutations ),
+            ( "Births",           \.eventLog.logBirths ),
+            ( "Deaths",           \.eventLog.logDeaths ),
+            ( "Kills",            \.eventLog.logKills ),
+            ( "Combats",          \.eventLog.logCombats ),
+            ( "Energy Transfers", \.eventLog.logEnergyTransfers ),
+            ( "Energy Changes",   \.eventLog.logEnergyChanges ),
+        ]
+        .sorted
+        {
+            $0.0 < $1.0
+        }
+        
+        let views: [ NSView ] = [ keyPaths ].map
+        {
+            let stack                 = NSStackView()
+            stack.orientation         = .horizontal
+            stack.distribution        = .equalSpacing
+            stack.alignment           = .centerY
+            stack.spacing             = 8
+            stack.detachesHiddenViews = true
+            
+            let views: [ NSView ] = $0.compactMap
+            {
+                guard let value = $0 else
+                {
+                    return nil
+                }
+                
+                let checkbox                     = NSButton( checkboxWithTitle: value.0, target: self, action: #selector( toggleEvent( _: ) ) )
+                checkbox.controlSize             = .small
+                checkbox.state                   = self.settings[ keyPath: value.1 ] ? .on : .off
+                checkbox.cell?.representedObject = value.1
+                
+                return checkbox
+            }
+            
+            stack.setViews( views, in: .leading )
+            
+            return stack
+        }
+        
+        self.stackView.setViews( views, in: .leading )
+    }
+    
+    @IBAction private func toggleEvent( _ sender: Any? )
+    {
+        guard let button = sender as? NSButton,
+              let keyPath = button.cell?.representedObject as? WritableKeyPath< Settings, Bool >
+        else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        self.settings[ keyPath: keyPath ] = self.settings[ keyPath: keyPath ] == false
     }
     
     private func update()

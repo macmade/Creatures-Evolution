@@ -395,9 +395,16 @@ public class MainWindowController: NSWindowController
     
     @IBAction public func viewEventLog( _ sender: Any? )
     {
+        guard let settings = self.settings else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
         if self.eventLogWindowController == nil
         {
-            self.eventLogWindowController = EventLogWindowController()
+            self.eventLogWindowController = EventLogWindowController( settings: settings )
         }
         
         self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )
