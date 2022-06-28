@@ -54,6 +54,8 @@ public class GeneStatisticsViewController: NSViewController
         
         let views: [ NSView ] = self.data.map
         {
+            data in
+            
             let stack                 = NSStackView()
             stack.orientation         = .horizontal
             stack.distribution        = .fill
@@ -61,13 +63,33 @@ public class GeneStatisticsViewController: NSViewController
             stack.spacing             = 8
             stack.detachesHiddenViews = true
             
-            let checkbox                     = NSButton( checkboxWithTitle: $0.name, target: self, action: #selector( toggleData( _: ) ) )
+            let checkbox                     = MouseTrackingButton( checkboxWithTitle: data.name, target: self, action: #selector( toggleData( _: ) ) )
             checkbox.controlSize             = .small
-            checkbox.state                   = $0.display ? .on : .off
-            checkbox.cell?.representedObject = $0
+            checkbox.state                   = data.display ? .on : .off
+            checkbox.cell?.representedObject = data
+            
+            checkbox.onMouseEnter =
+            {
+                guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
+                {
+                    return
+                }
+                
+                mainWindowController.highlightGene( data.gene.geneClass )
+            }
+            
+            checkbox.onMouseExit =
+            {
+                guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
+                {
+                    return
+                }
+                
+                mainWindowController.highlightGene( nil )
+            }
             
             let color             = BackgroundView( frame: NSZeroRect )
-            color.backgroundColor = $0.color
+            color.backgroundColor = data.color
             color.cornerRadius    = 6
             
             color.addConstraint( NSLayoutConstraint( item: color, attribute: .width,  relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 12 ) )

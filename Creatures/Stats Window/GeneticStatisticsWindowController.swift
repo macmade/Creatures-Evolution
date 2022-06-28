@@ -224,7 +224,7 @@ public class GeneticStatisticsWindowController: NSWindowController
         {
             self.data = genes.map
             {
-                GeneStatisticsData( name: $0.info.name, color: $0.color )
+                GeneStatisticsData( name: $0.info.name, color: $0.color, gene: $0.info )
             }
             
             self.geneStatisticsController.data = data

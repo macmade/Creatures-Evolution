@@ -24,20 +24,37 @@
 
 import Cocoa
 
-public class GeneStatisticsData: NSObject
+public class MouseTrackingButton: NSButton
 {
-    @objc public dynamic var name:    String
-    @objc public dynamic var color:   NSColor
-    @objc public dynamic var data:    [ Double ]
-    @objc public dynamic var display: Bool
-    @objc public dynamic var gene:    GeneInfo
+    private var trackingArea: NSTrackingArea?
     
-    public init( name: String, color: NSColor, gene: GeneInfo )
+    public var onMouseEnter: ( () -> Void )?
+    public var onMouseExit:  ( () -> Void )?
+    
+    public override func updateTrackingAreas()
     {
-        self.name    = name
-        self.color   = color
-        self.data    = []
-        self.display = true
-        self.gene    = gene
+        super.updateTrackingAreas()
+        
+        if let trackingArea = self.trackingArea
+        {
+            self.removeTrackingArea( trackingArea )
+        }
+        
+        let trackingArea  = NSTrackingArea( rect: self.bounds, options: [ .activeInKeyWindow, .mouseEnteredAndExited ], owner: self, userInfo: nil )
+        self.trackingArea = trackingArea
+        
+        self.addTrackingArea( trackingArea )
+    }
+    
+    public override func mouseEntered( with event: NSEvent )
+    {
+        super.mouseEntered( with: event )
+        self.onMouseEnter?()
+    }
+    
+    public override func mouseExited( with event: NSEvent )
+    {
+        super.mouseExited( with: event )
+        self.onMouseExit?()
     }
 }
