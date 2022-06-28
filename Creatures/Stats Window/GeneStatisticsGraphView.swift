@@ -81,6 +81,11 @@ public class GeneStatisticsGraphView: GraphView
                 let lineWidth = $0 == self.highlightedData ? self.lineWidth * 3 : nil
                 let alpha     = $0 == self.highlightedData ? 1.0                : 0.5
                 
+                if highlightedData == $0, let lineWidth = lineWidth
+                {
+                    self.draw( points: $0.data, color: NSColor.white.withAlphaComponent( 0.5 ), in: rect, lineWidth: lineWidth + 1.0, alpha: alpha )
+                }
+                
                 self.draw( points: $0.data, color: $0.color, in: rect, lineWidth: lineWidth, alpha: alpha )
             }
             else
