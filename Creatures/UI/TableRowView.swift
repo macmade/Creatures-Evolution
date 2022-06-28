@@ -67,7 +67,7 @@ public class TableRowView: NSTableRowView
             self.removeTrackingArea( trackingArea )
         }
         
-        let trackingArea  = NSTrackingArea( rect: self.bounds, options: [ .activeInKeyWindow, .mouseEnteredAndExited ], owner: self, userInfo: nil )
+        let trackingArea  = NSTrackingArea( rect: self.bounds, options: [ .activeInActiveApp, .mouseEnteredAndExited ], owner: self, userInfo: nil )
         self.trackingArea = trackingArea
         
         self.addTrackingArea( trackingArea )

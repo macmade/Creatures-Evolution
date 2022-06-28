@@ -74,12 +74,9 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         didSet
         {
-            if self.highlightedGene == nil
+            self.children.forEach
             {
-                self.children.forEach
-                {
-                    ( $0 as? Creature )?.highlight( false )
-                }
+                ( $0 as? Creature )?.highlight( false )
             }
         }
     }
