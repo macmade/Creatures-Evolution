@@ -72,24 +72,5 @@ public class AttackSettingsViewController: SettingsViewController
                 SettingsDoubleSliderViewController( title: "Maximum mutation change:",         settings: self.settings, key: \.attack.maximumMutationChange,  minValue: 0.1, maxValue:  1 ),
             ]
         )
-        
-        self.addBox(
-            title: "When inactive or disabled",
-            controllers:
-            [
-                SettingsIntSliderViewController( title: "Attacker chance if smaller:",   settings: self.settings, key: \.attack.chanceIfSmaller,  minValue: 0, maxValue: 100 ),
-                SettingsIntSliderViewController( title: "Attacker chance if same size:", settings: self.settings, key: \.attack.chanceIfSameSize, minValue: 0, maxValue: 100 ),
-                SettingsIntSliderViewController( title: "Attacker chance if bigger:",    settings: self.settings, key: \.attack.chanceIfBigger,   minValue: 0, maxValue: 100 ),
-            ]
-        )
-        
-        self.addBox(
-            title: "Energy",
-            controllers:
-            [
-                SettingsIntSliderViewController( title: "Cost for successfull attack:", settings: self.settings, key: \.attack.energyCostSuccess, minValue: 0, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Cost for failed attack:",      settings: self.settings, key: \.attack.energyCostFailure, minValue: 0, maxValue: 10 ),
-            ]
-        )
     }
 }

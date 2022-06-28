@@ -87,67 +87,45 @@ public class PredationHelper
             return false
         }
         
-        let updateCombatEnergy: ( Bool, Creature, Creature ) -> Bool =
+        let getGeneValue: ( Creature, AnyClass ) -> Double =
         {
-            success, attacker, defenser in
-            
-            if success
+            guard let gene = $0.getGene( $1 ) as? DoubleValueGene, gene.isActive else
             {
-                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? Double( settings.attack.energyCostSuccess )  : 0
-                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? Double( settings.defense.energyCostFailure ) : 0
-            }
-            else
-            {
-                attacker.energy -= attacker.hasActiveGene( Attack.self )  ? Double( settings.attack.energyCostFailure )  : 0
-                defenser.energy -= defenser.hasActiveGene( Defense.self ) ? Double( settings.defense.energyCostSuccess ) : 0
+                return 1.0
             }
             
-            return success
+            return gene.value
         }
         
-        if let attack: Attack = creature.getGene(), let defense: Defense = target.getGene()
+        let getChance: ( Creature, Creature ) -> Double =
         {
-            if attack.isActive && defense.isActive
+            if $0.isSmallerThan( creature: $1 )
             {
-                if attack.value == defense.value
-                {
-                    return updateCombatEnergy( Bool.random(), creature, target )
-                }
-                
-                return updateCombatEnergy( attack.value > defense.value, creature, target )
+                return Double( settings.combat.chanceIfSmaller )
             }
-            else if attack.isActive
+            else if $0.isBiggerThan( creature: $1 )
             {
-                return updateCombatEnergy( true, creature, target )
-            }
-            else if defense.isActive
-            {
-                return updateCombatEnergy( false, creature, target )
-            }
-        }
-        else if let attack: Attack = creature.getGene(), attack.isActive
-        {
-            return updateCombatEnergy( true, creature, target )
-        }
-        else if let defense: Defense = creature.getGene(), defense.isActive
-        {
-            return updateCombatEnergy( false, creature, target )
-        }
-        
-        let chance: Int =
-        {
-            if creature.isSmallerThan( creature: target )
-            {
-                return creature.settings.attack.chanceIfSmaller
-            }
-            else if creature.isBiggerThan( creature: target )
-            {
-                return creature.settings.attack.chanceIfBigger
+                return Double( settings.combat.chanceIfBigger )
             }
             
-            return creature.settings.attack.chanceIfSameSize
-        }()
+            return Double( settings.combat.chanceIfSameSize )
+        }
         
-        return Int.random( in: 0 ... 100 ) <= chance
+        let attack  = getGeneValue( creature, Attack.self )
+        let defense = getGeneValue( target,   Defense.self )
+        let chance  = ( getChance( creature, target ) * attack ) / defense
+        
+        if Double.random( in: 0 ... 100 ) <= chance
+        {
+            creature.energy -= Double( settings.combat.energyCostAttackSuccess )
+            target.energy   -= Double( settings.combat.energyCostDefenseFailure )
+            
+            return true
+        }
+        
+        creature.energy -= Double( settings.combat.energyCostAttackFailure )
+        target.energy   -= Double( settings.combat.energyCostDefenseSuccess )
+        
+        return false
     }
 }

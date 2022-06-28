@@ -38,9 +38,4 @@ public class AttackSettings: NSObject, Codable
     @objc public dynamic var maximumMultiplier      = 5.0
     @objc public dynamic var minimumMutationChange  = 0.2
     @objc public dynamic var maximumMutationChange  = 0.5
-    @objc public dynamic var chanceIfSmaller        = 30
-    @objc public dynamic var chanceIfSameSize       = 60
-    @objc public dynamic var chanceIfBigger         = 90
-    @objc public dynamic var energyCostSuccess      = 0
-    @objc public dynamic var energyCostFailure      = 0
 }

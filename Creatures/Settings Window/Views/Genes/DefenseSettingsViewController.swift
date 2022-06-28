@@ -72,14 +72,5 @@ public class DefenseSettingsViewController: SettingsViewController
                 SettingsDoubleSliderViewController( title: "Maximum mutation change:",         settings: self.settings, key: \.defense.maximumMutationChange,  minValue: 0.1, maxValue:  1 ),
             ]
         )
-        
-        self.addBox(
-            title: "Energy",
-            controllers:
-            [
-                SettingsIntSliderViewController( title: "Cost for successfull defense:", settings: self.settings, key: \.defense.energyCostSuccess, minValue: 0, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Cost for failed defense:",      settings: self.settings, key: \.defense.energyCostFailure, minValue: 0, maxValue: 10 ),
-            ]
-        )
     }
 }

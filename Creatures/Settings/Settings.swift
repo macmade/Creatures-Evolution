@@ -28,6 +28,7 @@ public class Settings: NSObject, Codable
 {
     @objc public dynamic var world          = WorldSettings()
     @objc public dynamic var creatures      = CreaturesSettings()
+    @objc public dynamic var combat         = CombatSettings()
     @objc public dynamic var plants         = PlantsSettings()
     @objc public dynamic var meat           = MeatSettings()
     @objc public dynamic var manure         = ManureSettings()
