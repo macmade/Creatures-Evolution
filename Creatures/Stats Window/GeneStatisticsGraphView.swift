@@ -34,6 +34,14 @@ public class GeneStatisticsGraphView: GraphView
         }
     }
     
+    @objc public dynamic var highlightedData: GeneStatisticsData?
+    {
+        didSet
+        {
+            self.needsDisplay = true
+        }
+    }
+    
     public override func max( in points: [ Double ] ) -> Double
     {
         100
@@ -68,7 +76,17 @@ public class GeneStatisticsGraphView: GraphView
             rect.origin.x   += 30
             rect.size.width -= 60
             
-            self.draw( points: $0.data, color: $0.color, in: rect )
+            if let highlightedData = self.highlightedData, highlightedData.data.count > 0, highlightedData.data.reduce( 0, { $0 + $1 } ) != 0
+            {
+                let lineWidth = $0 == self.highlightedData ? self.lineWidth * 3 : nil
+                let alpha     = $0 == self.highlightedData ? 1.0                : 0.5
+                
+                self.draw( points: $0.data, color: $0.color, in: rect, lineWidth: lineWidth, alpha: alpha )
+            }
+            else
+            {
+                self.draw( points: $0.data, color: $0.color, in: rect )
+            }
         }
     }
     

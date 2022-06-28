@@ -70,6 +70,10 @@ public class GeneStatisticsViewController: NSViewController
             
             checkbox.onMouseEnter =
             {
+                [ weak self ] in
+                
+                self?.graphView.highlightedData = data
+                
                 guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
                 {
                     return
@@ -80,6 +84,10 @@ public class GeneStatisticsViewController: NSViewController
             
             checkbox.onMouseExit =
             {
+                [ weak self ] in
+                
+                self?.graphView.highlightedData = nil
+                
                 guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
                 {
                     return
