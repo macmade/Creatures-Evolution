@@ -121,7 +121,7 @@ import Foundation
     
     final class func >( left: inout ClampingDouble, right: Int ) -> Bool
     {
-        left < Double( right )
+        left > Double( right )
     }
     
     final class func <=( left: inout ClampingDouble, right: Int ) -> Bool
