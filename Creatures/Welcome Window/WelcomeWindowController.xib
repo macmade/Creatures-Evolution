@@ -167,6 +167,8 @@
                                         <buttonCell key="cell" type="push" title="Customize Settings" bezelStyle="rounded" image="gear" catalog="system" imagePosition="leading" alignment="center" controlSize="large" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="J3d-06-e68">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">,</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="customizeSettings:" target="-2" id="GlG-oh-0ir"/>
