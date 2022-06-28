@@ -128,4 +128,16 @@ public class GeneStatisticsViewController: NSViewController
         data.display                = data.display == false
         self.graphView.needsDisplay = true
     }
+    
+    public func highlightGene( _ gene: AnyClass? )
+    {
+        if gene == nil
+        {
+            self.graphView.highlightedData = nil
+        }
+        else
+        {
+            self.graphView.highlightedData = self.data.first { $0.gene.geneClass == gene }
+        }
+    }
 }

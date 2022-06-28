@@ -166,21 +166,27 @@ public class GeneticStatisticsWindowController: NSWindowController, NSWindowDele
                 
                 controller.onMouseEnter =
                 {
+                    [ weak self ] in
+                    
                     guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
                     {
                         return
                     }
                     
+                    self?.geneStatisticsController.highlightGene( gene.info.geneClass )
                     mainWindowController.highlightGene( gene.info.geneClass )
                 }
                 
                 controller.onMouseExit =
                 {
+                    [ weak self ] in
+                    
                     guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
                     {
                         return
                     }
                     
+                    self?.geneStatisticsController.highlightGene( nil )
                     mainWindowController.highlightGene( nil )
                 }
                 
