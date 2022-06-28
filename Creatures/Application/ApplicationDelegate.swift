@@ -156,6 +156,18 @@ import Cocoa
         mainWindowController.viewGeneticStatistics( sender )
     }
     
+    @IBAction public func focusMainWindow( _ sender: Any? )
+    {
+        guard let mainWindowController = self.mainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        mainWindowController.focusMainWindow( sender )
+    }
+    
     @IBAction public func toggleCreaturesNames( _ sender: Any? )
     {
         guard let mainWindowController = self.mainWindowController else
@@ -226,6 +238,11 @@ import Cocoa
         }
         
         if menuItem.action == #selector( killCreatures( _: ) )
+        {
+            return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
+        }
+        
+        if menuItem.action == #selector( focusMainWindow( _: ) )
         {
             return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
         }

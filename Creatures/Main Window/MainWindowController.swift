@@ -407,13 +407,32 @@ public class MainWindowController: NSWindowController
             self.eventLogWindowController = EventLogWindowController( settings: settings )
         }
         
-        self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )
-        self.eventLogWindowController?.focusSearchField()
+        if self.eventLogWindowController?.window?.isKeyWindow ?? false
+        {
+            self.eventLogWindowController?.window?.performClose( nil )
+        }
+        else
+        {
+            self.eventLogWindowController?.window?.makeKeyAndOrderFront( nil )
+            self.eventLogWindowController?.focusSearchField()
+        }
     }
     
     @IBAction public func viewGeneticStatistics( _ sender: Any? )
     {
-        self.geneStatsWindowController.window?.makeKeyAndOrderFront( nil )
+        if self.geneStatsWindowController.window?.isKeyWindow ?? false
+        {
+            self.geneStatsWindowController.window?.performClose( nil )
+        }
+        else
+        {
+            self.geneStatsWindowController.window?.makeKeyAndOrderFront( nil )
+        }
+    }
+    
+    @IBAction public func focusMainWindow( _ sender: Any? )
+    {
+        self.window?.makeKeyAndOrderFront( nil )
     }
     
     @IBAction public func showSettingsMenu( _ sender: Any? )

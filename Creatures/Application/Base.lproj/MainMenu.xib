@@ -646,7 +646,8 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="FU7-FV-XbO"/>
-                            <menuItem title="Invert Appearance" keyEquivalent="I" id="C2I-9t-R9d">
+                            <menuItem title="Invert Appearance" keyEquivalent="i" id="C2I-9t-R9d">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="invertAppearance:" target="Voe-Tx-rLC" id="MZ5-75-bWh"/>
                                 </connections>
@@ -665,6 +666,12 @@
                             <menuItem title="View Event Log..." keyEquivalent="L" id="fvT-0r-FXh">
                                 <connections>
                                     <action selector="viewEventLog:" target="Voe-Tx-rLC" id="meP-au-RYW"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="XcU-BY-z0o"/>
+                            <menuItem title="Focus Main Window..." keyEquivalent="M" id="NxK-2u-WOU">
+                                <connections>
+                                    <action selector="focusMainWindow:" target="Voe-Tx-rLC" id="JC6-dV-F3u"/>
                                 </connections>
                             </menuItem>
                         </items>
