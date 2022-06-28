@@ -30,20 +30,25 @@ public class Credit: NSObject
     @objc public dynamic var abstract:        String
     @objc public dynamic var descriptionText: String
     @objc public dynamic var url:             URL?
-    @objc public dynamic var license:         String
+    @objc public dynamic var license:         String?
     @objc public dynamic var licenseText:     String?
     
-    public init( title: String, abstract: String, descriptionText: String, url: String, license: String, licenseFile: String )
+    public init( title: String, abstract: String, descriptionText: String, url: String?, license: String?, licenseFile: String? )
     {
         self.title           = title
         self.abstract        = abstract
         self.descriptionText = descriptionText
-        self.url             = URL( string: url )
         self.license         = license
         
-        if let url  = Bundle.main.url( forResource: licenseFile, withExtension: "txt" ),
-           let data = try? Data( contentsOf: url ),
-           let text = String( data: data, encoding: .utf8 )
+        if let url = url
+        {
+            self.url = URL( string: url )
+        }
+        
+        if let licenseFile = licenseFile,
+           let url         = Bundle.main.url( forResource: licenseFile, withExtension: "txt" ),
+           let data        = try? Data( contentsOf: url ),
+           let text        = String( data: data, encoding: .utf8 )
         {
             self.licenseText = text
         }

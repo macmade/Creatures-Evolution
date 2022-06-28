@@ -60,7 +60,7 @@ public class CreditsWindowController: NSWindowController, NSTableViewDelegate, N
                 url:             "https://www.cs.cmu.edu/Groups/AI/util/areas/nlp/corpora/names/0.html",
                 license:         "Free",
                 licenseFile:     "License-NameCorpus"
-            )
+            ),
         ]
         
         self.selectionObserver = self.arrayController.observe( \.selection )

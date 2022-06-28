@@ -18,7 +18,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="750" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1228"/>
             <value key="minSize" type="size" width="750" height="400"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="750" height="400"/>
@@ -81,6 +81,11 @@
                                                                                         <font key="font" metaFont="smallSystemBold"/>
                                                                                     </buttonCell>
                                                                                     <connections>
+                                                                                        <binding destination="JsB-cb-vxX" name="hidden" keyPath="objectValue.license" id="YE4-26-QAo">
+                                                                                            <dictionary key="options">
+                                                                                                <string key="NSValueTransformerName">NSIsNil</string>
+                                                                                            </dictionary>
+                                                                                        </binding>
                                                                                         <binding destination="JsB-cb-vxX" name="title" keyPath="objectValue.license" id="HpK-Vd-vqZ"/>
                                                                                         <binding destination="JsB-cb-vxX" name="toolTip" keyPath="objectValue.license" previousBinding="HpK-Vd-vqZ" id="sAe-9u-AMU"/>
                                                                                     </connections>

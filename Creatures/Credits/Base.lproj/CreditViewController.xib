@@ -35,6 +35,11 @@
                         <font key="font" metaFont="smallSystemBold"/>
                     </buttonCell>
                     <connections>
+                        <binding destination="-2" name="hidden" keyPath="self.credit.license" id="Dwh-dd-5tg">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNil</string>
+                            </dictionary>
+                        </binding>
                         <binding destination="-2" name="title" keyPath="self.credit.license" id="TzX-xs-fox"/>
                     </connections>
                 </button>
