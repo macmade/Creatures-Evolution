@@ -345,6 +345,12 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="T3g-8r-FwA"/>
+                            <menuItem title="Kill Creatures" keyEquivalent="K" id="Brt-r0-FrK">
+                                <connections>
+                                    <action selector="killCreatures:" target="Voe-Tx-rLC" id="0yH-6A-GBA"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

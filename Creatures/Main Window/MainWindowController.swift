@@ -413,4 +413,56 @@ public class MainWindowController: NSWindowController
     {
         self.scene?.highlightedGene = gene
     }
+    
+    @IBAction public func killCreatures( _ sender: Any? )
+    {
+        guard let settings = self.settings else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        let controller = GeneSelectionWindowController( excluding: nil, settings: settings, values: [], style: .checkbox )
+        
+        guard let window = self.window, let sheet = controller.window else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        sheet.title   = "Kill Specific Creatures:"
+        self.isPaused = true
+        
+        window.beginSheet( sheet )
+        {
+            guard $0 == .OK else
+            {
+                self.isPaused = false
+                
+                return
+            }
+            
+            let genes = GeneInfo.allGenes( settings: settings ).filter
+            {
+                controller.values.contains( String( describing: $0.geneClass ) )
+            }
+            
+            self.scene?.children.compactMap
+            {
+                $0 as? Creature
+            }
+            .filter
+            {
+                creature in genes.first { creature.hasActiveGene( $0.geneClass ) } != nil
+            }
+            .forEach
+            {
+                $0.die( dropFood: true )
+            }
+            
+            self.isPaused = false
+        }
+    }
 }

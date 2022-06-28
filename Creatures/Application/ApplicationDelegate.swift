@@ -165,6 +165,18 @@ import Cocoa
         mainWindowController.toggleCreaturesNames( sender )
     }
     
+    @IBAction public func killCreatures( _ sender: Any? )
+    {
+        guard let mainWindowController = self.mainWindowController else
+        {
+            NSSound.beep()
+            
+            return
+        }
+        
+        mainWindowController.killCreatures( sender )
+    }
+    
     public func windowWillClose( _ notification: Notification )
     {
         guard let window = notification.object as? NSWindow else
@@ -206,6 +218,11 @@ import Cocoa
         }
         
         if menuItem.action == #selector( viewGeneticStatistics( _: ) )
+        {
+            return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
+        }
+        
+        if menuItem.action == #selector( killCreatures( _: ) )
         {
             return self.mainWindowController != nil && self.mainWindowController?.window?.sheets.count == 0
         }
