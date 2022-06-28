@@ -32,7 +32,7 @@ public class CannibalSettings: NSObject, Codable
     @objc public dynamic var activates      = [ String ]()
     @objc public dynamic var deactivates    = [ String ]()
     @objc public dynamic var requires       = [ String ]()
-    @objc public dynamic var canEatParents  = true
-    @objc public dynamic var canEatChildren = true
-    @objc public dynamic var canEatSiblings = true
+    @objc public dynamic var canEatParents  = false
+    @objc public dynamic var canEatChildren = false
+    @objc public dynamic var canEatSiblings = false
 }
