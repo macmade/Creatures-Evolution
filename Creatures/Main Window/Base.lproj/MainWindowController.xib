@@ -178,6 +178,12 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="yPB-76-RDa"/>
+                <menuItem title="Kill Creatures" image="trash" catalog="system" keyEquivalent="K" id="Zfp-AH-bR1">
+                    <connections>
+                        <action selector="killCreatures:" target="-2" id="iO0-1h-Mqe"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="TAk-mp-nj7"/>
                 <menuItem title="Show Creature Names" image="NSTouchBarTagIconTemplate" keyEquivalent="N" id="G8L-kU-kt4">
                     <connections>
                         <action selector="showCreaturesNames:" target="-2" id="yLO-Xi-5vU"/>
@@ -299,6 +305,7 @@
         <image name="pause.fill" catalog="system" width="11" height="13"/>
         <image name="play.fill" catalog="system" width="12" height="13"/>
         <image name="tag.slash" catalog="system" width="17" height="17"/>
+        <image name="trash" catalog="system" width="15" height="17"/>
         <namedColor name="AccentColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
