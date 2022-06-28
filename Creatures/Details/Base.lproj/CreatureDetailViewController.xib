@@ -364,7 +364,7 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <connections>
-                                        <binding destination="-2" name="value" keyPath="self.node.energy" id="AZf-sN-atO">
+                                        <binding destination="-2" name="value" keyPath="self.node.energy.value" id="hzV-Jx-H6E">
                                             <dictionary key="options">
                                                 <string key="NSValueTransformerName">EnergyTransformer</string>
                                             </dictionary>

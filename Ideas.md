@@ -1,8 +1,7 @@
 To-Dos
 ======
 
-  - Log energy gained after a meal.
-  - Maximum energy setting for creatures.
+  - Event log settings (max entries, event type, etc.)
 
 Ideas
 =====

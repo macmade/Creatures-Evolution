@@ -138,6 +138,7 @@
 		0578DD4A286A69E1009F6451 /* NSException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD48286A69E1009F6451 /* NSException.m */; };
 		0578DD61286A8AB6009F6451 /* CombatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD60286A8AB6009F6451 /* CombatSettings.swift */; };
 		0578DD63286A9638009F6451 /* MouseTrackingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD62286A9638009F6451 /* MouseTrackingButton.swift */; };
+		0578DD65286AE342009F6451 /* ClampingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD64286AE342009F6451 /* ClampingDouble.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -381,6 +382,7 @@
 		0578DD49286A69E1009F6451 /* NSException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSException.h; path = Creatures/Extensions/NSException.h; sourceTree = SOURCE_ROOT; };
 		0578DD60286A8AB6009F6451 /* CombatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatSettings.swift; sourceTree = "<group>"; };
 		0578DD62286A9638009F6451 /* MouseTrackingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackingButton.swift; sourceTree = "<group>"; };
+		0578DD64286AE342009F6451 /* ClampingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClampingDouble.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				05EDA968286531B800F18B77 /* PredationHelper.swift */,
 				05EDA96A2865325B00F18B77 /* ReproductionHelper.swift */,
 				05252F04285599DD0090B385 /* Weak.swift */,
+				0578DD64286AE342009F6451 /* ClampingDouble.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1206,6 +1209,7 @@
 				05252F5D2857FF3C0090B385 /* SettingsViewController.swift in Sources */,
 				05A334792862BA7F00905208 /* SettingsValueViewController.swift in Sources */,
 				05252EAF2854E9540090B385 /* Scavenger.swift in Sources */,
+				0578DD65286AE342009F6451 /* ClampingDouble.swift in Sources */,
 				05394A5D286093DE0077D90C /* EventLogWindowController.swift in Sources */,
 				05252F542857FCF70090B385 /* NSView.swift in Sources */,
 				05102071285A192800F11184 /* HerbivoreSettings.swift in Sources */,

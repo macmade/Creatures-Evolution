@@ -42,4 +42,5 @@ public class CreaturesSettings: NSObject, Codable
     @objc public dynamic var energyDecreaseAmount        = 1
     @objc public dynamic var energyDecreaseInterval      = 15
     @objc public dynamic var energyDecreaseIntervalRange = 5
+    @objc public dynamic var maximumEnergy               = 20
 }

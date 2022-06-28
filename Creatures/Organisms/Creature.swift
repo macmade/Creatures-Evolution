@@ -38,19 +38,20 @@ public class Creature: SpriteNode
     
     private var nextEnergyDecrease: TimeInterval?
     
+    @objc public dynamic var energy: ClampingDouble
+    {
+        didSet
+        {
+            self.energy.maximumValue = Double( self.settings.creatures.maximumEnergy )
+            self.energy.onChange     = { [ weak self ] in self?.energyChanged( change: $0 ) }
+        }
+    }
+    
     @objc public dynamic var customName: String?
     {
         didSet
         {
             self.updateCustomName()
-        }
-    }
-    
-    @objc public dynamic var energy = 1.0
-    {
-        didSet
-        {
-            self.energyChanged()
         }
     }
     
@@ -85,6 +86,7 @@ public class Creature: SpriteNode
     
     public init( energy: Double, genes: [ Gene ], parents: [ Creature ]?, settings: Settings )
     {
+        self.energy   = ClampingDouble( value: energy )
         self.genes    = genes
         self.settings = settings
         self.parents  = parents?.map{ Weak( value: $0 ) }
@@ -98,7 +100,6 @@ public class Creature: SpriteNode
         physicsBody.contactTestBitMask = physicsBody.collisionBitMask
         
         self.physicsBody  = physicsBody
-        self.energy       = energy
         self.name         = String( format: "%010X", Creature.index )
         Creature.index   += 1
         
@@ -106,6 +107,9 @@ public class Creature: SpriteNode
         {
             self.customName = NameGenerator.shared.generate( range: 4 ... 8 )
         }
+        
+        self.energy.maximumValue = Double( self.settings.creatures.maximumEnergy )
+        self.energy.onChange     = { [ weak self ] in self?.energyChanged( change: $0 ) }
         
         self.updateTexture()
     }
@@ -339,12 +343,14 @@ public class Creature: SpriteNode
         }
     }
     
-    private func energyChanged()
+    private func energyChanged( change: ClampingDouble.Change )
     {
         if self.isBeingRemoved
         {
             return
         }
+        
+        EventLog.shared.energyChanged( creature: self, difference: change.difference )
         
         self.genes.filter { $0.isActive }.forEach
         {
@@ -391,7 +397,7 @@ public class Creature: SpriteNode
         
         if dropFood && self.settings.meat.isEnabled
         {
-            let energy    = self.energy > 0 ? self.energy : 1.0
+            let energy    = self.energy > 0 ? self.energy.value : 1.0
             let meat      = Meat( energy: energy, settings: self.settings )
             meat.position = self.position
             meat.alpha    = 0

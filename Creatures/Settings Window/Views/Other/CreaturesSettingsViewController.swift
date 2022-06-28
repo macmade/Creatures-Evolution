@@ -63,6 +63,7 @@ public class CreaturesSettingsViewController: SettingsViewController
                 SettingsIntSliderViewController( title: "Initial energy:",        settings: self.settings, key: \.creatures.initialEnergy,      minValue: 0, maxValue: 10 ),
                 SettingsIntSliderViewController( title: "Energy needed to grow:", settings: self.settings, key: \.creatures.energyNeededToGrow, minValue: 0, maxValue: 10 ),
                 SettingsIntSliderViewController( title: "Growth energy cost:",    settings: self.settings, key: \.creatures.growthEnergyCost,   minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Maximum energy:",        settings: self.settings, key: \.creatures.maximumEnergy,      minValue: 1, maxValue: 100 ),
             ]
         )
         

@@ -62,6 +62,23 @@ public class EventLog: NSObject
         return "<unknown>"
     }
     
+    public func energyChanged( creature: Creature, difference: Double )
+    {
+        guard let scene = creature.scene as? Scene else
+        {
+            return
+        }
+        
+        if difference < 0
+        {
+            self.add( event: Event( message: "Lost \( String( format: "%.02f", abs( difference ) ) ) energy", time: scene.elapsedTime, node: creature ) )
+        }
+        else
+        {
+            self.add( event: Event( message: "Gained \( String( format: "%.02f", difference ) ) energy", time: scene.elapsedTime, node: creature ) )
+        }
+    }
+    
     public func killed( creature: Creature, by killer: Creature? )
     {
         guard let scene = creature.scene as? Scene else
