@@ -59,5 +59,28 @@ public class VampireSettingsViewController: SettingsViewController
                 SettingsGeneActivationViewController( title: "Requires:",    gene: Vampire.self, settings: self.settings, key: \.vampire.requires ),
             ]
         )
+        
+        self.addBox(
+            title: "Combat Chances",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Attacker chance if smaller:",   settings: self.settings, key: \.vampire.combat.chanceIfSmaller,  minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Attacker chance if same size:", settings: self.settings, key: \.vampire.combat.chanceIfSameSize, minValue: 0, maxValue: 100 ),
+                SettingsIntSliderViewController( title: "Attacker chance if bigger:",    settings: self.settings, key: \.vampire.combat.chanceIfBigger,   minValue: 0, maxValue: 100 ),
+            ]
+        )
+        
+        self.addBox(
+            title: "Combat Energy",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Successfull attack cost:",          settings: self.settings, key: \.vampire.combat.energyCostAttackSuccess,   minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Failed attack cost:",               settings: self.settings, key: \.vampire.combat.energyCostAttackFailure,   minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Successfull defense cost:",         settings: self.settings, key: \.vampire.combat.energyCostDefenseSuccess,  minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Failed defense cost:",              settings: self.settings, key: \.vampire.combat.energyCostDefenseFailure,  minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Successfull attack recovery time:", settings: self.settings, key: \.vampire.combat.recoveryTimeAttackSuccess, minValue: 1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Failed attack recovery time:",      settings: self.settings, key: \.vampire.combat.recoveryTimeAttackFailure, minValue: 1, maxValue: 10 ),
+            ]
+        )
     }
 }

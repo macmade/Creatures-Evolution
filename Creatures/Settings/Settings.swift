@@ -26,32 +26,31 @@ import Cocoa
 
 public class Settings: NSObject, Codable
 {
-    @objc public dynamic var world          = WorldSettings()
-    @objc public dynamic var creatures      = CreaturesSettings()
-    @objc public dynamic var combat         = CombatSettings()
-    @objc public dynamic var plants         = PlantsSettings()
-    @objc public dynamic var meat           = MeatSettings()
-    @objc public dynamic var manure         = ManureSettings()
-    @objc public dynamic var speed          = SpeedSettings()
-    @objc public dynamic var attack         = AttackSettings()
-    @objc public dynamic var defense        = DefenseSettings()
-    @objc public dynamic var abnegation     = AbnegationSettings()
-    @objc public dynamic var digestion      = DigestionSettings()
-    @objc public dynamic var excretion      = ExcretionSettings()
-    @objc public dynamic var mitosis        = MitosisSettings()
-    @objc public dynamic var sex            = SexSettings()
-    @objc public dynamic var herbivore      = HerbivoreSettings()
-    @objc public dynamic var scavenger      = ScavengerSettings()
-    @objc public dynamic var predator       = PredatorSettings()
-    @objc public dynamic var vampire        = VampireSettings()
-    @objc public dynamic var cannibal       = CannibalSettings()
-    @objc public dynamic var plantSense     = PlantSenseSettings()
-    @objc public dynamic var manureSense    = ManureSenseSettings()
-    @objc public dynamic var meatSense      = MeatSenseSettings()
-    @objc public dynamic var preySense      = PreySenseSettings()
-    @objc public dynamic var sexSense       = SexSenseSettings()
-    @objc public dynamic var predatorSense  = PredatorSenseSettings()
-    @objc public dynamic var vampireSense   = VampireSenseSettings()
+    @objc public dynamic var world         = WorldSettings()
+    @objc public dynamic var creatures     = CreaturesSettings()
+    @objc public dynamic var plants        = PlantsSettings()
+    @objc public dynamic var meat          = MeatSettings()
+    @objc public dynamic var manure        = ManureSettings()
+    @objc public dynamic var speed         = SpeedSettings()
+    @objc public dynamic var attack        = AttackSettings()
+    @objc public dynamic var defense       = DefenseSettings()
+    @objc public dynamic var abnegation    = AbnegationSettings()
+    @objc public dynamic var digestion     = DigestionSettings()
+    @objc public dynamic var excretion     = ExcretionSettings()
+    @objc public dynamic var mitosis       = MitosisSettings()
+    @objc public dynamic var sex           = SexSettings()
+    @objc public dynamic var herbivore     = HerbivoreSettings()
+    @objc public dynamic var scavenger     = ScavengerSettings()
+    @objc public dynamic var predator      = PredatorSettings()
+    @objc public dynamic var vampire       = VampireSettings()
+    @objc public dynamic var cannibal      = CannibalSettings()
+    @objc public dynamic var plantSense    = PlantSenseSettings()
+    @objc public dynamic var manureSense   = ManureSenseSettings()
+    @objc public dynamic var meatSense     = MeatSenseSettings()
+    @objc public dynamic var preySense     = PreySenseSettings()
+    @objc public dynamic var sexSense      = SexSenseSettings()
+    @objc public dynamic var predatorSense = PredatorSenseSettings()
+    @objc public dynamic var vampireSense  = VampireSenseSettings()
     
     public func save() throws
     {
@@ -88,31 +87,37 @@ public class Settings: NSObject, Codable
             throw NSError( domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError )
         }
         
-        dict.forEach
+        self.decode( dictionary: dict, settings: settings )
+        
+        return settings
+    }
+    
+    public class func decode( dictionary: Dictionary< String, NSObject >, settings: NSObject )
+    {
+        dictionary.forEach
         {
-            root in
+            pair in
             
             try? NSException.doTry
             {
-                guard let values  = root.value as? Dictionary< String, NSObject >,
-                      let section = settings.value( forKey: root.key ) as? NSObject
+                
+                if let dict = pair.value as? Dictionary< String, NSObject >
+                {
+                    guard let section = settings.value( forKey: pair.key ) as? NSObject else
+                    {
+                        return
+                    }
+                    
+                    self.decode( dictionary: dict, settings: section )
+                }
                 else
                 {
-                    return
-                }
-                
-                values.forEach
-                {
-                    value in
-                    
                     try? NSException.doTry
                     {
-                        section.setValue( value.value, forKey: value.key )
+                        settings.setValue( pair.value, forKey: pair.key )
                     }
                 }
             }
         }
-        
-        return settings
     }
 }

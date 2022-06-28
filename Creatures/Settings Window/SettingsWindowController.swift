@@ -55,7 +55,6 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                 [
                     SettingsItem( title: "World",     symbol: "globe.europe.africa.fill", controller: WorldSettingsViewController(     settings: self.settings ) ),
                     SettingsItem( title: "Creatures", symbol: "allergens",                controller: CreaturesSettingsViewController( settings: self.settings ) ),
-                    SettingsItem( title: "Combat",    symbol: "SwordsTemplate",           controller: CombatSettingsViewController(    settings: self.settings ) ),
                 ]
             ),
             SettingsSection(
@@ -74,7 +73,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                 children:
                 [
                     SettingsItem( title: "Abnegation", symbol: "person.fill.xmark", controller: AbnegationSettingsViewController( settings: self.settings ) ),
-                    SettingsItem( title: "Attack",     symbol: "TargetTemplate",    controller: AttackSettingsViewController(     settings: self.settings ) ),
+                    SettingsItem( title: "Attack",     symbol: "SwordsTemplate",    controller: AttackSettingsViewController(     settings: self.settings ) ),
                     SettingsItem( title: "Defense",    symbol: "shield.fill",       controller: DefenseSettingsViewController(    settings: self.settings ) ),
                     SettingsItem( title: "Digestion",  symbol: "mouth.fill",        controller: DigestionSettingsViewController(  settings: self.settings ) ),
                     SettingsItem( title: "Excretion",  symbol: "trash.fill",        controller: ExcretionSettingsViewController(  settings: self.settings ) ),

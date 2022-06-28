@@ -26,13 +26,36 @@ import Cocoa
 
 public class CombatSettings: NSObject, Codable
 {
-    @objc public dynamic var chanceIfSmaller           = 30
-    @objc public dynamic var chanceIfSameSize          = 60
-    @objc public dynamic var chanceIfBigger            = 90
-    @objc public dynamic var recoveryTimeAttackSuccess = 1
-    @objc public dynamic var recoveryTimeAttackFailure = 1
-    @objc public dynamic var energyCostAttackSuccess   = 0
-    @objc public dynamic var energyCostAttackFailure   = 0
-    @objc public dynamic var energyCostDefenseSuccess  = 0
-    @objc public dynamic var energyCostDefenseFailure  = 0
+    @objc public dynamic var chanceIfSmaller:           Int
+    @objc public dynamic var chanceIfSameSize:          Int
+    @objc public dynamic var chanceIfBigger:            Int
+    @objc public dynamic var recoveryTimeAttackSuccess: Int
+    @objc public dynamic var recoveryTimeAttackFailure: Int
+    @objc public dynamic var energyCostAttackSuccess:   Int
+    @objc public dynamic var energyCostAttackFailure:   Int
+    @objc public dynamic var energyCostDefenseSuccess:  Int
+    @objc public dynamic var energyCostDefenseFailure:  Int
+    
+    public init(
+        chanceIfSmaller:            Int,
+        chanceIfSameSize:           Int,
+        chanceIfBigger:             Int,
+        recoveryTimeAttackSuccess:  Int,
+        recoveryTimeAttackFailure:  Int,
+        energyCostAttackSuccess:    Int,
+        energyCostAttackFailure:    Int,
+        energyCostDefenseSuccess:   Int,
+        energyCostDefenseFailure:   Int
+    )
+    {
+        self.chanceIfSmaller           = chanceIfSmaller
+        self.chanceIfSameSize          = chanceIfSameSize
+        self.chanceIfBigger            = chanceIfBigger
+        self.recoveryTimeAttackSuccess = recoveryTimeAttackSuccess
+        self.recoveryTimeAttackFailure = recoveryTimeAttackFailure
+        self.energyCostAttackSuccess   = energyCostAttackSuccess
+        self.energyCostAttackFailure   = energyCostAttackFailure
+        self.energyCostDefenseSuccess  = energyCostDefenseSuccess
+        self.energyCostDefenseFailure  = energyCostDefenseFailure
+    }
 }

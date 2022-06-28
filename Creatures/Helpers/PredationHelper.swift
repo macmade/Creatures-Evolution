@@ -75,13 +75,8 @@ public class PredationHelper
         self.canEat( creature: attacker, prey: creature )
     }
     
-    public class func attack( creature: Creature, target: Creature ) -> Bool
+    public class func attack( creature: Creature, target: Creature, settings: CombatSettings ) -> Bool
     {
-        guard let settings = ( creature.scene as? Scene )?.settings else
-        {
-            return false
-        }
-        
         if creature.isBeingRemoved || target.isBeingRemoved
         {
             return false
@@ -101,14 +96,14 @@ public class PredationHelper
         {
             if $0.isSmallerThan( creature: $1 )
             {
-                return Double( settings.combat.chanceIfSmaller )
+                return Double( settings.chanceIfSmaller )
             }
             else if $0.isBiggerThan( creature: $1 )
             {
-                return Double( settings.combat.chanceIfBigger )
+                return Double( settings.chanceIfBigger )
             }
             
-            return Double( settings.combat.chanceIfSameSize )
+            return Double( settings.chanceIfSameSize )
         }
         
         let attack  = getGeneValue( creature, Attack.self )
@@ -117,14 +112,14 @@ public class PredationHelper
         
         if Double.random( in: 0 ... 100 ) <= chance
         {
-            creature.energy -= Double( settings.combat.energyCostAttackSuccess )
-            target.energy   -= Double( settings.combat.energyCostDefenseFailure )
+            creature.energy -= Double( settings.energyCostAttackSuccess )
+            target.energy   -= Double( settings.energyCostDefenseFailure )
             
             return true
         }
         
-        creature.energy -= Double( settings.combat.energyCostAttackFailure )
-        target.energy   -= Double( settings.combat.energyCostDefenseSuccess )
+        creature.energy -= Double( settings.energyCostAttackFailure )
+        target.energy   -= Double( settings.energyCostDefenseSuccess )
         
         return false
     }

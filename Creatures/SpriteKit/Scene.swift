@@ -77,6 +77,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             self.children.forEach
             {
                 ( $0 as? Creature )?.highlight( false )
+                
             }
         }
     }

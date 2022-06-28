@@ -136,7 +136,6 @@
 		056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056D66462866AD760036E30F /* SettingsImageViewController.xib */; };
 		056D66492866C7F90036E30F /* SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66482866C7F90036E30F /* SKScene.swift */; };
 		0578DD4A286A69E1009F6451 /* NSException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD48286A69E1009F6451 /* NSException.m */; };
-		0578DD5F286A8A87009F6451 /* CombatSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD5E286A8A87009F6451 /* CombatSettingsViewController.swift */; };
 		0578DD61286A8AB6009F6451 /* CombatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD60286A8AB6009F6451 /* CombatSettings.swift */; };
 		0578DD63286A9638009F6451 /* MouseTrackingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD62286A9638009F6451 /* MouseTrackingButton.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
@@ -380,7 +379,6 @@
 		0578DD47286A69E1009F6451 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		0578DD48286A69E1009F6451 /* NSException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSException.m; path = Creatures/Extensions/NSException.m; sourceTree = SOURCE_ROOT; };
 		0578DD49286A69E1009F6451 /* NSException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSException.h; path = Creatures/Extensions/NSException.h; sourceTree = SOURCE_ROOT; };
-		0578DD5E286A8A87009F6451 /* CombatSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatSettingsViewController.swift; sourceTree = "<group>"; };
 		0578DD60286A8AB6009F6451 /* CombatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatSettings.swift; sourceTree = "<group>"; };
 		0578DD62286A9638009F6451 /* MouseTrackingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackingButton.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
@@ -972,7 +970,6 @@
 		05D1BAF8286761800039C9AE /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				0578DD5E286A8A87009F6451 /* CombatSettingsViewController.swift */,
 				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
 				056D6638286698440036E30F /* ManureSettingsViewController.swift */,
 				05252F6F285819A60090B385 /* MeatSettingsViewController.swift */,
@@ -1293,7 +1290,6 @@
 				05D1BB112867EE0C0039C9AE /* GeneStatisticsData.swift in Sources */,
 				05D1BB282868D1580039C9AE /* ValueGeneGraphView.swift in Sources */,
 				05102078285A192800F11184 /* VampireSenseSettingsViewController.swift in Sources */,
-				0578DD5F286A8A87009F6451 /* CombatSettingsViewController.swift in Sources */,
 				05252EB12854E95D0090B385 /* Predator.swift in Sources */,
 				05252EB32854E9640090B385 /* Cannibal.swift in Sources */,
 				05102039285A165900F11184 /* VampireSettings.swift in Sources */,

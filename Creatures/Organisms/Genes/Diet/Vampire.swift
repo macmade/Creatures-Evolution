@@ -86,7 +86,7 @@ public class Vampire: DietGene
             return
         }
         
-        let success = PredationHelper.attack( creature: creature, target: other )
+        let success = PredationHelper.attack( creature: creature, target: other, settings: scene.settings.vampire.combat )
         
         EventLog.shared.attack( attacker: creature, target: other, success: success )
         
@@ -104,11 +104,11 @@ public class Vampire: DietGene
                 EventLog.shared.killed( creature: other, by: creature )
             }
             
-            self.nextUse = scene.elapsedTime + Double( settings.combat.recoveryTimeAttackSuccess )
+            self.nextUse = scene.elapsedTime + Double( settings.vampire.combat.recoveryTimeAttackSuccess )
         }
         else
         {
-            self.nextUse = scene.elapsedTime + Double( settings.combat.recoveryTimeAttackFailure )
+            self.nextUse = scene.elapsedTime + Double( settings.vampire.combat.recoveryTimeAttackFailure )
         }
     }
 }
