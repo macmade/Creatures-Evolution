@@ -34,11 +34,15 @@ public class GraphView: NSView
         case gradientWithLine
     }
     
-    private var data: [ Double ] = []
+    private var trackingArea: NSTrackingArea?
+    private var data:         [ Double ] = []
     
     @objc public dynamic var color        = NSColor.clear { didSet { self.needsDisplay = true } }
     @objc public dynamic var style        = Style.fill    { didSet { self.needsDisplay = true } }
     @objc public dynamic var lineWidth    = 1.0           { didSet { self.needsDisplay = true } }
+    
+    public var onMouseEnter: ( () -> Void )?
+    public var onMouseExit:  ( () -> Void )?
     
     public func addData( _ data: Double )
     {
@@ -53,6 +57,33 @@ public class GraphView: NSView
         self.data.removeAll()
         
         self.needsDisplay = true
+    }
+    
+    public override func updateTrackingAreas()
+    {
+        super.updateTrackingAreas()
+        
+        if let trackingArea = self.trackingArea
+        {
+            self.removeTrackingArea( trackingArea )
+        }
+        
+        let trackingArea  = NSTrackingArea( rect: self.bounds, options: [ .activeInKeyWindow, .mouseEnteredAndExited ], owner: self, userInfo: nil )
+        self.trackingArea = trackingArea
+        
+        self.addTrackingArea( trackingArea )
+    }
+    
+    public override func mouseEntered( with event: NSEvent )
+    {
+        super.mouseEntered( with: event )
+        self.onMouseEnter?()
+    }
+    
+    public override func mouseExited( with event: NSEvent )
+    {
+        super.mouseExited( with: event )
+        self.onMouseExit?()
     }
     
     public override func draw( _ rect: NSRect )

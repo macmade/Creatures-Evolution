@@ -35,6 +35,40 @@ public class ValueGeneGraphViewController: NSViewController
     
     private var data = [ Double ]()
     
+    public var onMouseEnter: ( () -> Void )?
+    {
+        get
+        {
+            let _ = self.view
+            
+            return self.graphView.onMouseEnter
+        }
+        
+        set( value )
+        {
+            let _ = self.view
+            
+            self.graphView.onMouseEnter = value
+        }
+    }
+    
+    public var onMouseExit: ( () -> Void )?
+    {
+        get
+        {
+            let _ = self.view
+            
+            return self.graphView.onMouseExit
+        }
+        
+        set( value )
+        {
+            let _ = self.view
+            
+            self.graphView.onMouseExit = value
+        }
+    }
+    
     init( title: String, color: NSColor )
     {
         self.color = color

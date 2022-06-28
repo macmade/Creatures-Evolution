@@ -158,7 +158,31 @@ public class GeneticStatisticsWindowController: NSWindowController
         {
             self.valueGeneControllers = valueGenes.map
             {
-                ValueGeneGraphViewController( title: "Average \( $0.info.name )", color: $0.color.withAlphaComponent( 0.75 ) )
+                gene in
+                
+                let controller = ValueGeneGraphViewController( title: "Average \( gene.info.name )", color: gene.color.withAlphaComponent( 0.75 ) )
+                
+                controller.onMouseEnter =
+                {
+                    guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
+                    {
+                        return
+                    }
+                    
+                    mainWindowController.highlightGene( gene.info.geneClass )
+                }
+                
+                controller.onMouseExit =
+                {
+                    guard let delegate = NSApp.delegate as? ApplicationDelegate, let mainWindowController = delegate.mainWindowController else
+                    {
+                        return
+                    }
+                    
+                    mainWindowController.highlightGene( nil )
+                }
+                
+                return controller
             }
         }
         
