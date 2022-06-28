@@ -329,24 +329,6 @@ public class Creature: SpriteNode
         {
             $0.onCollision( creature: self, node: node )
         }
-        
-        if let food = node as? Food, food.isBeingRemoved
-        {
-            return
-        }
-        
-        if let creature = node as? Creature, creature.isBeingRemoved
-        {
-            return
-        }
-        
-        if let cat1 = self.physicsBody?.categoryBitMask,
-           let cat2 = node.physicsBody?.categoryBitMask,
-           cat1 == cat2
-        {
-            self.removeAction( forKey: Creature.moveActionKey )
-            self.move()
-        }
     }
     
     public func eat( energy: Double )
