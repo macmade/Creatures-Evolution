@@ -1,7 +1,7 @@
 To-Dos
 ======
 
-  - Check "sticky poo" syndrom on Scavengers.
+...
 
 Ideas
 =====

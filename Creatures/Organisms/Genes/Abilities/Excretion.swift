@@ -66,7 +66,7 @@ public class Excretion: Gene
     {
         if self.settings.manure.isEnabled, energy < 0, let scene = creature.scene
         {
-            let manure      = Manure( energy: energy, settings: self.settings )
+            let manure      = Manure( energy: 1, settings: self.settings )
             manure.position = creature.position
             manure.alpha    = 0
             
