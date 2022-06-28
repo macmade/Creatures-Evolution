@@ -79,4 +79,19 @@ public class ReproductionHelper
         
         return ( sex1.isMale && sex2.isFemale ) || ( sex1.isFemale && sex2.isMale )
     }
+    
+    public class func positionForBaby( parent: Creature ) -> NSPoint
+    {
+        let size  = max( parent.size.width, parent.size.height ) / 2
+        let randX = Double.random( in: 5 ... 10 )
+        let randY = Double.random( in: 5 ... 10 )
+        let x     = size + randX
+        let y     = size + randY
+        var pos   = parent.position
+        
+        pos.x += Bool.random() ? x : -x
+        pos.y += Bool.random() ? y : -y
+        
+        return pos
+    }
 }

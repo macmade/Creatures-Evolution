@@ -114,7 +114,7 @@ public class Mitosis: Gene
         
         let mutation    = EvolutionHelper.mutate( genes: creature.genes, mutationChance: self.settings.mitosis.mutationChance )
         let copy        = Creature( energy: 1, genes: mutation.genes, parents: [ creature ], settings: self.settings )
-        copy.position   = creature.position
+        copy.position   = ReproductionHelper.positionForBaby( parent: creature )
         copy.generation = creature.generation + 1
         
         creature.scene?.addChild( copy )
