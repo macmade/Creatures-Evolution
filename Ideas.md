@@ -1,10 +1,15 @@
 To-Dos
 ======
 
-...
+  - Check "sticky poo" syndrom on Scavengers.
 
 Ideas
 =====
+
+## Genes Settings
+
+  - Requirements: allow AND/OR requirements?
+  - Mutation chance per gene?
 
 ## Size Gene
 

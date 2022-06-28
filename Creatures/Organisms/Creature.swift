@@ -357,7 +357,7 @@ public class Creature: SpriteNode
             $0.onEnergyChanged( creature: self )
         }
         
-        if self.energy == -1
+        if self.energy <= -1
         {
             self.die( dropFood: true )
             EventLog.shared.died( creature: self )
