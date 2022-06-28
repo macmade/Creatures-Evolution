@@ -251,19 +251,19 @@
                             <rect key="frame" x="185" y="15" width="200" height="74"/>
                         </customView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="XKq-1d-vdd" customClass="CreatureStatusGraphView" customModule="Creatures" customModuleProvider="target">
-                            <rect key="frame" x="393" y="15" width="139" height="74"/>
+                            <rect key="frame" x="393" y="15" width="140" height="74"/>
                         </customView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="vkc-BC-7A9">
-                            <rect key="frame" x="552" y="15" width="200" height="74"/>
+                            <rect key="frame" x="553" y="15" width="200" height="74"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="AFa-F5-32n"/>
                             </constraints>
                         </customView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="W5i-nI-Rde" customClass="CreatureStatusGraphView" customModule="Creatures" customModuleProvider="target">
-                            <rect key="frame" x="760" y="15" width="139" height="74"/>
+                            <rect key="frame" x="761" y="15" width="139" height="74"/>
                         </customView>
                         <stackView distribution="equalSpacing" orientation="vertical" alignment="leading" spacing="15" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6Y-R8-krg">
-                            <rect key="frame" x="914" y="24" width="18" height="57"/>
+                            <rect key="frame" x="915" y="24" width="17" height="57"/>
                             <subviews>
                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="NZe-JN-3a6">
                                     <rect key="frame" x="0.0" y="44" width="17" height="17"/>
@@ -286,8 +286,8 @@
                                     </connections>
                                 </button>
                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="wp1-Al-16V">
-                                    <rect key="frame" x="0.0" y="-2.5" width="18" height="14"/>
-                                    <buttonCell key="cell" type="square" title="View Event Log" bezelStyle="shadowlessSquare" image="macwindow" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="v26-wM-F4u">
+                                    <rect key="frame" x="0.0" y="-2.5" width="16" height="14"/>
+                                    <buttonCell key="cell" type="square" title="View Event Log" bezelStyle="shadowlessSquare" image="note.text" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="v26-wM-F4u">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
@@ -349,7 +349,7 @@
         <image name="allergens" catalog="system" width="20" height="19"/>
         <image name="chart.line.uptrend.xyaxis" catalog="system" width="17" height="14"/>
         <image name="heart" catalog="system" width="16" height="14"/>
-        <image name="macwindow" catalog="system" width="18" height="14"/>
+        <image name="note.text" catalog="system" width="16" height="14"/>
         <image name="tag" catalog="system" width="17" height="17"/>
         <image name="trash" catalog="system" width="15" height="17"/>
     </resources>

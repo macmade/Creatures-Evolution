@@ -139,6 +139,8 @@
 		0578DD61286A8AB6009F6451 /* CombatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD60286A8AB6009F6451 /* CombatSettings.swift */; };
 		0578DD63286A9638009F6451 /* MouseTrackingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD62286A9638009F6451 /* MouseTrackingButton.swift */; };
 		0578DD65286AE342009F6451 /* ClampingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD64286AE342009F6451 /* ClampingDouble.swift */; };
+		0578DD7A286AF682009F6451 /* EventLogSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD79286AF682009F6451 /* EventLogSettings.swift */; };
+		0578DD7C286AF9C4009F6451 /* EventLogSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD7B286AF9C4009F6451 /* EventLogSettingsViewController.swift */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -383,6 +385,8 @@
 		0578DD60286A8AB6009F6451 /* CombatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatSettings.swift; sourceTree = "<group>"; };
 		0578DD62286A9638009F6451 /* MouseTrackingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackingButton.swift; sourceTree = "<group>"; };
 		0578DD64286AE342009F6451 /* ClampingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClampingDouble.swift; sourceTree = "<group>"; };
+		0578DD79286AF682009F6451 /* EventLogSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogSettings.swift; sourceTree = "<group>"; };
+		0578DD7B286AF9C4009F6451 /* EventLogSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogSettingsViewController.swift; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -935,6 +939,7 @@
 			children = (
 				0578DD60286A8AB6009F6451 /* CombatSettings.swift */,
 				05252F7A285837AD0090B385 /* CreaturesSettings.swift */,
+				0578DD79286AF682009F6451 /* EventLogSettings.swift */,
 				056D6636286697E80036E30F /* ManureSettings.swift */,
 				05252F70285819A60090B385 /* MeatSettings.swift */,
 				05252F6E285819A60090B385 /* PlantsSettings.swift */,
@@ -974,6 +979,7 @@
 			isa = PBXGroup;
 			children = (
 				05252F79285837AD0090B385 /* CreaturesSettingsViewController.swift */,
+				0578DD7B286AF9C4009F6451 /* EventLogSettingsViewController.swift */,
 				056D6638286698440036E30F /* ManureSettingsViewController.swift */,
 				05252F6F285819A60090B385 /* MeatSettingsViewController.swift */,
 				05252F6D285819A60090B385 /* PlantsSettingsViewController.swift */,
@@ -1221,6 +1227,7 @@
 				05A334C02863886B00905208 /* AttackSettingsViewController.swift in Sources */,
 				05394A32285FA5E00077D90C /* CreatureStatusGraphView.swift in Sources */,
 				05102069285A192800F11184 /* PredatorSenseSettingsViewController.swift in Sources */,
+				0578DD7A286AF682009F6451 /* EventLogSettings.swift in Sources */,
 				05A334BC2863863800905208 /* Attack.swift in Sources */,
 				05D1BB1A2867F2750039C9AE /* GeneStatisticsGraphView.swift in Sources */,
 				0510206F285A192800F11184 /* PlantSenseSettingsViewController.swift in Sources */,
@@ -1332,6 +1339,7 @@
 				05EDA9A128654A3400F18B77 /* ValueGene.swift in Sources */,
 				056D66432866A6900036E30F /* ManureSense.swift in Sources */,
 				05252F522857FBEC0090B385 /* MitosisSettingsViewController.swift in Sources */,
+				0578DD7C286AF9C4009F6451 /* EventLogSettingsViewController.swift in Sources */,
 				056D6616286652F30036E30F /* Digestion.swift in Sources */,
 				05EDA9C92866144900F18B77 /* SettingsSeparatorViewController.swift in Sources */,
 				05EDA99F2865491000F18B77 /* DietGene.swift in Sources */,

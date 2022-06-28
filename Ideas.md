@@ -1,7 +1,7 @@
 To-Dos
 ======
 
-  - Event log settings (max entries, event type, etc.)
+...
 
 Ideas
 =====

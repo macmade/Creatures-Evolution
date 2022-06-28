@@ -64,7 +64,7 @@ public class EventLog: NSObject
     
     public func energyChanged( creature: Creature, difference: Double )
     {
-        guard let scene = creature.scene as? Scene else
+        guard let scene = creature.scene as? Scene, scene.settings.eventLog.logEnergyChanges else
         {
             return
         }
@@ -81,7 +81,7 @@ public class EventLog: NSObject
     
     public func killed( creature: Creature, by killer: Creature? )
     {
-        guard let scene = creature.scene as? Scene else
+        guard let scene = creature.scene as? Scene, scene.settings.eventLog.logKills else
         {
             return
         }
@@ -102,7 +102,7 @@ public class EventLog: NSObject
     
     public func attack( attacker: Creature, target: Creature, success: Bool )
     {
-        guard let scene = attacker.scene as? Scene else
+        guard let scene = attacker.scene as? Scene, scene.settings.eventLog.logCombats else
         {
             return
         }
@@ -121,7 +121,7 @@ public class EventLog: NSObject
     
     public func died( creature: Creature )
     {
-        guard let scene = creature.scene as? Scene else
+        guard let scene = creature.scene as? Scene, scene.settings.eventLog.logDeaths else
         {
             return
         }
@@ -131,7 +131,7 @@ public class EventLog: NSObject
     
     public func born( creature: Creature, from parents: [ Creature ] )
     {
-        guard let scene = creature.scene as? Scene else
+        guard let scene = creature.scene as? Scene, scene.settings.eventLog.logBirths else
         {
             return
         }
@@ -152,7 +152,7 @@ public class EventLog: NSObject
     
     public func energyTransfer( amount: Double, from giver: Creature, to receiver: Creature )
     {
-        guard let scene = giver.scene as? Scene else
+        guard let scene = giver.scene as? Scene, scene.settings.eventLog.logEnergyChanges else
         {
             return
         }

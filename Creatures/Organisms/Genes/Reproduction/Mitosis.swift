@@ -122,7 +122,7 @@ public class Mitosis: Gene
         NotificationCenter.default.post( name: Constants.creatureBornNotification, object: copy )
         EventLog.shared.born( creature: copy, from: [ creature ] )
         
-        if let event = mutation.event
+        if let event = mutation.event, self.settings.eventLog.logMutations
         {
             EventLog.shared.add( event: Event( message: event, time: scene.elapsedTime, node: copy ) )
         }

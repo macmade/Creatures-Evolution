@@ -55,6 +55,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
                 [
                     SettingsItem( title: "World",     symbol: "globe.europe.africa.fill", controller: WorldSettingsViewController(     settings: self.settings ) ),
                     SettingsItem( title: "Creatures", symbol: "allergens",                controller: CreaturesSettingsViewController( settings: self.settings ) ),
+                    SettingsItem( title: "Event Log", symbol: "note.text",                controller: EventLogSettingsViewController(  settings: self.settings ) ),
                 ]
             ),
             SettingsSection(
