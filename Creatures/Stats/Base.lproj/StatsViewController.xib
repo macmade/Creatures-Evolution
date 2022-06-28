@@ -273,6 +273,22 @@
                                     </buttonCell>
                                     <connections>
                                         <action selector="toggleCreaturesNames:" target="-1" id="QLu-Eb-smC"/>
+                                        <binding destination="-2" name="hidden" keyPath="self.scene.settings.world.showCreaturesNames" id="Cc3-Aw-P67"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vLa-fn-sWq">
+                                    <rect key="frame" x="0.0" y="44" width="17" height="17"/>
+                                    <buttonCell key="cell" type="square" title="Toggle Creatures Names" bezelStyle="shadowlessSquare" image="tag.fill" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Wga-5R-dcr">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="toggleCreaturesNames:" target="-1" id="TId-dz-YkM"/>
+                                        <binding destination="-2" name="hidden" keyPath="self.scene.settings.world.showCreaturesNames" id="VYr-X1-Q0k">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
                                     </connections>
                                 </button>
                                 <button translatesAutoresizingMaskIntoConstraints="NO" id="hoh-DC-ZPe">
@@ -300,8 +316,10 @@
                                 <integer value="1000"/>
                                 <integer value="1000"/>
                                 <integer value="1000"/>
+                                <integer value="1000"/>
                             </visibilityPriorities>
                             <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
                                 <real value="3.4028234663852886e+38"/>
@@ -351,6 +369,7 @@
         <image name="heart" catalog="system" width="16" height="14"/>
         <image name="note.text" catalog="system" width="16" height="14"/>
         <image name="tag" catalog="system" width="17" height="17"/>
+        <image name="tag.fill" catalog="system" width="17" height="17"/>
         <image name="trash" catalog="system" width="15" height="17"/>
     </resources>
 </document>
