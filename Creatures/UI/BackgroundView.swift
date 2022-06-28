@@ -26,7 +26,14 @@ import Cocoa
 
 public class BackgroundView: NSView
 {
-    @objc @IBInspectable public dynamic var cornerRadius:    Int = 0
+    @objc @IBInspectable public dynamic var cornerRadius: Int = 0
+    {
+        didSet
+        {
+            self.needsDisplay = true
+        }
+    }
+    
     @objc @IBInspectable public dynamic var backgroundColor: NSColor?
     {
         didSet
@@ -35,26 +42,88 @@ public class BackgroundView: NSView
         }
     }
     
+    @objc @IBInspectable public dynamic var darkBackgroundColor: NSColor?
+    {
+        didSet
+        {
+            self.needsDisplay = true
+        }
+    }
+    
+    @objc @IBInspectable public dynamic var borderColor: NSColor?
+    {
+        didSet
+        {
+            self.needsDisplay = true
+        }
+    }
+    
+    @objc @IBInspectable public dynamic var darkBorderColor: NSColor?
+    {
+        didSet
+        {
+            self.needsDisplay = true
+        }
+    }
+    
+    private var appearanceObserver: NSKeyValueObservation?
+    
+    public override init( frame: NSRect )
+    {
+        super.init( frame: frame )
+        
+        self.appearanceObserver = self.observe( \.effectiveAppearance )
+        {
+            [ weak self ] _, _ in self?.needsDisplay = true
+        }
+    }
+    
+    public required init?( coder: NSCoder )
+    {
+        super.init( coder: coder )
+        
+        self.appearanceObserver = self.observe( \.effectiveAppearance )
+        {
+            [ weak self ] _, _ in self?.needsDisplay = true
+        }
+    }
+    
     public override func draw( _ rect: NSRect )
     {
         super.draw( rect )
         
-        guard let color = self.backgroundColor else
+        let background: NSColor? =
         {
-            return
-        }
-        
-        color.setFill()
-        
-        if self.cornerRadius == 0
-        {
-            rect.fill()
-        }
-        else
-        {
-            let path = NSBezierPath( roundedRect: self.bounds, xRadius: CGFloat( self.cornerRadius ), yRadius: CGFloat( self.cornerRadius ) )
+            if self.effectiveAppearance.isDark, let color = self.darkBackgroundColor
+            {
+                return color
+            }
             
+            return self.backgroundColor
+        }()
+        
+        let border: NSColor? =
+        {
+            if self.effectiveAppearance.isDark, let color = self.darkBorderColor
+            {
+                return color
+            }
+            
+            return self.borderColor
+        }()
+        
+        let path = NSBezierPath( roundedRect: border == nil ? self.bounds : self.bounds.insetBy( dx: 1, dy: 1 ), xRadius: CGFloat( self.cornerRadius ), yRadius: CGFloat( self.cornerRadius ) )
+        
+        if let color = background
+        {
+            color.setFill()
             path.fill()
+        }
+        
+        if let color = border
+        {
+            color.setStroke()
+            path.stroke()
         }
     }
 }

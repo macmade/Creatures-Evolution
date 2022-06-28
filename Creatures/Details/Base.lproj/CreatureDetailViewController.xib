@@ -18,7 +18,7 @@
                 <binding destination="-2" name="contentArray" keyPath="self.genes" id="F0i-e4-HmU"/>
             </connections>
         </arrayController>
-        <customView appearanceType="darkAqua" id="c22-O7-iKe" customClass="DraggableView" customModule="Creatures" customModuleProvider="target">
+        <customView id="c22-O7-iKe" customClass="DraggableView" customModule="Creatures" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="340" height="502"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -779,10 +779,13 @@
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="value" red="1" green="1" blue="1" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="darkBackgroundColor">
+                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-69" y="-702"/>

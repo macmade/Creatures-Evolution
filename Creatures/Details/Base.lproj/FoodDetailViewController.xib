@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView appearanceType="darkAqua" id="c22-O7-iKe" customClass="DraggableView" customModule="Creatures" customModuleProvider="target">
+        <customView id="c22-O7-iKe" customClass="DraggableView" customModule="Creatures" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="340" height="213"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -153,17 +153,17 @@
                                     </buttonCell>
                                     <connections>
                                         <action selector="decreaseEnergy:" target="-2" id="nOd-lt-cNo"/>
+                                        <binding destination="-2" name="hidden" keyPath="self.node.isAlive" id="Oda-95-d9J">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
                                         <binding destination="-2" name="hidden2" keyPath="self.node.isDecayed" previousBinding="Oda-95-d9J" id="Hzp-Wh-1aj">
                                             <dictionary key="options">
                                                 <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                                 <integer key="NSNoSelectionPlaceholder" value="-1"/>
                                                 <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                                 <integer key="NSNullPlaceholder" value="-1"/>
-                                            </dictionary>
-                                        </binding>
-                                        <binding destination="-2" name="hidden" keyPath="self.node.isAlive" id="Oda-95-d9J">
-                                            <dictionary key="options">
-                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -176,17 +176,17 @@
                                     </buttonCell>
                                     <connections>
                                         <action selector="increaseEnergy:" target="-2" id="vHq-65-luv"/>
+                                        <binding destination="-2" name="hidden" keyPath="self.node.isAlive" id="s2I-Vo-qgB">
+                                            <dictionary key="options">
+                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                            </dictionary>
+                                        </binding>
                                         <binding destination="-2" name="hidden2" keyPath="self.node.isDecayed" previousBinding="s2I-Vo-qgB" id="dNK-Lt-Vmb">
                                             <dictionary key="options">
                                                 <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                                 <integer key="NSNoSelectionPlaceholder" value="-1"/>
                                                 <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                                 <integer key="NSNullPlaceholder" value="-1"/>
-                                            </dictionary>
-                                        </binding>
-                                        <binding destination="-2" name="hidden" keyPath="self.node.isAlive" id="s2I-Vo-qgB">
-                                            <dictionary key="options">
-                                                <string key="NSValueTransformerName">NSNegateBoolean</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -325,10 +325,13 @@
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="value" red="1" green="1" blue="1" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="darkBackgroundColor">
+                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-49" y="-576"/>
