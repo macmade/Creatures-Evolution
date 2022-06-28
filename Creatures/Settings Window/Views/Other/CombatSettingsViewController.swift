@@ -59,10 +59,12 @@ public class CombatSettingsViewController: SettingsViewController
             title: "Energy",
             controllers:
             [
-                SettingsIntSliderViewController( title: "Cost for successfull attack:",  settings: self.settings, key: \.combat.energyCostAttackSuccess,  minValue: 0, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Cost for failed attack:",       settings: self.settings, key: \.combat.energyCostAttackFailure,  minValue: 0, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Cost for successfull defense:", settings: self.settings, key: \.combat.energyCostDefenseSuccess, minValue: 0, maxValue: 10 ),
-                SettingsIntSliderViewController( title: "Cost for failed defense:",      settings: self.settings, key: \.combat.energyCostDefenseFailure, minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Successfull attack cost:",          settings: self.settings, key: \.combat.energyCostAttackSuccess,   minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Failed attack cost:",               settings: self.settings, key: \.combat.energyCostAttackFailure,   minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Successfull defense cost:",         settings: self.settings, key: \.combat.energyCostDefenseSuccess,  minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Failed defense cost:",              settings: self.settings, key: \.combat.energyCostDefenseFailure,  minValue: 0, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Successfull attack recovery time:", settings: self.settings, key: \.combat.recoveryTimeAttackSuccess, minValue: 1, maxValue: 10 ),
+                SettingsIntSliderViewController( title: "Failed attack recovery time:",      settings: self.settings, key: \.combat.recoveryTimeAttackFailure, minValue: 1, maxValue: 10 ),
             ]
         )
     }

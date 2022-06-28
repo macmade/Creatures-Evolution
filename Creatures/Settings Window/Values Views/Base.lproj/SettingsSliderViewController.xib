@@ -17,11 +17,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-Ob-Jgo">
-                    <rect key="frame" x="-2" y="4" width="174" height="14"/>
+                    <rect key="frame" x="-2" y="4" width="184" height="14"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="a8C-Pb-H5I"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="a8C-Pb-H5I"/>
                     </constraints>
-                    <textFieldCell key="cell" controlSize="small" lineBreakMode="clipping" title="Label" id="TAR-If-6KJ">
+                    <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" title="Label" id="TAR-If-6KJ">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -31,7 +31,7 @@
                     </connections>
                 </textField>
                 <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ioq-Re-tHs">
-                    <rect key="frame" x="176" y="-5" width="332" height="28"/>
+                    <rect key="frame" x="186" y="-5" width="322" height="28"/>
                     <sliderCell key="cell" continuous="YES" state="on" alignment="left" tickMarkPosition="below" sliderType="linear" id="xWZ-uE-u8p"/>
                     <connections>
                         <binding destination="-2" name="maxValue" keyPath="self.maxValue" id="Nf9-pz-ebB"/>

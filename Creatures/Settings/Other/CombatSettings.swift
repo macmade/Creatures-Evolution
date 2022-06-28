@@ -26,11 +26,13 @@ import Cocoa
 
 public class CombatSettings: NSObject, Codable
 {
-    @objc public dynamic var chanceIfSmaller          = 30
-    @objc public dynamic var chanceIfSameSize         = 60
-    @objc public dynamic var chanceIfBigger           = 90
-    @objc public dynamic var energyCostAttackSuccess  = 0
-    @objc public dynamic var energyCostAttackFailure  = 0
-    @objc public dynamic var energyCostDefenseSuccess = 0
-    @objc public dynamic var energyCostDefenseFailure = 0
+    @objc public dynamic var chanceIfSmaller           = 30
+    @objc public dynamic var chanceIfSameSize          = 60
+    @objc public dynamic var chanceIfBigger            = 90
+    @objc public dynamic var recoveryTimeAttackSuccess = 1
+    @objc public dynamic var recoveryTimeAttackFailure = 1
+    @objc public dynamic var energyCostAttackSuccess   = 0
+    @objc public dynamic var energyCostAttackFailure   = 0
+    @objc public dynamic var energyCostDefenseSuccess  = 0
+    @objc public dynamic var energyCostDefenseFailure  = 0
 }

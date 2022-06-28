@@ -3,11 +3,6 @@ To-Dos
 
   - Log energy gained after a meal.
   - Maximum energy setting for creatures.
-  - Recovery time for combat.
-  - Dedicated combat settings to unclutter attack/defense settings?
-  - Combat energy cost also if attack/defense are inactive?
-  - Recovery time also if attack/defense are inactive?
-  - Transform attack/defense values in chance multiplier (chance *= attack /= defense)?
 
 Ideas
 =====
