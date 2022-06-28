@@ -154,6 +154,18 @@ public class MainWindowController: NSWindowController
         view.showsDrawCount = Preferences.shared.showsDrawCount
         view.showsNodeCount = Preferences.shared.showsNodeCount
         view.showsQuadCount = Preferences.shared.showsQuadCount
+        
+        if Preferences.shared.openEventLog
+        {
+            self.viewEventLog( nil )
+        }
+        
+        if Preferences.shared.openStatistics
+        {
+            self.viewGeneticStatistics( nil )
+        }
+        
+        self.window?.makeKeyAndOrderFront( nil )
     }
     
     @IBAction public func reset( _ sender: Any? )

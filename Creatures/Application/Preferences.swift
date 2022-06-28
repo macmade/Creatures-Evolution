@@ -31,6 +31,8 @@ public class Preferences: NSObject
     @objc public dynamic var showsDrawCount = false
     @objc public dynamic var showsNodeCount = false
     @objc public dynamic var showsQuadCount = false
+    @objc public dynamic var openEventLog   = false
+    @objc public dynamic var openStatistics = false
     @objc public dynamic var settings:        Data?
     
     @objc public static let shared = Preferences()

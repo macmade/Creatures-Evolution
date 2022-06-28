@@ -24,7 +24,7 @@
 
 import Cocoa
 
-public class GeneticStatisticsWindowController: NSWindowController
+public class GeneticStatisticsWindowController: NSWindowController, NSWindowDelegate
 {
     @objc public dynamic var scene: Scene?
     {
@@ -73,6 +73,8 @@ public class GeneticStatisticsWindowController: NSWindowController
     {
         super.windowDidLoad()
         self.update()
+        
+        self.window?.delegate = self
         
         if Preferences.shared.firstLaunch
         {
@@ -308,5 +310,26 @@ public class GeneticStatisticsWindowController: NSWindowController
         }
         
         return genes.reduce( 0.0 ) { $0 + Double( $1.value ) } / Double( genes.count )
+    }
+    
+    public func windowDidBecomeKey( _ notification: Notification )
+    {
+        if notification.object as? NSWindow == self.window
+        {
+            Preferences.shared.openStatistics = true
+        }
+    }
+    
+    public func windowWillClose( _ notification: Notification )
+    {
+        if let delegate = NSApp.delegate as? ApplicationDelegate, delegate.exiting
+        {
+            return
+        }
+        
+        if notification.object as? NSWindow == self.window
+        {
+            Preferences.shared.openStatistics = false
+        }
     }
 }

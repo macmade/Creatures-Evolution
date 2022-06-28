@@ -31,6 +31,8 @@ import Cocoa
     @objc public private( set ) dynamic var creditsWindowController = CreditsWindowController()
     @objc public private( set ) dynamic var mainWindowController:     MainWindowController?
     
+    public private( set ) var exiting = false
+    
     public func applicationDidFinishLaunching( _ notification: Notification )
     {
         self.showWelcomeWindow( nil )
@@ -40,6 +42,7 @@ import Cocoa
     {
         try? self.mainWindowController?.settings?.save()
         
+        self.exiting                   = true
         Preferences.shared.firstLaunch = false
     }
     

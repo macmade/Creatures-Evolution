@@ -25,7 +25,7 @@
 import Cocoa
 import SpriteKit
 
-public class EventLogWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource
+public class EventLogWindowController: NSWindowController, NSTableViewDelegate, NSTableViewDataSource, NSWindowDelegate
 {
     @objc private dynamic var log      = EventLog.shared
     @objc private dynamic var isPaused = false
@@ -50,6 +50,8 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     public override func windowDidLoad()
     {
         super.windowDidLoad()
+        
+        self.window?.delegate = self
         
         if Preferences.shared.firstLaunch
         {
@@ -153,5 +155,26 @@ public class EventLogWindowController: NSWindowController, NSTableViewDelegate, 
     public func focusSearchField()
     {
         self.window?.makeFirstResponder( self.searchField )
+    }
+    
+    public func windowDidBecomeKey( _ notification: Notification )
+    {
+        if notification.object as? NSWindow == self.window
+        {
+            Preferences.shared.openEventLog = true
+        }
+    }
+    
+    public func windowWillClose( _ notification: Notification )
+    {
+        if let delegate = NSApp.delegate as? ApplicationDelegate, delegate.exiting
+        {
+            return
+        }
+        
+        if notification.object as? NSWindow == self.window
+        {
+            Preferences.shared.openEventLog = false
+        }
     }
 }
