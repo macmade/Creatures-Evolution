@@ -107,7 +107,7 @@ public class GraphView: NSView
         let border       = NSBezierPath( roundedRect: rect.insetBy( dx: 1, dy: 1 ), xRadius: 5, yRadius: 5 )
         border.lineWidth = 1
         
-        NSColor.white.setStroke()
+        NSColor.disabledControlTextColor.setStroke()
         border.stroke()
     }
     

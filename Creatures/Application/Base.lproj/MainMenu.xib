@@ -646,6 +646,12 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="FU7-FV-XbO"/>
+                            <menuItem title="Invert Appearance" keyEquivalent="I" id="C2I-9t-R9d">
+                                <connections>
+                                    <action selector="invertAppearance:" target="Voe-Tx-rLC" id="MZ5-75-bWh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="9PC-P6-kwf"/>
                             <menuItem title="Toggle Creatures Names" keyEquivalent="N" id="AxF-2l-ghM">
                                 <connections>
                                     <action selector="toggleCreaturesNames:" target="Voe-Tx-rLC" id="v9P-C4-QQs"/>
