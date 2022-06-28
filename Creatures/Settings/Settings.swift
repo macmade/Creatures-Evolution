@@ -52,32 +52,28 @@ public class Settings: NSObject, Codable
     @objc public dynamic var predatorSense  = PredatorSenseSettings()
     @objc public dynamic var vampireSense   = VampireSenseSettings()
     
-    public class func restore() -> Settings
-    {
-        guard let data = Preferences.shared.settings else
-        {
-            return Settings()
-        }
-        
-        do
-        {
-            return try PropertyListDecoder().decode( Settings.self, from: data )
-        }
-        catch
-        {
-            return Settings()
-        }
-    }
-    
     public func save() throws
     {
         Preferences.shared.settings = try PropertyListEncoder().encode( self )
     }
     
+    public class func restore() -> Settings
+    {
+        if let data = Preferences.shared.settings, let settings = try? self.from( data: data )
+        {
+            return settings
+        }
+        
+        return Settings()
+    }
+    
     public class func from( url: URL ) throws -> Settings
     {
-        let data = try Data( contentsOf: url )
-        
+        try self.from( data: try Data( contentsOf: url ) )
+    }
+    
+    public class func from( data: Data ) throws -> Settings
+    {
         if let settings = try? PropertyListDecoder().decode( Settings.self, from: data )
         {
             return settings
