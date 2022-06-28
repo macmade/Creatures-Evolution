@@ -27,8 +27,6 @@ import SpriteKit
 
 public class Predator: DietGene
 {
-    private var nextUse: TimeInterval?
-    
     public override var canRegress: Bool
     {
         self.settings.predator.canRegress
@@ -81,7 +79,7 @@ public class Predator: DietGene
             return
         }
         
-        if let nextUse = self.nextUse, nextUse > scene.elapsedTime
+        if let nextPossibleMeal = self.nextPossibleMeal, nextPossibleMeal > scene.elapsedTime
         {
             return
         }
@@ -106,11 +104,11 @@ public class Predator: DietGene
             
             EventLog.shared.killed( creature: other, by: creature )
             
-            self.nextUse = scene.elapsedTime + Double( settings.predator.combat.recoveryTimeAttackSuccess )
+            self.nextPossibleMeal = scene.elapsedTime + Double( settings.predator.combat.recoveryTimeAttackSuccess )
         }
         else
         {
-            self.nextUse = scene.elapsedTime + Double( settings.predator.combat.recoveryTimeAttackFailure )
+            self.nextPossibleMeal = scene.elapsedTime + Double( settings.predator.combat.recoveryTimeAttackFailure )
         }
     }
 }

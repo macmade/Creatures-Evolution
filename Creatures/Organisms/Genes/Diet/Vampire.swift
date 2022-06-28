@@ -27,8 +27,6 @@ import SpriteKit
 
 public class Vampire: DietGene
 {
-    private var nextUse: TimeInterval?
-    
     public override var canRegress: Bool
     {
         self.settings.vampire.canRegress
@@ -81,7 +79,7 @@ public class Vampire: DietGene
             return
         }
         
-        if let nextUse = self.nextUse, nextUse > scene.elapsedTime
+        if let nextPossibleMeal = self.nextPossibleMeal, nextPossibleMeal > scene.elapsedTime
         {
             return
         }
@@ -104,11 +102,11 @@ public class Vampire: DietGene
                 EventLog.shared.killed( creature: other, by: creature )
             }
             
-            self.nextUse = scene.elapsedTime + Double( settings.vampire.combat.recoveryTimeAttackSuccess )
+            self.nextPossibleMeal = scene.elapsedTime + Double( settings.vampire.combat.recoveryTimeAttackSuccess )
         }
         else
         {
-            self.nextUse = scene.elapsedTime + Double( settings.vampire.combat.recoveryTimeAttackFailure )
+            self.nextPossibleMeal = scene.elapsedTime + Double( settings.vampire.combat.recoveryTimeAttackFailure )
         }
     }
 }

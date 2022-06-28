@@ -42,4 +42,6 @@ public class DietGene: Gene
         willSet { self.willChangeValue( for: \.details ) }
         didSet  { self.didChangeValue(  for: \.details ) }
     }
+    
+    public var nextPossibleMeal: TimeInterval?
 }

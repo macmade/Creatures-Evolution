@@ -71,9 +71,36 @@ public class PreySense: IntValueGene
     
     public override func chooseDestination( creature: Creature ) -> Destination?
     {
+        guard let scene = creature.scene as? Scene else
+        {
+            return nil
+        }
+        
         if creature.hasActiveGene( Predator.self ) == false && creature.hasActiveGene( Vampire.self ) == false
         {
             return nil
+        }
+        
+        if let predator: Predator = creature.getGene(), let vampire: Vampire = creature.getGene(), predator.isActive && vampire.isActive
+        {
+            if let next1 = predator.nextPossibleMeal, let next2 = vampire.nextPossibleMeal, next1 > scene.elapsedTime && next2 > scene.elapsedTime
+            {
+                return nil
+            }
+        }
+        else if let predator: Predator = creature.getGene(), predator.isActive
+        {
+            if let next = predator.nextPossibleMeal, next > scene.elapsedTime
+            {
+                return nil
+            }
+        }
+        else if let vampire: Vampire = creature.getGene(), vampire.isActive
+        {
+            if let next = vampire.nextPossibleMeal, next > scene.elapsedTime
+            {
+                return nil
+            }
         }
         
         let predicate: ( Creature ) -> Bool =
