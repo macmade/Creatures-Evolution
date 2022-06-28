@@ -33,9 +33,9 @@ public class VampireSettings: NSObject, Codable
     @objc public dynamic var deactivates = [ "Herbivore", "Scavenger", "Predator" ]
     @objc public dynamic var requires    = [ String ]()
     @objc public dynamic var combat      = CombatSettings(
-        chanceIfSmaller:           30,
-        chanceIfSameSize:          60,
-        chanceIfBigger:            90,
+        chanceIfSmaller:           20,
+        chanceIfSameSize:          40,
+        chanceIfBigger:            80,
         recoveryTimeAttackSuccess: 5,
         recoveryTimeAttackFailure: 2,
         energyCostAttackSuccess:   0,
