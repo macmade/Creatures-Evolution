@@ -347,8 +347,7 @@ public class SettingsWindowController: NSWindowController, NSOutlineViewDelegate
             
             do
             {
-                let data      = try Data( contentsOf: url )
-                self.settings = try PropertyListDecoder().decode( Settings.self, from: data )
+                self.settings = try Settings.from( url: url )
                 
                 self.items.flatMap { $0.children }.forEach
                 {

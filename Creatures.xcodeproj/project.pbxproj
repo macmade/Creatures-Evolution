@@ -135,6 +135,7 @@
 		056D66432866A6900036E30F /* ManureSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66422866A6900036E30F /* ManureSense.swift */; };
 		056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056D66462866AD760036E30F /* SettingsImageViewController.xib */; };
 		056D66492866C7F90036E30F /* SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66482866C7F90036E30F /* SKScene.swift */; };
+		0578DD4A286A69E1009F6451 /* NSException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD48286A69E1009F6451 /* NSException.m */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -373,6 +374,9 @@
 		056D66422866A6900036E30F /* ManureSense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManureSense.swift; sourceTree = "<group>"; };
 		056D66452866AD760036E30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsImageViewController.xib; sourceTree = "<group>"; };
 		056D66482866C7F90036E30F /* SKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKScene.swift; sourceTree = "<group>"; };
+		0578DD47286A69E1009F6451 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		0578DD48286A69E1009F6451 /* NSException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSException.m; path = Creatures/Extensions/NSException.m; sourceTree = SOURCE_ROOT; };
+		0578DD49286A69E1009F6451 /* NSException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSException.h; path = Creatures/Extensions/NSException.h; sourceTree = SOURCE_ROOT; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -495,6 +499,7 @@
 		05252E412854DEF70090B385 /* Creatures */ = {
 			isa = PBXGroup;
 			children = (
+				0578DD47286A69E1009F6451 /* Bridging-Header.h */,
 				053949FB285F6B3C0077D90C /* About Window */,
 				053949FF285F6B990077D90C /* Application */,
 				05B8A35A2861F2F3007870B3 /* Credits */,
@@ -695,6 +700,8 @@
 		05252F7528582D030090B385 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0578DD49286A69E1009F6451 /* NSException.h */,
+				0578DD48286A69E1009F6451 /* NSException.m */,
 				051A33432862075A001B605D /* Bundle.swift */,
 				05252EEB28558A0B0090B385 /* NSPoint.swift */,
 				05252F532857FCF70090B385 /* NSView.swift */,
@@ -1073,6 +1080,7 @@
 				TargetAttributes = {
 					05252E3E2854DEF70090B385 = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -1230,6 +1238,7 @@
 				05A334C228638D9000905208 /* SettingsSection.swift in Sources */,
 				05EDA9D028661EC400F18B77 /* GeneSelectionWindowController.swift in Sources */,
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
+				0578DD4A286A69E1009F6451 /* NSException.m in Sources */,
 				0510206B285A192800F11184 /* PredatorSettings.swift in Sources */,
 				051A33442862075A001B605D /* Bundle.swift in Sources */,
 				051020E0285B79AF00F11184 /* ClassTransformer.swift in Sources */,
@@ -1537,6 +1546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Creatures/Resources/Creatures.entitlements;
 				INFOPLIST_FILE = Creatures/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
@@ -1549,6 +1559,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Creatures";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Creatures/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1557,6 +1570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Creatures/Resources/Creatures.entitlements;
 				INFOPLIST_FILE = Creatures/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
@@ -1569,6 +1583,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Creatures";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Creatures/Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

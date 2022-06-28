@@ -1,14 +1,12 @@
 To-Dos
 ======
 
-  - Log energy gained after a meal
-  - Maximum energy setting for creatures
-  - Recovery time for combat
+  - Log energy gained after a meal.
+  - Maximum energy setting for creatures.
+  - Recovery time for combat.
   - Dedicated combat settings to unclutter attack/defense settings?
   - Combat energy cost also if attack/defense are inactive?
   - Recovery time also if attack/defense are inactive?
-  - Settings recovery: parses property list and try to use setValueForKey for each sub-value if decode fails.
-  - Kill window: pause, select genes and kill creatures with these genes.
 
 Ideas
 =====
@@ -20,7 +18,7 @@ Multiplier affecting scaling of the creature.
   - Scaling only effective for adults?
   - Should it affect speed? Slower if larger, faster if smaller?
   - Should it affect energy decrease? More if larger, less if smaller?
-  - Affects combat chances based on size-
+  - Affects combat chances based on size?
   - Should it affect combat if attack/defense genes are active?
 
 ## Diseases

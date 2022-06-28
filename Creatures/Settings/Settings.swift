@@ -73,4 +73,49 @@ public class Settings: NSObject, Codable
     {
         Preferences.shared.settings = try PropertyListEncoder().encode( self )
     }
+    
+    public class func from( url: URL ) throws -> Settings
+    {
+        let data = try Data( contentsOf: url )
+        
+        if let settings = try? PropertyListDecoder().decode( Settings.self, from: data )
+        {
+            return settings
+        }
+        
+        let settings = Settings()
+        let plist    = try PropertyListSerialization.propertyList( from: data, format: nil )
+        
+        guard let dict = plist as? Dictionary< String, NSObject > else
+        {
+            throw NSError( domain: NSCocoaErrorDomain, code: NSFileReadCorruptFileError )
+        }
+        
+        dict.forEach
+        {
+            root in
+            
+            try? NSException.doTry
+            {
+                guard let values  = root.value as? Dictionary< String, NSObject >,
+                      let section = settings.value( forKey: root.key ) as? NSObject
+                else
+                {
+                    return
+                }
+                
+                values.forEach
+                {
+                    value in
+                    
+                    try? NSException.doTry
+                    {
+                        section.setValue( value.value, forKey: value.key )
+                    }
+                }
+            }
+        }
+        
+        return settings
+    }
 }
