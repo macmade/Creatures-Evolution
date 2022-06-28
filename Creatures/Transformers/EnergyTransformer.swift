@@ -38,7 +38,7 @@ import Foundation
     
     public override func transformedValue( _ value: Any? ) -> Any?
     {
-        if let energy = value as? Double, energy >= 0
+        if let energy = value as? Double, energy > -1
         {
             return String( format: "%.02f", energy )
         }
