@@ -24,6 +24,22 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="UOm-qM-TYV"/>
                     </constraints>
                 </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Heu-tF-cVF">
+                    <rect key="frame" x="38" y="146" width="98" height="47"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Label" id="yHg-W9-cFp">
+                        <font key="font" metaFont="system" size="40"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="hidden" keyPath="self.highlightedPercent" id="NCi-Ln-sDV">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNil</string>
+                            </dictionary>
+                        </binding>
+                        <binding destination="-2" name="value" keyPath="self.highlightedPercent" id="8vo-hs-I5h"/>
+                    </connections>
+                </textField>
                 <stackView distribution="fillEqually" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vh-d9-0nC">
                     <rect key="frame" x="400" y="0.0" width="100" height="200"/>
                     <constraints>
@@ -35,9 +51,13 @@
                 <constraint firstAttribute="bottom" secondItem="Ix0-8X-aL7" secondAttribute="bottom" id="6s1-Id-ngi"/>
                 <constraint firstItem="Ix0-8X-aL7" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="BrO-7c-XHH"/>
                 <constraint firstItem="Ix0-8X-aL7" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="NUx-Lz-Px0"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Heu-tF-cVF" secondAttribute="bottom" constant="20" symbolic="YES" id="SFF-fV-J46"/>
                 <constraint firstAttribute="trailing" secondItem="8vh-d9-0nC" secondAttribute="trailing" id="ZUK-LS-t6g"/>
+                <constraint firstItem="Heu-tF-cVF" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="40" id="Zb6-cn-7K8"/>
                 <constraint firstItem="8vh-d9-0nC" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="gLY-X3-w3c"/>
+                <constraint firstItem="8vh-d9-0nC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Heu-tF-cVF" secondAttribute="trailing" constant="8" symbolic="YES" id="gN1-Fe-IbW"/>
                 <constraint firstAttribute="bottom" secondItem="8vh-d9-0nC" secondAttribute="bottom" id="huZ-Ws-icd"/>
+                <constraint firstItem="Heu-tF-cVF" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="7" id="sDI-2V-G5e"/>
                 <constraint firstItem="8vh-d9-0nC" firstAttribute="leading" secondItem="Ix0-8X-aL7" secondAttribute="trailing" constant="8" symbolic="YES" id="yaW-aP-0zU"/>
             </constraints>
             <point key="canvasLocation" x="139" y="154"/>

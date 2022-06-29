@@ -29,6 +29,8 @@ public class GeneStatisticsViewController: NSViewController
     @IBOutlet private var graphView: GeneStatisticsGraphView!
     @IBOutlet private var stackView: NSStackView!
     
+    @objc private dynamic var highlightedPercent: String?
+    
     @objc public dynamic var data: [ GeneStatisticsData ] = []
     {
         didSet
@@ -80,6 +82,7 @@ public class GeneStatisticsViewController: NSViewController
                 }
                 
                 mainWindowController.highlightGene( data.gene.geneClass )
+                self?.toggleHighlightedPercent()
             }
             
             checkbox.onMouseExit =
@@ -94,6 +97,7 @@ public class GeneStatisticsViewController: NSViewController
                 }
                 
                 mainWindowController.highlightGene( nil )
+                self?.toggleHighlightedPercent()
             }
             
             let color             = BackgroundView( frame: NSZeroRect )
@@ -114,6 +118,8 @@ public class GeneStatisticsViewController: NSViewController
     public func refreshDataOnly()
     {
         self.graphView.data = self.data
+        
+        self.toggleHighlightedPercent()
     }
     
     @objc private func toggleData( _ sender: Any? )
@@ -138,6 +144,20 @@ public class GeneStatisticsViewController: NSViewController
         else
         {
             self.graphView.highlightedData = self.data.first { $0.gene.geneClass == gene }
+        }
+        
+        self.toggleHighlightedPercent()
+    }
+    
+    private func toggleHighlightedPercent()
+    {
+        if let highlighted = self.graphView.highlightedData, let last = highlighted.data.last, highlighted.data.reduce( 0.0, { $0 + $1 } ) > 0
+        {
+            self.highlightedPercent = String( format: "%.02f%%", last )
+        }
+        else
+        {
+            self.highlightedPercent = nil
         }
     }
 }
