@@ -38,4 +38,7 @@ public class DigestionSettings: NSObject, Codable
     @objc public dynamic var maximumMultiplier      = 5.0
     @objc public dynamic var minimumMutationChange  = 0.2
     @objc public dynamic var maximumMutationChange  = 0.5
+    @objc public dynamic var timeNeeded             = 2
+    @objc public dynamic var timeNeededRange        = 1
+    @objc public dynamic var onlyForExtraEnergy     = false
 }

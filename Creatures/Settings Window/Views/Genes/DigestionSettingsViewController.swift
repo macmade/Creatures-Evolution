@@ -72,5 +72,15 @@ public class DigestionSettingsViewController: SettingsViewController
                 SettingsDoubleSliderViewController( title: "Maximum mutation change:",         settings: self.settings, key: \.digestion.maximumMutationChange,  minValue: 0.1, maxValue:  1 ),
             ]
         )
+        
+        self.addBox(
+            title: "Timing",
+            controllers:
+            [
+                SettingsIntSliderViewController( title: "Time required:",               settings: self.settings, key: \.digestion.timeNeeded,      minValue: 0, maxValue: 60 ),
+                SettingsIntSliderViewController( title: "Time required (randomness):",  settings: self.settings, key: \.digestion.timeNeededRange, minValue: 0, maxValue: 10 ),
+                SettingsBoolViewController(      title: "Only applies to extra energy", settings: self.settings, key: \.digestion.onlyForExtraEnergy, style: .asCheckbox )
+            ]
+        )
     }
 }

@@ -27,6 +27,8 @@ import SpriteKit
 
 public class Digestion: DoubleValueGene
 {
+    private var storedEnergy: [ ( time: TimeInterval, amount: Double ) ] = []
+    
     public override var canRegress: Bool
     {
         self.settings.digestion.canRegress
@@ -69,8 +71,47 @@ public class Digestion: DoubleValueGene
         Digestion( active: self.isActive, settings: self.settings, value: self.value )
     }
     
+    public override func onUpdate( creature: Creature )
+    {
+        guard let scene = creature.scene as? Scene else
+        {
+            return
+        }
+        
+        let now      = scene.elapsedTime
+        let digested = self.storedEnergy.filter { $0.time <= now }
+        
+        self.storedEnergy.removeAll { $0.time <= now }
+        
+        if digested.count > 0
+        {
+            creature.energy += digested.reduce( 0.0 ) { $0 + $1.amount }
+        }
+    }
+    
     public override func onFoodConsumption( creature: Creature, energy: Double ) -> Double
     {
-        return energy > 0 ? energy * self.value : energy
+        guard let scene = creature.scene as? Scene else
+        {
+            return energy
+        }
+        
+        let extra = ( energy * self.value ) - energy
+        let time  = Double( self.settings.digestion.timeNeeded ) + Double.random( in: 0 ... Double( self.settings.digestion.timeNeededRange ) )
+        
+        if time == 0
+        {
+            return energy + extra
+        }
+        
+        let digest    = self.settings.digestion.onlyForExtraEnergy ? extra  : extra + energy
+        let immediate = self.settings.digestion.onlyForExtraEnergy ? energy : 0
+        
+        if digest != 0
+        {
+            self.storedEnergy.append( ( time: scene.elapsedTime + time, amount: digest ) )
+        }
+        
+        return immediate
     }
 }
