@@ -398,7 +398,9 @@ public class Creature: SpriteNode
         if dropFood && self.settings.meat.isEnabled
         {
             let energy    = self.energy > 0 ? self.energy.value : 1.0
-            let meat      = Meat( energy: energy, settings: self.settings )
+            let extra     = self.genes.filter { $0.isActive }.reduce( 0.0 ) { $0 + $1.energyOnDeath( creature: self ) }
+            
+            let meat      = Meat( energy: energy + extra, settings: self.settings )
             meat.position = self.position
             meat.alpha    = 0
             

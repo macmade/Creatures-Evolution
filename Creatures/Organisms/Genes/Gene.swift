@@ -124,6 +124,11 @@ public class Gene: NSObject, NSCopying
         nil
     }
     
+    public func energyOnDeath( creature: Creature ) -> Double
+    {
+        0
+    }
+    
     @objc public func toggleValue()
     {}
     

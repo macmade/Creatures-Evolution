@@ -114,4 +114,9 @@ public class Digestion: DoubleValueGene
         
         return immediate
     }
+    
+    public override func energyOnDeath( creature: Creature ) -> Double
+    {
+        self.storedEnergy.reduce( 0.0 ) { $0 + $1.amount }
+    }
 }
