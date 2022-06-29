@@ -201,7 +201,7 @@ public class GeneticStatisticsWindowController: NSWindowController, NSWindowDele
             
             if even.count != odd.count
             {
-                odd.append( nil )
+                odd.append( NSView( frame: NSZeroRect ) )
             }
             
             let pairs             = zip( even, odd ).map { ( $0, $1 ) }
