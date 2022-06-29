@@ -6,10 +6,6 @@ To-Dos
 Ideas
 =====
 
-## Digestion
-
-  - Make energy gains not immediate?
-
 ## Genes Settings
 
   - Requirements: allow AND/OR requirements?
