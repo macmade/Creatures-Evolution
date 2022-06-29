@@ -471,13 +471,14 @@ public class MainWindowController: NSWindowController
         }
         
         sheet.title   = "Kill Specific Creatures:"
+        let wasPaused = self.isPaused
         self.isPaused = true
         
         window.beginSheet( sheet )
         {
             guard $0 == .OK else
             {
-                self.isPaused = false
+                self.isPaused = wasPaused ? true : false
                 
                 return
             }
@@ -500,7 +501,7 @@ public class MainWindowController: NSWindowController
                 $0.die( dropFood: true )
             }
             
-            self.isPaused = false
+            self.isPaused = wasPaused ? true : false
         }
     }
 }
