@@ -141,6 +141,8 @@
 		0578DD65286AE342009F6451 /* ClampingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD64286AE342009F6451 /* ClampingDouble.swift */; };
 		0578DD7A286AF682009F6451 /* EventLogSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD79286AF682009F6451 /* EventLogSettings.swift */; };
 		0578DD7C286AF9C4009F6451 /* EventLogSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD7B286AF9C4009F6451 /* EventLogSettingsViewController.swift */; };
+		05833476286F83960079190C /* IDEAS.md in Resources */ = {isa = PBXBuildFile; fileRef = 05833474286F83960079190C /* IDEAS.md */; };
+		05833477286F83960079190C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05833475286F83960079190C /* README.md */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -388,6 +390,8 @@
 		0578DD64286AE342009F6451 /* ClampingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClampingDouble.swift; sourceTree = "<group>"; };
 		0578DD79286AF682009F6451 /* EventLogSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogSettings.swift; sourceTree = "<group>"; };
 		0578DD7B286AF9C4009F6451 /* EventLogSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogSettingsViewController.swift; sourceTree = "<group>"; };
+		05833474286F83960079190C /* IDEAS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = IDEAS.md; sourceTree = "<group>"; };
+		05833475286F83960079190C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -492,6 +496,8 @@
 		05252E362854DEF70090B385 = {
 			isa = PBXGroup;
 			children = (
+				05833474286F83960079190C /* IDEAS.md */,
+				05833475286F83960079190C /* README.md */,
 				05252E632854E1F20090B385 /* xcconfig */,
 				05252E412854DEF70090B385 /* Creatures */,
 				05252E402854DEF70090B385 /* Products */,
@@ -1129,6 +1135,7 @@
 				053949EF285CD0420077D90C /* FoodDetailViewController.xib in Resources */,
 				05A334BA286348A900905208 /* SettingsIntMenuViewController.xib in Resources */,
 				05EDA9D328661ED300F18B77 /* GeneSelectionWindowController.xib in Resources */,
+				05833477286F83960079190C /* README.md in Resources */,
 				051A33412861F9B3001B605D /* License-Creatures.txt in Resources */,
 				05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */,
 				05EDA9C72866116700F18B77 /* SettingsGeneActivationViewController.xib in Resources */,
@@ -1154,6 +1161,7 @@
 				05394A792860DD700077D90C /* names-male.txt in Resources */,
 				05A334802863243300905208 /* SettingsBoolCheckboxViewController.xib in Resources */,
 				05D1BB032867B5E80039C9AE /* GeneticStatisticsWindowController.xib in Resources */,
+				05833476286F83960079190C /* IDEAS.md in Resources */,
 				05252F6C285819710090B385 /* SettingsViewController.xib in Resources */,
 				05B8A35628616034007870B3 /* Assets.xcassets in Resources */,
 				05102107285B902600F11184 /* EditNameWindowController.xib in Resources */,
