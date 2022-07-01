@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="WelcomeWindowController" customModule="Creatures" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="WelcomeWindowController" customModule="Creatures_Evolution" customModuleProvider="target">
             <connections>
                 <outlet property="tipsController" destination="fbU-JL-NXX" id="7gN-vX-1zK"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="yX1-v7-zcH"/>
@@ -18,7 +18,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="600" height="270"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1228"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
             <value key="minSize" type="size" width="600" height="270"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
@@ -28,8 +28,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QkI-bc-iEX">
-                                <rect key="frame" x="174" y="489" width="252" height="31"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Welcome to Creatures" id="v5V-C3-wp2">
+                                <rect key="frame" x="120" y="489" width="361" height="31"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Welcome to Creatures Evolution" id="v5V-C3-wp2">
                                     <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

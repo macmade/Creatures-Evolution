@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "05252E3E2854DEF70090B385"
-               BuildableName = "Creatures.app"
-               BlueprintName = "Creatures"
-               ReferencedContainer = "container:Creatures.xcodeproj">
+               BuildableName = "Creatures Evolution.app"
+               BlueprintName = "Creatures Evolution"
+               ReferencedContainer = "container:Creatures-Evolution.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "05252E3E2854DEF70090B385"
-            BuildableName = "Creatures.app"
-            BlueprintName = "Creatures"
-            ReferencedContainer = "container:Creatures.xcodeproj">
+            BuildableName = "Creatures Evolution.app"
+            BlueprintName = "Creatures Evolution"
+            ReferencedContainer = "container:Creatures-Evolution.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -57,16 +57,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "05252E3E2854DEF70090B385"
-            BuildableName = "Creatures.app"
-            BlueprintName = "Creatures"
-            ReferencedContainer = "container:Creatures.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

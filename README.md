@@ -1,8 +1,8 @@
 Creatures
 =========
 
-[![Build Status](https://img.shields.io/github/workflow/status/macmade/Creatures/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/Creatures/actions/workflows/ci-mac.yaml)
-[![Issues](http://img.shields.io/github/issues/macmade/Creatures.svg?logo=github)](https://github.com/macmade/Creatures/issues)
+[![Build Status](https://img.shields.io/github/workflow/status/macmade/Creatures-Evolution/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/Creatures-Evolution/actions/workflows/ci-mac.yaml)
+[![Issues](http://img.shields.io/github/issues/macmade/Creatures-Evolution.svg?logo=github)](https://github.com/macmade/Creatures-Evolution/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?logo=git)
 ![License](https://img.shields.io/badge/license-mit-brightgreen.svg?logo=open-source-initiative)  
 [![Contact](https://img.shields.io/badge/follow-@macmade-blue.svg?logo=twitter&style=social)](https://twitter.com/macmade)

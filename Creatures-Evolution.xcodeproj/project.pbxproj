@@ -44,7 +44,7 @@
 		05102102285B8EF400F11184 /* NameTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102101285B8EF400F11184 /* NameTransformer.swift */; };
 		05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05102103285B8FF200F11184 /* EditNameWindowController.swift */; };
 		05102107285B902600F11184 /* EditNameWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05102105285B902600F11184 /* EditNameWindowController.xib */; };
-		051A33412861F9B3001B605D /* License-Creatures.txt in Resources */ = {isa = PBXBuildFile; fileRef = 051A333F2861F9B3001B605D /* License-Creatures.txt */; };
+		051A33412861F9B3001B605D /* License-Creatures-Evolution.txt in Resources */ = {isa = PBXBuildFile; fileRef = 051A333F2861F9B3001B605D /* License-Creatures-Evolution.txt */; };
 		051A33422861F9B3001B605D /* License-NameCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = 051A33402861F9B3001B605D /* License-NameCorpus.txt */; };
 		051A33442862075A001B605D /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051A33432862075A001B605D /* Bundle.swift */; };
 		05252E542854DF410090B385 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05252E502854DF410090B385 /* MainMenu.xib */; };
@@ -135,7 +135,6 @@
 		056D66432866A6900036E30F /* ManureSense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66422866A6900036E30F /* ManureSense.swift */; };
 		056D66442866AD760036E30F /* SettingsImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056D66462866AD760036E30F /* SettingsImageViewController.xib */; };
 		056D66492866C7F90036E30F /* SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056D66482866C7F90036E30F /* SKScene.swift */; };
-		0578DD4A286A69E1009F6451 /* NSException.m in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD48286A69E1009F6451 /* NSException.m */; };
 		0578DD61286A8AB6009F6451 /* CombatSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD60286A8AB6009F6451 /* CombatSettings.swift */; };
 		0578DD63286A9638009F6451 /* MouseTrackingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD62286A9638009F6451 /* MouseTrackingButton.swift */; };
 		0578DD65286AE342009F6451 /* ClampingDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD64286AE342009F6451 /* ClampingDouble.swift */; };
@@ -143,6 +142,7 @@
 		0578DD7C286AF9C4009F6451 /* EventLogSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DD7B286AF9C4009F6451 /* EventLogSettingsViewController.swift */; };
 		05833476286F83960079190C /* IDEAS.md in Resources */ = {isa = PBXBuildFile; fileRef = 05833474286F83960079190C /* IDEAS.md */; };
 		05833477286F83960079190C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05833475286F83960079190C /* README.md */; };
+		0583347A286F843C0079190C /* NSException.m in Sources */ = {isa = PBXBuildFile; fileRef = 05833478286F843C0079190C /* NSException.m */; };
 		05A334492862470F00905208 /* Rot.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A334472862470F00905208 /* Rot.sks */; };
 		05A3346B2862620900905208 /* Heart.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05A3346A2862620900905208 /* Heart.sks */; };
 		05A334712862A47500905208 /* SettingsDoubleSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */; };
@@ -242,11 +242,11 @@
 		05102101285B8EF400F11184 /* NameTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTransformer.swift; sourceTree = "<group>"; };
 		05102103285B8FF200F11184 /* EditNameWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameWindowController.swift; sourceTree = "<group>"; };
 		05102106285B902600F11184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/EditNameWindowController.xib; sourceTree = "<group>"; };
-		051A333F2861F9B3001B605D /* License-Creatures.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "License-Creatures.txt"; sourceTree = "<group>"; };
+		051A333F2861F9B3001B605D /* License-Creatures-Evolution.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "License-Creatures-Evolution.txt"; sourceTree = "<group>"; };
 		051A33402861F9B3001B605D /* License-NameCorpus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "License-NameCorpus.txt"; sourceTree = "<group>"; };
 		051A33432862075A001B605D /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
-		05252E3F2854DEF70090B385 /* Creatures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Creatures.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		05252E492854DEF80090B385 /* Creatures.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Creatures.entitlements; sourceTree = "<group>"; };
+		05252E3F2854DEF70090B385 /* Creatures Evolution.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Creatures Evolution.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05252E492854DEF80090B385 /* Creatures-Evolution.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Creatures-Evolution.entitlements"; sourceTree = "<group>"; };
 		05252E512854DF410090B385 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		05252E532854DF410090B385 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		05252E562854DFB50090B385 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
@@ -383,8 +383,6 @@
 		056D66452866AD760036E30F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsImageViewController.xib; sourceTree = "<group>"; };
 		056D66482866C7F90036E30F /* SKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKScene.swift; sourceTree = "<group>"; };
 		0578DD47286A69E1009F6451 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		0578DD48286A69E1009F6451 /* NSException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSException.m; path = Creatures/Extensions/NSException.m; sourceTree = SOURCE_ROOT; };
-		0578DD49286A69E1009F6451 /* NSException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSException.h; path = Creatures/Extensions/NSException.h; sourceTree = SOURCE_ROOT; };
 		0578DD60286A8AB6009F6451 /* CombatSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombatSettings.swift; sourceTree = "<group>"; };
 		0578DD62286A9638009F6451 /* MouseTrackingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MouseTrackingButton.swift; sourceTree = "<group>"; };
 		0578DD64286AE342009F6451 /* ClampingDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClampingDouble.swift; sourceTree = "<group>"; };
@@ -392,6 +390,8 @@
 		0578DD7B286AF9C4009F6451 /* EventLogSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogSettingsViewController.swift; sourceTree = "<group>"; };
 		05833474286F83960079190C /* IDEAS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = IDEAS.md; sourceTree = "<group>"; };
 		05833475286F83960079190C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		05833478286F843C0079190C /* NSException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSException.m; sourceTree = "<group>"; };
+		05833479286F843C0079190C /* NSException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSException.h; sourceTree = "<group>"; };
 		05A334472862470F00905208 /* Rot.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rot.sks; sourceTree = "<group>"; };
 		05A3346A2862620900905208 /* Heart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Heart.sks; sourceTree = "<group>"; };
 		05A334702862A47500905208 /* SettingsDoubleSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDoubleSliderViewController.swift; sourceTree = "<group>"; };
@@ -499,7 +499,7 @@
 				05833474286F83960079190C /* IDEAS.md */,
 				05833475286F83960079190C /* README.md */,
 				05252E632854E1F20090B385 /* xcconfig */,
-				05252E412854DEF70090B385 /* Creatures */,
+				05252E412854DEF70090B385 /* Creatures-Evolution */,
 				05252E402854DEF70090B385 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -507,12 +507,12 @@
 		05252E402854DEF70090B385 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				05252E3F2854DEF70090B385 /* Creatures.app */,
+				05252E3F2854DEF70090B385 /* Creatures Evolution.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		05252E412854DEF70090B385 /* Creatures */ = {
+		05252E412854DEF70090B385 /* Creatures-Evolution */ = {
 			isa = PBXGroup;
 			children = (
 				0578DD47286A69E1009F6451 /* Bridging-Header.h */,
@@ -537,7 +537,7 @@
 				053949FD285F6B750077D90C /* UI */,
 				05EDA9222863DCF300F18B77 /* Welcome Window */,
 			);
-			path = Creatures;
+			path = "Creatures-Evolution";
 			sourceTree = "<group>";
 		};
 		05252E632854E1F20090B385 /* xcconfig */ = {
@@ -716,8 +716,8 @@
 		05252F7528582D030090B385 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0578DD49286A69E1009F6451 /* NSException.h */,
-				0578DD48286A69E1009F6451 /* NSException.m */,
+				05833479286F843C0079190C /* NSException.h */,
+				05833478286F843C0079190C /* NSException.m */,
 				051A33432862075A001B605D /* Bundle.swift */,
 				05252EEB28558A0B0090B385 /* NSPoint.swift */,
 				05252F532857FCF70090B385 /* NSView.swift */,
@@ -850,9 +850,9 @@
 			isa = PBXGroup;
 			children = (
 				05B8A35528616034007870B3 /* Assets.xcassets */,
-				05252E492854DEF80090B385 /* Creatures.entitlements */,
+				05252E492854DEF80090B385 /* Creatures-Evolution.entitlements */,
 				05252E602854E0D50090B385 /* Info.plist */,
-				051A333F2861F9B3001B605D /* License-Creatures.txt */,
+				051A333F2861F9B3001B605D /* License-Creatures-Evolution.txt */,
 				051A33402861F9B3001B605D /* License-NameCorpus.txt */,
 				05394A762860DD700077D90C /* names-female.txt */,
 				05394A772860DD700077D90C /* names-male.txt */,
@@ -1072,9 +1072,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		05252E3E2854DEF70090B385 /* Creatures */ = {
+		05252E3E2854DEF70090B385 /* Creatures Evolution */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 05252E4C2854DEF80090B385 /* Build configuration list for PBXNativeTarget "Creatures" */;
+			buildConfigurationList = 05252E4C2854DEF80090B385 /* Build configuration list for PBXNativeTarget "Creatures Evolution" */;
 			buildPhases = (
 				05252E3B2854DEF70090B385 /* Sources */,
 				05252E3C2854DEF70090B385 /* Frameworks */,
@@ -1085,9 +1085,9 @@
 			);
 			dependencies = (
 			);
-			name = Creatures;
+			name = "Creatures Evolution";
 			productName = Creatures;
-			productReference = 05252E3F2854DEF70090B385 /* Creatures.app */;
+			productReference = 05252E3F2854DEF70090B385 /* Creatures Evolution.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1106,7 +1106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 05252E3A2854DEF70090B385 /* Build configuration list for PBXProject "Creatures" */;
+			buildConfigurationList = 05252E3A2854DEF70090B385 /* Build configuration list for PBXProject "Creatures-Evolution" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1119,7 +1119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				05252E3E2854DEF70090B385 /* Creatures */,
+				05252E3E2854DEF70090B385 /* Creatures Evolution */,
 			);
 		};
 /* End PBXProject section */
@@ -1136,7 +1136,7 @@
 				05A334BA286348A900905208 /* SettingsIntMenuViewController.xib in Resources */,
 				05EDA9D328661ED300F18B77 /* GeneSelectionWindowController.xib in Resources */,
 				05833477286F83960079190C /* README.md in Resources */,
-				051A33412861F9B3001B605D /* License-Creatures.txt in Resources */,
+				051A33412861F9B3001B605D /* License-Creatures-Evolution.txt in Resources */,
 				05A334B0286346A400905208 /* SettingsBoolSwitchViewController.xib in Resources */,
 				05EDA9C72866116700F18B77 /* SettingsGeneActivationViewController.xib in Resources */,
 				05394A782860DD700077D90C /* names-female.txt in Resources */,
@@ -1265,7 +1265,6 @@
 				05A334C228638D9000905208 /* SettingsSection.swift in Sources */,
 				05EDA9D028661EC400F18B77 /* GeneSelectionWindowController.swift in Sources */,
 				05102104285B8FF200F11184 /* EditNameWindowController.swift in Sources */,
-				0578DD4A286A69E1009F6451 /* NSException.m in Sources */,
 				0510206B285A192800F11184 /* PredatorSettings.swift in Sources */,
 				051A33442862075A001B605D /* Bundle.swift in Sources */,
 				051020E0285B79AF00F11184 /* ClassTransformer.swift in Sources */,
@@ -1305,6 +1304,7 @@
 				05252EA92854E9290090B385 /* Plant.swift in Sources */,
 				056D663B2866999B0036E30F /* Manure.swift in Sources */,
 				05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */,
+				0583347A286F843C0079190C /* NSException.m in Sources */,
 				05394A3C28607C700077D90C /* SpeedSettings.swift in Sources */,
 				0510208E285AAE2300F11184 /* CreatureDetailViewController.swift in Sources */,
 				05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */,
@@ -1577,8 +1577,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Creatures/Resources/Creatures.entitlements;
-				INFOPLIST_FILE = Creatures/Resources/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = "Creatures-Evolution/Resources/Creatures-Evolution.entitlements";
+				INFOPLIST_FILE = "Creatures-Evolution/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 XS-Labs. All rights reserved.";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
@@ -1587,9 +1587,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Creatures";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Creatures-Evolution";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Creatures/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Creatures-Evolution/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1601,8 +1601,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = Creatures/Resources/Creatures.entitlements;
-				INFOPLIST_FILE = Creatures/Resources/Info.plist;
+				CODE_SIGN_ENTITLEMENTS = "Creatures-Evolution/Resources/Creatures-Evolution.entitlements";
+				INFOPLIST_FILE = "Creatures-Evolution/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 XS-Labs. All rights reserved.";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
@@ -1611,9 +1611,9 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Creatures";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.Creatures-Evolution";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Creatures/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Creatures-Evolution/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1621,7 +1621,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		05252E3A2854DEF70090B385 /* Build configuration list for PBXProject "Creatures" */ = {
+		05252E3A2854DEF70090B385 /* Build configuration list for PBXProject "Creatures-Evolution" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05252E4A2854DEF80090B385 /* Debug */,
@@ -1630,7 +1630,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		05252E4C2854DEF80090B385 /* Build configuration list for PBXNativeTarget "Creatures" */ = {
+		05252E4C2854DEF80090B385 /* Build configuration list for PBXNativeTarget "Creatures Evolution" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				05252E4D2854DEF80090B385 /* Debug */,

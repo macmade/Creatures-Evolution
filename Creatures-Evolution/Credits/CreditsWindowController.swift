@@ -46,12 +46,12 @@ public class CreditsWindowController: NSWindowController, NSTableViewDelegate, N
         
         self.items = [
             Credit(
-                title:           "Creatures",
+                title:           "Creatures Evolution",
                 abstract:        "Jean-David Gadina",
-                descriptionText: "The Creatures project, available freely on GitHub.",
-                url:             "https://github.com/macmade/Creatures.git",
+                descriptionText: "The Creatures Evolution project, available freely on GitHub.",
+                url:             "https://github.com/macmade/Creatures-Evolution.git",
                 license:         "MIT",
-                licenseFile:     "License-Creatures"
+                licenseFile:     "License-Creatures-Evolution"
             ),
             Credit(
                 title:           "Name Corpus",
