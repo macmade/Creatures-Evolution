@@ -421,7 +421,6 @@
 		05D1BB142867F1CB0039C9AE /* GeneStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneStatisticsViewController.swift; sourceTree = "<group>"; };
 		05D1BB172867F1D90039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneStatisticsViewController.xib; sourceTree = "<group>"; };
 		05D1BB192867F2750039C9AE /* GeneStatisticsGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneStatisticsGraphView.swift; sourceTree = "<group>"; };
-		05D1BB242868C38E0039C9AE /* Ideas.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Ideas.md; sourceTree = "<group>"; };
 		05D1BB272868D1580039C9AE /* ValueGeneGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueGeneGraphView.swift; sourceTree = "<group>"; };
 		05EDA91E2863D7BA00F18B77 /* SettingsImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsImageViewController.swift; sourceTree = "<group>"; };
 		05EDA9232863DD0900F18B77 /* WelcomeWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWindowController.swift; sourceTree = "<group>"; };
@@ -493,7 +492,6 @@
 		05252E362854DEF70090B385 = {
 			isa = PBXGroup;
 			children = (
-				05D1BB242868C38E0039C9AE /* Ideas.md */,
 				05252E632854E1F20090B385 /* xcconfig */,
 				05252E412854DEF70090B385 /* Creatures */,
 				05252E402854DEF70090B385 /* Products */,
