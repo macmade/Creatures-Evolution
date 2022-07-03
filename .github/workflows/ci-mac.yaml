@@ -6,8 +6,8 @@ jobs:
         strategy:
             matrix:
                 run-config:
-                    - { scheme: 'Creatures', configuration: 'Debug',   project: 'Creatures.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=macOS' }
-                    - { scheme: 'Creatures', configuration: 'Release', project: 'Creatures.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=macOS' }
+                    - { scheme: 'Creatures Evolution', configuration: 'Debug',   project: 'Creatures-Evolution.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=macOS' }
+                    - { scheme: 'Creatures Evolution', configuration: 'Release', project: 'Creatures-Evolution.xcodeproj', build: 1, analyze: 1, test: 0, info: 1, destination: 'platform=macOS' }
         steps:
             
             - uses: actions/checkout@v1
