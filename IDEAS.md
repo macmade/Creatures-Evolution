@@ -1,7 +1,11 @@
 To-Dos
 ======
 
-...
+  - Snapshots/Saves
+  - Simulation speed:
+    https://developer.apple.com/documentation/spritekit/skphysicsworld/1449611-speed
+  - Possibility to use a pseudo-random generator, with a custom seed to replay/reproduce a scenarion:
+    https://developer.apple.com/documentation/gameplaykit
 
 Ideas
 =====
