@@ -91,7 +91,15 @@ public class Creature: SpriteNode
         self.settings = settings
         self.parents  = parents?.map{ Weak( value: $0 ) }
         
-        super.init( texture: nil, color: NSColor.clear, size: NSSize( width: 40, height: 40 ) )
+        var size = NSSize( width: 40, height: 40 )
+        
+        if let sizeGene = genes.first( where: { type( of: $0 ) == Size.self } ) as? Size, sizeGene.isActive
+        {
+            size.width  *= sizeGene.value
+            size.height *= sizeGene.value
+        }
+        
+        super.init( texture: nil, color: NSColor.clear, size: size )
         
         let physicsBody                = SKPhysicsBody( circleOfRadius: self.size.height / 2 )
         physicsBody.affectedByGravity  = false
@@ -121,12 +129,18 @@ public class Creature: SpriteNode
     
     public func isSmallerThan( creature: Creature ) -> Bool
     {
-        self.isBaby && creature.isBaby == false
+        let size1 = max( self.size.width,     self.size.height )
+        let size2 = max( creature.size.width, creature.size.height )
+        
+        return size1 < size2
     }
     
     public func isBiggerThan( creature: Creature ) -> Bool
     {
-        self.isBaby == false && creature.isBaby
+        let size1 = max( self.size.width,     self.size.height )
+        let size2 = max( creature.size.width, creature.size.height )
+        
+        return size1 > size2
     }
     
     public func isChild( of creature: Creature ) -> Bool
@@ -189,7 +203,15 @@ public class Creature: SpriteNode
         
         if self.isBaby
         {
-            self.run( SKAction.scale( to: NSSize( width: 20, height: 20 ), duration: 0 ) )
+            var size = NSSize( width: 20, height: 20 )
+            
+            if let sizeGene: Size = self.getGene(), sizeGene.isActive
+            {
+                size.width  *= sizeGene.value
+                size.height *= sizeGene.value
+            }
+            
+            self.run( SKAction.scale( to: size, duration: 0 ) )
         }
     }
     
@@ -434,7 +456,14 @@ public class Creature: SpriteNode
         
         self.removeAction( forKey: Creature.growActionKey )
         
-        let size       = grow ? NSSize( width: 40, height: 40 ) : NSSize( width: 20, height: 20 )
+        var size = grow ? NSSize( width: 40, height: 40 ) : NSSize( width: 20, height: 20 )
+        
+        if let sizeGene: Size = self.getGene(), sizeGene.isActive
+        {
+            size.width  *= sizeGene.value
+            size.height *= sizeGene.value
+        }
+        
         let scale      = SKAction.scale( to: size, duration: 1 )
         let completion = SKAction.run { [ weak self ] in self?.updateCustomName() }
         let sequence   = grow ? [ completion, scale ] : [ scale, completion ]

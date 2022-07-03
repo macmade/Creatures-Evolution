@@ -164,6 +164,9 @@
 		05B8A3642861F2F3007870B3 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8A35D2861F2F3007870B3 /* CreditViewController.swift */; };
 		05B8A3652861F2F3007870B3 /* CreditsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A35E2861F2F3007870B3 /* CreditsWindowController.xib */; };
 		05B8A3662861F2F3007870B3 /* CreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B8A3602861F2F3007870B3 /* CreditViewController.xib */; };
+		05BB9FB928720B8300A0D68B /* SizeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB9FB828720B8300A0D68B /* SizeSettingsViewController.swift */; };
+		05BB9FBB28720B9000A0D68B /* SizeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB9FBA28720B9000A0D68B /* SizeSettings.swift */; };
+		05BB9FBD28720BA100A0D68B /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05BB9FBC28720BA100A0D68B /* Size.swift */; };
 		05C5682D286B58570013D136 /* NSAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C5682C286B58570013D136 /* NSAppearance.swift */; };
 		05D1BAFA2867B5C80039C9AE /* GeneticStatisticsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D1BAF92867B5C80039C9AE /* GeneticStatisticsWindowController.swift */; };
 		05D1BAFD2867B5DD0039C9AE /* CreatureStatusChartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D1BAFF2867B5DD0039C9AE /* CreatureStatusChartViewController.xib */; };
@@ -413,6 +416,9 @@
 		05B8A35D2861F2F3007870B3 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		05B8A35F2861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditsWindowController.xib; sourceTree = "<group>"; };
 		05B8A3612861F2F3007870B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreditViewController.xib; sourceTree = "<group>"; };
+		05BB9FB828720B8300A0D68B /* SizeSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeSettingsViewController.swift; sourceTree = "<group>"; };
+		05BB9FBA28720B9000A0D68B /* SizeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeSettings.swift; sourceTree = "<group>"; };
+		05BB9FBC28720BA100A0D68B /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		05C5682C286B58570013D136 /* NSAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAppearance.swift; sourceTree = "<group>"; };
 		05D1BAF92867B5C80039C9AE /* GeneticStatisticsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneticStatisticsWindowController.swift; sourceTree = "<group>"; };
 		05D1BAFE2867B5DD0039C9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CreatureStatusChartViewController.xib; sourceTree = "<group>"; };
@@ -934,6 +940,7 @@
 				05102064285A192800F11184 /* ScavengerSettings.swift */,
 				05102066285A192800F11184 /* SexSenseSettings.swift */,
 				05252F65285815E30090B385 /* SexSettings.swift */,
+				05BB9FBA28720B9000A0D68B /* SizeSettings.swift */,
 				05394A3B28607C700077D90C /* SpeedSettings.swift */,
 				05102067285A192800F11184 /* VampireSenseSettings.swift */,
 				05102037285A165900F11184 /* VampireSettings.swift */,
@@ -975,6 +982,7 @@
 				0510205D285A192800F11184 /* ScavengerSettingsViewController.swift */,
 				05102065285A192800F11184 /* SexSenseSettingsViewController.swift */,
 				05252F63285815D40090B385 /* SexSettingsViewController.swift */,
+				05BB9FB828720B8300A0D68B /* SizeSettingsViewController.swift */,
 				05394A5528608C240077D90C /* SpeedSettingsViewController.swift */,
 				05102068285A192800F11184 /* VampireSenseSettingsViewController.swift */,
 				05102038285A165900F11184 /* VampireSettingsViewController.swift */,
@@ -1055,6 +1063,7 @@
 				05EDA9AA286556EC00F18B77 /* Defense.swift */,
 				056D6615286652F30036E30F /* Digestion.swift */,
 				056D66342866959B0036E30F /* Excretion.swift */,
+				05BB9FBC28720BA100A0D68B /* Size.swift */,
 				05394A3928607C1B0077D90C /* Speed.swift */,
 			);
 			path = Abilities;
@@ -1271,6 +1280,7 @@
 				05394A742860DC370077D90C /* NameGenerator.swift in Sources */,
 				056D6633286694F30036E30F /* ExcretionSettingsViewController.swift in Sources */,
 				05394A0B285F761E0077D90C /* TimeTransformer.swift in Sources */,
+				05BB9FB928720B8300A0D68B /* SizeSettingsViewController.swift in Sources */,
 				05252EA02854E38B0090B385 /* Scene.swift in Sources */,
 				05102070285A192800F11184 /* PredatorSenseSettings.swift in Sources */,
 				0578DD61286A8AB6009F6451 /* CombatSettings.swift in Sources */,
@@ -1306,6 +1316,7 @@
 				05102075285A192800F11184 /* SexSenseSettingsViewController.swift in Sources */,
 				0583347A286F843C0079190C /* NSException.m in Sources */,
 				05394A3C28607C700077D90C /* SpeedSettings.swift in Sources */,
+				05BB9FBD28720BA100A0D68B /* Size.swift in Sources */,
 				0510208E285AAE2300F11184 /* CreatureDetailViewController.swift in Sources */,
 				05252E552854DF410090B385 /* ApplicationDelegate.swift in Sources */,
 				05D1BB112867EE0C0039C9AE /* GeneStatisticsData.swift in Sources */,
@@ -1346,6 +1357,7 @@
 				056D6618286653A80036E30F /* DigestionSettings.swift in Sources */,
 				05252F01285591E90090B385 /* MeatSense.swift in Sources */,
 				05252F0E2855EAE80090B385 /* SettingsItem.swift in Sources */,
+				05BB9FBB28720B9000A0D68B /* SizeSettings.swift in Sources */,
 				05EDA9A128654A3400F18B77 /* ValueGene.swift in Sources */,
 				056D66432866A6900036E30F /* ManureSense.swift in Sources */,
 				05252F522857FBEC0090B385 /* MitosisSettingsViewController.swift in Sources */,
