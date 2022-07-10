@@ -27,12 +27,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="UI4-ED-jS1" customClass="FlippedView" customModule="Creatures_Evolution" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="100" width="1000" height="600"/>
+                        <rect key="frame" x="0.0" y="104" width="1000" height="596"/>
                     </customView>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Boo-FY-2AE">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="104"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="huu-xJ-f5t"/>
+                            <constraint firstAttribute="height" constant="104" id="huu-xJ-f5t"/>
                         </constraints>
                     </customView>
                     <customView appearanceType="darkAqua" translatesAutoresizingMaskIntoConstraints="NO" id="1Ax-4x-uJi" customClass="BackgroundView" customModule="Creatures_Evolution" customModuleProvider="target">
@@ -69,7 +69,7 @@
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <customView appearanceType="darkAqua" translatesAutoresizingMaskIntoConstraints="NO" id="zgk-Sc-1bJ" customClass="BackgroundView" customModule="Creatures_Evolution" customModuleProvider="target">
-                        <rect key="frame" x="50" y="234" width="900" height="332"/>
+                        <rect key="frame" x="50" y="236" width="900" height="332"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LZ7-CE-Qg7">
                                 <rect key="frame" x="68" y="135" width="764" height="177"/>
