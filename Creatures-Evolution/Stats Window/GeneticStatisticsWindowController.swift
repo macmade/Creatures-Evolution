@@ -196,15 +196,21 @@ public class GeneticStatisticsWindowController: NSWindowController, NSWindowDele
         
         if self.stackView.views.isEmpty
         {
-            let even: [ NSView? ] = self.valueGeneControllers.enumerated().filter { $0.offset % 2 == 0 }.map { $1.view }
-            var odd : [ NSView? ] = self.valueGeneControllers.enumerated().filter { $0.offset % 2 != 0 }.map { $1.view }
+            let col1: [ NSView? ] = self.valueGeneControllers.enumerated().filter { $0.offset % 3 == 0 }.map { $1.view }
+            var col2: [ NSView? ] = self.valueGeneControllers.enumerated().filter { $0.offset % 3 == 1 }.map { $1.view }
+            var col3: [ NSView? ] = self.valueGeneControllers.enumerated().filter { $0.offset % 3 == 2 }.map { $1.view }
             
-            if even.count != odd.count
+            if col2.count != col1.count
             {
-                odd.append( NSView( frame: NSZeroRect ) )
+                col2.append( NSView( frame: NSZeroRect ) )
             }
             
-            let pairs             = zip( even, odd ).map { ( $0, $1 ) }
+            if col3.count != col1.count
+            {
+                col3.append( NSView( frame: NSZeroRect ) )
+            }
+            
+            let pairs             = zip( zip( col1, col2 ).map { ( $0, $1 ) }, col3 ).map { ( $0.0, $0.1, $1 ) }
             var views: [ NSView ] = pairs.map
             {
                 let stack                 = NSStackView()
@@ -214,7 +220,7 @@ public class GeneticStatisticsWindowController: NSWindowController, NSWindowDele
                 stack.spacing             = 8
                 stack.detachesHiddenViews = true
                 
-                stack.setViews( [ $0.0, $0.1 ].compactMap { $0 }, in: .leading )
+                stack.setViews( [ $0.0, $0.1, $0.2 ].compactMap { $0 }, in: .leading )
                 
                 return stack
             }

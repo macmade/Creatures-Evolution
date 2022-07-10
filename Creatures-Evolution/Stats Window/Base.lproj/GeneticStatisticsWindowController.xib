@@ -5,7 +5,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="GeneticStatisticsWindowController" customModule="Creatures" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="GeneticStatisticsWindowController" customModule="Creatures_Evolution" customModuleProvider="target">
             <connections>
                 <outlet property="stackView" destination="uSv-mY-v0k" id="f9N-QZ-lr3"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VI2-oP-9UR"/>
@@ -14,18 +14,16 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Genetic Statistics" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="GeneticStatisticsWindowController" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="800" height="200"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1228"/>
-            <value key="minSize" type="size" width="800" height="200"/>
-            <value key="maxSize" type="size" width="800" height="600"/>
+            <rect key="contentRect" x="196" y="240" width="1000" height="600"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="800" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wDU-RQ-66P">
-                        <rect key="frame" x="18" y="139" width="66" height="31"/>
+                        <rect key="frame" x="18" y="539" width="66" height="31"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Cj0-lK-ABB">
                             <font key="font" textStyle="largeTitle" name=".SFNS-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -36,13 +34,16 @@
                         </connections>
                     </textField>
                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-W1-56i">
-                        <rect key="frame" x="12" y="128" width="776" height="5"/>
+                        <rect key="frame" x="12" y="528" width="976" height="5"/>
                     </box>
                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSv-mY-v0k">
-                        <rect key="frame" x="20" y="20" width="760" height="102"/>
+                        <rect key="frame" x="20" y="20" width="960" height="502"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="800" id="ogh-Pz-ZTz"/>
+                        </constraints>
                     </stackView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o16-qi-lDE">
-                        <rect key="frame" x="338" y="63" width="124" height="16"/>
+                        <rect key="frame" x="438" y="263" width="124" height="16"/>
                         <textFieldCell key="cell" lineBreakMode="clipping" title="No data to display..." id="IdZ-fa-bjg">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>

@@ -133,6 +133,7 @@ public class MainWindowController: NSWindowController
         
         let view              = SKView( frame: self.contentView.bounds )
         let scene             = Scene( size: view.bounds.size, settings: settings )
+        scene.scaleMode       = .resizeFill
         self.view             = view
         self.scene            = scene
         self.settings         = settings

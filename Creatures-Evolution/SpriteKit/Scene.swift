@@ -37,6 +37,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     private var frames                = 0
     private var ignoreBadPerformance  = false
     private var highlightedCreatures  = [ Creature ]()
+    private var background:             SKSpriteNode?
     
     private var mouseOverCreature: Creature?
     {
@@ -107,9 +108,7 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     {
         super.didMove( to: view )
         
-        self.physicsBody                  = SKPhysicsBody( edgeLoopFrom: self.frame )
-        self.isUserInteractionEnabled     = true
-        self.physicsWorld.contactDelegate = self
+        self.updatePhysicsBody()
         
         let backgroundImage: String? =
         {
@@ -129,12 +128,27 @@ public class Scene: SKScene, SKPhysicsContactDelegate
             background.position    = NSPoint( x: 0, y: 0 )
             background.anchorPoint = NSPoint( x: 0, y: 0 )
             background.size        = self.size
+            self.background        = background
             
             self.addChild( background )
         }
         
         self.generatePlants(    amount: self.settings.plants.initialAmount )
         self.generateCreatures( amount: self.settings.creatures.initialAmount )
+    }
+    
+    public override func didChangeSize( _ oldSize: CGSize )
+    {
+        self.background?.size = self.size
+        
+        self.updatePhysicsBody()
+    }
+    
+    private func updatePhysicsBody()
+    {
+        self.physicsBody                  = SKPhysicsBody( edgeLoopFrom: self.frame )
+        self.isUserInteractionEnabled     = true
+        self.physicsWorld.contactDelegate = self
     }
     
     public override func mouseDown( with event: NSEvent )
@@ -412,6 +426,6 @@ public class Scene: SKScene, SKPhysicsContactDelegate
     
     public func randomPoint() -> NSPoint
     {
-        NSPoint( x: Double.random( in: 0 ..< self.frame.size.width ), y: Double.random( in: 0 ..< self.frame.size.height ) )
+        NSPoint( x: Double.random( in: 0 ..< self.bounds.size.width ), y: Double.random( in: 0 ..< self.bounds.size.height ) )
     }
 }
