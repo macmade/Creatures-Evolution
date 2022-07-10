@@ -210,8 +210,8 @@
                         <action selector="viewEventLog:" target="-2" id="yyB-il-XUz"/>
                     </connections>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="8ja-sE-j1X"/>
-                <menuItem title="Debug" image="ladybug" catalog="system" id="4zw-8h-Vnt">
+                <menuItem isSeparatorItem="YES" hidden="YES" id="8ja-sE-j1X"/>
+                <menuItem title="Debug" image="ladybug" catalog="system" hidden="YES" id="4zw-8h-Vnt">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Debug" id="LvI-uZ-vvP">
                         <items>

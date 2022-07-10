@@ -38,8 +38,9 @@ public class MainWindowController: NSWindowController
     @IBOutlet private var statsView:    NSView!
     @IBOutlet private var settingsMenu: NSMenu!
     
-    private var gameOverObserver:         NSKeyValueObservation?
-    private var eventLogWindowController: EventLogWindowController?
+    private var gameOverObserver:           NSKeyValueObservation?
+    private var eventLogWindowController:   EventLogWindowController?
+    private var alternateSettingsMenuItems: [ NSMenuItem ] = []
     
     @objc public dynamic var isPaused: Bool = false
     {
@@ -68,6 +69,11 @@ public class MainWindowController: NSWindowController
         if Preferences.shared.firstLaunch
         {
             self.window?.center()
+        }
+        
+        self.alternateSettingsMenuItems = self.settingsMenu.items.filter
+        {
+            $0.isHidden
         }
     }
     
@@ -442,6 +448,11 @@ public class MainWindowController: NSWindowController
             NSSound.beep()
             
             return
+        }
+        
+        self.alternateSettingsMenuItems.forEach
+        {
+            $0.isHidden = event.modifierFlags.contains( .option ) == false
         }
         
         NSMenu.popUpContextMenu( self.settingsMenu, with: event, for: view )
