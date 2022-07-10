@@ -10,7 +10,13 @@ Creatures
 
 ### About
 
-...
+A simulation of life's evolution through natural selection: peaceful herbivores, fearsome predators and vampires, which species will take over the world?
+
+  - Watch little creatures live, die, eat, reproduce and mutate their genes to become the dominant species.
+  - Create hundreds of different scenarios, as every part of the simulation can be customized.
+  - Get detailed statistics about the genetic evolution of your creatures.
+
+![Screenshot](Assets/Screenshot.png "Screenshot")
 
 License
 -------
