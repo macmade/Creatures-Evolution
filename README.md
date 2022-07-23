@@ -1,5 +1,5 @@
-Creatures
-=========
+Creatures Evolution
+===================
 
 [![Build Status](https://img.shields.io/github/workflow/status/macmade/Creatures-Evolution/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/Creatures-Evolution/actions/workflows/ci-mac.yaml)
 [![Issues](http://img.shields.io/github/issues/macmade/Creatures-Evolution.svg?logo=github)](https://github.com/macmade/Creatures-Evolution/issues)
@@ -17,6 +17,10 @@ A simulation of life's evolution through natural selection: peaceful herbivores,
   - Get detailed statistics about the genetic evolution of your creatures.
 
 ![Screenshot](Assets/Screenshot.png "Screenshot")
+
+### Download
+
+Creatures Evolution is [available on the AppStore](https://apps.apple.com/app/creatures-evolution/id1632663533).
 
 License
 -------
