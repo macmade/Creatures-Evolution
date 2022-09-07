@@ -55,7 +55,7 @@ extension Bundle
         
         if let build = self.bundleVersion, build.isEmpty == false
         {
-            return "\(version) (\(build))"
+            return "\( version ) (\( build ))"
         }
         
         return version

@@ -49,7 +49,7 @@ public class EventLogSettingsViewController: SettingsViewController
             title: "General",
             controllers:
             [
-                SettingsIntSliderViewController(title: "Maximum entries:", settings: self.settings, key: \.eventLog.maximumEntries, minValue: 10, maxValue: 100000 )
+                SettingsIntSliderViewController( title: "Maximum entries:", settings: self.settings, key: \.eventLog.maximumEntries, minValue: 10, maxValue: 100000 )
             ]
         )
         

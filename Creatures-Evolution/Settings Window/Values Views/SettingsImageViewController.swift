@@ -63,7 +63,7 @@ public class SettingsImageViewController: NSViewController
         let transition            = CATransition()
         transition.duration       = 1
         transition.type           = .fade
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.timingFunction = CAMediaTimingFunction( name: CAMediaTimingFunctionName.easeInEaseOut )
         
         self.imageView.layer?.add( transition, forKey: nil )
         
